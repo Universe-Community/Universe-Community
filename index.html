@@ -11,7 +11,7 @@
             /* Colores Primarios y de Acento */
             --brand-purple-start: #6A11CB; 
             --brand-blue-end: #2575FC;     
-            
+           
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
 
@@ -142,18 +142,18 @@
             text-align: left; 
             width: 100%;
             max-width: 650px; 
-            position: relative; /* Clave para el posicionamiento del pseudo-elemento y z-index */
-            z-index: 1; /* Asegura que la tarjeta esté sobre el pseudo-elemento */
+            position: relative; 
+            z-index: 1; 
         }
         .mission-vision-single-card::before {
             content: ""; 
             position: absolute; 
-            z-index: -1; /* Coloca el pseudo-elemento detrás de la tarjeta */
+            z-index: -1; 
             top: 50%; 
             left: 50%;
             width: 110%; 
             height: 114%; 
-            background-color: var(--skewed-bg-color); /* Fondo inclinado púrpura semi-transparente */
+            background-color: var(--skewed-bg-color); 
             transform: translate(-50%, -50%) rotate(3.5deg); 
             border-radius: 20px;
         }
@@ -170,6 +170,19 @@
 
         .info-cards-wrapper { display: grid; gap: 1.875rem; }
         .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); } 
+
+        /* --- INICIO: Estilos específicos para la sección "Qué Hacemos" --- */
+        #que-hacemos .info-cards-wrapper.grid-three-cols {
+            grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto */
+        }
+
+        @media (max-width: 576px) {
+            #que-hacemos .info-cards-wrapper.grid-three-cols {
+                grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+            }
+        }
+        /* --- FIN: Estilos específicos para la sección "Qué Hacemos" --- */
+
 
         .card { background-color: var(--bg-light); padding: 1.875rem; border-radius: 10px; box-shadow: var(--card-shadow-light); text-align: left; }
         .card .card-title { font-size: 1.3125rem; font-weight: 600; margin-top: 0; margin-bottom: 0.9375rem; }
@@ -279,7 +292,7 @@
 
         #proyectos-destacados .project-card {
             flex: 0 0 clamp(280px, calc(80vw - 3rem), 340px); 
-            scroll-snap-align: center; /* MODIFICACIÓN AQUÍ: Cambiado de 'start' a 'center' */
+            scroll-snap-align: center; 
         }
 
         #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar {
@@ -306,24 +319,15 @@
         .social-connect-section { padding: 3.75rem 0; }
         .social-connect-intro { text-align: left; max-width: 600px; margin-bottom: 2.5rem; }
         .social-connect-title { font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; }
-        .social-connect-subtitle { font-size: 1.05rem; color: var(--text-medium); line-height: 1.75; }
-        .social-media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
-        .social-media-card {
-            background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light);
-            padding: 1.25rem; display: flex; align-items: center; text-decoration: none;
-            color: var(--text-dark); transition: transform 0.2s ease, box-shadow 0.2s ease;
+        .social-connect-subtitle { font-size: 1.05rem; color: var(--text-medium); line-height: 1.75; margin-bottom: 2rem;}
+
+        .contact-channel-cards-grid { 
+            display: grid; 
+            grid-template-columns: 1fr; 
+            gap: 1.5rem; 
         }
-        .social-media-card:hover { transform: translateY(-3px); box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.09); }
-        .social-media-card .icon-container { font-size: 1.75rem; margin-right: 1rem; width: 40px; text-align: center; }
-        .social-media-card .fa-facebook-f { color: var(--facebook-color); }
-        .social-media-card .fa-twitter, .social-media-card .fa-x-twitter { color: var(--twitter-color); }
-        .social-media-card .fa-instagram { color: var(--instagram-color); }
-        .social-media-card .fa-discord { color: var(--discord-color); }
-        .social-media-card .fa-youtube { color: var(--youtube-color); }
-        .social-media-card .fa-linkedin-in { color: var(--linkedin-color); }
-        .social-media-card .network-name { font-size: 1rem; font-weight: 500; }
-        .contact-channel-cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         @media (min-width: 768px) { .contact-channel-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        
         .contact-channel-card {
             background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light);
             padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
@@ -420,7 +424,6 @@
             line-height: 1.6;
         }
         .faq-item.active .faq-answer { 
-            max-height: 200px; 
             padding-top: 0.75rem; 
             margin-top: 0.25rem;
         }
@@ -502,36 +505,150 @@
         }
         .floating-action-button:hover { background-color: #1EB955; transform: scale(1.03); }
 
-        /* Footer Detallado */
+        /* --- INICIO ESTILOS FOOTER MODIFICADOS --- */
         .site-footer-detailed {
-            background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light);
-            padding: 4rem 0 2rem 0; margin-top: 3.75rem;
+            background-color: var(--footer-bg-dark);
+            color: var(--footer-text-secondary-light);
+            padding: 4rem 0 2.5rem 0; 
+            margin-top: 4rem;
         }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
-        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1rem; }
+
+        .footer-grid {
+            display: flex; /* Usar flexbox para los dos bloques principales */
+            flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
+            justify-content: space-around; /* Distribuir espacio y centrar si hay extra */
+            align-items: flex-start; /* Alinear items al inicio verticalmente */
+            gap: 2.5rem; 
+            margin-bottom: 3rem; 
+        }
+
+        .footer-column {
+            flex-grow: 1; /* Permitir que las columnas crezcan */
+            flex-basis: 300px; /* Base para el tamaño, se ajustará */
+            max-width: 450px; /* Limitar el ancho máximo de cada columna */
+            /* El text-align se manejará en las media queries para centrar en móvil */
+        }
+        
+        .footer-column.footer-column-brand {
+             /* Estilos específicos si son necesarios, por defecto heredará de .footer-column */
+        }
+        .footer-column.footer-column-social {
+             /* Estilos específicos si son necesarios */
+        }
+
+
+        .footer-column .footer-logo-link {
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+            margin-bottom: 1.25rem; 
+        }
+
         .footer-column .footer-logo-icon-box {
-            width: 36px; height: 36px; background: var(--button-gradient);
-            border-radius: 7px; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;
+            width: 38px; 
+            height: 38px; 
+            background: var(--button-gradient);
+            border-radius: 8px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.625rem; 
         }
-        .footer-column .footer-logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.2rem; }
-        .footer-column .footer-logo-full-text { font-size: 1.1rem; font-weight: 600; color: var(--footer-text-primary-light); }
-        .footer-column .footer-description { font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem; max-width: 280px; }
-        .footer-column .footer-heading { font-size: 1.125rem; font-weight: 600; color: var(--footer-heading-color); margin-bottom: 1.25rem; }
-        .footer-column ul { list-style: none; padding: 0; margin: 0; }
-        .footer-column ul li { margin-bottom: 0.75rem; }
-        .footer-column ul li a { text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.9375rem; transition: color 0.2s ease; }
-        .footer-column ul li a:hover { color: var(--footer-link-hover-color); }
-        .footer-social-icons { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
-        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: color 0.2s ease, transform 0.2s ease; }
-        .footer-social-icons a:hover { color: var(--footer-icon-hover-color); transform: scale(1.1); }
+
+        .footer-column .footer-logo-abbr {
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.3rem; 
+        }
+
+        .footer-column .footer-logo-full-text {
+            font-size: 1.15rem; 
+            font-weight: 600;
+            color: var(--footer-text-primary-light);
+        }
+
+        .footer-column .footer-description {
+            font-size: 0.9rem; 
+            line-height: 1.7; 
+            margin-bottom: 1.5rem; 
+            max-width: 100%; /* Ajustado para que no se limite innecesariamente */
+        }
+
+        .footer-column .footer-heading {
+            font-size: 1.2rem; 
+            font-weight: 700; 
+            color: var(--footer-heading-color);
+            margin-bottom: 1.75rem; 
+        }
+
+        /* Los estilos de ul y li para Enlaces Rápidos y Proyectos ya no son necesarios */
+
+        .footer-social-icons {
+            display: flex;
+            flex-wrap: wrap; 
+            gap: 0.9rem; 
+            margin-bottom: 1.5rem; 
+            /* Se centrarán mediante text-align:center en la columna en móvil */
+        }
+
+        .footer-social-icons a {
+            color: var(--footer-icon-color);
+            font-size: 1.35rem; 
+            transition: color 0.2s ease, transform 0.2s ease;
+            width: 36px; 
+            height: 36px; 
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid transparent; 
+            border-radius: 50%; 
+        }
+
+        .footer-social-icons a:hover {
+            color: var(--footer-icon-hover-color);
+            transform: translateY(-2px) scale(1.05); 
+        }
+
+        .footer-direct-contact {
+            /* Se centrarán mediante text-align:center en la columna en móvil */
+        }
         .footer-direct-contact a {
-            display: inline-flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light);
-            font-size: 0.9375rem; margin-top: 0.5rem; transition: color 0.2s ease;
+            display: inline-flex; /* Cambiado a inline-flex para que el text-align:center de la columna los afecte en bloque */
+            align-items: center;
+            text-decoration: none;
+            color: var(--footer-text-secondary-light);
+            font-size: 0.95rem; 
+            margin-top: 0.6rem; 
+            transition: color 0.2s ease;
+            padding: 0.3rem 0.2rem; /* Padding ligero para mejor toque */
         }
-        .footer-direct-contact a i { margin-right: 0.5rem; font-size: 1.1rem; }
-        .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
-        .footer-bottom-bar { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; }
-        .footer-bottom-bar p { margin: 0; font-size: 0.875rem; color: var(--footer-text-secondary-light); }
+        .footer-direct-contact a:first-child {
+             margin-top: 0.2rem; 
+        }
+
+
+        .footer-direct-contact a i {
+            margin-right: 0.6rem; 
+            font-size: 1.15rem; 
+        }
+
+        .footer-direct-contact a:hover {
+            color: var(--footer-link-hover-color);
+        }
+
+        .footer-bottom-bar {
+            text-align: center;
+            padding-top: 2rem; 
+            border-top: 1px solid rgba(255, 255, 255, 0.15); 
+            margin-top: 1rem; /* Reducido un poco el margen superior ya que hay menos contenido arriba */
+        }
+
+        .footer-bottom-bar p {
+            margin: 0;
+            font-size: 0.9rem; 
+            color: var(--footer-text-secondary-light);
+        }
+        /* --- FIN ESTILOS FOOTER MODIFICADOS --- */
 
 
         /* Responsive */
@@ -555,7 +672,6 @@
             .support-main-container { grid-template-columns: 1fr; } 
             .faq-and-info-column { margin-bottom: 2rem; } 
             .contact-form-card-wrapper { margin-top: 0; }
-            .footer-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
             .social-connect-intro { text-align: center; margin-left:auto; margin-right:auto; }
             
             .mission-vision-single-card { padding: 2rem; }
@@ -563,7 +679,9 @@
                 width: 117%; 
                 height: 112%; 
             } 
-            .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+            .grid-three-cols:not(#que-hacemos .info-cards-wrapper.grid-three-cols) { 
+                grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); 
+            }
         }
 
         @media (max-width: 767px) {
@@ -579,12 +697,6 @@
             .contact-form-card { padding: 1.875rem; }
             .form-title { font-size: 1.5rem; }
             .support-intro-paragraph { font-size: 1rem; }
-            .footer-grid { grid-template-columns: 1fr; text-align: center;}
-            .footer-column .footer-logo-link { justify-content: center; }
-            .footer-column .footer-description { margin-left: auto; margin-right: auto; }
-            .footer-social-icons { justify-content: center; }
-            .footer-direct-contact a { justify-content: center; }
-            .social-media-grid { grid-template-columns: 1fr; }
             .contact-channel-cards-grid { grid-template-columns: 1fr; }
             
             .mission-vision-single-card { padding: 1.5rem; }
@@ -603,8 +715,48 @@
             }
             #proyectos-destacados .project-card {
                 flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px);
-                 scroll-snap-align: center; /* Asegurar que también se aplique en media queries si es necesario */
+                 scroll-snap-align: center; 
             }
+
+            /* --- INICIO AJUSTES RESPONSIVOS FOOTER MODIFICADO --- */
+            .site-footer-detailed {
+                padding: 3.5rem 0 2rem 0;
+            }
+            .footer-grid {
+                flex-direction: column; /* Apilar columnas */
+                align-items: center; /* Centrar columnas apiladas */
+                gap: 2rem; 
+            }
+
+            .footer-column {
+                text-align: center; /* Centrar contenido de las columnas */
+                width: 100%; /* Asegurar que ocupen el ancho disponible */
+                max-width: 500px; /* Limitar el ancho máximo en móvil para mejor lectura */
+                margin-bottom: 1.5rem; /* Espacio entre columnas apiladas */
+            }
+             .footer-column:last-child {
+                margin-bottom: 0;
+            }
+
+            .footer-column .footer-logo-link {
+                justify-content: center; 
+            }
+            .footer-column .footer-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .footer-social-icons {
+                justify-content: center; 
+            }
+            .footer-direct-contact {
+                display: flex; /* Asegurar que los enlaces internos puedan centrarse */
+                flex-direction: column;
+                align-items: center;
+            }
+            .footer-direct-contact a {
+                justify-content: center; 
+            }
+            /* --- FIN AJUSTES RESPONSIVOS FOOTER MODIFICADO --- */
         }
          @media (max-width: 576px) {
             .contact-form-card { padding: 1.5rem; }
@@ -613,7 +765,22 @@
                 width:112%; 
                 height: 106%; 
             }
-         }
+        }
+        @media (max-width: 480px) { 
+            .footer-column .footer-heading {
+                font-size: 1.1rem;
+            }
+            .footer-direct-contact a,
+            .footer-column .footer-description {
+                font-size: 0.88rem;
+            }
+            .footer-social-icons a {
+                font-size: 1.25rem;
+            }
+            .footer-bottom-bar p {
+                font-size: 0.85rem;
+            }
+        }
 
     </style>
 </head>
@@ -768,35 +935,9 @@
                 <div class="social-connect-intro">
                     <h2 class="social-connect-title">Conéctate con Nosotros</h2>
                     <p class="social-connect-subtitle">
-                        Sigue nuestras redes sociales para mantenerte al día con las últimas
+                        Únete a nuestros canales principales para mantenerte al día con las últimas
                         novedades, eventos y oportunidades de colaboración en nuestra comunidad.
                     </p>
-                </div>
-                <div class="social-media-grid">
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-facebook-f"></i></span>
-                        <span class="network-name">Facebook</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-x-twitter"></i></span>
-                        <span class="network-name">Twitter/X</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-instagram"></i></span>
-                        <span class="network-name">Instagram</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-discord"></i></span>
-                        <span class="network-name">Discord</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-youtube"></i></span>
-                        <span class="network-name">YouTube</span>
-                    </a>
-                    <a href="#" target="_blank" class="social-media-card">
-                        <span class="icon-container"><i class="fab fa-linkedin-in"></i></span>
-                        <span class="network-name">LinkedIn</span>
-                    </a>
                 </div>
 
                 <div class="contact-channel-cards-grid">
@@ -949,7 +1090,7 @@
     <footer class="site-footer-detailed">
         <div class="container">
             <div class="footer-grid">
-                <div class="footer-column">
+                <div class="footer-column footer-column-brand">
                     <a href="index.html" class="footer-logo-link">
                         <div class="footer-logo-icon-box"><span class="footer-logo-abbr">UC</span></div>
                         <span class="footer-logo-full-text">Universe Community</span>
@@ -958,25 +1099,7 @@
                         Una comunidad global dedicada a crear, innovar y conectar personas a través de proyectos colaborativos.
                     </p>
                 </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Enlaces rápidos</h4>
-                    <ul>
-                        <li><a href="index.html">Inicio</a></li>
-                        <li><a href="#proyectos-destacados">Proyectos</a></li>
-                        <li><a href="#comunidad">Redes Sociales</a></li>
-                        <li><a href="#soporte-contacto">Contacto</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4 class="footer-heading">Proyectos</h4>
-                    <ul>
-                        <li><a href="proyecto-detalle.html?id=alpha">Proyecto Alpha</a></li>
-                        <li><a href="proyecto-detalle.html?id=beta">Proyecto Beta</a></li>
-                        <li><a href="proyecto-detalle.html?id=gamma">Proyecto Gamma</a></li>
-                        <li><a href="proyectos.html">Ver todos</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
+                <div class="footer-column footer-column-social">
                     <h4 class="footer-heading">Síguenos</h4>
                     <div class="footer-social-icons">
                         <a href="#" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
@@ -989,8 +1112,8 @@
                     <div class="footer-direct-contact">
                         <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank">
                             <i class="fab fa-whatsapp"></i> WhatsApp
-                        </a><br>
-                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" style="margin-top: 0.5rem; display: inline-flex;">
+                        </a>
+                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank">
                             <i class="fab fa-telegram-plane"></i> Telegram
                         </a>
                     </div>
@@ -1110,7 +1233,7 @@
                     const isActive = item.classList.toggle('active');
                     question.setAttribute('aria-expanded', isActive);
                     if (isActive) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.maxHeight = answer.scrollHeight + "px"; 
                         answer.style.paddingTop = "0.75rem";
                         answer.style.marginTop = "0.25rem";
                     } else {
@@ -1146,11 +1269,9 @@
                         gapValue = parseFloat(cardStyle.marginRight) || 0; 
                         if (isNaN(gapValue)) gapValue = 24; 
                     }
-                    // For centering, we want to scroll by the width of one card plus its gap
-                    // to bring the next/previous card to the center.
                     return cardWidth + gapValue;
                 }
-                return 320; // Default scroll amount
+                return 320; 
             };
 
             const updateButtonStatesAndCentering = () => {
@@ -1173,14 +1294,12 @@
             };
 
             prevBtn.addEventListener('click', () => {
-                // Calculate the target scroll position to center the previous card
                 const currentScroll = projectListContainer.scrollLeft;
                 const scrollAmount = getScrollAmount();
                 projectListContainer.scrollTo({ left: currentScroll - scrollAmount, behavior: 'smooth' });
             });
 
             nextBtn.addEventListener('click', () => {
-                 // Calculate the target scroll position to center the next card
                 const currentScroll = projectListContainer.scrollLeft;
                 const scrollAmount = getScrollAmount();
                 projectListContainer.scrollTo({ left: currentScroll + scrollAmount, behavior: 'smooth' });
