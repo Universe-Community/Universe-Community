@@ -1,0 +1,1206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universe Community - Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            /* Colores Primarios y de Acento */
+            --brand-purple-start: #6A11CB; 
+            --brand-blue-end: #2575FC;     
+            
+            --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
+            --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
+
+            /* Colores de Texto */
+            --text-dark: #212529; 
+            --text-medium: #5F6773; 
+            --text-light: #FFFFFF;
+
+            /* Fondos */
+            --bg-light: #FFFFFF;
+            --bg-section-alt: #F8F9FA; 
+            
+            /* Bordes y Sombras */
+            --border-color-soft: #EAEAEA; 
+            --input-border-color: #CED4DA;
+            --input-focus-border-color: var(--brand-purple-start); 
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); 
+            
+            --font-primary: 'Poppins', sans-serif;
+
+            /* Color para el fondo inclinado de Misión/Visión */
+            --skewed-bg-color: rgba(230, 220, 250, 0.35); 
+            
+            /* Color para botones "Ver detalles" y enlace "Ver todos los proyectos" */
+            --details-link-blue: #007BFF; 
+            
+            /* Colores para el Footer Oscuro */
+            --footer-bg-dark: #1C1C2E;
+            --footer-text-primary-light: #E0E0E8;
+            --footer-text-secondary-light: #A0A0B8;
+            --footer-heading-color: var(--text-light);
+            --footer-link-hover-color: var(--brand-blue-end);
+            --footer-icon-color: #A0A0B8;
+            --footer-icon-hover-color: var(--text-light);
+
+            /* Colores específicos para iconos de redes sociales */
+            --facebook-color: #1877F2;
+            --twitter-color: #1DA1F2;
+            --instagram-color: #E4405F;
+            --discord-color: #5865F2;
+            --youtube-color: #FF0000;
+            --linkedin-color: #0A66C2;
+
+            /* Colores para botones WhatsApp y Telegram */
+            --whatsapp-bg-color: #25D366;
+            --whatsapp-hover-bg-color: #1DAE54;
+            --telegram-bg-color: #0088CC;
+            --telegram-hover-bg-color: #007AB8;
+        }
+
+        /* Reset Básico */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; }
+
+        /* Header */
+        .site-header {
+            background-color: var(--bg-light); padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
+        }
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-icon-box {
+            width: 38px; height: 38px;
+            background: var(--button-gradient);
+            border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 0.625rem;
+        }
+        .logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.3rem; }
+        .logo-full-text { font-size: 1.1875rem; font-weight: 600; color: var(--text-dark); }
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; }
+        .main-menu ul { list-style: none; display: flex; }
+        .main-menu li { margin-left: 2rem; }
+        .main-menu a {
+            text-decoration: none; color: var(--text-medium); font-weight: 500;
+            font-size: 0.9375rem; padding-bottom: 0.25rem; transition: color 0.2s ease;
+        }
+        .main-menu a:hover, .main-menu a.current-page { color: var(--brand-purple-start); }
+
+        /* Hero Section */
+        .hero { padding: 4.5rem 0 4rem 0; text-align: left; }
+        .hero-content-wrapper { max-width: 680px; margin: 0; }
+        .hero-main-title {
+            font-size: 2.75rem; font-weight: 700; color: var(--text-dark);
+            line-height: 1.25; margin-bottom: 1.25rem;
+        }
+        .hero-main-title .highlight-text {
+            background: var(--text-gradient); -webkit-background-clip: text;
+            -moz-background-clip: text; background-clip: text; color: transparent;
+        }
+        .hero-sub-title { font-size: 1.125rem; color: var(--text-medium); margin-bottom: 2.1875rem; line-height: 1.7; }
+        .hero-button-group .btn {
+            padding: 0.8125rem 2.1875rem; font-size: 0.9375rem; font-weight: 600; border-radius: 25px;
+            text-decoration: none; margin-right: 0.75rem; margin-bottom: 0.5rem; display: inline-block;
+            transition: all 0.25s ease-in-out; border: 1.5px solid transparent; min-width: 190px; text-align: center;
+        }
+        .btn-filled-gradient {
+            background: var(--button-gradient); color: var(--text-light); box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+        }
+        .btn-filled-gradient:hover { opacity: 0.9; box-shadow: 0 4px 12px rgba(var(--brand-purple-start), 0.25); }
+        .btn-bordered {
+            background-color: transparent; color: var(--brand-purple-start); border: 1.5px solid var(--brand-purple-start);
+        }
+        .btn-bordered:hover {
+            background: var(--button-gradient); color: var(--text-light); border-color: transparent;
+        }
+
+        /* Info Section (Misión, Visión, etc.) */
+        .content-block { padding: 3.75rem 0; }
+        .content-block.bg-shaded { background-color: var(--bg-section-alt); }
+        .block-title { text-align: center; font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2.8125rem; }
+        
+        .mission-vision-section-wrapper { padding: 3rem 0; }
+        .mission-vision-container { 
+            display: flex; justify-content: center; align-items: center;
+        }
+        .mission-vision-single-card {
+            background-color: var(--bg-light); /* Fondo blanco de la tarjeta */
+            padding: 2.5rem; 
+            border-radius: 16px; 
+            box-shadow: var(--card-shadow-light); 
+            text-align: left; 
+            width: 100%;
+            max-width: 650px; 
+            position: relative; /* Clave para el posicionamiento del pseudo-elemento y z-index */
+            z-index: 1; /* Asegura que la tarjeta esté sobre el pseudo-elemento */
+        }
+        .mission-vision-single-card::before {
+            content: ""; 
+            position: absolute; 
+            z-index: -1; /* Coloca el pseudo-elemento detrás de la tarjeta */
+            top: 50%; 
+            left: 50%;
+            width: 110%; 
+            height: 114%; 
+            background-color: var(--skewed-bg-color); /* Fondo inclinado púrpura semi-transparente */
+            transform: translate(-50%, -50%) rotate(3.5deg); 
+            border-radius: 20px;
+        }
+        .mission-vision-single-card .mission-block,
+        .mission-vision-single-card .vision-block { margin-bottom: 2rem; }
+        .mission-vision-single-card .vision-block { margin-bottom: 0; }
+        .mission-vision-single-card .mv-title {
+            font-size: 1.5rem; font-weight: 700; color: var(--text-dark); 
+            margin-top: 0; margin-bottom: 0.75rem; 
+        }
+        .mission-vision-single-card .mv-description {
+            font-size: 1rem; color: var(--text-medium); line-height: 1.75;
+        }
+
+        .info-cards-wrapper { display: grid; gap: 1.875rem; }
+        .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); } 
+
+        .card { background-color: var(--bg-light); padding: 1.875rem; border-radius: 10px; box-shadow: var(--card-shadow-light); text-align: left; }
+        .card .card-title { font-size: 1.3125rem; font-weight: 600; margin-top: 0; margin-bottom: 0.9375rem; }
+        .card.what-we-do-card .card-title { color: var(--text-dark); }
+        .card .card-icon-top { font-size: 2.25rem; color: var(--brand-purple-start); margin-bottom: 1rem; }
+        .card .card-description { font-size: 0.9375rem; color: var(--text-medium); line-height: 1.75; }
+        
+        /* Projects Section */
+        .project-card { 
+            border-radius: 10px; 
+            box-shadow: var(--card-shadow-light); 
+            overflow: hidden; 
+            display: flex; 
+            flex-direction: column; 
+            transition: transform 0.25s ease, box-shadow 0.25s ease; 
+        }
+        .project-card:hover { 
+            transform: translateY(-4px); 
+            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); 
+        }
+        .project-img-placeholder { 
+            width: 100%; height: 210px; 
+            background-color: #EAECEF; 
+            display: flex; align-items: center; justify-content: center; 
+            color: #B0B7C3; font-size: 0.875rem; font-style: italic; 
+        }
+        .project-details { 
+            padding: 1.5rem; flex-grow: 1; 
+            display: flex; flex-direction: column; 
+        }
+        .project-name { 
+            font-size: 1.1875rem; font-weight: 600; 
+            color: var(--text-dark); margin-bottom: 0.5rem; 
+        }
+        .project-summary { 
+            font-size: 0.875rem; color: var(--text-medium); 
+            margin-bottom: 1.25rem; flex-grow: 1; 
+        }
+        
+        .btn-details-project { 
+            display: inline-block; padding: 0.6rem 1.2rem; font-size: 0.875rem; 
+            font-weight: 500; color: var(--details-link-blue); background-color: var(--bg-light);
+            border: 1.5px solid var(--details-link-blue); border-radius: 6px; 
+            text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease;
+            align-self: flex-start; 
+        }
+        .btn-details-project:hover { background-color: var(--details-link-blue); color: var(--text-light); }
+
+        .all-projects-link-container { text-align: center; margin-top: 2.5rem; }
+        .view-all-projects-link { 
+            display: inline-flex; align-items: center; color: var(--details-link-blue);
+            text-decoration: none; font-weight: 500; font-size: 0.9375rem; 
+        }
+        .view-all-projects-link:hover { text-decoration: none; color: var(--brand-purple-start); }
+        .view-all-projects-link .arrow-icon { margin-left: 0.5rem; transition: transform 0.2s ease; }
+        .view-all-projects-link:hover .arrow-icon { transform: translateX(3px); }
+
+        /* --- INICIO: Estilos para Proyectos Destacados Horizontal --- */
+        #proyectos-destacados .projects-slider-controls {
+            display: flex;
+            justify-content: flex-end; 
+            margin-bottom: 1.25rem; 
+            gap: 0.75rem; 
+        }
+
+        #proyectos-destacados .slider-btn {
+            background-color: var(--brand-purple-start);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            font-size: 1rem; 
+            cursor: pointer;
+            transition: background-color 0.2s ease, opacity 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        #proyectos-destacados .slider-btn:hover {
+            background-color: var(--brand-blue-end);
+        }
+
+        #proyectos-destacados .slider-btn:disabled {
+            background-color: #cccccc;
+            color: #888888;
+            cursor: not-allowed;
+            opacity: 0.7;
+        }
+        
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols { 
+            display: flex; 
+            overflow-x: auto; 
+            overflow-y: hidden; 
+            padding-bottom: 1.5rem; 
+            scroll-snap-type: x mandatory; 
+            gap: 1.5rem; 
+            -webkit-overflow-scrolling: touch; 
+            justify-content: flex-start; 
+        }
+        
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols.center-flex-items {
+            justify-content: center;
+        }
+
+        #proyectos-destacados .project-card {
+            flex: 0 0 clamp(280px, calc(80vw - 3rem), 340px); 
+            scroll-snap-align: center; /* MODIFICACIÓN AQUÍ: Cambiado de 'start' a 'center' */
+        }
+
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar {
+            height: 8px; 
+        }
+
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-track {
+            background: var(--bg-section-alt); 
+            border-radius: 10px;
+        }
+
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb {
+            background: var(--brand-purple-start); 
+            border-radius: 10px;
+        }
+
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb:hover {
+            background: var(--brand-blue-end); 
+        }
+        /* --- FIN: Estilos para Proyectos Destacados Horizontal --- */
+
+
+        /* "Conéctate con Nosotros" (Redes Sociales) */
+        .social-connect-section { padding: 3.75rem 0; }
+        .social-connect-intro { text-align: left; max-width: 600px; margin-bottom: 2.5rem; }
+        .social-connect-title { font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; }
+        .social-connect-subtitle { font-size: 1.05rem; color: var(--text-medium); line-height: 1.75; }
+        .social-media-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); gap: 1.5rem; margin-bottom: 2.5rem; }
+        .social-media-card {
+            background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light);
+            padding: 1.25rem; display: flex; align-items: center; text-decoration: none;
+            color: var(--text-dark); transition: transform 0.2s ease, box-shadow 0.2s ease;
+        }
+        .social-media-card:hover { transform: translateY(-3px); box-shadow: 0px 5px 18px rgba(0, 0, 0, 0.09); }
+        .social-media-card .icon-container { font-size: 1.75rem; margin-right: 1rem; width: 40px; text-align: center; }
+        .social-media-card .fa-facebook-f { color: var(--facebook-color); }
+        .social-media-card .fa-twitter, .social-media-card .fa-x-twitter { color: var(--twitter-color); }
+        .social-media-card .fa-instagram { color: var(--instagram-color); }
+        .social-media-card .fa-discord { color: var(--discord-color); }
+        .social-media-card .fa-youtube { color: var(--youtube-color); }
+        .social-media-card .fa-linkedin-in { color: var(--linkedin-color); }
+        .social-media-card .network-name { font-size: 1rem; font-weight: 500; }
+        .contact-channel-cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
+        @media (min-width: 768px) { .contact-channel-cards-grid { grid-template-columns: repeat(2, 1fr); } }
+        .contact-channel-card {
+            background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light);
+            padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
+        }
+        .contact-channel-card .channel-icon-wrapper { flex-shrink: 0; }
+        .contact-channel-card .channel-icon {
+            width: 48px; height: 48px; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center; font-size: 1.5rem; color: var(--text-light);
+        }
+        .contact-channel-card .whatsapp-icon { background-color: var(--whatsapp-bg-color); }
+        .contact-channel-card .telegram-icon { background-color: var(--telegram-bg-color); }
+        .contact-channel-card .channel-content { flex-grow: 1; }
+        .contact-channel-card .channel-title { font-size: 1.125rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .contact-channel-card .channel-description { font-size: 0.875rem; color: var(--text-medium); margin-bottom: 1rem; line-height: 1.6; }
+        .contact-channel-card .btn-join {
+            display: inline-block; padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 500;
+            color: var(--text-light); border-radius: 6px; text-decoration: none; transition: background-color 0.2s ease;
+        }
+        .contact-channel-card .btn-join.whatsapp { background-color: var(--whatsapp-bg-color); }
+        .contact-channel-card .btn-join.whatsapp:hover { background-color: var(--whatsapp-hover-bg-color); }
+        .contact-channel-card .btn-join.telegram { background-color: var(--telegram-bg-color); }
+        .contact-channel-card .btn-join.telegram:hover { background-color: var(--telegram-hover-bg-color); }
+        .contact-channel-card .btn-join .arrow { margin-left: 0.5rem; }
+
+        /* --- INICIO ESTILOS FAQs E INFO CONTACTO --- */
+        .support-main-container { 
+            display: grid;
+            grid-template-columns: 1fr; 
+            gap: 2.5rem; 
+            align-items: flex-start;
+        }
+        @media (min-width: 992px) { 
+            .support-main-container {
+                grid-template-columns: 1fr 1.2fr; 
+            }
+        }
+
+        .faq-and-info-column { }
+
+        .faq-container, .contact-info-container {
+            background-color: var(--bg-light);
+            padding: 1.875rem; 
+            border-radius: 12px;
+            box-shadow: var(--card-shadow-light);
+            margin-bottom: 2rem; 
+        }
+        .faq-container:last-child, .contact-info-container:last-child {
+            margin-bottom: 0;
+        }
+
+        .section-subtitle { 
+            font-size: 1.375rem; 
+            font-weight: 600; 
+            color: var(--text-dark);
+            margin-bottom: 1.5rem; 
+            text-align: left; 
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color-soft);
+            padding: 0.875rem 0; 
+        }
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+        .faq-item:first-child {
+            padding-top: 0;
+        }
+        .faq-question {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 500;
+            color: var(--text-dark);
+            cursor: pointer; 
+            font-size: 0.9375rem; 
+            padding: 0.5rem 0; 
+        }
+        .faq-question i.fa-chevron-down { 
+            color: var(--text-medium);
+            transition: transform 0.3s ease;
+            font-size: 0.8em; 
+        }
+        .faq-item.active .faq-question i.fa-chevron-down { 
+            transform: rotate(180deg); 
+        }
+        .faq-answer { 
+            max-height: 0; 
+            overflow: hidden; 
+            transition: max-height 0.35s ease-out, padding-top 0.35s ease-out, margin-top 0.35s ease-out;
+            color: var(--text-medium);
+            font-size: 0.875rem; 
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer { 
+            max-height: 200px; 
+            padding-top: 0.75rem; 
+            margin-top: 0.25rem;
+        }
+        
+        .contact-info-list {
+            list-style: none;
+            padding: 0;
+        }
+        .contact-info-item {
+            display: flex;
+            align-items: flex-start; 
+            margin-bottom: 1.25rem; 
+            font-size: 0.9375rem; 
+            color: var(--text-medium);
+        }
+        .contact-info-item:last-child {
+            margin-bottom: 0;
+        }
+        .contact-info-item i {
+            font-size: 1.125rem; 
+            color: var(--brand-purple-start); 
+            margin-right: 0.875rem; 
+            width: 20px; 
+            text-align: center;
+            margin-top: 0.125rem; 
+        }
+        .contact-info-item .info-label {
+            font-weight: 600;
+            color: var(--text-dark);
+            display: block;
+            margin-bottom: 0.125rem; 
+        }
+        .contact-info-item a {
+            color: var(--brand-purple-start);
+            text-decoration: none;
+        }
+        .contact-info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .contact-form-card-wrapper { }
+        .contact-form-card { 
+            flex: 1.5; background-color: var(--bg-light); padding: 2.5rem;
+            border-radius: 12px; box-shadow: var(--card-shadow-light); min-width: 300px;
+        }
+        .form-title { font-size: 1.625rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.875rem; text-align: left; }
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; font-size: 0.875rem; color: var(--text-medium); font-weight: 500; margin-bottom: 0.5rem; }
+        .form-control {
+            width: 100%; padding: 0.8125rem 1rem; font-size: 0.9375rem; font-family: var(--font-primary);
+            color: var(--text-dark); background-color: var(--bg-light); border: 1px solid var(--input-border-color);
+            border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+        .form-control:focus { outline: none; border-color: var(--input-focus-border-color); box-shadow: 0 0 0 0.125rem rgba(var(--brand-purple-start), 0.25); }
+        textarea.form-control { min-height: 120px; resize: vertical; }
+        select.form-control {
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%235F6773' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.8em; padding-right: 2.5rem;
+        }
+        .submit-button-container { margin-top: 1.875rem; }
+        .btn-submit-form {
+            display: block; width: 100%; padding: 0.875rem 1.5rem; font-size: 1rem; font-weight: 600;
+            color: var(--text-light); background: var(--button-gradient);
+            border: none; border-radius: 25px; cursor: pointer; transition: opacity 0.2s ease, box-shadow 0.2s ease;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.07);
+        }
+        .btn-submit-form:hover { opacity: 0.9; box-shadow: 0 4px 12px rgba(var(--brand-purple-start), 0.25); }
+        /* --- FIN ESTILOS FAQs E INFO CONTACTO --- */
+
+        /* FAB */
+        .floating-action-button {
+            position: fixed; width: 50px; height: 50px; bottom: 1.5rem; right: 1.5rem;
+            background-color: #25D366; color: var(--text-light); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.18); z-index: 999;
+            text-decoration: none; font-size: 1.625rem;
+            transition: background-color 0.2s ease, transform 0.2s ease;
+        }
+        .floating-action-button:hover { background-color: #1EB955; transform: scale(1.03); }
+
+        /* Footer Detallado */
+        .site-footer-detailed {
+            background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light);
+            padding: 4rem 0 2rem 0; margin-top: 3.75rem;
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; margin-bottom: 2.5rem; }
+        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1rem; }
+        .footer-column .footer-logo-icon-box {
+            width: 36px; height: 36px; background: var(--button-gradient);
+            border-radius: 7px; display: flex; align-items: center; justify-content: center; margin-right: 0.5rem;
+        }
+        .footer-column .footer-logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.2rem; }
+        .footer-column .footer-logo-full-text { font-size: 1.1rem; font-weight: 600; color: var(--footer-text-primary-light); }
+        .footer-column .footer-description { font-size: 0.875rem; line-height: 1.6; margin-bottom: 1rem; max-width: 280px; }
+        .footer-column .footer-heading { font-size: 1.125rem; font-weight: 600; color: var(--footer-heading-color); margin-bottom: 1.25rem; }
+        .footer-column ul { list-style: none; padding: 0; margin: 0; }
+        .footer-column ul li { margin-bottom: 0.75rem; }
+        .footer-column ul li a { text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.9375rem; transition: color 0.2s ease; }
+        .footer-column ul li a:hover { color: var(--footer-link-hover-color); }
+        .footer-social-icons { display: flex; gap: 0.75rem; margin-bottom: 1rem; }
+        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: color 0.2s ease, transform 0.2s ease; }
+        .footer-social-icons a:hover { color: var(--footer-icon-hover-color); transform: scale(1.1); }
+        .footer-direct-contact a {
+            display: inline-flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light);
+            font-size: 0.9375rem; margin-top: 0.5rem; transition: color 0.2s ease;
+        }
+        .footer-direct-contact a i { margin-right: 0.5rem; font-size: 1.1rem; }
+        .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
+        .footer-bottom-bar { text-align: center; padding-top: 1.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 1rem; }
+        .footer-bottom-bar p { margin: 0; font-size: 0.875rem; color: var(--footer-text-secondary-light); }
+
+
+        /* Responsive */
+        @media (max-width: 991px) {
+            .nav-toggle { display: block; }
+            .main-menu {
+                position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light);
+                box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-height: 0; overflow: hidden;
+                transition: max-height 0.35s ease-in-out; border-top: 1px solid var(--border-color-soft);
+            }
+            .main-menu.menu-visible { max-height: 350px; }
+            .main-menu ul { flex-direction: column; width: 100%; }
+            .main-menu li { margin: 0; text-align: center; }
+            .main-menu li a { display: block; padding: 0.9375rem 1.25rem; border-bottom: 1px solid var(--border-color-soft); }
+            .main-menu li:last-child a { border-bottom: none; }
+            .main-menu a:hover, .main-menu a.current-page { background-color: var(--bg-section-alt); }
+            .hero { text-align: center; }
+            .hero-content-wrapper { margin: 0 auto; }
+            .hero-main-title { font-size: 2.25rem; }
+            .hero-sub-title { font-size: 1.0625rem; }
+            .support-main-container { grid-template-columns: 1fr; } 
+            .faq-and-info-column { margin-bottom: 2rem; } 
+            .contact-form-card-wrapper { margin-top: 0; }
+            .footer-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+            .social-connect-intro { text-align: center; margin-left:auto; margin-right:auto; }
+            
+            .mission-vision-single-card { padding: 2rem; }
+            .mission-vision-single-card::before { 
+                width: 117%; 
+                height: 112%; 
+            } 
+            .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); }
+        }
+
+        @media (max-width: 767px) {
+            .hero-main-title { font-size: 1.875rem; }
+            .hero-sub-title { font-size: 1rem; max-width: 95%;}
+            .hero-button-group .btn { width: 85%; max-width: 300px; margin-right: 0; }
+            .block-title { font-size: 1.625rem; }
+            .social-connect-title { font-size: 1.625rem; }
+            .card { padding: 1.5rem; }
+            .card .card-title { font-size: 1.1875rem; }
+            .project-details { padding: 1.25rem; }
+            .project-name { font-size: 1.0625rem; }
+            .contact-form-card { padding: 1.875rem; }
+            .form-title { font-size: 1.5rem; }
+            .support-intro-paragraph { font-size: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center;}
+            .footer-column .footer-logo-link { justify-content: center; }
+            .footer-column .footer-description { margin-left: auto; margin-right: auto; }
+            .footer-social-icons { justify-content: center; }
+            .footer-direct-contact a { justify-content: center; }
+            .social-media-grid { grid-template-columns: 1fr; }
+            .contact-channel-cards-grid { grid-template-columns: 1fr; }
+            
+            .mission-vision-single-card { padding: 1.5rem; }
+            .mission-vision-single-card .mv-title { font-size: 1.3rem; }
+            .mission-vision-single-card .mv-description { font-size: 0.9rem; }
+            .mission-vision-single-card::before { 
+                width: 122%; 
+                height: 108%; 
+                transform: translate(-50%, -50%) rotate(5deg); 
+            } 
+            .faq-container, .contact-info-container { padding: 1.5rem; }
+            .section-subtitle { font-size: 1.3rem; }
+
+            #proyectos-destacados .projects-slider-controls {
+                justify-content: center; 
+            }
+            #proyectos-destacados .project-card {
+                flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px);
+                 scroll-snap-align: center; /* Asegurar que también se aplique en media queries si es necesario */
+            }
+        }
+         @media (max-width: 576px) {
+            .contact-form-card { padding: 1.5rem; }
+            .mission-vision-single-card::before { 
+                border-radius: 16px; 
+                width:112%; 
+                height: 106%; 
+            }
+         }
+
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="container header-inner">
+            <a href="index.html" class="logo-link">
+                <div class="logo-icon-box"><span class="logo-abbr">UC</span></div>
+                <span class="logo-full-text">Universe Community</span>
+            </a>
+            <button class="nav-toggle" id="navToggleBtn" aria-label="Abrir menú" aria-expanded="false">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav class="main-menu" id="mainMenuNav">
+                <ul>
+                    <li><a href="index.html" class="current-page">Inicio</a></li>
+                    <li><a href="#proyectos-destacados">Proyectos</a></li>
+                    <li><a href="#comunidad">Comunidad</a></li>
+                    <li><a href="#soporte-contacto">Soporte</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <div class="hero-content-wrapper">
+                    <h1 class="hero-main-title">Bienvenido a<br><span class="highlight-text">Universe Community</span></h1>
+                    <p class="hero-sub-title">Una comunidad global dedicada a crear, innovar y conectar personas a través de proyectos colaborativos que impactan positivamente en el mundo.</p>
+                    <div class="hero-button-group">
+                        <a href="proyectos.html" class="btn btn-filled-gradient">Explorar Proyectos</a>
+                        <a href="#comunidad" class="btn btn-bordered">Únete a Nosotros</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block mission-vision-section-wrapper" id="mision-vision">
+            <div class="container mission-vision-container">
+                <div class="mission-vision-single-card">
+                    <div class="mission-block">
+                        <h3 class="mv-title">Nuestra Misión</h3>
+                        <p class="mv-description">Crear un espacio donde personas de todo el mundo puedan colaborar, aprender y desarrollar proyectos innovadores que generen un impacto positivo en la sociedad.</p>
+                    </div>
+                    <div class="vision-block">
+                        <h3 class="mv-title">Nuestra Visión</h3>
+                        <p class="mv-description">Ser una comunidad líder en innovación colaborativa, donde las ideas se transforman en proyectos reales que mejoran la vida de las personas y contribuyen al desarrollo sostenible.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block bg-shaded" id="que-hacemos">
+            <div class="container">
+                <h2 class="block-title">Qué Hacemos</h2>
+                <div class="info-cards-wrapper grid-three-cols">
+                    <div class="card what-we-do-card">
+                        <div class="card-icon-top"><i class="fas fa-project-diagram"></i></div>
+                        <h3 class="card-title">Proyectos Colaborativos</h3>
+                        <p class="card-description">Impulsamos iniciativas donde la inteligencia colectiva y la cooperación son clave para alcanzar metas ambiciosas.</p>
+                    </div>
+                    <div class="card what-we-do-card">
+                        <div class="card-icon-top"><i class="fas fa-chalkboard-teacher"></i></div>
+                        <h3 class="card-title">Aprendizaje Continuo</h3>
+                        <p class="card-description">Fomentamos un ambiente de curiosidad y desarrollo constante, compartiendo conocimientos y experiencias.</p>
+                    </div>
+                    <div class="card what-we-do-card">
+                        <div class="card-icon-top"><i class="fas fa-globe-americas"></i></div>
+                        <h3 class="card-title">Conexiones Globales</h3>
+                        <p class="card-description">Conectamos personas de diversas culturas y disciplinas, creando una red rica en perspectivas y talentos.</p>
+                    </div>
+                    <div class="card what-we-do-card">
+                        <div class="card-icon-top"><i class="fas fa-lightbulb"></i></div>
+                        <h3 class="card-title">Innovación Abierta</h3>
+                        <p class="card-description">Promovemos un ecosistema donde las ideas fluyen libremente y se transforman en soluciones con impacto real.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block" id="proyectos-destacados">
+            <div class="container">
+                <h2 class="block-title">Proyectos Destacados</h2>
+                <div class="projects-slider-controls">
+                    <button class="slider-btn prev-btn" aria-label="Proyecto anterior"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next-btn" aria-label="Siguiente proyecto"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="info-cards-wrapper grid-three-cols" id="projectListContainer">
+                    <article class="project-card">
+                        <div class="project-img-placeholder">
+                            <span>[Imagen del Proyecto Alpha]</span>
+                        </div>
+                        <div class="project-details">
+                            <h3 class="project-name">Proyecto Alpha</h3>
+                            <p class="project-summary">Exploración cósmica y desarrollo de simulaciones interactivas del universo.</p>
+                            <a href="proyecto-detalle.html?id=alpha" class="btn btn-details-project">Ver detalles</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-img-placeholder">
+                            <span>[Imagen del Proyecto Beta]</span>
+                        </div>
+                        <div class="project-details">
+                            <h3 class="project-name">Proyecto Beta</h3>
+                            <p class="project-summary">Herramientas educativas de código abierto para comunidades globales y accesibles.</p>
+                            <a href="proyecto-detalle.html?id=beta" class="btn btn-details-project">Ver detalles</a>
+                        </div>
+                    </article>
+                    <article class="project-card">
+                        <div class="project-img-placeholder">
+                            <span>[Imagen del Proyecto Gamma]</span>
+                        </div>
+                        <div class="project-details">
+                            <h3 class="project-name">Proyecto Gamma</h3>
+                            <p class="project-summary">Fusión de expresión artística con nuevas tecnologías digitales y creativas e innovadoras.</p>
+                            <a href="proyecto-detalle.html?id=gamma" class="btn btn-details-project">Ver detalles</a>
+                        </div>
+                    </article>
+                     <article class="project-card">
+                        <div class="project-img-placeholder">
+                            <span>[Imagen del Proyecto Delta]</span>
+                        </div>
+                        <div class="project-details">
+                            <h3 class="project-name">Proyecto Delta</h3>
+                            <p class="project-summary">Investigación en IA para la sostenibilidad ambiental y conservación de recursos.</p>
+                            <a href="proyecto-detalle.html?id=delta" class="btn btn-details-project">Ver detalles</a>
+                        </div>
+                    </article>
+                     <article class="project-card">
+                        <div class="project-img-placeholder">
+                            <span>[Imagen del Proyecto Epsilon]</span>
+                        </div>
+                        <div class="project-details">
+                            <h3 class="project-name">Proyecto Epsilon</h3>
+                            <p class="project-summary">Plataforma comunitaria para el intercambio de habilidades y mentoría entre pares.</p>
+                            <a href="proyecto-detalle.html?id=epsilon" class="btn btn-details-project">Ver detalles</a>
+                        </div>
+                    </article>
+                </div>
+                <div class="all-projects-link-container">
+                    <a href="proyectos.html" class="view-all-projects-link">
+                        Ver todos los proyectos <span class="arrow-icon">&rarr;</span>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block social-connect-section" id="comunidad">
+            <div class="container">
+                <div class="social-connect-intro">
+                    <h2 class="social-connect-title">Conéctate con Nosotros</h2>
+                    <p class="social-connect-subtitle">
+                        Sigue nuestras redes sociales para mantenerte al día con las últimas
+                        novedades, eventos y oportunidades de colaboración en nuestra comunidad.
+                    </p>
+                </div>
+                <div class="social-media-grid">
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-facebook-f"></i></span>
+                        <span class="network-name">Facebook</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-x-twitter"></i></span>
+                        <span class="network-name">Twitter/X</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-instagram"></i></span>
+                        <span class="network-name">Instagram</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-discord"></i></span>
+                        <span class="network-name">Discord</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-youtube"></i></span>
+                        <span class="network-name">YouTube</span>
+                    </a>
+                    <a href="#" target="_blank" class="social-media-card">
+                        <span class="icon-container"><i class="fab fa-linkedin-in"></i></span>
+                        <span class="network-name">LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="contact-channel-cards-grid">
+                    <div class="contact-channel-card">
+                        <div class="channel-icon-wrapper">
+                            <span class="channel-icon whatsapp-icon"><i class="fab fa-whatsapp"></i></span>
+                        </div>
+                        <div class="channel-content">
+                            <h3 class="channel-title">Grupo de WhatsApp</h3>
+                            <p class="channel-description">
+                                Únete a nuestro grupo principal de WhatsApp para discusiones diarias, anuncios y soporte rápido.
+                            </p>
+                            <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" class="btn-join whatsapp">
+                                Unirse al grupo <span class="arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-channel-card">
+                        <div class="channel-icon-wrapper">
+                            <span class="channel-icon telegram-icon"><i class="fab fa-telegram-plane"></i></span>
+                        </div>
+                        <div class="channel-content">
+                            <h3 class="channel-title">Canal de Telegram</h3>
+                            <p class="channel-description">
+                                Sigue nuestro canal oficial de Telegram para recibir actualizaciones, noticias y contenido exclusivo.
+                            </p>
+                            <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" class="btn-join telegram">
+                                Unirse al canal <span class="arrow">&rarr;</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="content-block bg-shaded" id="soporte-contacto">
+            <div class="container">
+                <h2 class="block-title">Soporte y Contacto</h2>
+                
+                <div class="support-main-container">
+                    <div class="faq-and-info-column">
+                        <div class="faq-container card"> <h3 class="section-subtitle">Preguntas Frecuentes</h3>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-1">
+                                    <span>¿Cómo puedo unirme a Universe Community?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-answer-1">
+                                    <p>Es muy sencillo. Puedes empezar por unirte a nuestro servidor de Discord o a nuestros grupos de WhatsApp/Telegram. Encuentra los enlaces en la sección "Comunidad" o en el pie de página.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-2">
+                                    <span>¿Cómo puedo contribuir a un proyecto?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-answer-2">
+                                    <p>Explora nuestra sección de "Proyectos". Cada proyecto tiene una descripción y formas de participar. Generalmente, puedes unirte a su canal de comunicación específico o contactar al líder del proyecto.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-3">
+                                    <span>¿Puedo proponer un nuevo proyecto?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-answer-3">
+                                    <p>¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos presentar tu propuesta en los canales generales de la comunidad para discutirla y recibir feedback.</p>
+                                </div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-4">
+                                    <span>¿Hay reuniones regulares de la comunidad?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer" id="faq-answer-4">
+                                    <p>Sí, organizamos reuniones generales periódicas y cada proyecto puede tener sus propias reuniones. Los anuncios se realizan en nuestros canales principales.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-info-container card"> <h3 class="section-subtitle">Información de contacto</h3>
+                            <ul class="contact-info-list">
+                                <li class="contact-info-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <div>
+                                        <span class="info-label">Correo electrónico</span>
+                                        <a href="mailto:contacto@universecommunity.org">contacto@universecommunity.org</a>
+                                    </div>
+                                </li>
+                                <li class="contact-info-item">
+                                    <i class="fas fa-clock"></i>
+                                    <div>
+                                        <span class="info-label">Horario de soporte</span>
+                                        Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
+                                    </div>
+                                </li>
+                                <li class="contact-info-item">
+                                    <i class="fas fa-headset"></i>
+                                    <div>
+                                        <span class="info-label">Soporte en línea</span>
+                                        Disponible en nuestro servidor de Discord
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="contact-form-card-wrapper">
+                        <div class="contact-form-card"> 
+                            <h3 class="form-title">Envíanos un mensaje</h3>
+                            <form action="#" method="POST" id="contactFormPage">
+                                <div class="form-group">
+                                    <label for="mainPageFullName">Nombre completo</label>
+                                    <input type="text" id="mainPageFullName" name="fullName" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mainPageEmail">Correo electrónico</label>
+                                    <input type="email" id="mainPageEmail" name="email" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mainPageSubject">Asunto</label>
+                                    <select id="mainPageSubject" name="subject" class="form-control" required>
+                                        <option value="" disabled selected>Selecciona una opción</option>
+                                        <option value="consulta_general">Consulta General</option>
+                                        <option value="soporte_tecnico">Soporte Técnico</option>
+                                        <option value="colaboraciones">Colaboraciones</option>
+                                        <option value="feedback">Feedback y Sugerencias</option>
+                                        <option value="otro">Otro</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="mainPageMessage">Mensaje</label>
+                                    <textarea id="mainPageMessage" name="message" class="form-control" rows="5" required></textarea>
+                                </div>
+                                <div class="submit-button-container">
+                                    <button type="submit" class="btn-submit-form">Enviar mensaje</button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <footer class="site-footer-detailed">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <a href="index.html" class="footer-logo-link">
+                        <div class="footer-logo-icon-box"><span class="footer-logo-abbr">UC</span></div>
+                        <span class="footer-logo-full-text">Universe Community</span>
+                    </a>
+                    <p class="footer-description">
+                        Una comunidad global dedicada a crear, innovar y conectar personas a través de proyectos colaborativos.
+                    </p>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Enlaces rápidos</h4>
+                    <ul>
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="#proyectos-destacados">Proyectos</a></li>
+                        <li><a href="#comunidad">Redes Sociales</a></li>
+                        <li><a href="#soporte-contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Proyectos</h4>
+                    <ul>
+                        <li><a href="proyecto-detalle.html?id=alpha">Proyecto Alpha</a></li>
+                        <li><a href="proyecto-detalle.html?id=beta">Proyecto Beta</a></li>
+                        <li><a href="proyecto-detalle.html?id=gamma">Proyecto Gamma</a></li>
+                        <li><a href="proyectos.html">Ver todos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4 class="footer-heading">Síguenos</h4>
+                    <div class="footer-social-icons">
+                        <a href="#" target="_blank" title="Facebook" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" target="_blank" title="Twitter" aria-label="Twitter"><i class="fab fa-x-twitter"></i></a>
+                        <a href="#" target="_blank" title="Instagram" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" target="_blank" title="Discord" aria-label="Discord"><i class="fab fa-discord"></i></a>
+                        <a href="#" target="_blank" title="YouTube" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="#" target="_blank" title="LinkedIn" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                    <div class="footer-direct-contact">
+                        <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank">
+                            <i class="fab fa-whatsapp"></i> WhatsApp
+                        </a><br>
+                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" style="margin-top: 0.5rem; display: inline-flex;">
+                            <i class="fab fa-telegram-plane"></i> Telegram
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>&copy; <span id="currentYear"></span> Universe Community. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // --- Mobile Navigation Menu ---
+        const navToggleBtn = document.getElementById('navToggleBtn');
+        const mainMenuNav = document.getElementById('mainMenuNav');
+        
+        if (navToggleBtn && mainMenuNav) {
+            const navIcon = navToggleBtn.querySelector('i'); 
+
+            navToggleBtn.addEventListener('click', () => {
+                const isExpanded = mainMenuNav.classList.toggle('menu-visible');
+                navToggleBtn.setAttribute('aria-expanded', isExpanded);
+                if (navIcon) { 
+                    if (isExpanded) {
+                        navIcon.classList.remove('fa-bars');
+                        navIcon.classList.add('fa-times');
+                    } else {
+                        navIcon.classList.remove('fa-times');
+                        navIcon.classList.add('fa-bars');
+                    }
+                }
+            });
+
+            mainMenuNav.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', () => {
+                    mainMenuNav.querySelectorAll('a').forEach(navLink => navLink.classList.remove('current-page'));
+                    link.classList.add('current-page');
+
+                    if (link.getAttribute('href').startsWith('#') && mainMenuNav.classList.contains('menu-visible')) {
+                        mainMenuNav.classList.remove('menu-visible');
+                        navToggleBtn.setAttribute('aria-expanded', 'false');
+                        if (navIcon) { 
+                            navIcon.classList.remove('fa-times');
+                            navIcon.classList.add('fa-bars');
+                        }
+                    }
+                });
+            });
+        }
+
+        // --- Navigation Link Highlighting on Scroll (NavHighlighter) ---
+        const sections = document.querySelectorAll("main section[id]");
+        const mainNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll('a') : []; 
+
+        function navHighlighter() {
+            if (!mainMenuNav || mainNavLinks.length === 0) return; 
+
+            let scrollY = window.pageYOffset;
+            let noSectionActive = true; 
+
+            sections.forEach(current => {
+                if (!current) return; 
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 100; 
+                let sectionId = current.getAttribute("id");
+                
+                let correspondingLink = mainMenuNav.querySelector("a[href*='" + sectionId + "']");
+
+                if (correspondingLink) {
+                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                        mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                        correspondingLink.classList.add("current-page");
+                        noSectionActive = false;
+                    }
+                }
+            });
+
+            const homeLink = mainMenuNav.querySelector("a[href='index.html']");
+            const firstSection = sections[0];
+            const firstSectionTop = firstSection ? (firstSection.offsetTop > 100 ? firstSection.offsetTop - 100 : 0) : 200;
+
+            if (homeLink && (scrollY < firstSectionTop || (noSectionActive && scrollY < 50))) { 
+                let homeIsActive = homeLink.classList.contains('current-page');
+                let otherActive = Array.from(mainNavLinks).some(l => l !== homeLink && l.classList.contains('current-page'));
+
+                if (!otherActive) { 
+                     mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                     homeLink.classList.add('current-page');
+                } else if (scrollY < firstSectionTop && !otherActive){ 
+                     mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                     homeLink.classList.add('current-page');
+                }
+            }
+        }
+
+        if (sections.length > 0 && mainNavLinks.length > 0) {
+            window.addEventListener("scroll", navHighlighter);
+            navHighlighter(); 
+        } else if (mainMenuNav) {
+            const homeLink = mainMenuNav.querySelector("a[href='index.html']");
+            if (homeLink && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/')) {
+                 mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                 homeLink.classList.add('current-page');
+            }
+        }
+
+
+        // --- FAQ Accordion ---
+        const faqItems = document.querySelectorAll('.faq-item');
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            const answer = item.querySelector('.faq-answer');
+
+            if (question && answer) {
+                question.addEventListener('click', () => {
+                    const isActive = item.classList.toggle('active');
+                    question.setAttribute('aria-expanded', isActive);
+                    if (isActive) {
+                        answer.style.maxHeight = answer.scrollHeight + "px";
+                        answer.style.paddingTop = "0.75rem";
+                        answer.style.marginTop = "0.25rem";
+                    } else {
+                        answer.style.maxHeight = '0';
+                        answer.style.paddingTop = "0";
+                        answer.style.marginTop = "0";
+                    }
+                });
+
+                question.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault(); 
+                        question.click();
+                    }
+                });
+            }
+        });
+
+        // --- Project Slider ---
+        const projectListContainer = document.getElementById('projectListContainer');
+        const prevBtn = document.querySelector('#proyectos-destacados .prev-btn');
+        const nextBtn = document.querySelector('#proyectos-destacados .next-btn');
+
+        if (projectListContainer && prevBtn && nextBtn) {
+            const getScrollAmount = () => {
+                const firstCard = projectListContainer.querySelector('.project-card');
+                if (firstCard) {
+                    const cardStyle = window.getComputedStyle(firstCard);
+                    const cardWidth = firstCard.offsetWidth; 
+                    const containerStyle = window.getComputedStyle(projectListContainer);
+                    let gapValue = parseFloat(containerStyle.gap); 
+                    if (isNaN(gapValue)) { 
+                        gapValue = parseFloat(cardStyle.marginRight) || 0; 
+                        if (isNaN(gapValue)) gapValue = 24; 
+                    }
+                    // For centering, we want to scroll by the width of one card plus its gap
+                    // to bring the next/previous card to the center.
+                    return cardWidth + gapValue;
+                }
+                return 320; // Default scroll amount
+            };
+
+            const updateButtonStatesAndCentering = () => {
+                if (!projectListContainer || !prevBtn || !nextBtn) return;
+
+                const scrollLeft = projectListContainer.scrollLeft;
+                const scrollWidth = projectListContainer.scrollWidth;
+                const clientWidth = projectListContainer.clientWidth;
+                const maxScrollLeft = scrollWidth - clientWidth;
+                const tolerance = 5; 
+
+                prevBtn.disabled = scrollLeft <= tolerance;
+                nextBtn.disabled = scrollLeft >= (maxScrollLeft - tolerance);
+
+                if (scrollWidth <= clientWidth + tolerance) { 
+                    projectListContainer.classList.add('center-flex-items');
+                } else {
+                    projectListContainer.classList.remove('center-flex-items');
+                }
+            };
+
+            prevBtn.addEventListener('click', () => {
+                // Calculate the target scroll position to center the previous card
+                const currentScroll = projectListContainer.scrollLeft;
+                const scrollAmount = getScrollAmount();
+                projectListContainer.scrollTo({ left: currentScroll - scrollAmount, behavior: 'smooth' });
+            });
+
+            nextBtn.addEventListener('click', () => {
+                 // Calculate the target scroll position to center the next card
+                const currentScroll = projectListContainer.scrollLeft;
+                const scrollAmount = getScrollAmount();
+                projectListContainer.scrollTo({ left: currentScroll + scrollAmount, behavior: 'smooth' });
+            });
+
+            projectListContainer.addEventListener('scroll', updateButtonStatesAndCentering);
+            window.addEventListener('resize', updateButtonStatesAndCentering); 
+            
+            setTimeout(() => {
+                updateButtonStatesAndCentering();
+            }, 100); 
+        }
+
+        // --- Footer Current Year ---
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+    });
+    </script>
+
+</body>
+</html>
