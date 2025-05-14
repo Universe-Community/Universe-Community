@@ -32,8 +32,16 @@
             
             --font-primary: 'Poppins', sans-serif;
 
-            /* Color para el fondo inclinado de Misión/Visión */
-            --skewed-bg-color: rgba(230, 220, 250, 0.35); 
+            /* --- Variables específicas para la tarjeta Misión/Visión (integradas y nuevas) --- */
+            /* --mv-card-skewed-bg-final: #ecedf5; */ /* Comentado: Reemplazado por degradado */
+            --mv-skewed-gradient-start: rgba(106, 17, 203, 0.08); /* Morado de marca con baja opacidad */
+            --mv-skewed-gradient-end: rgba(37, 117, 252, 0.08);   /* Azul de marca con baja opacidad */
+            --mv-card-shadow-final: 0 12px 36px rgba(30, 30, 60, 0.06); 
+            --mv-card-border-radius-final: 24px;
+            --mv-skewed-bg-border-radius-final: 28px;
+            --mv-title-font-size-final: 1.6rem;
+            --mv-description-font-size-final: 1rem;
+            /* --- Fin variables Misión/Visión --- */
             
             /* Color para botones "Ver detalles" y enlace "Ver todos los proyectos" */
             --details-link-blue: #007BFF; 
@@ -125,64 +133,90 @@
             background: var(--button-gradient); color: var(--text-light); border-color: transparent;
         }
 
-        /* Info Section (Misión, Visión, etc.) */
+        /* Estilos generales para bloques de contenido */
         .content-block { padding: 3.75rem 0; }
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
         .block-title { text-align: center; font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2.8125rem; }
         
-        .mission-vision-section-wrapper { padding: 3rem 0; }
+        /* --- INICIO: NUEVOS ESTILOS PARA TARJETA MISIÓN Y VISIÓN --- */
+        .mission-vision-section-wrapper { 
+            /* El padding ya está en .content-block */
+        }
         .mission-vision-container { 
-            display: flex; justify-content: center; align-items: center;
+            display: flex; 
+            justify-content: center; 
+            align-items: center;
         }
-        .mission-vision-single-card {
-            background-color: var(--bg-light); /* Fondo blanco de la tarjeta */
-            padding: 2.5rem; 
-            border-radius: 16px; 
-            box-shadow: var(--card-shadow-light); 
-            text-align: left; 
+
+        .mv-card-wrapper-final {
+            position: relative;
             width: 100%;
-            max-width: 650px; 
-            position: relative; 
-            z-index: 1; 
+            max-width: 680px; 
+            margin: 1rem auto; 
         }
-        .mission-vision-single-card::before {
-            content: ""; 
-            position: absolute; 
-            z-index: -1; 
-            top: 50%; 
+
+        .mv-skewed-background-final {
+            position: absolute;
+            top: 50%;
             left: 50%;
-            width: 110%; 
-            height: 114%; 
-            background-color: var(--skewed-bg-color); 
-            transform: translate(-50%, -50%) rotate(3.5deg); 
-            border-radius: 20px;
+            width: 103%;
+            height: 106%;
+            /* Aplicando el nuevo degradado */
+            background: linear-gradient(105deg, var(--mv-skewed-gradient-start), var(--mv-skewed-gradient-end));
+            transform: translate(-50%, -50%) rotate(-2.5deg);
+            border-radius: var(--mv-skewed-bg-border-radius-final); 
+            z-index: 1;
         }
-        .mission-vision-single-card .mission-block,
-        .mission-vision-single-card .vision-block { margin-bottom: 2rem; }
-        .mission-vision-single-card .vision-block { margin-bottom: 0; }
-        .mission-vision-single-card .mv-title {
-            font-size: 1.5rem; font-weight: 700; color: var(--text-dark); 
-            margin-top: 0; margin-bottom: 0.75rem; 
+
+        .mv-content-card-final {
+            background-color: var(--bg-light); 
+            padding: 2.8rem; 
+            border-radius: var(--mv-card-border-radius-final); 
+            box-shadow: var(--mv-card-shadow-final); 
+            position: relative;
+            z-index: 2;
+            text-align: left;
+            font-family: var(--font-primary); 
         }
-        .mission-vision-single-card .mv-description {
-            font-size: 1rem; color: var(--text-medium); line-height: 1.75;
+
+        .mv-content-card-final .mission-block,
+        .mv-content-card-final .vision-block {
+            margin-bottom: 2.5rem; 
         }
+        .mv-content-card-final .vision-block {
+            margin-bottom: 0;
+        }
+
+        .mv-content-card-final .mv-title-final {
+            font-size: var(--mv-title-font-size-final); 
+            font-weight: 700;
+            color: var(--text-dark); 
+            margin-top: 0;
+            margin-bottom: 0.8rem; 
+            line-height: 1.3;
+        }
+
+        .mv-content-card-final .mv-description-final {
+            font-size: var(--mv-description-font-size-final); 
+            color: var(--text-medium); 
+            line-height: 1.75;
+        }
+        /* --- FIN: NUEVOS ESTILOS PARA TARJETA MISIÓN Y VISIÓN --- */
 
         .info-cards-wrapper { display: grid; gap: 1.875rem; }
         .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); } 
 
         /* --- INICIO: Estilos específicos para la sección "Qué Hacemos" --- */
         #que-hacemos .info-cards-wrapper.grid-three-cols {
-            grid-template-columns: repeat(2, 1fr); /* 2 columnas por defecto */
+            grid-template-columns: repeat(2, 1fr); 
         }
 
         @media (max-width: 576px) {
             #que-hacemos .info-cards-wrapper.grid-three-cols {
-                grid-template-columns: 1fr; /* 1 columna en pantallas muy pequeñas */
+                grid-template-columns: 1fr; 
             }
         }
         /* --- FIN: Estilos específicos para la sección "Qué Hacemos" --- */
-
 
         .card { background-color: var(--bg-light); padding: 1.875rem; border-radius: 10px; box-shadow: var(--card-shadow-light); text-align: left; }
         .card .card-title { font-size: 1.3125rem; font-weight: 600; margin-top: 0; margin-bottom: 0.9375rem; }
@@ -190,7 +224,7 @@
         .card .card-icon-top { font-size: 2.25rem; color: var(--brand-purple-start); margin-bottom: 1rem; }
         .card .card-description { font-size: 0.9375rem; color: var(--text-medium); line-height: 1.75; }
         
-        /* Projects Section */
+        /* Projects Section (rest of your styles...) */
         .project-card { 
             border-radius: 10px; 
             box-shadow: var(--card-shadow-light); 
@@ -313,7 +347,6 @@
             background: var(--brand-blue-end); 
         }
         /* --- FIN: Estilos para Proyectos Destacados Horizontal --- */
-
 
         /* "Conéctate con Nosotros" (Redes Sociales) */
         .social-connect-section { padding: 3.75rem 0; }
@@ -519,7 +552,7 @@
             justify-content: space-around; 
             align-items: flex-start; 
             gap: 2.5rem; 
-            margin-bottom: 3rem; /* Este es el margen global que causaba problemas en móvil */
+            margin-bottom: 3rem; 
         }
 
         .footer-column {
@@ -626,9 +659,9 @@
 
         .footer-bottom-bar {
             text-align: center;
-            padding-top: 2rem; /* Margen global */
+            padding-top: 2rem; 
             border-top: 1px solid rgba(255, 255, 255, 0.15); 
-            margin-top: 1rem; /* Margen global */
+            margin-top: 1rem; 
         }
 
         .footer-bottom-bar p {
@@ -637,7 +670,6 @@
             color: var(--footer-text-secondary-light);
         }
         /* --- FIN ESTILOS GLOBALES FOOTER MODIFICADOS --- */
-
 
         /* Responsive */
         @media (max-width: 991px) {
@@ -662,11 +694,8 @@
             .contact-form-card-wrapper { margin-top: 0; }
             .social-connect-intro { text-align: center; margin-left:auto; margin-right:auto; }
             
-            .mission-vision-single-card { padding: 2rem; }
-            .mission-vision-single-card::before { 
-                width: 117%; 
-                height: 112%; 
-            } 
+            .mv-content-card-final { padding: 2rem; }
+            
             .grid-three-cols:not(#que-hacemos .info-cards-wrapper.grid-three-cols) { 
                 grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); 
             }
@@ -687,14 +716,10 @@
             .support-intro-paragraph { font-size: 1rem; }
             .contact-channel-cards-grid { grid-template-columns: 1fr; }
             
-            .mission-vision-single-card { padding: 1.5rem; }
-            .mission-vision-single-card .mv-title { font-size: 1.3rem; }
-            .mission-vision-single-card .mv-description { font-size: 0.9rem; }
-            .mission-vision-single-card::before { 
-                width: 122%; 
-                height: 108%; 
-                transform: translate(-50%, -50%) rotate(5deg); 
-            } 
+            .mv-content-card-final { padding: 1.8rem 1.5rem; } 
+            .mv-content-card-final .mv-title-final { font-size: 1.4rem; } 
+            .mv-content-card-final .mv-description-final { font-size: 0.95rem; } 
+            
             .faq-container, .contact-info-container { padding: 1.5rem; }
             .section-subtitle { font-size: 1.3rem; }
 
@@ -706,45 +731,45 @@
                  scroll-snap-align: center; 
             }
 
-            /* --- INICIO AJUSTES RESPONSIVOS FOOTER MODIFICADO (PARA ARMONÍA) --- */
             .site-footer-detailed {
-                /* Reducir padding general para un footer más compacto en móviles */
-                padding: 3rem 0 1.5rem 0; /* Antes: 3.5rem 0 2rem 0 */
+                padding: 3rem 0 1.5rem 0; 
             }
             .footer-grid {
                 flex-direction: column; 
                 align-items: center; 
-                gap: 1.5rem; /* Antes: 2rem. Espacio entre columnas apiladas */
-                margin-bottom: 1.5rem; /* Reducido drásticamente desde el global 3rem. Espacio antes de la barra de copyright. */
+                gap: 1.5rem; 
+                margin-bottom: 1.5rem; 
             }
 
             .footer-column {
                 text-align: center; 
                 width: 100%; 
                 max-width: 500px; 
-                margin-bottom: 1rem; /* Espacio para cada columna, excepto la última */
+                margin-bottom: 1rem; 
             }
              .footer-column:last-child {
-                margin-bottom: 0; /* La última columna no necesita margen inferior antes del footer-grid.margin-bottom */
+                margin-bottom: 0; 
             }
 
             .footer-bottom-bar {
                 text-align: center;
-                padding-top: 1.25rem; /* Reducido desde el global 2rem. Espacio sobre el texto de copyright. */
+                padding-top: 1.25rem; 
                 border-top: 1px solid rgba(255, 255, 255, 0.15); 
-                margin-top: 0; /* Eliminado el margen superior, el espacio lo da footer-grid.margin-bottom */
+                margin-top: 0; 
             }
-            /* --- FIN AJUSTES RESPONSIVOS FOOTER MODIFICADO --- */
         }
          @media (max-width: 576px) {
             .contact-form-card { padding: 1.5rem; }
-            .mission-vision-single-card::before { 
-                border-radius: 16px; 
-                width:112%; 
-                height: 106%; 
+            .mv-skewed-background-final { 
+                border-radius: var(--mv-card-border-radius-final); 
+                width:102%; 
+                height: 104%; 
             }
+            .mv-content-card-final { padding: 1.5rem; }
+            .mv-content-card-final .mv-title-final { font-size: 1.3rem; }
+            .mv-content-card-final .mv-description-final { font-size: 0.9rem; }
         }
-        @media (max-width: 480px) { 
+         @media (max-width: 480px) { 
             .footer-column .footer-heading {
                 font-size: 1.1rem;
             }
@@ -800,19 +825,21 @@
 
         <section class="content-block mission-vision-section-wrapper" id="mision-vision">
             <div class="container mission-vision-container">
-                <div class="mission-vision-single-card">
-                    <div class="mission-block">
-                        <h3 class="mv-title">Nuestra Misión</h3>
-                        <p class="mv-description">Crear un espacio donde personas de todo el mundo puedan colaborar, aprender y desarrollar proyectos innovadores que generen un impacto positivo en la sociedad.</p>
-                    </div>
-                    <div class="vision-block">
-                        <h3 class="mv-title">Nuestra Visión</h3>
-                        <p class="mv-description">Ser una comunidad líder en innovación colaborativa, donde las ideas se transforman en proyectos reales que mejoran la vida de las personas y contribuyen al desarrollo sostenible.</p>
+                <div class="mv-card-wrapper-final">
+                    <div class="mv-skewed-background-final"></div> 
+                    <div class="mv-content-card-final">      
+                        <div class="mission-block">
+                            <h3 class="mv-title-final">Nuestra Misión</h3>
+                            <p class="mv-description-final">Crear un espacio donde personas de todo el mundo puedan colaborar, aprender y desarrollar proyectos innovadores que generen un impacto positivo en la sociedad.</p>
+                        </div>
+                        <div class="vision-block">
+                            <h3 class="mv-title-final">Nuestra Visión</h3>
+                            <p class="mv-description-final">Ser una comunidad líder en innovación colaborativa, donde las ideas se transforman en proyectos reales que mejoran la vida de las personas y contribuyen al desarrollo sostenible.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </section>
-
         <section class="content-block bg-shaded" id="que-hacemos">
             <div class="container">
                 <h2 class="block-title">Qué Hacemos</h2>
@@ -1191,7 +1218,7 @@
         if (sections.length > 0 && mainNavLinks.length > 0) {
             window.addEventListener("scroll", navHighlighter);
             navHighlighter(); 
-        } else if (mainMenuNav) {
+        } else if (mainMenuNav) { 
             const homeLink = mainMenuNav.querySelector("a[href='index.html']");
             if (homeLink && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/')) {
                  mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
@@ -1214,7 +1241,7 @@
 
                     if (isActive) {
                         setTimeout(() => {
-                            answer.style.maxHeight = answer.scrollHeight + 20 + "px"; // Add a 20px buffer
+                            answer.style.maxHeight = answer.scrollHeight + 20 + "px"; 
                         }, 0); 
                     } else {
                         answer.style.maxHeight = '0';
@@ -1286,7 +1313,7 @@
             projectListContainer.addEventListener('scroll', updateButtonStatesAndCentering);
             window.addEventListener('resize', updateButtonStatesAndCentering); 
             
-            setTimeout(() => {
+            setTimeout(() => { 
                 updateButtonStatesAndCentering();
             }, 100); 
         }
