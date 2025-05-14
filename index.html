@@ -11,7 +11,7 @@
             /* Colores Primarios y de Acento */
             --brand-purple-start: #6A11CB; 
             --brand-blue-end: #2575FC;     
-           
+            
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
 
@@ -505,7 +505,7 @@
         }
         .floating-action-button:hover { background-color: #1EB955; transform: scale(1.03); }
 
-        /* --- INICIO ESTILOS FOOTER MODIFICADOS --- */
+        /* --- INICIO ESTILOS GLOBALES FOOTER MODIFICADOS --- */
         .site-footer-detailed {
             background-color: var(--footer-bg-dark);
             color: var(--footer-text-secondary-light);
@@ -514,28 +514,22 @@
         }
 
         .footer-grid {
-            display: flex; /* Usar flexbox para los dos bloques principales */
-            flex-wrap: wrap; /* Permitir que se envuelvan en pantallas pequeñas */
-            justify-content: space-around; /* Distribuir espacio y centrar si hay extra */
-            align-items: flex-start; /* Alinear items al inicio verticalmente */
+            display: flex; 
+            flex-wrap: wrap; 
+            justify-content: space-around; 
+            align-items: flex-start; 
             gap: 2.5rem; 
-            margin-bottom: 3rem; 
+            margin-bottom: 3rem; /* Este es el margen global que causaba problemas en móvil */
         }
 
         .footer-column {
-            flex-grow: 1; /* Permitir que las columnas crezcan */
-            flex-basis: 300px; /* Base para el tamaño, se ajustará */
-            max-width: 450px; /* Limitar el ancho máximo de cada columna */
-            /* El text-align se manejará en las media queries para centrar en móvil */
+            flex-grow: 1; 
+            flex-basis: 300px; 
+            max-width: 450px; 
         }
         
-        .footer-column.footer-column-brand {
-             /* Estilos específicos si son necesarios, por defecto heredará de .footer-column */
-        }
-        .footer-column.footer-column-social {
-             /* Estilos específicos si son necesarios */
-        }
-
+        .footer-column.footer-column-brand {}
+        .footer-column.footer-column-social {}
 
         .footer-column .footer-logo-link {
             display: inline-flex;
@@ -571,7 +565,7 @@
             font-size: 0.9rem; 
             line-height: 1.7; 
             margin-bottom: 1.5rem; 
-            max-width: 100%; /* Ajustado para que no se limite innecesariamente */
+            max-width: 100%; 
         }
 
         .footer-column .footer-heading {
@@ -581,14 +575,11 @@
             margin-bottom: 1.75rem; 
         }
 
-        /* Los estilos de ul y li para Enlaces Rápidos y Proyectos ya no son necesarios */
-
         .footer-social-icons {
             display: flex;
             flex-wrap: wrap; 
             gap: 0.9rem; 
             margin-bottom: 1.5rem; 
-            /* Se centrarán mediante text-align:center en la columna en móvil */
         }
 
         .footer-social-icons a {
@@ -609,23 +600,20 @@
             transform: translateY(-2px) scale(1.05); 
         }
 
-        .footer-direct-contact {
-            /* Se centrarán mediante text-align:center en la columna en móvil */
-        }
+        .footer-direct-contact {}
         .footer-direct-contact a {
-            display: inline-flex; /* Cambiado a inline-flex para que el text-align:center de la columna los afecte en bloque */
+            display: inline-flex; 
             align-items: center;
             text-decoration: none;
             color: var(--footer-text-secondary-light);
             font-size: 0.95rem; 
             margin-top: 0.6rem; 
             transition: color 0.2s ease;
-            padding: 0.3rem 0.2rem; /* Padding ligero para mejor toque */
+            padding: 0.3rem 0.2rem; 
         }
         .footer-direct-contact a:first-child {
              margin-top: 0.2rem; 
         }
-
 
         .footer-direct-contact a i {
             margin-right: 0.6rem; 
@@ -638,9 +626,9 @@
 
         .footer-bottom-bar {
             text-align: center;
-            padding-top: 2rem; 
+            padding-top: 2rem; /* Margen global */
             border-top: 1px solid rgba(255, 255, 255, 0.15); 
-            margin-top: 1rem; /* Reducido un poco el margen superior ya que hay menos contenido arriba */
+            margin-top: 1rem; /* Margen global */
         }
 
         .footer-bottom-bar p {
@@ -648,7 +636,7 @@
             font-size: 0.9rem; 
             color: var(--footer-text-secondary-light);
         }
-        /* --- FIN ESTILOS FOOTER MODIFICADOS --- */
+        /* --- FIN ESTILOS GLOBALES FOOTER MODIFICADOS --- */
 
 
         /* Responsive */
@@ -718,43 +706,33 @@
                  scroll-snap-align: center; 
             }
 
-            /* --- INICIO AJUSTES RESPONSIVOS FOOTER MODIFICADO --- */
+            /* --- INICIO AJUSTES RESPONSIVOS FOOTER MODIFICADO (PARA ARMONÍA) --- */
             .site-footer-detailed {
-                padding: 3.5rem 0 2rem 0;
+                /* Reducir padding general para un footer más compacto en móviles */
+                padding: 3rem 0 1.5rem 0; /* Antes: 3.5rem 0 2rem 0 */
             }
             .footer-grid {
-                flex-direction: column; /* Apilar columnas */
-                align-items: center; /* Centrar columnas apiladas */
-                gap: 2rem; 
+                flex-direction: column; 
+                align-items: center; 
+                gap: 1.5rem; /* Antes: 2rem. Espacio entre columnas apiladas */
+                margin-bottom: 1.5rem; /* Reducido drásticamente desde el global 3rem. Espacio antes de la barra de copyright. */
             }
 
             .footer-column {
-                text-align: center; /* Centrar contenido de las columnas */
-                width: 100%; /* Asegurar que ocupen el ancho disponible */
-                max-width: 500px; /* Limitar el ancho máximo en móvil para mejor lectura */
-                margin-bottom: 1.5rem; /* Espacio entre columnas apiladas */
+                text-align: center; 
+                width: 100%; 
+                max-width: 500px; 
+                margin-bottom: 1rem; /* Espacio para cada columna, excepto la última */
             }
              .footer-column:last-child {
-                margin-bottom: 0;
+                margin-bottom: 0; /* La última columna no necesita margen inferior antes del footer-grid.margin-bottom */
             }
 
-            .footer-column .footer-logo-link {
-                justify-content: center; 
-            }
-            .footer-column .footer-description {
-                margin-left: auto;
-                margin-right: auto;
-            }
-            .footer-social-icons {
-                justify-content: center; 
-            }
-            .footer-direct-contact {
-                display: flex; /* Asegurar que los enlaces internos puedan centrarse */
-                flex-direction: column;
-                align-items: center;
-            }
-            .footer-direct-contact a {
-                justify-content: center; 
+            .footer-bottom-bar {
+                text-align: center;
+                padding-top: 1.25rem; /* Reducido desde el global 2rem. Espacio sobre el texto de copyright. */
+                border-top: 1px solid rgba(255, 255, 255, 0.15); 
+                margin-top: 0; /* Eliminado el margen superior, el espacio lo da footer-grid.margin-bottom */
             }
             /* --- FIN AJUSTES RESPONSIVOS FOOTER MODIFICADO --- */
         }
@@ -986,8 +964,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-1">
-                                    <p>Es muy sencillo. Puedes empezar por unirte a nuestro servidor de Discord o a nuestros grupos de WhatsApp/Telegram. Encuentra los enlaces en la sección "Comunidad" o en el pie de página.
-                                    </p>
+                                    <p>Es muy sencillo. Puedes empezar por unirte a nuestro servidor de Discord o a nuestros grupos de WhatsApp/Telegram. Encuentra los enlaces en la sección "Comunidad" o en el pie de página. También puedes explorar la sección de proyectos para ver cómo involucrarte directamente. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -996,7 +973,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-2">
-                                    <p>Explora nuestra sección de "Proyectos". Cada proyecto tiene una descripción y formas de participar. Generalmente, puedes unirte a su canal de comunicación específico o contactar al líder del proyecto.</p>
+                                    <p>Explora nuestra sección de "Proyectos". Cada proyecto tiene una descripción y formas de participar. Generalmente, puedes unirte a su canal de comunicación específico (como un subcanal en Discord) o contactar al líder del proyecto para ofrecer tu ayuda y habilidades. ¡Toda contribución es bienvenida! No importa tu nivel de experiencia, siempre hay algo en lo que puedes colaborar, desde ideas hasta desarrollo o difusión.</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -1005,7 +982,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-3">
-                                    <p>¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos presentar tu propuesta en los canales generales de la comunidad para discutirla y recibir feedback.</p>
+                                    <p>¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos presentar tu propuesta en los canales generales de la comunidad para discutirla y recibir feedback. Prepara una breve descripción de tu idea, los objetivos y cómo crees que podría beneficiar a la comunidad o a un público más amplio. Estamos aquí para apoyar la innovación. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -1014,7 +991,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-4">
-                                    <p>Sí, organizamos reuniones generales periódicas y cada proyecto puede tener sus propias reuniones. Los anuncios se realizan en nuestros canales principales.</p>
+                                    <p>Sí, organizamos reuniones generales periódicas para discutir el estado de la comunidad, presentar nuevos proyectos y socializar. Además, cada proyecto puede tener sus propias reuniones de equipo. Todos los anuncios sobre reuniones y eventos se realizan en nuestros canales principales de comunicación, como Discord y los grupos de anuncios. ¡Mantente atento para no perderte nada!</p>
                                 </div>
                             </div>
                         </div>
@@ -1223,7 +1200,7 @@
         }
 
 
-        // --- FAQ Accordion ---
+        // --- FAQ Accordion (Corrected Again) ---
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1231,23 +1208,23 @@
 
             if (question && answer) {
                 question.addEventListener('click', () => {
-                    const isActive = item.classList.toggle('active');
+                    item.classList.toggle('active');
+                    const isActive = item.classList.contains('active');
                     question.setAttribute('aria-expanded', isActive);
+
                     if (isActive) {
-                        answer.style.maxHeight = answer.scrollHeight + "px"; 
-                        answer.style.paddingTop = "0.75rem";
-                        answer.style.marginTop = "0.25rem";
+                        setTimeout(() => {
+                            answer.style.maxHeight = answer.scrollHeight + 20 + "px"; // Add a 20px buffer
+                        }, 0); 
                     } else {
                         answer.style.maxHeight = '0';
-                        answer.style.paddingTop = "0";
-                        answer.style.marginTop = "0";
                     }
                 });
 
                 question.addEventListener('keydown', (event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault(); 
-                        question.click();
+                        question.click(); 
                     }
                 });
             }
