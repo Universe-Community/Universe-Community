@@ -14,6 +14,8 @@
             
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
+            --paypal-button-bg: #0070BA; 
+            --paypal-button-hover-bg: #005ea6;
 
             /* Colores de Texto */
             --text-dark: #212529; 
@@ -23,6 +25,8 @@
             /* Fondos */
             --bg-light: #FFFFFF;
             --bg-section-alt: #F8F9FA; 
+            --submenu-bg: #fdfdfd;
+            --submenu-hover-bg: #f0f0f0;
             
             /* Bordes y Sombras */
             --border-color-soft: #EAEAEA; 
@@ -32,21 +36,18 @@
             
             --font-primary: 'Poppins', sans-serif;
 
-            /* --- Variables específicas para la tarjeta Misión/Visión (integradas y nuevas) --- */
-            /* --mv-card-skewed-bg-final: #ecedf5; */ /* Comentado: Reemplazado por degradado */
-            --mv-skewed-gradient-start: rgba(106, 17, 203, 0.08); /* Morado de marca con baja opacidad */
-            --mv-skewed-gradient-end: rgba(37, 117, 252, 0.08);   /* Azul de marca con baja opacidad */
+            /* Variables Misión/Visión */
+            --mv-skewed-gradient-start: rgba(106, 17, 203, 0.08); 
+            --mv-skewed-gradient-end: rgba(37, 117, 252, 0.08);   
             --mv-card-shadow-final: 0 12px 36px rgba(30, 30, 60, 0.06); 
             --mv-card-border-radius-final: 24px;
             --mv-skewed-bg-border-radius-final: 28px;
             --mv-title-font-size-final: 1.6rem;
             --mv-description-font-size-final: 1rem;
-            /* --- Fin variables Misión/Visión --- */
             
-            /* Color para botones "Ver detalles" y enlace "Ver todos los proyectos" */
             --details-link-blue: #007BFF; 
             
-            /* Colores para el Footer Oscuro */
+            /* Footer */
             --footer-bg-dark: #1C1C2E;
             --footer-text-primary-light: #E0E0E8;
             --footer-text-secondary-light: #A0A0B8;
@@ -55,7 +56,7 @@
             --footer-icon-color: #A0A0B8;
             --footer-icon-hover-color: var(--text-light);
 
-            /* Colores específicos para iconos de redes sociales */
+            /* Social Icons */
             --facebook-color: #1877F2;
             --twitter-color: #1DA1F2;
             --instagram-color: #E4405F;
@@ -63,14 +64,14 @@
             --youtube-color: #FF0000;
             --linkedin-color: #0A66C2;
 
-            /* Colores para botones WhatsApp y Telegram */
+            /* WhatsApp & Telegram */
             --whatsapp-bg-color: #25D366;
             --whatsapp-hover-bg-color: #1DAE54;
             --telegram-bg-color: #0088CC;
             --telegram-hover-bg-color: #007AB8;
         }
 
-        /* Reset Básico */
+        /* Reset Básico y Estilos Generales (sin cambios) */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { font-size: 16px; scroll-behavior: smooth; }
         body {
@@ -82,7 +83,7 @@
         }
         .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; }
 
-        /* Header */
+        /* Header (sin cambios significativos en .site-header, .header-inner, logo) */
         .site-header {
             background-color: var(--bg-light); padding: 1rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
@@ -96,595 +97,333 @@
         }
         .logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.3rem; }
         .logo-full-text { font-size: 1.1875rem; font-weight: 600; color: var(--text-dark); }
-        .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; }
-        .main-menu ul { list-style: none; display: flex; }
-        .main-menu li { margin-left: 2rem; }
-        .main-menu a {
-            text-decoration: none; color: var(--text-medium); font-weight: 500;
-            font-size: 0.9375rem; padding-bottom: 0.25rem; transition: color 0.2s ease;
+        
+        /* --- INICIO: ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+        .nav-toggle { 
+            display: none; 
+            background: none; 
+            border: none; 
+            font-size: 1.75rem; 
+            color: var(--text-dark); 
+            cursor: pointer;
+            z-index: 1001; /* Para estar sobre el menú en algunas situaciones */
         }
-        .main-menu a:hover, .main-menu a.current-page { color: var(--brand-purple-start); }
+        .main-menu {
+            position: relative; /* Para posicionar submenús en desktop */
+        }
+        .main-menu ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .main-menu ul li {
+            position: relative; /* Para submenús */
+            margin-left: 0; /* Resetear margen, se controlará con padding en 'a' o espaciado en flex */
+        }
+         /* Espaciado entre items de primer nivel */
+        .main-menu > ul > li {
+            margin-left: 1.5rem; /* Ajusta según sea necesario */
+        }
+        .main-menu > ul > li:first-child {
+            margin-left: 0;
+        }
 
-        /* Hero Section */
+        .main-menu ul li a {
+            display: flex; /* Para alinear ícono y texto */
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium);
+            font-weight: 500;
+            font-size: 0.9375rem;
+            padding: 0.75rem 1rem; /* Padding para items de menú */
+            transition: color 0.2s ease, background-color 0.2s ease;
+            white-space: nowrap; /* Evitar que el texto se rompa */
+        }
+        .main-menu ul li a .fa-chevron-down,
+        .main-menu ul li a .fa-chevron-right {
+            margin-left: 0.5em;
+            font-size: 0.7em;
+            transition: transform 0.3s ease;
+        }
+        .main-menu ul li.open > a .fa-chevron-down,
+        .main-menu ul li.open > a .fa-chevron-right {
+            transform: rotate(180deg);
+        }
+        .main-menu ul li.open > a .fa-chevron-right { /* Para flecha derecha que apunta hacia abajo */
+             transform: rotate(90deg);
+        }
+
+
+        .main-menu a:hover, 
+        .main-menu a.current-page,
+        .main-menu ul li:hover > a, /* Resaltar padre en hover */
+        .main-menu ul li.open > a { /* Mantener resaltado si está abierto */
+            color: var(--brand-purple-start);
+            background-color: var(--submenu-hover-bg); /* Fondo sutil en hover/open */
+        }
+        
+        /* Estilos de Submenús (ocultos por defecto) */
+        .main-menu .submenu {
+            display: none;
+            position: absolute;
+            top: 100%; /* Debajo del item padre */
+            left: 0;
+            background-color: var(--submenu-bg);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-radius: 0 0 8px 8px;
+            min-width: 220px; /* Ancho mínimo del desplegable */
+            z-index: 100; /* Para estar sobre otros elementos */
+            padding: 0.5rem 0;
+            border-top: 1px solid var(--border-color-soft);
+        }
+        .main-menu .submenu.level-3 {
+            top: 0;
+            left: 100%; /* Al lado del item padre de nivel 2 */
+            border-radius: 0 8px 8px 8px;
+            margin-top: -0.5rem; /* Para alinear con el padding del padre */
+        }
+
+        .main-menu ul li.open > .submenu {
+            display: block;
+        }
+
+        .main-menu .submenu li {
+            width: 100%;
+            margin-left: 0; /* Resetear margen para items de submenú */
+        }
+        .main-menu .submenu li a {
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem;
+            color: var(--text-dark); /* Texto más oscuro para subitems */
+            border-bottom: 1px solid var(--border-color-soft);
+        }
+        .main-menu .submenu li:last-child a {
+            border-bottom: none;
+        }
+        .main-menu .submenu li a:hover {
+            background-color: var(--submenu-hover-bg);
+            color: var(--brand-purple-start);
+        }
+        /* --- FIN: ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+        
+        /* Hero Section (sin cambios) */
         .hero { padding: 4.5rem 0 4rem 0; text-align: left; }
         .hero-content-wrapper { max-width: 680px; margin: 0; }
-        .hero-main-title {
-            font-size: 2.75rem; font-weight: 700; color: var(--text-dark);
-            line-height: 1.25; margin-bottom: 1.25rem;
-        }
-        .hero-main-title .highlight-text {
-            background: var(--text-gradient); -webkit-background-clip: text;
-            -moz-background-clip: text; background-clip: text; color: transparent;
-        }
+        .hero-main-title { font-size: 2.75rem; font-weight: 700; color: var(--text-dark); line-height: 1.25; margin-bottom: 1.25rem; }
+        .hero-main-title .highlight-text { background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; }
         .hero-sub-title { font-size: 1.125rem; color: var(--text-medium); margin-bottom: 2.1875rem; line-height: 1.7; }
-        .hero-button-group .btn {
-            padding: 0.8125rem 2.1875rem; font-size: 0.9375rem; font-weight: 600; border-radius: 25px;
-            text-decoration: none; margin-right: 0.75rem; margin-bottom: 0.5rem; display: inline-block;
-            transition: all 0.25s ease-in-out; border: 1.5px solid transparent; min-width: 190px; text-align: center;
-        }
-        .btn-filled-gradient {
-            background: var(--button-gradient); color: var(--text-light); box-shadow: 0 3px 8px rgba(0,0,0,0.07);
-        }
+        .hero-button-group .btn { padding: 0.8125rem 2.1875rem; font-size: 0.9375rem; font-weight: 600; border-radius: 25px; text-decoration: none; margin-right: 0.75rem; margin-bottom: 0.5rem; display: inline-block; transition: all 0.25s ease-in-out; border: 1.5px solid transparent; min-width: 190px; text-align: center; }
+        .btn-filled-gradient { background: var(--button-gradient); color: var(--text-light); box-shadow: 0 3px 8px rgba(0,0,0,0.07); }
         .btn-filled-gradient:hover { opacity: 0.9; box-shadow: 0 4px 12px rgba(var(--brand-purple-start), 0.25); }
-        .btn-bordered {
-            background-color: transparent; color: var(--brand-purple-start); border: 1.5px solid var(--brand-purple-start);
-        }
-        .btn-bordered:hover {
-            background: var(--button-gradient); color: var(--text-light); border-color: transparent;
-        }
+        .btn-bordered { background-color: transparent; color: var(--brand-purple-start); border: 1.5px solid var(--brand-purple-start); }
+        .btn-bordered:hover { background: var(--button-gradient); color: var(--text-light); border-color: transparent; }
 
-        /* Estilos generales para bloques de contenido */
+        /* Estilos generales para bloques de contenido (sin cambios) */
         .content-block { padding: 3.75rem 0; }
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
         .block-title { text-align: center; font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 2.8125rem; }
         
-        /* --- INICIO: NUEVOS ESTILOS PARA TARJETA MISIÓN Y VISIÓN --- */
-        .mission-vision-section-wrapper { 
-            /* El padding ya está en .content-block */
-        }
-        .mission-vision-container { 
-            display: flex; 
-            justify-content: center; 
-            align-items: center;
-        }
+        /* Estilos Tarjeta Misión y Visión (sin cambios) */
+        .mission-vision-section-wrapper {}
+        .mission-vision-container { display: flex; justify-content: center; align-items: center; }
+        .mv-card-wrapper-final { position: relative; width: 100%; max-width: 680px; margin: 1rem auto; }
+        .mv-skewed-background-final { position: absolute; top: 50%; left: 50%; width: 103%; height: 106%; background: linear-gradient(105deg, var(--mv-skewed-gradient-start), var(--mv-skewed-gradient-end)); transform: translate(-50%, -50%) rotate(-2.5deg); border-radius: var(--mv-skewed-bg-border-radius-final); z-index: 1; }
+        .mv-content-card-final { background-color: var(--bg-light); padding: 2.8rem; border-radius: var(--mv-card-border-radius-final); box-shadow: var(--mv-card-shadow-final); position: relative; z-index: 2; text-align: left; font-family: var(--font-primary); }
+        .mv-content-card-final .mission-block, .mv-content-card-final .vision-block { margin-bottom: 2.5rem; }
+        .mv-content-card-final .vision-block { margin-bottom: 0; }
+        .mv-content-card-final .mv-title-final { font-size: var(--mv-title-font-size-final); font-weight: 700; color: var(--text-dark); margin-top: 0; margin-bottom: 0.8rem; line-height: 1.3; }
+        .mv-content-card-final .mv-description-final { font-size: var(--mv-description-font-size-final); color: var(--text-medium); line-height: 1.75; }
 
-        .mv-card-wrapper-final {
-            position: relative;
-            width: 100%;
-            max-width: 680px; 
-            margin: 1rem auto; 
-        }
-
-        .mv-skewed-background-final {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 103%;
-            height: 106%;
-            /* Aplicando el nuevo degradado */
-            background: linear-gradient(105deg, var(--mv-skewed-gradient-start), var(--mv-skewed-gradient-end));
-            transform: translate(-50%, -50%) rotate(-2.5deg);
-            border-radius: var(--mv-skewed-bg-border-radius-final); 
-            z-index: 1;
-        }
-
-        .mv-content-card-final {
-            background-color: var(--bg-light); 
-            padding: 2.8rem; 
-            border-radius: var(--mv-card-border-radius-final); 
-            box-shadow: var(--mv-card-shadow-final); 
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            font-family: var(--font-primary); 
-        }
-
-        .mv-content-card-final .mission-block,
-        .mv-content-card-final .vision-block {
-            margin-bottom: 2.5rem; 
-        }
-        .mv-content-card-final .vision-block {
-            margin-bottom: 0;
-        }
-
-        .mv-content-card-final .mv-title-final {
-            font-size: var(--mv-title-font-size-final); 
-            font-weight: 700;
-            color: var(--text-dark); 
-            margin-top: 0;
-            margin-bottom: 0.8rem; 
-            line-height: 1.3;
-        }
-
-        .mv-content-card-final .mv-description-final {
-            font-size: var(--mv-description-font-size-final); 
-            color: var(--text-medium); 
-            line-height: 1.75;
-        }
-        /* --- FIN: NUEVOS ESTILOS PARA TARJETA MISIÓN Y VISIÓN --- */
-
+        /* Sección Qué Hacemos (sin cambios) */
         .info-cards-wrapper { display: grid; gap: 1.875rem; }
         .grid-three-cols { grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr)); } 
-
-        /* --- INICIO: Estilos específicos para la sección "Qué Hacemos" --- */
-        #que-hacemos .info-cards-wrapper.grid-three-cols {
-            grid-template-columns: repeat(2, 1fr); 
-        }
-
-        @media (max-width: 576px) {
-            #que-hacemos .info-cards-wrapper.grid-three-cols {
-                grid-template-columns: 1fr; 
-            }
-        }
-        /* --- FIN: Estilos específicos para la sección "Qué Hacemos" --- */
-
+        #que-hacemos .info-cards-wrapper.grid-three-cols { grid-template-columns: repeat(2, 1fr); }
+        @media (max-width: 576px) { #que-hacemos .info-cards-wrapper.grid-three-cols { grid-template-columns: 1fr; } }
         .card { background-color: var(--bg-light); padding: 1.875rem; border-radius: 10px; box-shadow: var(--card-shadow-light); text-align: left; }
         .card .card-title { font-size: 1.3125rem; font-weight: 600; margin-top: 0; margin-bottom: 0.9375rem; }
         .card.what-we-do-card .card-title { color: var(--text-dark); }
         .card .card-icon-top { font-size: 2.25rem; color: var(--brand-purple-start); margin-bottom: 1rem; }
         .card .card-description { font-size: 0.9375rem; color: var(--text-medium); line-height: 1.75; }
         
-        /* Projects Section (rest of your styles...) */
-        .project-card { 
-            border-radius: 10px; 
-            box-shadow: var(--card-shadow-light); 
-            overflow: hidden; 
-            display: flex; 
-            flex-direction: column; 
-            transition: transform 0.25s ease, box-shadow 0.25s ease; 
-        }
-        .project-card:hover { 
-            transform: translateY(-4px); 
-            box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); 
-        }
-        .project-img-placeholder { 
-            width: 100%; height: 210px; 
-            background-color: #EAECEF; 
-            display: flex; align-items: center; justify-content: center; 
-            color: #B0B7C3; font-size: 0.875rem; font-style: italic; 
-        }
-        .project-details { 
-            padding: 1.5rem; flex-grow: 1; 
-            display: flex; flex-direction: column; 
-        }
-        .project-name { 
-            font-size: 1.1875rem; font-weight: 600; 
-            color: var(--text-dark); margin-bottom: 0.5rem; 
-        }
-        .project-summary { 
-            font-size: 0.875rem; color: var(--text-medium); 
-            margin-bottom: 1.25rem; flex-grow: 1; 
-        }
-        
-        .btn-details-project { 
-            display: inline-block; padding: 0.6rem 1.2rem; font-size: 0.875rem; 
-            font-weight: 500; color: var(--details-link-blue); background-color: var(--bg-light);
-            border: 1.5px solid var(--details-link-blue); border-radius: 6px; 
-            text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease;
-            align-self: flex-start; 
-        }
+        /* Sección Proyectos (sin cambios) */
+        .project-card { border-radius: 10px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: transform 0.25s ease, box-shadow 0.25s ease; }
+        .project-card:hover { transform: translateY(-4px); box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); }
+        .project-img-placeholder { width: 100%; height: 210px; background-color: #EAECEF; display: flex; align-items: center; justify-content: center; color: #B0B7C3; font-size: 0.875rem; font-style: italic; }
+        .project-details { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-name { font-size: 1.1875rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; }
+        .project-summary { font-size: 0.875rem; color: var(--text-medium); margin-bottom: 1.25rem; flex-grow: 1; }
+        .btn-details-project { display: inline-block; padding: 0.6rem 1.2rem; font-size: 0.875rem; font-weight: 500; color: var(--details-link-blue); background-color: var(--bg-light); border: 1.5px solid var(--details-link-blue); border-radius: 6px; text-decoration: none; transition: background-color 0.2s ease, color 0.2s ease; align-self: flex-start; }
         .btn-details-project:hover { background-color: var(--details-link-blue); color: var(--text-light); }
-
         .all-projects-link-container { text-align: center; margin-top: 2.5rem; }
-        .view-all-projects-link { 
-            display: inline-flex; align-items: center; color: var(--details-link-blue);
-            text-decoration: none; font-weight: 500; font-size: 0.9375rem; 
-        }
+        .view-all-projects-link { display: inline-flex; align-items: center; color: var(--details-link-blue); text-decoration: none; font-weight: 500; font-size: 0.9375rem; }
         .view-all-projects-link:hover { text-decoration: none; color: var(--brand-purple-start); }
         .view-all-projects-link .arrow-icon { margin-left: 0.5rem; transition: transform 0.2s ease; }
         .view-all-projects-link:hover .arrow-icon { transform: translateX(3px); }
+        #proyectos-destacados .projects-slider-controls { display: flex; justify-content: flex-end; margin-bottom: 1.25rem; gap: 0.75rem; }
+        #proyectos-destacados .slider-btn { background-color: var(--brand-purple-start); color: white; border: none; border-radius: 50%; width: 40px; height: 40px; font-size: 1rem; cursor: pointer; transition: background-color 0.2s ease, opacity 0.2s ease; display: flex; align-items: center; justify-content: center; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
+        #proyectos-destacados .slider-btn:hover { background-color: var(--brand-blue-end); }
+        #proyectos-destacados .slider-btn:disabled { background-color: #cccccc; color: #888888; cursor: not-allowed; opacity: 0.7; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols { display: flex; overflow-x: auto; overflow-y: hidden; padding-bottom: 1.5rem; scroll-snap-type: x mandatory; gap: 1.5rem; -webkit-overflow-scrolling: touch; justify-content: flex-start; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols.center-flex-items { justify-content: center; }
+        #proyectos-destacados .project-card { flex: 0 0 clamp(280px, calc(80vw - 3rem), 340px); scroll-snap-align: center; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar { height: 8px; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-track { background: var(--bg-section-alt); border-radius: 10px; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb { background: var(--brand-purple-start); border-radius: 10px; }
+        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb:hover { background: var(--brand-blue-end); }
 
-        /* --- INICIO: Estilos para Proyectos Destacados Horizontal --- */
-        #proyectos-destacados .projects-slider-controls {
-            display: flex;
-            justify-content: flex-end; 
-            margin-bottom: 1.25rem; 
-            gap: 0.75rem; 
-        }
+        /* Sección Donaciones (sin cambios) */
+        .donation-section-wrapper { text-align: center; }
+        .donation-intro-text { font-size: 1.05rem; color: var(--text-medium); line-height: 1.75; max-width: 700px; margin-left: auto; margin-right: auto; margin-bottom: 2.5rem; }
+        .btn-donate-paypal { display: inline-flex; align-items: center; justify-content: center; padding: 0.875rem 2.5rem; font-size: 1rem; font-weight: 600; color: var(--text-light); background-color: var(--paypal-button-bg); border: none; border-radius: 25px; text-decoration: none; transition: background-color 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.07); }
+        .btn-donate-paypal:hover { background-color: var(--paypal-button-hover-bg); box-shadow: 0 4px 12px rgba(0, 112, 186, 0.25); }
+        .btn-donate-paypal .fab { margin-right: 0.75rem; font-size: 1.2em; }
 
-        #proyectos-destacados .slider-btn {
-            background-color: var(--brand-purple-start);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            font-size: 1rem; 
-            cursor: pointer;
-            transition: background-color 0.2s ease, opacity 0.2s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-        }
-
-        #proyectos-destacados .slider-btn:hover {
-            background-color: var(--brand-blue-end);
-        }
-
-        #proyectos-destacados .slider-btn:disabled {
-            background-color: #cccccc;
-            color: #888888;
-            cursor: not-allowed;
-            opacity: 0.7;
-        }
-        
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols { 
-            display: flex; 
-            overflow-x: auto; 
-            overflow-y: hidden; 
-            padding-bottom: 1.5rem; 
-            scroll-snap-type: x mandatory; 
-            gap: 1.5rem; 
-            -webkit-overflow-scrolling: touch; 
-            justify-content: flex-start; 
-        }
-        
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols.center-flex-items {
-            justify-content: center;
-        }
-
-        #proyectos-destacados .project-card {
-            flex: 0 0 clamp(280px, calc(80vw - 3rem), 340px); 
-            scroll-snap-align: center; 
-        }
-
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar {
-            height: 8px; 
-        }
-
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-track {
-            background: var(--bg-section-alt); 
-            border-radius: 10px;
-        }
-
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb {
-            background: var(--brand-purple-start); 
-            border-radius: 10px;
-        }
-
-        #proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb:hover {
-            background: var(--brand-blue-end); 
-        }
-        /* --- FIN: Estilos para Proyectos Destacados Horizontal --- */
-
-        /* "Conéctate con Nosotros" (Redes Sociales) */
+        /* Sección Conéctate (sin cambios) */
         .social-connect-section { padding: 3.75rem 0; }
         .social-connect-intro { text-align: left; max-width: 600px; margin-bottom: 2.5rem; }
         .social-connect-title { font-size: 1.875rem; font-weight: 700; color: var(--text-dark); margin-bottom: 0.75rem; }
         .social-connect-subtitle { font-size: 1.05rem; color: var(--text-medium); line-height: 1.75; margin-bottom: 2rem;}
-
-        .contact-channel-cards-grid { 
-            display: grid; 
-            grid-template-columns: 1fr; 
-            gap: 1.5rem; 
-        }
+        .contact-channel-cards-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
         @media (min-width: 768px) { .contact-channel-cards-grid { grid-template-columns: repeat(2, 1fr); } }
-        
-        .contact-channel-card {
-            background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light);
-            padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem;
-        }
+        .contact-channel-card { background-color: var(--bg-light); border-radius: 10px; box-shadow: var(--card-shadow-light); padding: 1.5rem; display: flex; align-items: flex-start; gap: 1rem; }
         .contact-channel-card .channel-icon-wrapper { flex-shrink: 0; }
-        .contact-channel-card .channel-icon {
-            width: 48px; height: 48px; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center; font-size: 1.5rem; color: var(--text-light);
-        }
+        .contact-channel-card .channel-icon { width: 48px; height: 48px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--text-light); }
         .contact-channel-card .whatsapp-icon { background-color: var(--whatsapp-bg-color); }
         .contact-channel-card .telegram-icon { background-color: var(--telegram-bg-color); }
         .contact-channel-card .channel-content { flex-grow: 1; }
         .contact-channel-card .channel-title { font-size: 1.125rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; }
         .contact-channel-card .channel-description { font-size: 0.875rem; color: var(--text-medium); margin-bottom: 1rem; line-height: 1.6; }
-        .contact-channel-card .btn-join {
-            display: inline-block; padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 500;
-            color: var(--text-light); border-radius: 6px; text-decoration: none; transition: background-color 0.2s ease;
-        }
+        .contact-channel-card .btn-join { display: inline-block; padding: 0.625rem 1.25rem; font-size: 0.875rem; font-weight: 500; color: var(--text-light); border-radius: 6px; text-decoration: none; transition: background-color 0.2s ease; }
         .contact-channel-card .btn-join.whatsapp { background-color: var(--whatsapp-bg-color); }
         .contact-channel-card .btn-join.whatsapp:hover { background-color: var(--whatsapp-hover-bg-color); }
         .contact-channel-card .btn-join.telegram { background-color: var(--telegram-bg-color); }
         .contact-channel-card .btn-join.telegram:hover { background-color: var(--telegram-hover-bg-color); }
         .contact-channel-card .btn-join .arrow { margin-left: 0.5rem; }
 
-        /* --- INICIO ESTILOS FAQs E INFO CONTACTO --- */
-        .support-main-container { 
-            display: grid;
-            grid-template-columns: 1fr; 
-            gap: 2.5rem; 
-            align-items: flex-start;
-        }
-        @media (min-width: 992px) { 
-            .support-main-container {
-                grid-template-columns: 1fr 1.2fr; 
-            }
-        }
-
+        /* Sección Soporte y Contacto (sin cambios) */
+        .support-main-container { display: grid; grid-template-columns: 1fr; gap: 2.5rem; align-items: flex-start; }
+        @media (min-width: 992px) { .support-main-container { grid-template-columns: 1fr 1.2fr; } }
         .faq-and-info-column { }
-
-        .faq-container, .contact-info-container {
-            background-color: var(--bg-light);
-            padding: 1.875rem; 
-            border-radius: 12px;
-            box-shadow: var(--card-shadow-light);
-            margin-bottom: 2rem; 
-        }
-        .faq-container:last-child, .contact-info-container:last-child {
-            margin-bottom: 0;
-        }
-
-        .section-subtitle { 
-            font-size: 1.375rem; 
-            font-weight: 600; 
-            color: var(--text-dark);
-            margin-bottom: 1.5rem; 
-            text-align: left; 
-        }
-
-        .faq-item {
-            border-bottom: 1px solid var(--border-color-soft);
-            padding: 0.875rem 0; 
-        }
-        .faq-item:last-child {
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .faq-item:first-child {
-            padding-top: 0;
-        }
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            font-weight: 500;
-            color: var(--text-dark);
-            cursor: pointer; 
-            font-size: 0.9375rem; 
-            padding: 0.5rem 0; 
-        }
-        .faq-question i.fa-chevron-down { 
-            color: var(--text-medium);
-            transition: transform 0.3s ease;
-            font-size: 0.8em; 
-        }
-        .faq-item.active .faq-question i.fa-chevron-down { 
-            transform: rotate(180deg); 
-        }
-        .faq-answer { 
-            max-height: 0; 
-            overflow: hidden; 
-            transition: max-height 0.35s ease-out, padding-top 0.35s ease-out, margin-top 0.35s ease-out;
-            color: var(--text-medium);
-            font-size: 0.875rem; 
-            line-height: 1.6;
-        }
-        .faq-item.active .faq-answer { 
-            padding-top: 0.75rem; 
-            margin-top: 0.25rem;
-        }
-        
-        .contact-info-list {
-            list-style: none;
-            padding: 0;
-        }
-        .contact-info-item {
-            display: flex;
-            align-items: flex-start; 
-            margin-bottom: 1.25rem; 
-            font-size: 0.9375rem; 
-            color: var(--text-medium);
-        }
-        .contact-info-item:last-child {
-            margin-bottom: 0;
-        }
-        .contact-info-item i {
-            font-size: 1.125rem; 
-            color: var(--brand-purple-start); 
-            margin-right: 0.875rem; 
-            width: 20px; 
-            text-align: center;
-            margin-top: 0.125rem; 
-        }
-        .contact-info-item .info-label {
-            font-weight: 600;
-            color: var(--text-dark);
-            display: block;
-            margin-bottom: 0.125rem; 
-        }
-        .contact-info-item a {
-            color: var(--brand-purple-start);
-            text-decoration: none;
-        }
-        .contact-info-item a:hover {
-            text-decoration: underline;
-        }
-
+        .faq-container, .contact-info-container { background-color: var(--bg-light); padding: 1.875rem; border-radius: 12px; box-shadow: var(--card-shadow-light); margin-bottom: 2rem; }
+        .faq-container:last-child, .contact-info-container:last-child { margin-bottom: 0; }
+        .section-subtitle { font-size: 1.375rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1.5rem; text-align: left; }
+        .faq-item { border-bottom: 1px solid var(--border-color-soft); padding: 0.875rem 0; }
+        .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .faq-item:first-child { padding-top: 0; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--text-dark); cursor: pointer; font-size: 0.9375rem; padding: 0.5rem 0; }
+        .faq-question i.fa-chevron-down { color: var(--text-medium); transition: transform 0.3s ease; font-size: 0.8em; }
+        .faq-item.active .faq-question i.fa-chevron-down { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, padding-top 0.35s ease-out, margin-top 0.35s ease-out; color: var(--text-medium); font-size: 0.875rem; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding-top: 0.75rem; margin-top: 0.25rem; }
+        .contact-info-list { list-style: none; padding: 0; }
+        .contact-info-item { display: flex; align-items: flex-start; margin-bottom: 1.25rem; font-size: 0.9375rem; color: var(--text-medium); }
+        .contact-info-item:last-child { margin-bottom: 0; }
+        .contact-info-item i { font-size: 1.125rem; color: var(--brand-purple-start); margin-right: 0.875rem; width: 20px; text-align: center; margin-top: 0.125rem; }
+        .contact-info-item .info-label { font-weight: 600; color: var(--text-dark); display: block; margin-bottom: 0.125rem; }
+        .contact-info-item a { color: var(--brand-purple-start); text-decoration: none; }
+        .contact-info-item a:hover { text-decoration: underline; }
         .contact-form-card-wrapper { }
-        .contact-form-card { 
-            flex: 1.5; background-color: var(--bg-light); padding: 2.5rem;
-            border-radius: 12px; box-shadow: var(--card-shadow-light); min-width: 300px;
-        }
+        .contact-form-card { flex: 1.5; background-color: var(--bg-light); padding: 2.5rem; border-radius: 12px; box-shadow: var(--card-shadow-light); min-width: 300px; }
         .form-title { font-size: 1.625rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.875rem; text-align: left; }
         .form-group { margin-bottom: 1.25rem; }
         .form-group label { display: block; font-size: 0.875rem; color: var(--text-medium); font-weight: 500; margin-bottom: 0.5rem; }
-        .form-control {
-            width: 100%; padding: 0.8125rem 1rem; font-size: 0.9375rem; font-family: var(--font-primary);
-            color: var(--text-dark); background-color: var(--bg-light); border: 1px solid var(--input-border-color);
-            border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease;
-        }
+        .form-control { width: 100%; padding: 0.8125rem 1rem; font-size: 0.9375rem; font-family: var(--font-primary); color: var(--text-dark); background-color: var(--bg-light); border: 1px solid var(--input-border-color); border-radius: 8px; transition: border-color 0.2s ease, box-shadow 0.2s ease; }
         .form-control:focus { outline: none; border-color: var(--input-focus-border-color); box-shadow: 0 0 0 0.125rem rgba(var(--brand-purple-start), 0.25); }
         textarea.form-control { min-height: 120px; resize: vertical; }
-        select.form-control {
-            appearance: none;
-            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%235F6773' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
-            background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.8em; padding-right: 2.5rem;
-        }
+        select.form-control { appearance: none; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%235F6773' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 1rem center; background-size: 0.8em; padding-right: 2.5rem; }
         .submit-button-container { margin-top: 1.875rem; }
-        .btn-submit-form {
-            display: block; width: 100%; padding: 0.875rem 1.5rem; font-size: 1rem; font-weight: 600;
-            color: var(--text-light); background: var(--button-gradient);
-            border: none; border-radius: 25px; cursor: pointer; transition: opacity 0.2s ease, box-shadow 0.2s ease;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.07);
-        }
+        .btn-submit-form { display: block; width: 100%; padding: 0.875rem 1.5rem; font-size: 1rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 25px; cursor: pointer; transition: opacity 0.2s ease, box-shadow 0.2s ease; box-shadow: 0 3px 8px rgba(0,0,0,0.07); }
         .btn-submit-form:hover { opacity: 0.9; box-shadow: 0 4px 12px rgba(var(--brand-purple-start), 0.25); }
-        /* --- FIN ESTILOS FAQs E INFO CONTACTO --- */
 
-        /* FAB */
-        .floating-action-button {
-            position: fixed; width: 50px; height: 50px; bottom: 1.5rem; right: 1.5rem;
-            background-color: #25D366; color: var(--text-light); border-radius: 50%;
-            display: flex; align-items: center; justify-content: center;
-            box-shadow: 0 3px 10px rgba(0,0,0,0.18); z-index: 999;
-            text-decoration: none; font-size: 1.625rem;
-            transition: background-color 0.2s ease, transform 0.2s ease;
-        }
+        /* FAB (sin cambios) */
+        .floating-action-button { position: fixed; width: 50px; height: 50px; bottom: 1.5rem; right: 1.5rem; background-color: #25D366; color: var(--text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 3px 10px rgba(0,0,0,0.18); z-index: 999; text-decoration: none; font-size: 1.625rem; transition: background-color 0.2s ease, transform 0.2s ease; }
         .floating-action-button:hover { background-color: #1EB955; transform: scale(1.03); }
 
-        /* --- INICIO ESTILOS GLOBALES FOOTER MODIFICADOS --- */
-        .site-footer-detailed {
-            background-color: var(--footer-bg-dark);
-            color: var(--footer-text-secondary-light);
-            padding: 4rem 0 2.5rem 0; 
-            margin-top: 4rem;
-        }
-
-        .footer-grid {
-            display: flex; 
-            flex-wrap: wrap; 
-            justify-content: space-around; 
-            align-items: flex-start; 
-            gap: 2.5rem; 
-            margin-bottom: 3rem; 
-        }
-
-        .footer-column {
-            flex-grow: 1; 
-            flex-basis: 300px; 
-            max-width: 450px; 
-        }
-        
-        .footer-column.footer-column-brand {}
-        .footer-column.footer-column-social {}
-
-        .footer-column .footer-logo-link {
-            display: inline-flex;
-            align-items: center;
-            text-decoration: none;
-            margin-bottom: 1.25rem; 
-        }
-
-        .footer-column .footer-logo-icon-box {
-            width: 38px; 
-            height: 38px; 
-            background: var(--button-gradient);
-            border-radius: 8px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.625rem; 
-        }
-
-        .footer-column .footer-logo-abbr {
-            color: var(--text-light);
-            font-weight: 700;
-            font-size: 1.3rem; 
-        }
-
-        .footer-column .footer-logo-full-text {
-            font-size: 1.15rem; 
-            font-weight: 600;
-            color: var(--footer-text-primary-light);
-        }
-
-        .footer-column .footer-description {
-            font-size: 0.9rem; 
-            line-height: 1.7; 
-            margin-bottom: 1.5rem; 
-            max-width: 100%; 
-        }
-
-        .footer-column .footer-heading {
-            font-size: 1.2rem; 
-            font-weight: 700; 
-            color: var(--footer-heading-color);
-            margin-bottom: 1.75rem; 
-        }
-
-        .footer-social-icons {
-            display: flex;
-            flex-wrap: wrap; 
-            gap: 0.9rem; 
-            margin-bottom: 1.5rem; 
-        }
-
-        .footer-social-icons a {
-            color: var(--footer-icon-color);
-            font-size: 1.35rem; 
-            transition: color 0.2s ease, transform 0.2s ease;
-            width: 36px; 
-            height: 36px; 
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            border: 1px solid transparent; 
-            border-radius: 50%; 
-        }
-
-        .footer-social-icons a:hover {
-            color: var(--footer-icon-hover-color);
-            transform: translateY(-2px) scale(1.05); 
-        }
-
+        /* Footer (sin cambios) */
+        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 4rem 0 2.5rem 0; margin-top: 4rem; }
+        .footer-grid { display: flex; flex-wrap: wrap; justify-content: space-around; align-items: flex-start; gap: 2.5rem; margin-bottom: 3rem; }
+        .footer-column { flex-grow: 1; flex-basis: 300px; max-width: 450px; }
+        .footer-column.footer-column-brand {} .footer-column.footer-column-social {}
+        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.25rem; }
+        .footer-column .footer-logo-icon-box { width: 38px; height: 38px; background: var(--button-gradient); border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 0.625rem; }
+        .footer-column .footer-logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.3rem; }
+        .footer-column .footer-logo-full-text { font-size: 1.15rem; font-weight: 600; color: var(--footer-text-primary-light); }
+        .footer-column .footer-description { font-size: 0.9rem; line-height: 1.7; margin-bottom: 1.5rem; max-width: 100%; }
+        .footer-column .footer-heading { font-size: 1.2rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.75rem; }
+        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 0.9rem; margin-bottom: 1.5rem; }
+        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.35rem; transition: color 0.2s ease, transform 0.2s ease; width: 36px; height: 36px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid transparent; border-radius: 50%; }
+        .footer-social-icons a:hover { color: var(--footer-icon-hover-color); transform: translateY(-2px) scale(1.05); }
         .footer-direct-contact {}
-        .footer-direct-contact a {
-            display: inline-flex; 
-            align-items: center;
-            text-decoration: none;
-            color: var(--footer-text-secondary-light);
-            font-size: 0.95rem; 
-            margin-top: 0.6rem; 
-            transition: color 0.2s ease;
-            padding: 0.3rem 0.2rem; 
-        }
-        .footer-direct-contact a:first-child {
-             margin-top: 0.2rem; 
-        }
-
-        .footer-direct-contact a i {
-            margin-right: 0.6rem; 
-            font-size: 1.15rem; 
-        }
-
-        .footer-direct-contact a:hover {
-            color: var(--footer-link-hover-color);
-        }
-
-        .footer-bottom-bar {
-            text-align: center;
-            padding-top: 2rem; 
-            border-top: 1px solid rgba(255, 255, 255, 0.15); 
-            margin-top: 1rem; 
-        }
-
-        .footer-bottom-bar p {
-            margin: 0;
-            font-size: 0.9rem; 
-            color: var(--footer-text-secondary-light);
-        }
-        /* --- FIN ESTILOS GLOBALES FOOTER MODIFICADOS --- */
+        .footer-direct-contact a { display: inline-flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.95rem; margin-top: 0.6rem; transition: color 0.2s ease; padding: 0.3rem 0.2rem; }
+        .footer-direct-contact a:first-child { margin-top: 0.2rem; }
+        .footer-direct-contact a i { margin-right: 0.6rem; font-size: 1.15rem; }
+        .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
+        .footer-bottom-bar { text-align: center; padding-top: 2rem; border-top: 1px solid rgba(255, 255, 255, 0.15); margin-top: 1rem; }
+        .footer-bottom-bar p { margin: 0; font-size: 0.9rem; color: var(--footer-text-secondary-light); }
 
         /* Responsive */
         @media (max-width: 991px) {
             .nav-toggle { display: block; }
             .main-menu {
-                position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light);
-                box-shadow: 0 2px 4px rgba(0,0,0,0.05); max-height: 0; overflow: hidden;
-                transition: max-height 0.35s ease-in-out; border-top: 1px solid var(--border-color-soft);
+                /* Estilos para el menú móvil principal */
+                position: absolute; 
+                top: 100%; /* Debajo del header */
+                left: 0; 
+                right: 0; 
+                background-color: var(--bg-light);
+                box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
+                max-height: 0; /* Oculto por defecto */
+                overflow-y: auto; /* Scroll si el contenido excede */
+                transition: max-height 0.4s ease-in-out; 
+                border-top: 1px solid var(--border-color-soft);
             }
-            .main-menu.menu-visible { max-height: 350px; }
-            .main-menu ul { flex-direction: column; width: 100%; }
-            .main-menu li { margin: 0; text-align: center; }
-            .main-menu li a { display: block; padding: 0.9375rem 1.25rem; border-bottom: 1px solid var(--border-color-soft); }
-            .main-menu li:last-child a { border-bottom: none; }
-            .main-menu a:hover, .main-menu a.current-page { background-color: var(--bg-section-alt); }
+            .main-menu.menu-visible { 
+                max-height: calc(100vh - 70px); /* Altura máxima, ej. altura de viewport menos altura del header */
+            }
+            .main-menu ul { 
+                flex-direction: column; 
+                width: 100%;
+            }
+            /* Items de primer nivel en móvil */
+            .main-menu > ul > li {
+                margin-left: 0;
+                border-bottom: 1px solid var(--border-color-soft);
+            }
+            .main-menu > ul > li:last-child {
+                border-bottom: none;
+            }
+            .main-menu ul li a {
+                padding: 1rem 1.25rem; /* Padding más generoso para móvil */
+                justify-content: space-between; /* Para que el ícono de flecha esté a la derecha */
+            }
+            /* Submenús en móvil */
+            .main-menu .submenu {
+                position: static; /* Fluyen normalmente en móvil */
+                box-shadow: none;
+                border-radius: 0;
+                min-width: 100%;
+                padding: 0;
+                border-top: none;
+                background-color: var(--submenu-bg); /* Un poco diferente para distinguir */
+            }
+             .main-menu .submenu.level-3 { /* Nivel 3 en móvil */
+                margin-top: 0;
+                padding-left: 1rem; /* Indentación para nivel 3 */
+                background-color: #f9f9f9; /* Fondo ligeramente diferente para nivel 3 */
+            }
+            .main-menu .submenu li a {
+                padding: 0.75rem 1.5rem; /* Padding para subitems */
+                 padding-left: 2rem; /* Mayor indentación para nivel 2 */
+            }
+            .main-menu .submenu.level-3 li a {
+                 padding-left: 3rem; /* Mayor indentación para nivel 3 */
+            }
+            .main-menu .submenu li a:hover {
+                 background-color: var(--submenu-hover-bg);
+            }
+
+
             .hero { text-align: center; }
             .hero-content-wrapper { margin: 0 auto; }
             .hero-main-title { font-size: 2.25rem; }
@@ -695,6 +434,7 @@
             .social-connect-intro { text-align: center; margin-left:auto; margin-right:auto; }
             
             .mv-content-card-final { padding: 2rem; }
+            .donation-intro-text { font-size: 1rem; }
             
             .grid-three-cols:not(#que-hacemos .info-cards-wrapper.grid-three-cols) { 
                 grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); 
@@ -719,71 +459,34 @@
             .mv-content-card-final { padding: 1.8rem 1.5rem; } 
             .mv-content-card-final .mv-title-final { font-size: 1.4rem; } 
             .mv-content-card-final .mv-description-final { font-size: 0.95rem; } 
+            .donation-intro-text { font-size: 0.95rem; padding: 0 0.5rem; }
+            .btn-donate-paypal { padding: 0.8rem 2rem; font-size: 0.95rem; }
             
             .faq-container, .contact-info-container { padding: 1.5rem; }
             .section-subtitle { font-size: 1.3rem; }
 
-            #proyectos-destacados .projects-slider-controls {
-                justify-content: center; 
-            }
-            #proyectos-destacados .project-card {
-                flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px);
-                 scroll-snap-align: center; 
-            }
+            #proyectos-destacados .projects-slider-controls { justify-content: center; }
+            #proyectos-destacados .project-card { flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px); scroll-snap-align: center; }
 
-            .site-footer-detailed {
-                padding: 3rem 0 1.5rem 0; 
-            }
-            .footer-grid {
-                flex-direction: column; 
-                align-items: center; 
-                gap: 1.5rem; 
-                margin-bottom: 1.5rem; 
-            }
-
-            .footer-column {
-                text-align: center; 
-                width: 100%; 
-                max-width: 500px; 
-                margin-bottom: 1rem; 
-            }
-             .footer-column:last-child {
-                margin-bottom: 0; 
-            }
-
-            .footer-bottom-bar {
-                text-align: center;
-                padding-top: 1.25rem; 
-                border-top: 1px solid rgba(255, 255, 255, 0.15); 
-                margin-top: 0; 
-            }
+            .site-footer-detailed { padding: 3rem 0 1.5rem 0; }
+            .footer-grid { flex-direction: column; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; }
+            .footer-column { text-align: center; width: 100%; max-width: 500px; margin-bottom: 1rem; }
+            .footer-column:last-child { margin-bottom: 0; }
+            .footer-bottom-bar { text-align: center; padding-top: 1.25rem; border-top: 1px solid rgba(255, 255, 255, 0.15); margin-top: 0; }
         }
          @media (max-width: 576px) {
             .contact-form-card { padding: 1.5rem; }
-            .mv-skewed-background-final { 
-                border-radius: var(--mv-card-border-radius-final); 
-                width:102%; 
-                height: 104%; 
-            }
+            .mv-skewed-background-final { border-radius: var(--mv-card-border-radius-final); width:102%; height: 104%; }
             .mv-content-card-final { padding: 1.5rem; }
             .mv-content-card-final .mv-title-final { font-size: 1.3rem; }
             .mv-content-card-final .mv-description-final { font-size: 0.9rem; }
         }
          @media (max-width: 480px) { 
-            .footer-column .footer-heading {
-                font-size: 1.1rem;
-            }
-            .footer-direct-contact a,
-            .footer-column .footer-description {
-                font-size: 0.88rem;
-            }
-            .footer-social-icons a {
-                font-size: 1.25rem;
-            }
-            .footer-bottom-bar p {
-                font-size: 0.85rem;
-            }
-        }
+            .footer-column .footer-heading { font-size: 1.1rem; }
+            .footer-direct-contact a, .footer-column .footer-description { font-size: 0.88rem; }
+            .footer-social-icons a { font-size: 1.25rem; }
+            .footer-bottom-bar p { font-size: 0.85rem; }
+         }
 
     </style>
 </head>
@@ -800,10 +503,51 @@
             </button>
             <nav class="main-menu" id="mainMenuNav">
                 <ul>
-                    <li><a href="index.html" class="current-page">Inicio</a></li>
-                    <li><a href="#proyectos-destacados">Proyectos</a></li>
-                    <li><a href="#comunidad">Comunidad</a></li>
-                    <li><a href="#soporte-contacto">Soporte</a></li>
+                    <li class="has-submenu">
+                        <a href="#" aria-haspopup="true" aria-expanded="false">Universe Community <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu level-2">
+                            <li><a href="index.html">Inicio</a></li>
+                            <li><a href="#proyectos-destacados">Proyectos</a></li>
+                            <li><a href="#apoyanos">Donar</a></li>
+                            <li><a href="#comunidad">Comunidad</a></li>
+                            <li><a href="#soporte-contacto">Soporte y Contacto</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="#proyectos-destacados" aria-haspopup="true" aria-expanded="false">Proyectos <i class="fas fa-chevron-down"></i></a>
+                        <ul class="submenu level-2">
+                            <li class="has-submenu">
+                                <a href="proyecto-detalle.html?id=alpha" aria-haspopup="true" aria-expanded="false">Proyecto Alpha <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-detalle.html?id=alpha#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="proyecto-detalle.html?id=beta" aria-haspopup="true" aria-expanded="false">Proyecto Beta <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-detalle.html?id=beta#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="proyecto-detalle.html?id=gamma" aria-haspopup="true" aria-expanded="false">Proyecto Gamma <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-detalle.html?id=gamma#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="proyecto-detalle.html?id=delta" aria-haspopup="true" aria-expanded="false">Proyecto Delta <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-detalle.html?id=delta#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                            <li class="has-submenu">
+                                <a href="proyecto-detalle.html?id=epsilon" aria-haspopup="true" aria-expanded="false">Proyecto Epsilon <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-detalle.html?id=epsilon#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </li>
                 </ul>
             </nav>
         </div>
@@ -840,6 +584,7 @@
                 </div>
             </div>
         </section>
+        
         <section class="content-block bg-shaded" id="que-hacemos">
             <div class="container">
                 <h2 class="block-title">Qué Hacemos</h2>
@@ -935,7 +680,19 @@
             </div>
         </section>
 
-        <section class="content-block social-connect-section" id="comunidad">
+        <section class="content-block donation-section-wrapper" id="apoyanos">
+            <div class="container">
+                <h2 class="block-title">Apoya Nuestra Comunidad</h2>
+                <p class="donation-intro-text">
+                    Tu generosidad nos permite seguir creciendo, desarrollando proyectos innovadores y manteniendo nuestra plataforma abierta para todos. Cada contribución, grande o pequeña, marca una diferencia significativa. ¡Gracias por considerar apoyar a Universe Community!
+                </p>
+                <a href="https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID" target="_blank" rel="noopener noreferrer" class="btn-donate-paypal">
+                    <i class="fab fa-paypal"></i> Donar con PayPal
+                </a>
+            </div>
+        </section>
+
+        <section class="content-block social-connect-section bg-shaded" id="comunidad"> 
             <div class="container">
                 <div class="social-connect-intro">
                     <h2 class="social-connect-title">Conéctate con Nosotros</h2>
@@ -978,7 +735,7 @@
             </div>
         </section>
 
-        <section class="content-block bg-shaded" id="soporte-contacto">
+        <section class="content-block" id="soporte-contacto"> 
             <div class="container">
                 <h2 class="block-title">Soporte y Contacto</h2>
                 
@@ -991,7 +748,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-1">
-                                    <p>Es muy sencillo. Puedes empezar por unirte a nuestro servidor de Discord o a nuestros grupos de WhatsApp/Telegram. Encuentra los enlaces en la sección "Comunidad" o en el pie de página. También puedes explorar la sección de proyectos para ver cómo involucrarte directamente. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                                    <p>Es muy sencillo...</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -1000,7 +757,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-2">
-                                    <p>Explora nuestra sección de "Proyectos". Cada proyecto tiene una descripción y formas de participar. Generalmente, puedes unirte a su canal de comunicación específico (como un subcanal en Discord) o contactar al líder del proyecto para ofrecer tu ayuda y habilidades. ¡Toda contribución es bienvenida! No importa tu nivel de experiencia, siempre hay algo en lo que puedes colaborar, desde ideas hasta desarrollo o difusión.</p>
+                                    <p>Explora nuestra sección de "Proyectos"...</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -1009,7 +766,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-3">
-                                    <p>¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos presentar tu propuesta en los canales generales de la comunidad para discutirla y recibir feedback. Prepara una breve descripción de tu idea, los objetivos y cómo crees que podría beneficiar a la comunidad o a un público más amplio. Estamos aquí para apoyar la innovación. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.</p>
+                                    <p>¡Claro que sí! Nos encantan las nuevas ideas...</p>
                                 </div>
                             </div>
                             <div class="faq-item">
@@ -1018,7 +775,7 @@
                                     <i class="fas fa-chevron-down"></i>
                                 </div>
                                 <div class="faq-answer" id="faq-answer-4">
-                                    <p>Sí, organizamos reuniones generales periódicas para discutir el estado de la comunidad, presentar nuevos proyectos y socializar. Además, cada proyecto puede tener sus propias reuniones de equipo. Todos los anuncios sobre reuniones y eventos se realizan en nuestros canales principales de comunicación, como Discord y los grupos de anuncios. ¡Mantente atento para no perderte nada!</p>
+                                    <p>Sí, organizamos reuniones generales periódicas...</p>
                                 </div>
                             </div>
                         </div>
@@ -1132,7 +889,7 @@
 
     <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // --- Mobile Navigation Menu ---
+        // --- Mobile Navigation Menu (Main Toggle) ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         
@@ -1143,91 +900,139 @@
                 const isExpanded = mainMenuNav.classList.toggle('menu-visible');
                 navToggleBtn.setAttribute('aria-expanded', isExpanded);
                 if (navIcon) { 
-                    if (isExpanded) {
-                        navIcon.classList.remove('fa-bars');
-                        navIcon.classList.add('fa-times');
-                    } else {
-                        navIcon.classList.remove('fa-times');
-                        navIcon.classList.add('fa-bars');
-                    }
+                    navIcon.classList.toggle('fa-bars', !isExpanded);
+                    navIcon.classList.toggle('fa-times', isExpanded);
                 }
-            });
-
-            mainMenuNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', () => {
-                    mainMenuNav.querySelectorAll('a').forEach(navLink => navLink.classList.remove('current-page'));
-                    link.classList.add('current-page');
-
-                    if (link.getAttribute('href').startsWith('#') && mainMenuNav.classList.contains('menu-visible')) {
-                        mainMenuNav.classList.remove('menu-visible');
-                        navToggleBtn.setAttribute('aria-expanded', 'false');
-                        if (navIcon) { 
-                            navIcon.classList.remove('fa-times');
-                            navIcon.classList.add('fa-bars');
-                        }
-                    }
-                });
+                // Close all submenus when main menu is toggled
+                if (!isExpanded) {
+                    mainMenuNav.querySelectorAll('.submenu.open').forEach(submenu => {
+                        submenu.classList.remove('open');
+                        submenu.style.maxHeight = null; // For CSS transition
+                        const parentLi = submenu.closest('.has-submenu');
+                        if (parentLi) parentLi.classList.remove('open');
+                        const parentLink = parentLi.querySelector('a[aria-haspopup="true"]');
+                        if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                    });
+                }
             });
         }
 
+        // --- Submenu Toggle Logic ---
+        const menuItemsWithSubmenu = mainMenuNav.querySelectorAll('li.has-submenu > a');
+
+        menuItemsWithSubmenu.forEach(itemLink => {
+            itemLink.addEventListener('click', function(event) {
+                const listItem = this.parentElement;
+                const submenu = this.nextElementSibling; // Assuming submenu is direct sibling ul
+
+                // Prevent navigation if it's just a toggle for a submenu,
+                // unless it's a direct link (e.g. main "Proyectos" link)
+                if (this.getAttribute('href') === '#' || (submenu && submenu.classList.contains('submenu'))) {
+                    event.preventDefault();
+                }
+
+                if (submenu && submenu.classList.contains('submenu')) {
+                    const isOpen = listItem.classList.toggle('open');
+                    this.setAttribute('aria-expanded', isOpen);
+                    
+                    // Mobile: toggle max-height for CSS transition
+                    if (window.innerWidth <= 991) {
+                        if (isOpen) {
+                            submenu.style.maxHeight = submenu.scrollHeight + "px";
+                        } else {
+                            submenu.style.maxHeight = null;
+                        }
+                    }
+                }
+                // If it's a link with a valid href and not just '#', allow navigation
+                // The click on the link itself will handle navigation.
+            });
+        });
+
+
+        // Close mobile menu when a link inside it is clicked (if it's a hash link or different page)
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll('ul li ul li a').forEach(link => { // Target only actual navigation links in submenus
+                 link.addEventListener('click', () => {
+                    if (mainMenuNav.classList.contains('menu-visible')) {
+                        if (!link.closest('.has-submenu > a[aria-haspopup="true"]')) { // Don't close if it's a submenu toggle itself
+                            mainMenuNav.classList.remove('menu-visible');
+                            navToggleBtn.setAttribute('aria-expanded', 'false');
+                            const navIcon = navToggleBtn.querySelector('i');
+                            if (navIcon) {
+                                navIcon.classList.remove('fa-times');
+                                navIcon.classList.add('fa-bars');
+                            }
+                        }
+                    }
+                 });
+            });
+        }
+
+
         // --- Navigation Link Highlighting on Scroll (NavHighlighter) ---
+        // (This part remains complex with multi-level menus and external pages,
+        // current version will highlight based on on-page sections)
         const sections = document.querySelectorAll("main section[id]");
-        const mainNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll('a') : []; 
+        const allNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll('nav ul li a') : []; 
 
         function navHighlighter() {
-            if (!mainMenuNav || mainNavLinks.length === 0) return; 
+            if (!mainMenuNav || allNavLinks.length === 0) return; 
 
             let scrollY = window.pageYOffset;
-            let noSectionActive = true; 
+            let currentActiveSectionId = null;
 
             sections.forEach(current => {
                 if (!current) return; 
                 const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 100; 
+                const sectionTop = current.offsetTop - 150; 
                 let sectionId = current.getAttribute("id");
                 
-                let correspondingLink = mainMenuNav.querySelector("a[href*='" + sectionId + "']");
-
-                if (correspondingLink) {
-                    if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                        mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
-                        correspondingLink.classList.add("current-page");
-                        noSectionActive = false;
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentActiveSectionId = sectionId;
+                }
+            });
+            
+            allNavLinks.forEach(navLink => {
+                navLink.classList.remove('current-page');
+                const href = navLink.getAttribute('href');
+                if (currentActiveSectionId && href && href.includes(currentActiveSectionId)) {
+                    navLink.classList.add('current-page');
+                    // Open parent submenus if a child is active (for desktop view)
+                    let parentLi = navLink.closest('li.has-submenu');
+                    while(parentLi) {
+                        const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
+                        if (parentAnchor) parentAnchor.classList.add('current-page'); // Or a different class like 'parent-active'
+                        parentLi = parentLi.parentElement.closest('li.has-submenu');
                     }
                 }
             });
 
             const homeLink = mainMenuNav.querySelector("a[href='index.html']");
-            const firstSection = sections[0];
-            const firstSectionTop = firstSection ? (firstSection.offsetTop > 100 ? firstSection.offsetTop - 100 : 0) : 200;
-
-            if (homeLink && (scrollY < firstSectionTop || (noSectionActive && scrollY < 50))) { 
-                let homeIsActive = homeLink.classList.contains('current-page');
-                let otherActive = Array.from(mainNavLinks).some(l => l !== homeLink && l.classList.contains('current-page'));
-
-                if (!otherActive) { 
-                     mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
-                     homeLink.classList.add('current-page');
-                } else if (scrollY < firstSectionTop && !otherActive){ 
-                     mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
-                     homeLink.classList.add('current-page');
-                }
+            if (homeLink && !currentActiveSectionId && scrollY < (sections[0] ? sections[0].offsetTop - 150 : 200)) {
+                 let isHomeAlreadyActive = homeLink.classList.contains('current-page');
+                 if (!isHomeAlreadyActive) {
+                    allNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                    homeLink.classList.add('current-page');
+                 }
+            } else if (homeLink && !currentActiveSectionId && scrollY < 50) { 
+                 allNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                 homeLink.classList.add('current-page');
             }
         }
 
-        if (sections.length > 0 && mainNavLinks.length > 0) {
+        if (sections.length > 0 && allNavLinks.length > 0) {
             window.addEventListener("scroll", navHighlighter);
             navHighlighter(); 
         } else if (mainMenuNav) { 
             const homeLink = mainMenuNav.querySelector("a[href='index.html']");
             if (homeLink && (window.location.pathname.endsWith('index.html') || window.location.pathname === '/')) {
-                 mainNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
+                 allNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
                  homeLink.classList.add('current-page');
             }
         }
 
-
-        // --- FAQ Accordion (Corrected Again) ---
+        // --- FAQ Accordion ---
         const faqItems = document.querySelectorAll('.faq-item');
         faqItems.forEach(item => {
             const question = item.querySelector('.faq-question');
@@ -1247,7 +1052,6 @@
                         answer.style.maxHeight = '0';
                     }
                 });
-
                 question.addEventListener('keydown', (event) => {
                     if (event.key === 'Enter' || event.key === ' ') {
                         event.preventDefault(); 
@@ -1281,41 +1085,32 @@
 
             const updateButtonStatesAndCentering = () => {
                 if (!projectListContainer || !prevBtn || !nextBtn) return;
-
                 const scrollLeft = projectListContainer.scrollLeft;
                 const scrollWidth = projectListContainer.scrollWidth;
                 const clientWidth = projectListContainer.clientWidth;
                 const maxScrollLeft = scrollWidth - clientWidth;
                 const tolerance = 5; 
-
                 prevBtn.disabled = scrollLeft <= tolerance;
                 nextBtn.disabled = scrollLeft >= (maxScrollLeft - tolerance);
-
                 if (scrollWidth <= clientWidth + tolerance) { 
                     projectListContainer.classList.add('center-flex-items');
                 } else {
                     projectListContainer.classList.remove('center-flex-items');
                 }
             };
-
             prevBtn.addEventListener('click', () => {
                 const currentScroll = projectListContainer.scrollLeft;
                 const scrollAmount = getScrollAmount();
                 projectListContainer.scrollTo({ left: currentScroll - scrollAmount, behavior: 'smooth' });
             });
-
             nextBtn.addEventListener('click', () => {
                 const currentScroll = projectListContainer.scrollLeft;
                 const scrollAmount = getScrollAmount();
                 projectListContainer.scrollTo({ left: currentScroll + scrollAmount, behavior: 'smooth' });
             });
-
             projectListContainer.addEventListener('scroll', updateButtonStatesAndCentering);
             window.addEventListener('resize', updateButtonStatesAndCentering); 
-            
-            setTimeout(() => { 
-                updateButtonStatesAndCentering();
-            }, 100); 
+            setTimeout(() => { updateButtonStatesAndCentering(); }, 100); 
         }
 
         // --- Footer Current Year ---
