@@ -8,36 +8,36 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            /* Colores Primarios y de Acento */
+            /* Colores Primarios y de Acento (valores base de proyectos.html, algunos serán sobreescritos abajo para el menú) */
             --brand-purple-start: #6A11CB; 
             --brand-blue-end: #2575FC;     
-           
+            
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-hover-gradient: linear-gradient(105deg, #5e0ec4, #1c6cf0);
 
-            /* Colores de Texto */
-            --text-dark: #1a1a2e; 
-            --text-medium: #5a6175; 
+            /* Colores de Texto (valores de index.html para consistencia del menú) */
+            --text-dark: #212529; /* Tomado de index.html para el menú */
+            --text-medium: #5f6773; /* Tomado de index.html para el menú */
             --text-light: #FFFFFF;
-            --text-subtle: #8a92a5;
+            --text-subtle: #8a92a5; /* Mantenido de proyectos.html para otros elementos */
 
-            /* Fondos */
+            /* Fondos (valores de index.html para consistencia del menú) */
             --bg-light: #FFFFFF;
-            --bg-section-alt: #F7F8FC; 
-            --submenu-bg: #ffffff;
-            --submenu-hover-bg: #f1f3f8; 
-           
-            /* Bordes y Sombras */
-            --border-color-soft: #E0E3EC; 
+            --bg-section-alt: #f8f9fa; /* Tomado de index.html */
+            --submenu-bg: #fdfdfd; /* Tomado de index.html para el menú */
+            --submenu-hover-bg: #f0f0f0; /* Tomado de index.html para el menú */
+            
+            /* Bordes y Sombras (valores de index.html para consistencia del menú) */
+            --border-color-soft: #eaeaea; /* Tomado de index.html para el menú */
             --input-border-color: #CED4DA;
             --input-focus-border-color: var(--brand-purple-start); 
-            --card-shadow-light: 0px 8px 26px rgba(37, 44, 99, 0.07); 
-            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
-           
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); /* Tomado de index.html */
+            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1); /* Mantenido de proyectos.html */
+            
             --font-primary: 'Poppins', sans-serif;
-           
-            /* Footer */
+            
+            /* Footer (Mantenido de proyectos.html) */
             --footer-bg-dark: #121224; 
             --footer-text-primary-light: #E8EAF6;
             --footer-text-secondary-light: #A0A8C0;
@@ -49,6 +49,16 @@
             /* Transiciones */
             --transition-smooth: all 0.3s ease-in-out;
             --transition-carousel: transform 0.5s ease-in-out; 
+
+            /* Variables auxiliares para opacidad con colores RGB */
+            --brand-purple-start-rgb: 106, 17, 203;
+            --brand-blue-end-rgb: 37, 117, 252;
+            --whatsapp-bg-color: #25D366; 
+            --whatsapp-hover-bg-color: #1DAE54; 
+            --header-height: 70px; /* Valor por defecto, se actualiza con JS */
+
+            /* Variables específicas del menú de index.html (ya incluidas arriba o no necesarias si se usan las generales) */
+            --paypal-button-bg: #0070ba; /* No directamente para el menú */
         }
 
         /* Reset Básico y Estilos Generales */
@@ -57,21 +67,20 @@
         body {
             font-family: var(--font-primary);
             background-color: var(--bg-light);
-            color: var(--text-dark);
+            color: var(--text-dark); /* Usará el --text-dark de index.html */
             line-height: 1.75; 
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            /* Padding top será añadido por JS para el header fijo */
         }
-        .container { width: 92%; max-width: 1140px; margin-left: auto; margin-right: auto; padding: 0 15px; }
+        .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; } /* Ancho de container de index */
 
-        /* Header Fijo */
+        /* Header Fijo (mantenido de proyectos.html) */
         .site-header {
             background-color: var(--bg-light); 
             padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(37,44,99,0.05); 
-            position: fixed; 
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra de header de index.html */
+            position: fixed; /* Mantenido de proyectos.html para la lógica JS de padding */
             top: 0;
             left: 0;
             width: 100%;
@@ -79,52 +88,83 @@
         }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-icon-box {
-            width: 40px; height: 40px; 
+        .logo-icon-box { /* Estilos de logo de index.html */
+            width: 38px;
+            height: 38px;
             background: var(--button-gradient);
-            border-radius: 10px; 
-            display: flex; align-items: center; justify-content: center; margin-right: 0.75rem;
-            transition: var(--transition-smooth);
-        }
-        .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3); }
-        .logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.375rem; }
-        .logo-full-text { font-size: 1.25rem; font-weight: 600; color: var(--text-dark); transition: color 0.2s ease; }
-        .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
-       
-        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
-        .nav-toggle { 
-            display: none; 
-            background: transparent; 
-            border: none; 
-            font-size: 1.85rem; 
-            color: var(--text-dark); 
-            cursor: pointer;
-            z-index: 1001; 
-            padding: 0.25rem;
-        }
-        .main-menu { position: relative; }
-        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
-        .main-menu ul li { position: relative; }
-        .main-menu > ul > li { margin-left: 0.25rem; } 
-        .main-menu > ul > li:first-child { margin-left: 0; }
-
-        .main-menu ul li a {
-            display: flex; 
+            border-radius: 8px;
+            display: flex;
             align-items: center;
-            text-decoration: none;
-            color: var(--text-medium);
-            font-weight: 500;
-            font-size: 0.95rem; 
-            padding: 0.8rem 1rem; 
-            border-radius: 6px; 
-            transition: var(--transition-smooth);
-            white-space: nowrap; 
+            justify-content: center;
+            margin-right: 0.625rem;
+        }
+        .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3); }
+        .logo-abbr { /* Estilos de logo de index.html */
+            color: var(--text-light);
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .logo-full-text { /* Estilos de logo de index.html */
+            font-size: 1.1875rem;
+            font-weight: 600;
+            color: var(--text-dark); /* Usará --text-dark de index.html */
+        }
+        .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
+        
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL (TOMADOS DE INDEX.HTML) --- */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem; /* De index.html */
+            color: var(--text-dark); /* De index.html */
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.25rem; /* Añadido para mejor área de toque */
+        }
+        .main-menu {
             position: relative;
         }
-       
-        .main-menu ul li a .submenu-toggle-icon {
-            margin-left: 0.6em;
-            font-size: 0.65em;
+        .main-menu ul {
+            list-style: none;
+            display: flex;
+            margin: 0;
+            padding: 0;
+        }
+        .main-menu ul li {
+            position: relative;
+            margin-left: 0; /* De index.html */
+        }
+        .main-menu > ul > li {
+            margin-left: 0.5rem; /* De index.html, reducido para más items */
+        }
+        .main-menu > ul > li:first-child {
+            margin-left: 0;
+        }
+
+        .main-menu ul li a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium); /* De index.html */
+            font-weight: 500;
+            font-size: 0.9rem; /* De index.html, ligeramente reducido */
+            padding: 0.75rem 0.8rem; /* De index.html, ajustado */
+            border-radius: 6px; /* Añadido para consistencia */
+            transition: color 0.2s ease, background-color 0.2s ease;
+            white-space: nowrap;
+            position: relative; /* Para ::before si se usa */
+        }
+
+        .main-menu ul li a .submenu-toggle-icon { /* De index.html */
+            margin-left: 0.5em;
+            font-size: 0.7em;
+            display: inline-flex; 
+            align-items: center;
+            padding: 0.3em; 
+            cursor: pointer; 
+        }
+        .main-menu ul li a .submenu-toggle-icon i {
             transition: transform 0.3s ease;
         }
 
@@ -132,86 +172,93 @@
         .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
             transform: rotate(180deg);
         }
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
-            transform: rotate(90deg);
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { /* Específico para flecha derecha */
+            transform: rotate(90deg); /* En móvil, al abrir, la flecha derecha apunta hacia abajo */
+        }
+         @media (min-width: 992px) { /* En desktop, la flecha derecha rota para indicar apertura lateral */
+             .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+                transform: rotate(0deg); 
+             }
         }
 
-        .main-menu a:hover, 
-        .main-menu ul li:hover > a, 
-        .main-menu ul li.open > a { 
+        .main-menu a:hover,
+        .main-menu ul li:hover > a,
+        .main-menu ul li.open > a {
             color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg);
+            background-color: var(--submenu-hover-bg); /* Aplicado al 'a' en hover/open */
         }
         
+        /* Estilo para el enlace de la página actual en el menú principal (de proyectos.html) */
         .main-menu > ul > li > a.current-page {
             color: var(--text-light); 
             background: var(--text-gradient); 
             font-weight: 600;
-            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3);
-        }
-        .main-menu > ul > li > a.current-page::before {
-            display: none; 
+            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
         }
         .main-menu > ul > li > a.current-page:hover {
             color: var(--text-light);
             background: var(--button-hover-gradient); 
             opacity: 0.95;
         }
-
-         .main-menu .submenu li a.current-page {
+        /* Estilo para el enlace de la página actual dentro de un submenú (de proyectos.html) */
+        .main-menu .submenu li a.current-page {
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg); 
             font-weight: 600;
         }
-        .main-menu .submenu li a.current-page::before { display: none; } 
-       
-        .main-menu .submenu {
+        
+        .main-menu .submenu { /* De index.html */
             display: none;
             position: absolute;
-            top: calc(100% + 5px); 
+            top: 100%;
             left: 0;
-            background-color: var(--submenu-bg);
-            box-shadow: 0 8px 20px rgba(37,44,99,0.1); 
-            border-radius: 8px;
-            min-width: 240px; 
-            z-index: 100; 
-            padding: 0.75rem 0;
-            border: 1px solid var(--border-color-soft);
-            opacity: 0;
-            visibility: hidden;
-            transform: translateY(10px);
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease;
+            background-color: var(--submenu-bg); /* De index.html */
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* De index.html */
+            border-radius: 0 0 8px 8px; /* De index.html */
+            min-width: 230px; /* De index.html */
+            z-index: 100;
+            padding: 0.5rem 0; /* De index.html */
+            border-top: 1px solid var(--border-color-soft); /* De index.html */
+            opacity: 0; /* Añadido para transición */
+            visibility: hidden; /* Añadido para transición */
+            transform: translateY(10px); /* Añadido para transición */
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Añadido para transición */
         }
-        .main-menu .submenu.level-3 {
-            top: -0.75rem; 
-            left: calc(100% + 5px); 
+        .main-menu .submenu.level-3 { /* De index.html */
+            top: 0; /* Ajustado de -0.5rem para mejor alineación */
+            left: 100%;
+            border-radius: 0 8px 8px 8px; /* De index.html */
+            margin-top: -0.5rem; /* De index.html, para superponer un poco */
         }
 
-        .main-menu ul li.open > .submenu {
-            display: block; 
+        .main-menu ul li.open > .submenu { /* De index.html, con mejoras de transición */
+            display: block;
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .main-menu .submenu li { width: 100%; }
-        .main-menu .submenu li a {
-            padding: 0.7rem 1.5rem; 
-            font-size: 0.9rem;
-            color: var(--text-dark); 
-            border-bottom: none; 
+        .main-menu .submenu li { /* De index.html */
+            width: 100%;
+            margin-left: 0;
+        }
+        .main-menu .submenu li a { /* De index.html */
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem; /* Coincide con el 'a' principal */
+            color: var(--text-dark); /* De index.html */
+            border-bottom: 1px solid var(--border-color-soft); /* De index.html */
             justify-content: space-between; 
-            border-radius: 0; 
+            border-radius: 0; /* Quitar border-radius de items de submenú */
         }
-        .main-menu .submenu li:not(:last-child) a {
-             border-bottom: 1px solid var(--border-color-soft); 
+        .main-menu .submenu li:last-child a { /* De index.html */
+            border-bottom: none;
         }
-        .main-menu .submenu li a:hover {
-            background-color: var(--submenu-hover-bg);
+        .main-menu .submenu li a:hover { /* De index.html */
+            background-color: var(--submenu-hover-bg); /* De index.html */
             color: var(--brand-purple-start);
         }
         /* --- FIN: ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
-       
+        
         /* Estilos generales para bloques de contenido */
         .content-block { padding: 4.5rem 0; } 
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
@@ -241,18 +288,17 @@
             line-height: 1.8;
         }
 
-        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
+        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS (mantenidos de proyectos.html) --- */
         .announcement-carousel-section {
             padding-top: 3rem; 
-            padding-bottom: 2.5rem; /* Aumentado para dar espacio al botón "Ver todos" */
+            padding-bottom: 2.5rem;
             background-color: var(--bg-section-alt); 
             margin-bottom: 2.5rem; 
         }
         .announcement-carousel-section .block-title { 
-            color: var(--text-dark);
+            color: var(--text-dark); /* Usará el --text-dark de index.html */
             margin-bottom: 2.5rem; 
         }
-
 
         .carousel-container {
             position: relative;
@@ -261,405 +307,119 @@
             margin: 0 auto;
             overflow: hidden; 
             border-radius: 16px; 
-            box-shadow: var(--card-shadow-light);
+            box-shadow: var(--card-shadow-light); /* Usará la sombra de index.html */
             cursor: grab; 
         }
-        .carousel-container.grabbing {
-            cursor: grabbing;
-        }
-
-        .carousel-slides {
-            display: flex;
-            height: 450px; 
-            will-change: transform; 
-        }
-
-        .carousel-slide {
-            min-width: 100%;
-            box-sizing: border-box;
-            position: relative; 
-            user-select: none; 
-        }
-        .carousel-slide img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
-            display: block;
-            border-radius: 16px; 
-            pointer-events: none; 
-        }
-
-        .carousel-slide .carousel-caption {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(to top, rgba(0, 0, 0, 0.85) 0%, rgba(0, 0, 0, 0.7) 40%, rgba(0, 0, 0, 0) 100%); 
-            color: var(--text-light);
-            padding: 2.5rem 2rem 1.5rem; 
-            text-align: left; 
-            border-radius: 0 0 16px 16px; 
-            transform: translateY(100%); 
-            opacity: 0;
-            transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out;
-            transition-delay: 0.1s; 
-        }
-        .carousel-slide.active .carousel-caption { 
-            transform: translateY(0);
-            opacity: 1;
-        }
-
-
-        .carousel-slide .carousel-caption h3 {
-            font-size: 1.75rem; 
-            margin-top: 0;
-            margin-bottom: 0.6rem;
-            font-weight: 700;
-        }
-
-        .carousel-slide .carousel-caption p {
-            font-size: 1rem;
-            margin-bottom: 0;
-            opacity: 0.9;
-        }
-
-        .carousel-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(255, 255, 255, 0.25); 
-            color: var(--text-light);
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            backdrop-filter: blur(6px); 
-            padding: 0.6rem;
-            font-size: 1.75rem;
-            cursor: pointer;
-            z-index: 10;
-            border-radius: 50%;
-            width: 52px;
-            height: 52px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-smooth);
-        }
-
-        .carousel-button:hover {
-            background-color: rgba(255, 255, 255, 0.4);
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 0 15px rgba(255,255,255,0.2);
-        }
-
+        .carousel-container.grabbing { cursor: grabbing; }
+        .carousel-slides { display: flex; height: 450px; will-change: transform; }
+        .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; user-select: none; }
+        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; pointer-events: none; }
+        .carousel-slide .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%); color: var(--text-light); padding: 2.5rem 2rem 1.5rem; text-align: left; border-radius: 0 0 16px 16px; transform: translateY(100%); opacity: 0; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out; transition-delay: 0.1s; }
+        .carousel-slide.active .carousel-caption { transform: translateY(0); opacity: 1; }
+        .carousel-slide .carousel-caption h3 { font-size: 1.75rem; margin-top: 0; margin-bottom: 0.6rem; font-weight: 700; }
+        .carousel-slide .carousel-caption p { font-size: 1rem; margin-bottom: 0; opacity: 0.9; }
+        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.25); color: var(--text-light); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(6px); padding: 0.6rem; font-size: 1.75rem; cursor: pointer; z-index: 10; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+        .carousel-button:hover { background-color: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(255,255,255,0.2); }
         .carousel-button.prev { left: 1.5rem; }
         .carousel-button.next { right: 1.5rem; }
-
-        .carousel-dots {
-            text-align: center;
-            padding-top: 1.25rem; /* Reducido ligeramente */
-        }
-
-        .carousel-dot {
-            display: inline-block;
-            width: 10px; 
-            height: 10px;
-            background-color: #c0c8e0; 
-            border-radius: 50%;
-            margin: 0 7px; 
-            cursor: pointer;
-            transition: var(--transition-smooth);
-            border: none; 
-            padding: 0;
-        }
-        .carousel-dot:hover {
-            background-color: var(--brand-blue-end);
-            transform: scale(1.2);
-        }
-        .carousel-dot.active {
-            background-color: var(--brand-purple-start); 
-            transform: scale(1.3);
-            width: 25px; 
-            border-radius: 5px; 
-        }
-
-        .carousel-view-all-container {
-            text-align: center;
-            margin-top: 1.75rem; /* Ajustado para mejor cohesión */
-        }
-
-        .btn-view-all-announcements {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.9rem 2rem; 
-            font-size: 1rem;
-            font-weight: 600;
-            color: var(--text-light);
-            background: var(--button-gradient);
-            border: none;
-            border-radius: 30px; 
-            text-decoration: none;
-            transition: var(--transition-smooth);
-            box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.2);
-        }
-        .btn-view-all-announcements i {
-            margin-left: 0.6rem;
-            transition: transform 0.2s ease-out;
-        }
-        .btn-view-all-announcements:hover {
-            background: var(--button-hover-gradient);
-            box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3);
-            transform: translateY(-2px);
-        }
-         .btn-view-all-announcements:hover i {
-            transform: translateX(4px);
-        }
-
+        .carousel-dots { text-align: center; padding-top: 1.25rem; }
+        .carousel-dot { display: inline-block; width: 10px; height: 10px; background-color: #c0c8e0; border-radius: 50%; margin: 0 7px; cursor: pointer; transition: var(--transition-smooth); border: none; padding: 0; }
+        .carousel-dot:hover { background-color: var(--brand-blue-end); transform: scale(1.2); }
+        .carousel-dot.active { background-color: var(--brand-purple-start); transform: scale(1.3); width: 25px; border-radius: 5px; }
+        .carousel-view-all-container { text-align: center; margin-top: 1.75rem; }
+        .btn-view-all-announcements { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2rem; font-size: 1rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
+        .btn-view-all-announcements i { margin-left: 0.6rem; transition: transform 0.2s ease-out; }
+        .btn-view-all-announcements:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
+        .btn-view-all-announcements:hover i { transform: translateX(4px); }
         /* --- FIN: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
 
-        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
-         .projects-page-wrapper {
-            padding-top: 2.5rem; 
-        }
-        .projects-page-wrapper .block-title { 
-            color: var(--text-dark); 
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block;
-        }
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); 
-            gap: 2.5rem; 
-        }
-
-        .project-card-detailed {
-            background-color: var(--bg-light);
-            border-radius: 16px; 
-            box-shadow: var(--card-shadow-light);
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: var(--transition-smooth);
-        }
-        .project-card-detailed:hover {
-            transform: translateY(-8px); 
-            box-shadow: var(--card-hover-shadow);
-        }
-
-        .project-card-detailed .project-img-placeholder {
-            width: 100%;
-            height: 240px; 
-            background-color: #e9eef7; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--text-subtle);
-            font-size: 1rem;
-            font-style: italic;
-            border-bottom: 1px solid var(--border-color-soft);
-        }
-        .project-card-detailed .project-content {
-            padding: 2rem; 
-            flex-grow: 1;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .project-card-detailed .project-title {
-            font-size: 1.6rem; 
-            font-weight: 600;
-            color: var(--text-dark);
-            margin-bottom: 0.6rem; 
-        }
-        .project-card-detailed .project-title a {
-            text-decoration: none;
-            color: inherit;
-            transition: color 0.2s ease;
-        }
-        .project-card-detailed .project-title a:hover {
-            color: var(--brand-purple-start);
-        }
-
-        .project-card-detailed .project-category {
-            font-size: 0.85rem; 
-            font-weight: 600; 
-            color: var(--brand-blue-end); 
-            text-transform: uppercase;
-            letter-spacing: 0.75px; 
-            margin-bottom: 1.25rem; 
-            display: table; 
-            margin-left: auto;
-            margin-right: auto;
-            background-color: rgba(var(--brand-blue-end-rgb, 37, 117, 252), 0.1); 
-            padding: 0.35rem 0.85rem; 
-            border-radius: 20px;
-        }
-       
-        .project-card-detailed .project-description-full {
-            font-size: 0.975rem; 
-            color: var(--text-medium);
-            line-height: 1.8; 
-            margin-bottom: 1.75rem;
-            flex-grow: 1; 
-        }
-
-        .project-card-detailed .btn-view-project-page {
-            display: inline-flex; 
-            align-items: center;
-            justify-content: center;
-            padding: 0.8rem 1.75rem; 
-            font-size: 0.95rem;
-            font-weight: 600;
-            color: var(--text-light);
-            background: var(--button-gradient);
-            border: none;
-            border-radius: 30px; 
-            text-decoration: none;
-            text-align: center;
-            transition: var(--transition-smooth);
-            align-self: flex-start; 
-            box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.2);
-        }
-        .project-card-detailed .btn-view-project-page i {
-            margin-left: 0.5rem;
-            transition: transform 0.2s ease-out;
-        }
-        .project-card-detailed .btn-view-project-page:hover {
-            background: var(--button-hover-gradient);
-            box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3);
-            transform: translateY(-2px);
-        }
-        .project-card-detailed .btn-view-project-page:hover i {
-            transform: translateX(3px);
-        }
+        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS (mantenidos de proyectos.html) --- */
+        .projects-page-wrapper { padding-top: 2.5rem; }
+        .projects-page-wrapper .block-title { color: var(--text-dark); background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.5rem; }
+        .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth); }
+        .project-card-detailed:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); }
+        .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: #e9eef7; display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); }
+        .project-card-detailed .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
+        .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; }
+        .project-card-detailed .project-title a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
+        .project-card-detailed .project-title a:hover { color: var(--brand-purple-start); }
+        .project-card-detailed .project-category { font-size: 0.85rem; font-weight: 600; color: var(--brand-blue-end); text-transform: uppercase; letter-spacing: 0.75px; margin-bottom: 1.25rem; display: table; margin-left: auto; margin-right: auto; background-color: rgba(var(--brand-blue-end-rgb), 0.1); padding: 0.35rem 0.85rem; border-radius: 20px; }
+        .project-card-detailed .project-description-full { font-size: 0.975rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.75rem; flex-grow: 1; }
+        .project-card-detailed .btn-view-project-page { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; text-align: center; transition: var(--transition-smooth); align-self: flex-start; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
+        .project-card-detailed .btn-view-project-page i { margin-left: 0.5rem; transition: transform 0.2s ease-out; }
+        .project-card-detailed .btn-view-project-page:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
+        .project-card-detailed .btn-view-project-page:hover i { transform: translateX(3px); }
         /* --- FIN: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
 
-        /* FAB */
-        .floating-action-button { 
-            position: fixed; width: 56px; height: 56px; 
-            bottom: 1.75rem; right: 1.75rem; 
-            background-color: var(--whatsapp-bg-color, #25D366); 
-            color: var(--text-light); border-radius: 50%; 
-            display: flex; align-items: center; justify-content: center; 
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2); 
-            z-index: 999; text-decoration: none; font-size: 1.75rem; 
-            transition: var(--transition-smooth); 
-        }
-        .floating-action-button:hover { 
-            background-color: var(--whatsapp-hover-bg-color, #1DAE54); 
-            transform: scale(1.08) rotate(5deg); 
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-        }
+        /* Botón Flotante de Acción (FAB) */
+        .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: var(--text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
+        .floating-action-button:hover { background-color: var(--whatsapp-hover-bg-color); transform: scale(1.08) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
 
-        /* Footer */
-        .site-footer-detailed { 
-            background-color: var(--footer-bg-dark); 
-            color: var(--footer-text-secondary-light); 
-            padding: 5rem 0 2rem 0; 
-            margin-top: 5rem; 
-            border-top: 4px solid var(--brand-purple-start); 
-        }
-        .footer-grid { 
-            display: grid; 
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            align-items: flex-start; 
-            gap: 3rem; 
-            margin-bottom: 3.5rem; 
-        }
-        .footer-column .footer-logo-link { 
-            display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; 
-        }
-        .footer-column .footer-logo-icon-box { 
-            width: 42px; height: 42px; background: var(--button-gradient); 
-            border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; 
-        }
+        /* Footer Detallado */
+        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 5rem 0 2rem 0; margin-top: 5rem; border-top: 4px solid var(--brand-purple-start); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: flex-start; gap: 3rem; margin-bottom: 3.5rem; }
+        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-column .footer-logo-icon-box { width: 42px; height: 42px; background: var(--button-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; }
         .footer-column .footer-logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.4rem; }
         .footer-column .footer-logo-full-text { font-size: 1.2rem; font-weight: 600; color: var(--footer-text-primary-light); }
         .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
         .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
-        .footer-column .footer-heading::after { 
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 3px;
-            background: var(--brand-blue-end);
-        }
+        .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
         .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
-        .footer-social-icons a { 
-            color: var(--footer-icon-color); font-size: 1.25rem; 
-            transition: var(--transition-smooth); 
-            width: 40px; height: 40px; 
-            display: inline-flex; align-items: center; justify-content: center; 
-            border: 1px solid var(--footer-icon-color); 
-            border-radius: 50%; 
-        }
-        .footer-social-icons a:hover { 
-            color: var(--text-light); 
-            background-color: var(--brand-blue-end);
-            border-color: var(--brand-blue-end);
-            transform: translateY(-3px) scale(1.05); 
-        }
-        .footer-direct-contact a { 
-            display: flex; align-items: center; text-decoration: none; 
-            color: var(--footer-text-secondary-light); font-size: 0.975rem; 
-            margin-bottom: 0.75rem; 
-            transition: color 0.2s ease; padding: 0.3rem 0; 
-        }
+        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
+        .footer-social-icons a:hover { color: var(--text-light); background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
+        .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
         .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
         .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
-        .footer-bottom-bar { text-align: center; padding-top: 2.5rem; border-top: 1px solid rgba(255, 255, 255, 0.1); margin-top: 2rem; }
+        .footer-bottom-bar { text-align: center; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
         .footer-bottom-bar p { margin: 0; font-size: 0.925rem; color: var(--footer-text-secondary-light); }
 
-        /* Responsive Adjustments */
+        /* Ajustes Responsivos */
         @media (max-width: 991px) {
-            .container { width: 95%; }
+            .container { width: 95%; } /* Mantenido de proyectos.html */
             .nav-toggle { display: flex; align-items: center; justify-content: center; } 
-            .main-menu {
+            .main-menu { /* Estilos de menú móvil de index.html adaptados */
                 position: absolute; 
                 top: 100%; 
                 left: 0; 
                 right: 0; 
                 background-color: var(--bg-light);
-                box-shadow: 0 5px 15px rgba(37,44,99,0.1); 
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Sombra de index.html */
                 max-height: 0; 
                 overflow-y: auto; 
-                transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
-                border-top: 1px solid var(--border-color-soft);
+                transition: max-height 0.4s ease-in-out; /* Transición de index.html */
+                border-top: 1px solid var(--border-color-soft); /* Borde de index.html */
             }
-            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height, 70px)); } 
+            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
             .main-menu ul { flex-direction: column; width: 100%; }
-            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); }
+            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } /* Borde de index.html */
             .main-menu > ul > li:last-child { border-bottom: none; }
-            .main-menu ul li a { padding: 1rem 1.5rem; justify-content: space-between; border-radius: 0;}
+            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} /* Padding de index.html */
             
-            .main-menu > ul > li > a.current-page {
+            .main-menu > ul > li > a.current-page { /* Estilo de current-page en móvil (de proyectos.html) */
                 background: var(--submenu-hover-bg); 
                 color: var(--brand-purple-start); 
                 box-shadow: none;
             }
             .main-menu > ul > li > a.current-page:hover {
-                 background: var(--submenu-hover-bg);
+                 background: var(--submenu-hover-bg); 
                  opacity: 1;
             }
 
-            .main-menu .submenu {
+            .main-menu .submenu { /* Estilos de submenú móvil de index.html adaptados */
                 position: static; 
                 box-shadow: none; border-radius: 0; min-width: 100%;
                 padding: 0; border-top: none;
-                background-color: var(--submenu-hover-bg); 
-                max-height: 0; overflow: hidden;
-                transition: max-height 0.35s ease-out;
+                background-color: var(--submenu-hover-bg); /* Fondo de submenú de index.html */
+                max-height: 0; overflow: hidden; 
+                transition: max-height 0.3s ease-out; /* Transición de index.html */
                 opacity: 1; visibility: visible; transform: none; 
             }
             .main-menu ul li.open > .submenu { max-height: 600px; }
-            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 0; background-color: #e9eef7; }
-            .main-menu .submenu li a { padding: 0.8rem 1.5rem; padding-left: 2.5rem; }
-            .main-menu .submenu.level-3 li a { padding-left: 3.5rem; }
+            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: #f9f9f9; } /* Estilo de nivel 3 de index.html */
+            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } /* Padding de index.html */
+            .main-menu .submenu.level-3 li a { padding-left: 3rem; } /* Padding de index.html */
             
             .block-title { font-size: 2rem; }
             .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
@@ -680,9 +440,9 @@
         @media (max-width: 767px) {
             .block-title { font-size: 1.75rem; }
             .block-subtitle { font-size: 1rem; }
-            .projects-grid { grid-template-columns: 1fr; gap: 1.5rem;}
+            .projects-grid { grid-template-columns: 1fr; gap: 1.5rem;} 
             .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); }
+            .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); } 
             .footer-social-icons { justify-content: center; }
             .footer-direct-contact a { justify-content: center; }
 
@@ -692,7 +452,7 @@
         }
          @media (max-width: 480px) {
             .carousel-slides { height: 280px; }
-             .carousel-slide .carousel-caption { padding: 1.5rem 1rem 0.75rem; }
+            .carousel-slide .carousel-caption { padding: 1.5rem 1rem 0.75rem; }
             .carousel-slide .carousel-caption h3 { font-size: 1.1rem; }
             .carousel-slide .carousel-caption p { font-size: 0.8rem; }
             .project-card-detailed .project-img-placeholder { height: 200px; }
@@ -700,16 +460,6 @@
             .project-card-detailed .project-title { font-size: 1.3rem; }
             .btn-view-all-announcements { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
         }
-
-        /* Helper class for RGB colors for opacity */
-        :root {
-            --brand-purple-start-rgb: 106, 17, 203;
-            --brand-blue-end-rgb: 37, 117, 252;
-            --whatsapp-bg-color-rgb: 37, 211, 102; 
-            --whatsapp-hover-bg-color-rgb: 29, 174, 84;
-            --header-height: 70px; /* Default, updated by JS */
-        }
-
     </style>
 </head>
 <body>
@@ -727,27 +477,27 @@
                 <ul>
                     <li class="has-submenu">
                         <a href="index.html" aria-haspopup="true" aria-expanded="false">
-                            Universe Community 
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                            Universe Community
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
                         </a>
                         <ul class="submenu level-2">
                             <li><a href="index.html">Inicio</a></li>
-                            <li><a href="proyectos.html">Proyectos</a></li>
-                            <li><a href="donaciones.html">Donar</a></li>
-                            <li><a href="contacto.html">Contacto</a></li>
-                            <li><a href="soporte.html">Soporte</a></li>
+                            <li><a href="index.html#proyectos-destacados">Proyectos</a></li>
+                            <li><a href="index.html#donaciones">Donar</a></li>
+                            <li><a href="index.html#comunidad">Contacto</a></li>
+                            <li><a href="index.html#soporte-contacto">Soporte</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
                         <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
                             Proyectos
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down" aria-hidden="true"></i></span>
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
                         </a>
                         <ul class="submenu level-2">
                             <li class="has-submenu">
                                 <a href="proyecto-alpha.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Alpha 
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                                    Proyecto Alpha
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="submenu level-3">
                                     <li><a href="proyecto-alpha.html#inicio">Inicio del Proyecto</a></li>
@@ -756,8 +506,8 @@
                             </li>
                             <li class="has-submenu">
                                 <a href="proyecto-beta.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Beta 
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                                    Proyecto Beta
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="submenu level-3">
                                     <li><a href="proyecto-beta.html#inicio">Inicio del Proyecto</a></li>
@@ -766,7 +516,7 @@
                             <li class="has-submenu">
                                 <a href="proyecto-gamma.html" aria-haspopup="true" aria-expanded="false">
                                     Proyecto Gamma
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="submenu level-3">
                                     <li><a href="proyecto-gamma.html#inicio">Inicio del Proyecto</a></li>
@@ -775,7 +525,7 @@
                             <li class="has-submenu">
                                 <a href="proyecto-delta.html" aria-haspopup="true" aria-expanded="false">
                                     Proyecto Delta
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="submenu level-3">
                                     <li><a href="proyecto-delta.html#inicio">Inicio del Proyecto</a></li>
@@ -784,14 +534,13 @@
                             <li class="has-submenu">
                                 <a href="proyecto-epsilon.html" aria-haspopup="true" aria-expanded="false">
                                     Proyecto Epsilon
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                                 </a>
                                 <ul class="submenu level-3">
                                     <li><a href="proyecto-epsilon.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
-                            <li><a href="proyectos.html#todos-los-proyectos">Ver Todos los Proyectos</a></li>
-                        </ul>
+                            </ul>
                     </li>
                 </ul>
             </nav>
@@ -801,33 +550,32 @@
     <main>
         <section class="announcement-carousel-section">
             <div class="container">
-                <h2 class="block-title"> Anuncios Destacados
-                </h2>
+                <h2 class="block-title"> Anuncios Destacados </h2>
                 <div class="carousel-container" id="announcementsCarousel" aria-roledescription="carousel" aria-label="Anuncios importantes de proyectos">
                     <div class="carousel-slides" id="carouselSlides">
                         <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 de 4">
-                            <img src="https://placehold.co/960x450/6A11CB/FFFFFF?text=Nuevo+Proyecto+Alpha" alt="Anuncio Nuevo Proyecto Alpha" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+                            <img src="https://placehold.co/960x450/6A11CB/FFFFFF?text=Nuevo+Proyecto+Alpha" alt="Anuncio Nuevo Proyecto Alpha" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                             <div class="carousel-caption">
                                 <h3>¡Explora el Proyecto Alpha!</h3>
                                 <p>Sumérgete en simulaciones cósmicas interactivas y expande tu conocimiento del universo.</p>
                             </div>
                         </div>
                         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
-                            <img src="https://placehold.co/960x450/2575FC/FFFFFF?text=Evento+Educativo+Beta" alt="Anuncio Evento Educativo Beta" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+                            <img src="https://placehold.co/960x450/2575FC/FFFFFF?text=Evento+Educativo+Beta" alt="Anuncio Evento Educativo Beta" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                             <div class="carousel-caption">
                                 <h3>Educación Abierta con Proyecto Beta</h3>
                                 <p>Descubre herramientas educativas innovadoras y gratuitas para todas las comunidades.</p>
                             </div>
                         </div>
                         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
-                             <img src="https://placehold.co/960x450/FF5733/FFFFFF?text=Colabora+en+Gamma" alt="Anuncio Colabora en Gamma" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+                             <img src="https://placehold.co/960x450/FF5733/FFFFFF?text=Colabora+en+Gamma" alt="Anuncio Colabora en Gamma" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                             <div class="carousel-caption">
                                 <h3>¡Únete al Proyecto Gamma!</h3>
                                 <p>Buscamos mentes creativas para fusionar el arte y la tecnología digital de vanguardia.</p>
                             </div>
                         </div>
                          <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
-                             <img src="https://placehold.co/960x450/33FF57/212121?text=IA+Sostenible+Delta" alt="Anuncio IA Sostenible Delta" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+                             <img src="https://placehold.co/960x450/33FF57/212121?text=IA+Sostenible+Delta" alt="Anuncio IA Sostenible Delta" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                             <div class="carousel-caption">
                                 <h3>Innovación Sostenible con Delta</h3>
                                 <p>Descubre cómo la Inteligencia Artificial puede ayudar a proteger nuestro planeta para el futuro.</p>
@@ -837,7 +585,7 @@
                     <button class="carousel-button prev" aria-label="Anuncio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                     <div class="carousel-dots" aria-label="Navegación de anuncios">
-                        </div>
+                    </div>
                 </div>
                 <div class="carousel-view-all-container">
                     <a href="todos-los-anuncios.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
@@ -846,8 +594,7 @@
         </section>
         <section class="content-block projects-page-wrapper" id="todos-los-proyectos">
             <div class="container">
-                <h1 class="block-title gradient-title"> Explora Nuestros Proyectos
-                </h1>
+                <h1 class="block-title gradient-title"> Explora Nuestros Proyectos </h1>
                 <p class="block-subtitle">
                     Descubre la diversidad de iniciativas que nuestra comunidad está impulsando con pasión. Desde desarrollos tecnológicos pioneros hasta proyectos sociales y creativos de gran impacto, cada uno es una puerta abierta para aprender, colaborar y co-crear un futuro mejor.
                 </p>
@@ -894,7 +641,7 @@
                             <a href="proyecto-gamma.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
-                   
+                    
                     <article class="project-card-detailed">
                         <div class="project-img-placeholder">
                             <span>[Imagen Representativa del Proyecto Delta]</span>
@@ -922,7 +669,7 @@
                             <a href="proyecto-epsilon.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
                         </div>
                     </article>
-                   
+                    
                     <article class="project-card-detailed">
                         <div class="project-img-placeholder">
                            <span>[Imagen Representativa del Proyecto Zeta]</span>
@@ -994,18 +741,20 @@
         const siteHeader = document.getElementById('siteHeader');
         let headerHeight = 0;
 
+        // Función para actualizar la altura del header y el padding del body
         function updateHeaderHeightAndPadding() {
             if (siteHeader) {
                 headerHeight = siteHeader.offsetHeight;
                 document.body.style.paddingTop = `${headerHeight}px`;
+                // Actualiza la variable CSS --header-height para que el menú móvil la use
                 document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
             }
         }
         
-        updateHeaderHeightAndPadding(); 
-        window.addEventListener('resize', updateHeaderHeightAndPadding); 
+        updateHeaderHeightAndPadding(); // Ejecutar al cargar
+        window.addEventListener('resize', updateHeaderHeightAndPadding); // Y en cada redimensión
 
-        // --- Mobile Navigation Menu ---
+        // --- Lógica para el Menú de Navegación Móvil ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
@@ -1014,43 +763,49 @@
             navToggleBtn.addEventListener('click', () => {
                 const isExpanded = mainMenuNav.classList.toggle('menu-visible');
                 navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
-                navIcon.classList.toggle('fa-bars', !isExpanded);
-                navIcon.classList.toggle('fa-times', isExpanded);
+                navIcon.classList.toggle('fa-bars', !isExpanded); // Cambia a 'fa-bars' si no está expandido
+                navIcon.classList.toggle('fa-times', isExpanded);  // Cambia a 'fa-times' si está expandido
 
+                // Si el menú se cierra, también cierra todos los submenús abiertos
                 if (!isExpanded) { 
                     mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
                         openSubmenuLi.classList.remove('open');
                         const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
                         if (link) link.setAttribute('aria-expanded', 'false');
                         const submenu = openSubmenuLi.querySelector('.submenu');
-                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null; // Resetea maxHeight en móvil
                     });
                 }
             });
         }
 
-        // --- Submenu Toggle Logic ---
+        // --- Lógica para Desplegar Submenús (Click en icono o enlace padre en móvil) ---
         if (mainMenuNav) {
             mainMenuNav.querySelectorAll('li.has-submenu').forEach(listItem => {
-                const link = listItem.querySelector('a[aria-haspopup="true"]');
-                const toggleIcon = listItem.querySelector('.submenu-toggle-icon');
-                const submenu = listItem.querySelector('.submenu');
+                const link = listItem.querySelector('a[aria-haspopup="true"]'); // Enlace que tiene el submenú
+                const toggleIcon = listItem.querySelector('.submenu-toggle-icon'); // Icono de flecha
+                const submenu = listItem.querySelector('.submenu'); // El submenú en sí
 
+                // Evento para el icono de flecha (siempre togglea)
                 if (toggleIcon && submenu) {
                     toggleIcon.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        event.stopPropagation();
+                        event.preventDefault(); // Previene la navegación si el enlace tiene href
+                        event.stopPropagation(); // Evita que el evento llegue al 'link' y se ejecute dos veces
                         toggleSubmenu(listItem, link, submenu);
                     });
                 }
                 
-                if (link && submenu && (!link.getAttribute('href') || link.getAttribute('href') === '#' || window.innerWidth <= 991)) {
+                // Evento para el enlace padre (A)
+                if (link && submenu) {
                      link.addEventListener('click', (event) => {
-                        if (!link.getAttribute('href') || link.getAttribute('href') === '#' || (window.innerWidth <= 991 && !event.target.closest('.submenu-toggle-icon'))) {
-                            event.preventDefault();
+                        // Si el click fue directamente en el icono, ya se manejó, no hacer nada más.
+                        if (event.target.closest('.submenu-toggle-icon')) {
+                            return;
                         }
-                        if (!event.target.closest('.submenu-toggle-icon')) {
-                           toggleSubmenu(listItem, link, submenu);
+
+                        if (window.innerWidth <= 991 || !link.getAttribute('href') || link.getAttribute('href') === '#') {
+                            event.preventDefault(); 
+                            toggleSubmenu(listItem, link, submenu);
                         }
                     });
                 }
@@ -1066,81 +821,152 @@
                     submenu.style.maxHeight = submenu.scrollHeight + "px";
                 } else {
                     submenu.style.maxHeight = null;
+                    submenu.querySelectorAll('.has-submenu.open').forEach(openChild => {
+                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
+                        const childSubmenu = openChild.querySelector('.submenu');
+                        openChild.classList.remove('open');
+                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
+                        if(childSubmenu) childSubmenu.style.maxHeight = null;
+                    });
                 }
             }
         }
 
-        // --- Close mobile menu when a link is clicked ---
+        // --- Cerrar menú móvil cuando se hace clic en un enlace (que navega) ---
         if (mainMenuNav) {
             mainMenuNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', (event) => {
-                    if (link.getAttribute('href') && link.getAttribute('href') !== '#' && mainMenuNav.classList.contains('menu-visible')) {
-                        const isSubmenuToggle = link.parentElement.classList.contains('has-submenu') && 
-                                                (link.querySelector('.submenu-toggle-icon') || link.getAttribute('aria-haspopup') === 'true');
-                        
-                        if (!isSubmenuToggle || link.closest('.submenu')) { 
-                             mainMenuNav.classList.remove('menu-visible');
-                             if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
-                             if (navIcon) {
-                                 navIcon.classList.remove('fa-times');
-                                 navIcon.classList.add('fa-bars');
-                             }
+                    if (mainMenuNav.classList.contains('menu-visible') && link.getAttribute('href') && link.getAttribute('href') !== '#') {
+                        const isSubmenuToggleItself = link.querySelector('.submenu-toggle-icon') && (window.innerWidth <= 991 || !link.getAttribute('href') || link.getAttribute('href') === '#');
+                        if (event.target.closest('.submenu-toggle-icon') || isSubmenuToggleItself) {
+                            return;
                         }
+                        mainMenuNav.classList.remove('menu-visible');
+                        if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
+                        if (navIcon) {
+                            navIcon.classList.remove('fa-times');
+                            navIcon.classList.add('fa-bars');
+                        }
+                        mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                            openSubmenuLi.classList.remove('open');
+                            const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                            if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                            const submenu = openSubmenuLi.querySelector('.submenu');
+                            if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                        });
                     }
                 });
             });
         }
 
-        // --- Current Page Highlighting ---
-        function updateCurrentPage() {
+        // --- Resaltado de Página Actual en el Menú ---
+        function updateCurrentPage() { 
             if (!mainMenuNav) return;
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            const currentHash = window.location.hash;
+            const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
+            const currentUrlHash = window.location.hash;
 
             mainMenuNav.querySelectorAll('a').forEach(navLink => {
                 navLink.classList.remove('current-page'); 
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
 
-                const linkPath = linkHref.split('/').pop().split('#')[0] || 'index.html';
-                const linkHash = navLink.hash;
+                const linkFullUrl = new URL(linkHref, window.location.origin);
+                const linkPath = linkFullUrl.pathname.split('/').pop() || 'index.html';
+                const linkHash = linkFullUrl.hash;
+                
                 let isActive = false;
 
-                if (linkPath === currentPath) {
-                    if (linkHash) {
-                        if (linkHash === currentHash) isActive = true;
-                    } 
-                    else if (!currentHash || currentHash === "") {
-                         isActive = true;
+                if (linkPath === currentUrlPath) {
+                    if (linkHash) { 
+                        if (linkHash === currentUrlHash) isActive = true;
+                    } else { 
+                        if (!currentUrlHash || currentUrlHash === "#") isActive = true; 
                     }
                 }
                 
-                if (linkHref.includes("proyectos.html#todos-los-proyectos") && currentPath === "proyectos.html") {
-                    if (currentHash === "#todos-los-proyectos" || !currentHash || currentHash === "") {
-                         isActive = true;
-                    }
-                } else if (linkPath === "proyectos.html" && currentPath === "proyectos.html" && !linkHref.includes("#")) {
-                    // This is the main "Proyectos" link.
-                }
-
-
                 if (isActive) {
                     navLink.classList.add('current-page');
-                    let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
-                    if (parentLi) {
-                        const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
+                    let currentElementForParentCheck = navLink;
+                    while (currentElementForParentCheck) {
+                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
+                        if (!parentSubmenuUl) break; 
+                        const parentLi = parentSubmenuUl.parentElement; 
+                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
+                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
                         if (parentAnchor) {
                             parentAnchor.classList.add('current-page'); 
-                        }
+                        } else { break; }
+                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
+                        currentElementForParentCheck = parentLi; 
                     }
                 }
             });
+        }
+        
+        const sections = document.querySelectorAll("main section[id]"); 
+        const allNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll("nav ul li a") : [];
+
+        function navHighlighter() {
+            if (!mainMenuNav || allNavLinks.length === 0) return;
+
+            let scrollY = window.pageYOffset;
+            let currentActiveSectionId = null;
+            const currentPagePath = window.location.pathname.split('/').pop() || 'index.html';
+
+            sections.forEach((current) => { 
+                if (!current) return;
+                const sectionHeight = current.offsetHeight;
+                const sectionTop = current.offsetTop - 150; 
+                let sectionId = current.getAttribute("id");
+
+                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+                    currentActiveSectionId = sectionId;
+                }
+            });
+            
+            allNavLinks.forEach((navLink) => {
+                const href = navLink.getAttribute("href");
+                if (!href) return;
+
+                const linkUrl = new URL(href, window.location.origin);
+                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+                const linkHash = linkUrl.hash;
+
+                if (linkPath === currentPagePath && linkHash && linkHash === "#" + currentActiveSectionId) {
+                    allNavLinks.forEach(nl => nl.classList.remove("current-page-scroll"));
+                    navLink.classList.add("current-page-scroll"); 
+                }
+            });
+            updateCurrentPage();
+
+            const scrolledActive = mainMenuNav.querySelector('a.current-page-scroll');
+            if (scrolledActive) {
+                scrolledActive.classList.add('current-page');
+                 let currentElementForParentCheck = scrolledActive;
+                    while (currentElementForParentCheck) {
+                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
+                        if (!parentSubmenuUl) break; 
+                        const parentLi = parentSubmenuUl.parentElement; 
+                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
+                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
+                        if (parentAnchor) {
+                            parentAnchor.classList.add('current-page'); 
+                        } else { break; }
+                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
+                        currentElementForParentCheck = parentLi; 
+                    }
+            }
+            mainMenuNav.querySelectorAll('a.current-page-scroll').forEach(l => l.classList.remove('current-page-scroll'));
+        }
+
+        if (sections.length > 0 && allNavLinks.length > 0) { 
+            window.addEventListener("scroll", navHighlighter);
         }
         updateCurrentPage(); 
         window.addEventListener('hashchange', updateCurrentPage); 
 
 
-        // --- Carousel Logic with Swipe ---
+        // --- Carousel Logic ---
         const carouselContainer = document.getElementById('announcementsCarousel');
         if (carouselContainer) {
             const slidesContainer = carouselContainer.querySelector('.carousel-slides');
@@ -1152,12 +978,11 @@
             let currentIndex = 0;
             let slideInterval;
             const slideCount = slides.length;
-
             let isDragging = false;
             let startPosX = 0;
             let currentTranslate = 0;
             let prevTranslate = 0;
-            const swipeThreshold = 50; 
+            const swipeThreshold = 50;
 
             if (slideCount > 0) {
                 for (let i = 0; i < slideCount; i++) {
@@ -1165,20 +990,13 @@
                     dot.classList.add('carousel-dot');
                     dot.setAttribute('aria-label', `Ir al anuncio ${i + 1}`);
                     if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => {
-                        goToSlide(i);
-                        resetInterval();
-                    });
+                    dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
                     dotsContainer.appendChild(dot);
                 }
                 const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
 
-                function applyTransition() {
-                    slidesContainer.style.transition = 'var(--transition-carousel)';
-                }
-                function removeTransition() {
-                     slidesContainer.style.transition = 'none';
-                }
+                function applyTransition() { slidesContainer.style.transition = 'var(--transition-carousel)'; }
+                function removeTransition() { slidesContainer.style.transition = 'none'; }
 
                 function setPositionByIndex() {
                     if (slidesContainer) { 
@@ -1189,13 +1007,12 @@
                     }
                 }
 
-
                 function updateCarouselState() {
                     setPositionByIndex();
                     slides.forEach((slide, index) => {
                         slide.classList.toggle('active', index === currentIndex); 
                         slide.setAttribute('aria-hidden', String(index !== currentIndex));
-                        slide.inert = index !== currentIndex; 
+                        slide.inert = (index !== currentIndex); 
                     });
                     dots.forEach((dot, index) => {
                         dot.classList.toggle('active', index === currentIndex);
@@ -1203,26 +1020,15 @@
                     });
                 }
 
-                function goToSlide(index) {
-                    currentIndex = (index + slideCount) % slideCount; 
-                    updateCarouselState();
-                }
-
+                function goToSlide(index) { currentIndex = (index + slideCount) % slideCount; updateCarouselState(); }
                 function nextSlide() { goToSlide(currentIndex + 1); }
                 function prevSlide() { goToSlide(currentIndex - 1); }
 
                 if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
                 if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
                 
-                function startInterval() {
-                    clearInterval(slideInterval);
-                    slideInterval = setInterval(nextSlide, 6000); 
-                }
-
-                function resetInterval() {
-                    clearInterval(slideInterval);
-                    startInterval();
-                }
+                function startInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); }
+                function resetInterval() { clearInterval(slideInterval); startInterval(); }
                 
                 slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
                 slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
@@ -1230,8 +1036,7 @@
                 slidesContainer.addEventListener('mousedown', touchStart);
                 slidesContainer.addEventListener('mousemove', touchMove);
                 slidesContainer.addEventListener('mouseup', touchEnd);
-                slidesContainer.addEventListener('mouseleave', touchEnd); 
-
+                slidesContainer.addEventListener('mouseleave', touchEnd);
 
                 function touchStart(event) {
                     isDragging = true;
@@ -1254,35 +1059,24 @@
                     isDragging = false;
                     carouselContainer.classList.remove('grabbing');
                     const movedBy = currentTranslate - prevTranslate;
-
                     applyTransition(); 
-
-                    if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) {
-                        currentIndex += 1;
-                    }
-                    if (movedBy > swipeThreshold && currentIndex > 0) {
-                        currentIndex -= 1;
-                    }
-                    
+                    if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) { currentIndex += 1; }
+                    if (movedBy > swipeThreshold && currentIndex > 0) { currentIndex -= 1; }
                     updateCarouselState(); 
                     resetInterval(); 
                 }
 
-                function getPositionX(event) {
-                    return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-                }
+                function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
                 
                 updateCarouselState(); 
                 startInterval(); 
 
                 carouselContainer.addEventListener('mouseenter', () => { if(!isDragging) clearInterval(slideInterval); });
                 carouselContainer.addEventListener('mouseleave', () => { if(!isDragging) startInterval(); });
-
                 carouselContainer.addEventListener('keydown', (e) => {
                     if (e.key === 'ArrowLeft') { prevSlide(); resetInterval(); } 
                     else if (e.key === 'ArrowRight') { nextSlide(); resetInterval(); }
                 });
-
                 window.addEventListener('resize', () => {
                     removeTransition(); 
                     updateHeaderHeightAndPadding(); 
@@ -1292,7 +1086,6 @@
             }
         }
 
-        // --- Footer Current Year ---
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
             currentYearElement.textContent = new Date().getFullYear();
