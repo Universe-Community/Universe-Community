@@ -1,0 +1,1744 @@
+/*----------------------------------------------------------------------------*\
+ * VARIABLES CSS
+\*----------------------------------------------------------------------------*/
+
+:root {
+  /* --- Paleta de Colores Primarios --- */
+  --brand-purple-start: #6a11cb;
+  --brand-blue-end: #2575fc;
+  --brand-purple-start-rgb: 106, 17, 203;
+  --brand-blue-end-rgb: 37, 117, 252;
+
+  /* --- Degradados --- */
+  --text-gradient: linear-gradient(105deg,
+      var(--brand-purple-start),
+      var(--brand-blue-end));
+  --button-gradient: linear-gradient(105deg,
+      var(--brand-purple-start),
+      var(--brand-blue-end));
+  --button-hover-gradient: linear-gradient(105deg, #5e0ec4, #1c6cf0);
+  --mv-skewed-gradient-start: rgba(106, 17, 203, 0.08);
+  --mv-skewed-gradient-end: rgba(37, 117, 252, 0.08);
+
+  /* --- Colores de Texto (Modo Claro) --- */
+  --text-dark: #212529;
+  --text-medium: #5f6773;
+  --text-light: #ffffff;
+  --text-subtle: #8a92a5;
+
+  /* --- Colores de Fondo (Modo Claro) --- */
+  --bg-light: #ffffff;
+  --bg-light-rgb: 255, 255, 255;
+  --bg-section-alt: #f8f9fa;
+  --submenu-bg: #fdfdfd;
+  --submenu-hover-bg: #f0f0f0;
+
+  /* --- Colores de Bordes y Sombras (Modo Claro) --- */
+  --border-color-soft: #eaeaea;
+  --input-border-color: #ced4da;
+  --input-focus-border-color: var(--brand-purple-start);
+  --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06);
+  --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
+
+  /* --- Tipografía --- */
+  --font-primary: "Poppins", sans-serif;
+
+  /* --- Variables Específicas de Componentes (Modo Claro) --- */
+  /* Misión y Visión */
+  --mv-card-shadow-final: 0 12px 36px rgba(30, 30, 60, 0.06);
+  --mv-card-border-radius-final: 24px;
+  --mv-skewed-bg-border-radius-final: 28px;
+  --mv-title-font-size-final: 1.6rem;
+  --mv-description-font-size-final: 1rem;
+
+  /* Enlaces de Detalles */
+  --details-link-blue: #007bff;
+
+  /* Botón PayPal */
+  --paypal-button-bg: #0070ba;
+  --paypal-button-hover-bg: #005ea6;
+
+  /* Footer */
+  --footer-bg-dark: #121224;
+  --footer-text-primary-light: #E8EAF6;
+  --footer-text-secondary-light: #A0A8C0;
+  --footer-heading-color: var(--text-light); /* Hereda de --text-light global */
+  --footer-link-hover-color: var(--brand-blue-end);
+  --footer-icon-color: #A0A8C0;
+  --footer-icon-hover-color: var(--text-light); /* Hereda de --text-light global */
+
+  /* Redes Sociales */
+  --social-facebook-color: #1877f2;
+  --social-twitter-color: #1da1f2;
+  --social-instagram-color: #e4405f;
+  --social-discord-color: #5865f2;
+  --social-youtube-color: #ff0000;
+  --social-linkedin-color: #0a66c2;
+
+  /* Botones de Contacto (WhatsApp, Telegram) */
+  --whatsapp-bg-color: #25d366;
+  --whatsapp-hover-bg-color: #1dae54;
+  --telegram-bg-color: #0088cc;
+  --telegram-hover-bg-color: #007ab8;
+
+  /* --- Transiciones y Otros --- */
+  --transition-smooth: all 0.3s ease-in-out;
+  --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+  --header-height: 70px;
+
+  /* --- Botón de Cambio de Tema (Modo Claro) --- */
+  --theme-toggle-icon-color: var(--text-medium);
+  --theme-toggle-bg-hover: var(--submenu-hover-bg);
+}
+
+/* --- Variables de Modo Oscuro --- */
+body.dark-mode {
+  /* Colores de Texto */
+  --text-dark: #e0e0e0;
+  --text-medium: #b0b0b0;
+  --text-light: #121212; /* Usado para contraste en elementos sobre fondos oscuros */
+  --text-subtle: #7a7a7a;
+
+  /* Colores de Fondo */
+  --bg-light: #1a1a2e;
+  --bg-light-rgb: 26, 26, 46;
+  --bg-section-alt: #23233c;
+  --submenu-bg: #2c2c48;
+  --submenu-hover-bg: #353558;
+
+  /* Colores de Bordes y Sombras */
+  --border-color-soft: #3a3a5a;
+  --input-border-color: #4a4a6a;
+  --input-focus-border-color: var(--brand-blue-end); /* Cambiado para mejor contraste */
+  --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
+  --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+
+  /* Variables Específicas de Componentes (Modo Oscuro) */
+  /* Misión y Visión */
+  --mv-skewed-gradient-start: rgba(106, 17, 203, 0.12);
+  --mv-skewed-gradient-end: rgba(37, 117, 252, 0.12);
+  --mv-card-shadow-final: 0 12px 36px rgba(0, 0, 0, 0.2);
+
+  /* Enlaces de Detalles */
+  --details-link-blue: #36a2ff; /* Azul más brillante para modo oscuro */
+
+  /* Footer */
+  --footer-bg-dark: #0e0e1c;
+  --footer-text-primary-light: #d0d0e0;
+  --footer-text-secondary-light: #9090b0;
+  /* --footer-heading-color sigue siendo var(--text-light), que en dark-mode es #121212.
+     Esto podría necesitar ajuste si se quiere un color más claro para los encabezados del footer en modo oscuro.
+     Si se desea que sea blanco como en modo claro, se podría definir una variable específica o usar #FFFFFF directamente.
+     Por ahora, se mantiene la herencia. */
+
+  /* Botón de Cambio de Tema */
+  --theme-toggle-icon-color: #c5c5c5;
+  --theme-toggle-bg-hover: #353558; /* Mismo que --submenu-hover-bg */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * RESET BÁSICO Y ESTILOS GENERALES
+\*----------------------------------------------------------------------------*/
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: var(--transition-colors);
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * HEADER
+\*----------------------------------------------------------------------------*/
+
+.site-header {
+  background-color: var(--bg-light);
+  padding: 1rem 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  transition: var(--transition-colors);
+}
+
+body.dark-mode .site-header {
+  box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); /* Sombra clara para contraste */
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo */
+.logo-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logo-icon-box {
+  width: 38px;
+  height: 38px;
+  background: var(--button-gradient);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.625rem; /* 10px */
+}
+
+.logo-abbr {
+  color: #FFFFFF; /* Siempre blanco para el icono */
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.logo-full-text {
+  font-size: 1.1875rem; /* 19px */
+  font-weight: 600;
+  color: var(--text-dark);
+  transition: color 0.2s ease;
+}
+
+.logo-link:hover .logo-full-text {
+  color: var(--brand-purple-start);
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * BOTÓN DE CAMBIO DE TEMA
+\*----------------------------------------------------------------------------*/
+
+.theme-toggle-button {
+  background: none;
+  border: none;
+  color: var(--theme-toggle-icon-color);
+  font-size: 1.25rem; /* 20px */
+  padding: 0.5rem; /* 8px */
+  margin-left: 0.5rem; /* 8px, ajustado para consistencia */
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-colors), transform 0.2s ease;
+}
+
+.theme-toggle-button:hover {
+  background-color: var(--theme-toggle-bg-hover);
+  transform: scale(1.1);
+}
+
+.theme-toggle-button .fa-sun {
+  display: none;
+}
+
+body.dark-mode .theme-toggle-button .fa-sun {
+  display: inline-block;
+}
+
+body.dark-mode .theme-toggle-button .fa-moon {
+  display: none;
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * MENÚ DE NAVEGACIÓN MULTINIVEL
+\*----------------------------------------------------------------------------*/
+
+.nav-toggle {
+  display: none; /* Oculto por defecto, se muestra en mobile */
+  background: none;
+  border: none;
+  font-size: 1.75rem; /* 28px */
+  color: var(--text-dark);
+  cursor: pointer;
+  z-index: 1001; /* Encima del menú desplegable */
+  transition: var(--transition-colors);
+}
+
+.main-menu {
+  position: relative; /* Para el posicionamiento de los submenús */
+}
+
+.main-menu ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.main-menu ul li {
+  position: relative; /* Para el posicionamiento de los submenús anidados */
+  margin-left: 0; /* Eliminado margen izquierdo por defecto aquí, se aplica a hijos directos */
+}
+
+.main-menu > ul > li {
+  margin-left: 0.5rem; /* 8px de espacio entre elementos principales */
+}
+
+.main-menu > ul > li:first-child {
+  margin-left: 0; /* Sin margen para el primer elemento */
+}
+
+.main-menu ul li a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--text-medium);
+  font-weight: 500;
+  font-size: 0.9rem; /* 14.4px */
+  padding: 0.75rem 0.8rem; /* 12px 12.8px */
+  border-radius: 6px;
+  transition: var(--transition-colors), background-color 0.2s ease;
+  white-space: nowrap; /* Evita que el texto del enlace se divida en múltiples líneas */
+}
+
+/* Icono para desplegar submenú */
+.main-menu ul li a .submenu-toggle-icon {
+  margin-left: 0.5em; /* Espacio respecto al texto del enlace */
+  font-size: 0.7em; /* Icono más pequeño */
+  display: inline-flex;
+  align-items: center;
+  padding: 0.3em; /* Pequeño padding para mejorar el área de clic */
+  cursor: pointer; /* Aunque el <a> ya es cursor pointer, es bueno ser explícito */
+}
+
+.main-menu ul li a .submenu-toggle-icon i {
+  transition: transform 0.3s ease;
+}
+
+/* Rotación del icono de chevron al abrir submenú */
+.main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
+.main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+  transform: rotate(180deg);
+}
+
+/* Caso específico para flecha de nivel 2 en móvil (rota 90deg) */
+.main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+  transform: rotate(90deg); /* Por defecto para móvil */
+}
+
+/* En desktop, la flecha de nivel 2 no rota al abrir (ya apunta a la derecha) */
+@media (min-width: 992px) {
+  .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+    transform: rotate(0deg);
+  }
+}
+
+/* Estilos Hover y Open para enlaces del menú */
+.main-menu a:hover,
+.main-menu ul li:hover > a, /* Para hover en el LI afecte al A (apertura en desktop) */
+.main-menu ul li.open > a {  /* Cuando el submenú está abierto (útil en móvil) */
+  color: var(--brand-purple-start);
+  background-color: var(--submenu-hover-bg);
+}
+
+/* Estilo para la página actual en el menú principal */
+.main-menu > ul > li > a.current-page {
+  color: #FFFFFF; /* Texto blanco para contraste con degradado */
+  background: var(--text-gradient); /* Usar el degradado de texto */
+  font-weight: 600;
+  box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
+}
+body.dark-mode .main-menu > ul > li > a.current-page {
+    box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+}
+
+.main-menu > ul > li > a.current-page:hover {
+  color: #FFFFFF; /* Mantener texto blanco */
+  background: var(--button-hover-gradient); /* Usar degradado de hover */
+  opacity: 0.95; /* Ligera opacidad al hacer hover */
+}
+
+/* Estilo para la página actual dentro de un submenú */
+.main-menu .submenu li a.current-page {
+  color: var(--brand-purple-start);
+  background-color: var(--submenu-hover-bg); /* Fondo sutil */
+  font-weight: 600; /* Destacar el texto */
+}
+
+/* Submenús */
+.main-menu .submenu {
+  display: none; /* Oculto por defecto */
+  position: absolute;
+  top: 100%; /* Debajo del elemento padre */
+  left: 0;
+  background-color: var(--submenu-bg);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  border-radius: 0 0 8px 8px; /* Bordes redondeados abajo */
+  min-width: 230px; /* Ancho mínimo del desplegable */
+  z-index: 100; /* Encima de otros elementos */
+  padding: 0.5rem 0; /* Padding vertical */
+  border-top: 1px solid var(--border-color-soft); /* Línea superior sutil */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(10px); /* Efecto de aparición desde abajo */
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
+}
+body.dark-mode .main-menu .submenu {
+    box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+}
+
+/* Submenús de Nivel 3 (y subsecuentes) */
+.main-menu .submenu.level-3 {
+  top: 0; /* Alineado con el top del item padre */
+  left: 100%; /* A la derecha del elemento padre */
+  border-radius: 0 8px 8px 8px; /* Ajustar bordes */
+  margin-top: -0.5rem; /* Para que se solape ligeramente con el padding del padre */
+}
+
+/* Mostrar submenú cuando el li padre tiene la clase 'open' */
+.main-menu ul li.open > .submenu {
+  display: block; /* OJO: en móvil se maneja con max-height */
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.main-menu .submenu li {
+  width: 100%;
+  margin-left: 0; /* Sin margen para items de submenú */
+}
+
+.main-menu .submenu li a {
+  padding: 0.6rem 1.2rem; /* 9.6px 19.2px */
+  font-size: 0.9rem; /* Consistente con enlaces principales */
+  color: var(--text-dark); /* Texto oscuro por defecto en submenús */
+  border-bottom: 1px solid var(--border-color-soft); /* Separador entre items */
+  justify-content: space-between; /* Para alinear icono de sub-submenú a la derecha */
+  border-radius: 0; /* Sin bordes redondeados para items internos */
+}
+
+.main-menu .submenu li:last-child a {
+  border-bottom: none; /* Sin borde para el último item */
+}
+
+.main-menu .submenu li a:hover {
+  background-color: var(--submenu-hover-bg);
+  color: var(--brand-purple-start); /* Color de marca al hacer hover */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN HERO
+\*----------------------------------------------------------------------------*/
+
+.hero {
+  padding: 4.5rem 0 4rem 0; /* 72px 0 64px 0 */
+  text-align: left; /* Alineación por defecto, cambia en responsive */
+  transition: var(--transition-colors);
+}
+
+.hero-content-wrapper {
+  max-width: 680px;
+  margin: 0; /* Sin margen automático aquí, para alinear a la izquierda */
+}
+
+.hero-main-title {
+  font-size: 2.75rem; /* 44px */
+  font-weight: 700;
+  color: var(--text-dark);
+  line-height: 1.25;
+  margin-bottom: 1.25rem; /* 20px */
+  transition: var(--transition-colors);
+}
+
+.hero-main-title .highlight-text {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -moz-background-clip: text;
+  background-clip: text;
+  color: transparent; /* Hace que el texto tome el color del degradado */
+}
+
+.hero-sub-title {
+  font-size: 1.125rem; /* 18px */
+  color: var(--text-medium);
+  margin-bottom: 2.1875rem; /* 35px */
+  line-height: 1.7;
+  transition: var(--transition-colors);
+}
+
+.hero-button-group .btn {
+  padding: 0.8125rem 2.1875rem; /* 13px 35px */
+  font-size: 0.9375rem; /* 15px */
+  font-weight: 600;
+  border-radius: 25px; /* Botones redondeados */
+  text-decoration: none;
+  margin-right: 0.75rem; /* 12px, espacio entre botones */
+  margin-bottom: 0.5rem; /* Espacio si se apilan en mobile */
+  display: inline-block;
+  transition: all 0.25s ease-in-out;
+  border: 1.5px solid transparent; /* Para evitar salto en hover de btn-bordered */
+  min-width: 190px; /* Ancho mínimo para consistencia */
+  text-align: center;
+}
+
+.btn-filled-gradient {
+  background: var(--button-gradient);
+  color: #FFFFFF; /* Texto siempre blanco */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+body.dark-mode .btn-filled-gradient {
+    box-shadow: 0 3px 8px rgba(var(--brand-purple-start-rgb), 0.2);
+}
+
+.btn-filled-gradient:hover {
+  opacity: 0.9; /* Ligera transparencia al hacer hover */
+  box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.25); /* Sombra más pronunciada */
+}
+
+.btn-bordered {
+  background-color: transparent;
+  color: var(--brand-purple-start);
+  border: 1.5px solid var(--brand-purple-start);
+}
+
+.btn-bordered:hover {
+  background: var(--button-gradient); /* Relleno con degradado al hacer hover */
+  color: #FFFFFF; /* Texto blanco */
+  border-color: transparent; /* Ocultar borde */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * BLOQUES DE CONTENIDO GENERALES
+\*----------------------------------------------------------------------------*/
+
+.content-block {
+  padding: 3.75rem 0; /* 60px */
+  transition: var(--transition-colors);
+}
+
+.content-block.bg-shaded {
+  background-color: var(--bg-section-alt); /* Fondo alternativo para secciones */
+}
+
+.block-title {
+  text-align: center;
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 2.8125rem; /* 45px */
+  transition: var(--transition-colors);
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * TARJETA MISIÓN Y VISIÓN
+\*----------------------------------------------------------------------------*/
+
+.mission-vision-section-wrapper {
+  /* Contenedor opcional si se necesita más estructura */
+}
+
+.mission-vision-container {
+  display: flex; /* Centrar la tarjeta */
+  justify-content: center;
+  align-items: center;
+}
+
+.mv-card-wrapper-final {
+  position: relative;
+  width: 100%;
+  max-width: 680px; /* Ancho máximo de la tarjeta */
+  margin: 1rem auto; /* Margen para espaciar si es necesario */
+}
+
+.mv-skewed-background-final {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 103%; /* Ligeramente más ancho que la tarjeta */
+  height: 106%; /* Ligeramente más alto */
+  background: linear-gradient(105deg,
+      var(--mv-skewed-gradient-start),
+      var(--mv-skewed-gradient-end));
+  transform: translate(-50%, -50%) rotate(-2.5deg); /* Centrado y rotado */
+  border-radius: var(--mv-skewed-bg-border-radius-final);
+  z-index: 1; /* Detrás de la tarjeta de contenido */
+  transition: background 0.3s ease; /* Para modo oscuro */
+}
+
+.mv-content-card-final {
+  background-color: var(--bg-light);
+  padding: 2.8rem; /* 44.8px */
+  border-radius: var(--mv-card-border-radius-final);
+  box-shadow: var(--mv-card-shadow-final);
+  position: relative;
+  z-index: 2; /* Encima del fondo sesgado */
+  text-align: left;
+  font-family: var(--font-primary);
+  transition: var(--transition-colors), box-shadow 0.3s ease;
+}
+
+.mv-content-card-final .mission-block,
+.mv-content-card-final .vision-block {
+  margin-bottom: 2.5rem; /* 40px, espacio entre misión y visión */
+}
+
+.mv-content-card-final .vision-block {
+  margin-bottom: 0; /* Sin margen inferior para el último bloque */
+}
+
+.mv-content-card-final .mv-title-final {
+  font-size: var(--mv-title-font-size-final);
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 0;
+  margin-bottom: 0.8rem; /* 12.8px */
+  line-height: 1.3;
+  transition: var(--transition-colors);
+}
+
+.mv-content-card-final .mv-description-final {
+  font-size: var(--mv-description-font-size-final);
+  color: var(--text-medium);
+  line-height: 1.75;
+  transition: var(--transition-colors);
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN QUÉ HACEMOS (TARJETAS DE INFORMACIÓN)
+\*----------------------------------------------------------------------------*/
+
+.info-cards-wrapper {
+  display: grid;
+  gap: 1.875rem; /* 30px */
+}
+
+.grid-three-cols {
+  /* Por defecto, intenta 3 columnas si hay espacio, sino se ajusta */
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 250px), 1fr));
+}
+
+/* Específico para la sección "Qué Hacemos", siempre 2 columnas en desktop */
+#que-hacemos .info-cards-wrapper.grid-three-cols {
+  grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+}
+
+@media (max-width: 576px) {
+  /* En pantallas pequeñas, "Qué Hacemos" pasa a 1 columna */
+  #que-hacemos .info-cards-wrapper.grid-three-cols {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card { /* Estilo base para tarjetas */
+  background-color: var(--bg-light);
+  padding: 1.875rem; /* 30px */
+  border-radius: 10px;
+  box-shadow: var(--card-shadow-light);
+  text-align: left;
+  transition: var(--transition-colors), box-shadow 0.3s ease;
+}
+
+.card .card-title {
+  font-size: 1.3125rem; /* 21px */
+  font-weight: 600;
+  margin-top: 0;
+  margin-bottom: 0.9375rem; /* 15px */
+  transition: var(--transition-colors);
+}
+
+.card.what-we-do-card .card-title { /* Título específico para estas tarjetas */
+  color: var(--text-dark);
+}
+
+.card .card-icon-top {
+  font-size: 2.25rem; /* 36px */
+  color: var(--brand-purple-start); /* Icono con color de marca */
+  margin-bottom: 1rem; /* 16px */
+}
+
+.card .card-description {
+  font-size: 0.9375rem; /* 15px */
+  color: var(--text-medium);
+  line-height: 1.75;
+  transition: var(--transition-colors);
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN PROYECTOS
+\*----------------------------------------------------------------------------*/
+
+.project-card {
+  border-radius: 10px;
+  box-shadow: var(--card-shadow-light);
+  overflow: hidden; /* Para que la imagen no se salga si tiene bordes */
+  display: flex;
+  flex-direction: column; /* Para alinear contenido verticalmente */
+  transition: transform 0.25s ease, box-shadow 0.25s ease, var(--transition-colors);
+  background-color: var(--bg-light);
+}
+
+.project-card:hover {
+  transform: translateY(-4px); /* Ligero efecto de elevación */
+  box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08); /* Sombra más pronunciada */
+}
+body.dark-mode .project-card:hover {
+    box-shadow: 0px 6px 20px rgba(var(--brand-purple-start-rgb), 0.15);
+}
+
+.project-img-placeholder {
+  width: 100%;
+  height: 210px; /* Altura fija para la imagen/placeholder */
+  background-color: var(--submenu-hover-bg); /* Fondo sutil para placeholder */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-subtle);
+  font-size: 0.875rem; /* 14px */
+  font-style: italic;
+  transition: var(--transition-colors);
+}
+
+.project-details {
+  padding: 1.5rem; /* 24px */
+  flex-grow: 1; /* Para que ocupe el espacio restante si las tarjetas tienen alturas diferentes */
+  display: flex;
+  flex-direction: column; /* Para alinear botón al final */
+}
+
+.project-name {
+  font-size: 1.1875rem; /* 19px */
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem; /* 8px */
+  transition: var(--transition-colors);
+}
+
+.project-summary {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-medium);
+  margin-bottom: 1.25rem; /* 20px */
+  flex-grow: 1; /* Para empujar el botón hacia abajo */
+  transition: var(--transition-colors);
+}
+
+.btn-details-project {
+  display: inline-block; /* Para que no ocupe todo el ancho */
+  padding: 0.6rem 1.2rem; /* 9.6px 19.2px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: var(--details-link-blue);
+  background-color: var(--bg-light); /* Fondo igual al de la tarjeta */
+  border: 1.5px solid var(--details-link-blue);
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, var(--transition-colors);
+  align-self: flex-start; /* Alinea el botón a la izquierda */
+}
+
+.btn-details-project:hover {
+  background-color: var(--details-link-blue);
+  color: #FFFFFF; /* Texto blanco al hacer hover */
+}
+
+.all-projects-link-container {
+  text-align: center;
+  margin-top: 2.5rem; /* 40px */
+}
+
+.view-all-projects-link {
+  display: inline-flex; /* Para alinear icono y texto */
+  align-items: center;
+  color: var(--details-link-blue);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9375rem; /* 15px */
+  transition: color 0.2s ease;
+}
+
+.view-all-projects-link:hover {
+  text-decoration: none; /* Evitar doble subrayado si el navegador lo añade */
+  color: var(--brand-purple-start); /* Cambiar a color de marca */
+}
+
+.view-all-projects-link .arrow-icon {
+  margin-left: 0.5rem; /* 8px */
+  transition: transform 0.2s ease;
+}
+
+.view-all-projects-link:hover .arrow-icon {
+  transform: translateX(3px); /* Mover flecha a la derecha */
+}
+
+/* Slider de Proyectos Destacados */
+#proyectos-destacados .projects-slider-controls {
+  display: flex;
+  justify-content: flex-end; /* Botones a la derecha */
+  margin-bottom: 1.25rem; /* 20px */
+  gap: 0.75rem; /* 12px, espacio entre botones */
+}
+
+#proyectos-destacados .slider-btn {
+  background-color: var(--brand-purple-start);
+  color: white;
+  border: none;
+  border-radius: 50%; /* Botones circulares */
+  width: 40px;
+  height: 40px;
+  font-size: 1rem; /* 16px */
+  cursor: pointer;
+  transition: background-color 0.2s ease, opacity 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+#proyectos-destacados .slider-btn:hover {
+  background-color: var(--brand-blue-end);
+}
+
+#proyectos-destacados .slider-btn:disabled {
+  background-color: #cccccc; /* Gris para deshabilitado */
+  color: #888888;
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+body.dark-mode #proyectos-destacados .slider-btn:disabled {
+    background-color: #4a4a6a; /* Color oscuro para deshabilitado */
+    color: #7a7a7a;
+}
+
+#proyectos-destacados .info-cards-wrapper.grid-three-cols {
+  /* Para el slider, cambiamos display a flex y habilitamos overflow */
+  display: flex;
+  overflow-x: auto; /* Scroll horizontal */
+  overflow-y: hidden; /* No scroll vertical */
+  padding-bottom: 1.5rem; /* Espacio para la barra de scroll si aparece */
+  scroll-snap-type: x mandatory; /* Snap al hacer scroll */
+  gap: 1.5rem; /* 24px, espacio entre tarjetas del slider */
+  -webkit-overflow-scrolling: touch; /* Scroll suave en iOS */
+  justify-content: flex-start; /* Asegura que las tarjetas empiecen desde la izquierda */
+  /* grid-template-columns no aplica aquí, ya que es flex */
+}
+
+#proyectos-destacados .info-cards-wrapper.grid-three-cols.center-flex-items {
+  /* Clase opcional para centrar si hay pocas tarjetas y no llenan el ancho */
+  justify-content: center;
+}
+
+#proyectos-destacados .project-card {
+  /* Ancho flexible para las tarjetas del slider */
+  flex: 0 0 clamp(280px, calc(80vw - 3rem), 340px); /* min, ideal, max */
+  scroll-snap-align: center; /* Centra la tarjeta al hacer snap */
+}
+
+/* Estilos para la barra de scroll del slider (WebKit) */
+#proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar {
+  height: 8px;
+}
+
+#proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-track {
+  background: var(--bg-section-alt); /* Color del track */
+  border-radius: 10px;
+  transition: var(--transition-colors);
+}
+
+#proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb {
+  background: var(--brand-purple-start); /* Color del thumb */
+  border-radius: 10px;
+}
+
+#proyectos-destacados .info-cards-wrapper.grid-three-cols::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-blue-end); /* Color del thumb al hacer hover */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN DONACIONES
+\*----------------------------------------------------------------------------*/
+
+.donation-section-wrapper {
+  text-align: center; /* Centrar contenido */
+}
+
+.donation-intro-text {
+  font-size: 1.05rem; /* 16.8px */
+  color: var(--text-medium);
+  line-height: 1.75;
+  max-width: 700px; /* Limitar ancho del texto */
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2.5rem; /* 40px */
+  transition: var(--transition-colors);
+}
+
+.btn-donate-paypal {
+  display: inline-flex; /* Para alinear icono y texto */
+  align-items: center;
+  justify-content: center;
+  padding: 0.875rem 2.5rem; /* 14px 40px */
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  color: #FFFFFF; /* Texto siempre blanco */
+  background-color: var(--paypal-button-bg);
+  border: none;
+  border-radius: 25px; /* Botón redondeado */
+  text-decoration: none;
+  transition: background-color 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+.btn-donate-paypal:hover {
+  background-color: var(--paypal-button-hover-bg);
+  box-shadow: 0 4px 12px rgba(0, 112, 186, 0.25); /* Sombra específica de PayPal */
+}
+
+.btn-donate-paypal .fab { /* Icono de PayPal */
+  margin-right: 0.75rem; /* 12px */
+  font-size: 1.2em; /* Ligeramente más grande que el texto */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN CONÉCTATE (REDES SOCIALES Y CANALES)
+\*----------------------------------------------------------------------------*/
+
+.social-connect-section {
+  padding: 3.75rem 0; /* 60px */
+  transition: var(--transition-colors);
+}
+
+.social-connect-intro {
+  text-align: left; /* Alineado a la izquierda por defecto */
+  max-width: 600px; /* Limitar ancho */
+  margin-bottom: 2.5rem; /* 40px */
+  /* En responsive se centrará */
+}
+
+.social-connect-title {
+  font-size: 1.875rem; /* 30px */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 0.75rem; /* 12px */
+  transition: var(--transition-colors);
+}
+
+.social-connect-subtitle {
+  font-size: 1.05rem; /* 16.8px */
+  color: var(--text-medium);
+  line-height: 1.75;
+  margin-bottom: 2rem; /* 32px */
+  transition: var(--transition-colors);
+}
+
+.contact-channel-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna por defecto */
+  gap: 1.5rem; /* 24px */
+}
+
+@media (min-width: 768px) {
+  /* 2 columnas en tablets y más grandes */
+  .contact-channel-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.contact-channel-card {
+  background-color: var(--bg-light);
+  border-radius: 10px;
+  box-shadow: var(--card-shadow-light);
+  padding: 1.5rem; /* 24px */
+  display: flex; /* Para alinear icono y contenido */
+  align-items: flex-start; /* Alinear items al inicio verticalmente */
+  gap: 1rem; /* 16px, espacio entre icono y contenido */
+  transition: var(--transition-colors), box-shadow 0.3s ease;
+}
+
+.contact-channel-card .channel-icon-wrapper {
+  flex-shrink: 0; /* Evita que el icono se encoja */
+}
+
+.contact-channel-card .channel-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%; /* Iconos circulares */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem; /* 24px */
+  color: #FFFFFF; /* Icono siempre blanco */
+}
+
+.contact-channel-card .whatsapp-icon {
+  background-color: var(--whatsapp-bg-color);
+}
+
+.contact-channel-card .telegram-icon {
+  background-color: var(--telegram-bg-color);
+}
+
+.contact-channel-card .channel-content {
+  flex-grow: 1; /* Para que el contenido ocupe el espacio restante */
+}
+
+.contact-channel-card .channel-title {
+  font-size: 1.125rem; /* 18px */
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 0.5rem; /* 8px */
+  transition: var(--transition-colors);
+}
+
+.contact-channel-card .channel-description {
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-medium);
+  margin-bottom: 1rem; /* 16px */
+  line-height: 1.6;
+  transition: var(--transition-colors);
+}
+
+.contact-channel-card .btn-join {
+  display: inline-block;
+  padding: 0.625rem 1.25rem; /* 10px 20px */
+  font-size: 0.875rem; /* 14px */
+  font-weight: 500;
+  color: #FFFFFF; /* Texto siempre blanco */
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.contact-channel-card .btn-join.whatsapp {
+  background-color: var(--whatsapp-bg-color);
+}
+
+.contact-channel-card .btn-join.whatsapp:hover {
+  background-color: var(--whatsapp-hover-bg-color);
+}
+
+.contact-channel-card .btn-join.telegram {
+  background-color: var(--telegram-bg-color);
+}
+
+.contact-channel-card .btn-join.telegram:hover {
+  background-color: var(--telegram-hover-bg-color);
+}
+
+.contact-channel-card .btn-join .arrow {
+  margin-left: 0.5rem; /* 8px, para flecha en botón */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * SECCIÓN SOPORTE Y CONTACTO (FAQ Y FORMULARIO)
+\*----------------------------------------------------------------------------*/
+
+.support-main-container {
+  display: grid;
+  grid-template-columns: 1fr; /* 1 columna por defecto */
+  gap: 2.5rem; /* 40px */
+  align-items: flex-start; /* Alinear columnas al inicio */
+}
+
+@media (min-width: 992px) {
+  /* Layout de 2 columnas en desktop: FAQ/Info a la izquierda, Formulario a la derecha */
+  .support-main-container {
+    grid-template-columns: 1fr 1.2fr; /* Columna de formulario ligeramente más ancha */
+  }
+}
+
+.faq-and-info-column {
+  /* Contenedor para FAQ e Info de Contacto */
+}
+
+.faq-container,
+.contact-info-container {
+  background-color: var(--bg-light);
+  padding: 1.875rem; /* 30px */
+  border-radius: 12px;
+  box-shadow: var(--card-shadow-light);
+  margin-bottom: 2rem; /* 32px, espacio entre FAQ e Info si están en la misma columna */
+  transition: var(--transition-colors), box-shadow 0.3s ease;
+}
+
+.faq-container:last-child,
+.contact-info-container:last-child {
+  margin-bottom: 0; /* Sin margen inferior para el último elemento de la columna */
+}
+
+.section-subtitle { /* Título para FAQ y "Información de Contacto" */
+  font-size: 1.375rem; /* 22px */
+  font-weight: 600;
+  color: var(--text-dark);
+  margin-bottom: 1.5rem; /* 24px */
+  text-align: left;
+  transition: var(--transition-colors);
+}
+
+/* FAQ Items */
+.faq-item {
+  border-bottom: 1px solid var(--border-color-soft);
+  padding: 0.875rem 0; /* 14px */
+  transition: border-color 0.3s ease;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.faq-item:first-child {
+  padding-top: 0;
+}
+
+.faq-question {
+  display: flex;
+  justify-content: space-between; /* Para alinear icono a la derecha */
+  align-items: center;
+  font-weight: 500;
+  color: var(--text-dark);
+  cursor: pointer;
+  font-size: 0.9375rem; /* 15px */
+  padding: 0.5rem 0; /* Padding para mejorar clic */
+  transition: var(--transition-colors);
+}
+
+.faq-question i.fa-chevron-down { /* Icono de chevron */
+  color: var(--text-medium);
+  transition: transform 0.3s ease, color 0.3s ease;
+  font-size: 0.8em; /* Icono más pequeño */
+}
+
+.faq-item.active .faq-question i.fa-chevron-down {
+  transform: rotate(180deg); /* Rotar icono al abrir */
+}
+
+.faq-answer {
+  max-height: 0; /* Oculto por defecto */
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, padding-top 0.35s ease-out,
+    margin-top 0.35s ease-out, var(--transition-colors);
+  color: var(--text-medium);
+  font-size: 0.875rem; /* 14px */
+  line-height: 1.6;
+}
+
+.faq-item.active .faq-answer {
+  /* Se expande con JS, aquí definimos el estado visible */
+  padding-top: 0.75rem; /* 12px */
+  margin-top: 0.25rem; /* 4px, pequeño espacio superior */
+  /* max-height se establece con JS */
+}
+
+/* Información de Contacto */
+.contact-info-list {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info-item {
+  display: flex;
+  align-items: flex-start; /* Alinear icono y texto */
+  margin-bottom: 1.25rem; /* 20px */
+  font-size: 0.9375rem; /* 15px */
+  color: var(--text-medium);
+  transition: var(--transition-colors);
+}
+
+.contact-info-item:last-child {
+  margin-bottom: 0;
+}
+
+.contact-info-item i { /* Icono */
+  font-size: 1.125rem; /* 18px */
+  color: var(--brand-purple-start);
+  margin-right: 0.875rem; /* 14px */
+  width: 20px; /* Ancho fijo para alineación */
+  text-align: center;
+  margin-top: 0.125rem; /* Ajuste vertical fino */
+}
+
+.contact-info-item .info-label { /* Etiqueta (Email, Teléfono, etc.) */
+  font-weight: 600;
+  color: var(--text-dark);
+  display: block;
+  margin-bottom: 0.125rem; /* 2px */
+  transition: var(--transition-colors);
+}
+
+.contact-info-item a {
+  color: var(--brand-purple-start); /* Enlaces con color de marca */
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.contact-info-item a:hover {
+  text-decoration: underline;
+}
+
+/* Formulario de Contacto */
+.contact-form-card-wrapper {
+  /* Contenedor si es necesario */
+}
+
+.contact-form-card {
+  /* flex: 1.5; Ya no es necesario si se usa grid en el contenedor padre */
+  background-color: var(--bg-light);
+  padding: 2.5rem; /* 40px */
+  border-radius: 12px;
+  box-shadow: var(--card-shadow-light);
+  min-width: 300px; /* Ancho mínimo del formulario */
+  transition: var(--transition-colors), box-shadow 0.3s ease;
+}
+
+.form-title { /* Título del formulario */
+  font-size: 1.625rem; /* 26px */
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 1.875rem; /* 30px */
+  text-align: left;
+  transition: var(--transition-colors);
+}
+
+.form-group {
+  margin-bottom: 1.25rem; /* 20px */
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.875rem; /* 14px */
+  color: var(--text-medium);
+  font-weight: 500;
+  margin-bottom: 0.5rem; /* 8px */
+  transition: var(--transition-colors);
+}
+
+.form-control { /* Estilo para inputs, selects, textareas */
+  width: 100%;
+  padding: 0.8125rem 1rem; /* 13px 16px */
+  font-size: 0.9375rem; /* 15px */
+  font-family: var(--font-primary);
+  color: var(--text-dark);
+  background-color: var(--bg-light);
+  border: 1px solid var(--input-border-color);
+  border-radius: 8px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, var(--transition-colors);
+}
+
+.form-control:focus {
+  outline: none;
+  border-color: var(--input-focus-border-color);
+  box-shadow: 0 0 0 0.125rem rgba(var(--brand-purple-start-rgb), 0.25); /* Sombra de foco */
+}
+body.dark-mode .form-control:focus {
+    box-shadow: 0 0 0 0.125rem rgba(var(--brand-blue-end-rgb), 0.35); /* Sombra de foco en modo oscuro */
+}
+
+textarea.form-control {
+  min-height: 120px;
+  resize: vertical; /* Permitir redimensionar verticalmente */
+}
+
+select.form-control {
+  appearance: none; /* Quitar apariencia nativa */
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%235F6773' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center; /* Posición del icono de flecha */
+  background-size: 0.8em; /* Tamaño del icono */
+  padding-right: 2.5rem; /* Espacio para el icono */
+}
+body.dark-mode select.form-control {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23b0b0b0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E"); /* Icono claro para modo oscuro */
+}
+
+.submit-button-container {
+  margin-top: 1.875rem; /* 30px */
+}
+
+.btn-submit-form {
+  display: block; /* Ocupar todo el ancho */
+  width: 100%;
+  padding: 0.875rem 1.5rem; /* 14px 24px */
+  font-size: 1rem; /* 16px */
+  font-weight: 600;
+  color: #FFFFFF; /* Texto siempre blanco */
+  background: var(--button-gradient); /* Usar degradado de botón */
+  border: none;
+  border-radius: 25px; /* Botón redondeado */
+  cursor: pointer;
+  transition: opacity 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
+}
+
+.btn-submit-form:hover {
+  opacity: 0.9;
+  box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.25); /* Sombra más pronunciada */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * BOTÓN DE ACCIÓN FLOTANTE (FAB)
+\*----------------------------------------------------------------------------*/
+
+.floating-action-button {
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  bottom: 1.5rem; /* 24px */
+  right: 1.5rem; /* 24px */
+  background-color: var(--whatsapp-bg-color); /* Color de WhatsApp */
+  color: #FFFFFF; /* Icono blanco */
+  border-radius: 50%; /* Circular */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
+  z-index: 999; /* Encima de la mayoría de los elementos */
+  text-decoration: none;
+  font-size: 1.625rem; /* 26px, tamaño del icono */
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.floating-action-button:hover {
+  background-color: var(--whatsapp-hover-bg-color);
+  transform: scale(1.03); /* Ligero zoom */
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * FOOTER
+\*----------------------------------------------------------------------------*/
+
+.site-footer-detailed {
+  background-color: var(--footer-bg-dark);
+  color: var(--footer-text-secondary-light);
+  padding: 5rem 0 2rem 0; /* 80px 0 32px 0 */
+  margin-top: 5rem; /* 80px */
+  border-top: 4px solid var(--brand-purple-start); /* Borde superior de marca */
+  transition: var(--transition-colors);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Columnas responsivas */
+  align-items: flex-start; /* Alinear columnas al inicio */
+  gap: 3rem; /* 48px, espacio entre columnas */
+  margin-bottom: 3.5rem; /* 56px */
+}
+
+.footer-column {
+  /* No se necesita flex-grow/basis si se usa grid */
+}
+
+/* Logo del Footer */
+.footer-column .footer-logo-link {
+  display: inline-flex; /* Para alinear icono y texto */
+  align-items: center;
+  text-decoration: none;
+  margin-bottom: 1.5rem; /* 24px */
+}
+
+.footer-column .footer-logo-icon-box {
+  width: 42px;
+  height: 42px;
+  background: var(--button-gradient); /* Usar degradado */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.75rem; /* 12px */
+}
+
+.footer-column .footer-logo-abbr {
+  color: #FFFFFF; /* Siempre blanco */
+  font-weight: 700;
+  font-size: 1.4rem; /* 22.4px */
+}
+
+.footer-column .footer-logo-full-text {
+  font-size: 1.2rem; /* 19.2px */
+  font-weight: 600;
+  color: var(--footer-text-primary-light); /* Texto principal del footer */
+}
+
+.footer-column .footer-description {
+  font-size: 0.95rem; /* 15.2px */
+  line-height: 1.8;
+  margin-bottom: 1.75rem; /* 28px */
+}
+
+/* Encabezados del Footer */
+.footer-column .footer-heading {
+  font-size: 1.3rem; /* 20.8px */
+  font-weight: 700;
+  color: var(--footer-heading-color); /* Usa variable de footer */
+  margin-bottom: 1.5rem; /* 24px */
+  position: relative; /* Para el pseudo-elemento ::after */
+  padding-bottom: 0.5rem; /* 8px, espacio para la línea inferior */
+}
+
+.footer-column .footer-heading::after { /* Línea decorativa debajo del título */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 40px;
+  height: 3px;
+  background: var(--brand-blue-end); /* Color de marca */
+}
+
+/* Iconos Sociales del Footer */
+.footer-social-icons {
+  display: flex;
+  flex-wrap: wrap; /* Para que se ajusten si no caben */
+  gap: 1rem; /* 16px, espacio entre iconos */
+  margin-bottom: 1.75rem; /* 28px */
+}
+
+.footer-social-icons a {
+  color: var(--footer-icon-color);
+  font-size: 1.25rem; /* 20px */
+  transition: var(--transition-smooth);
+  width: 40px; /* Tamaño fijo para iconos */
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--footer-icon-color); /* Borde sutil */
+  border-radius: 50%; /* Iconos circulares */
+}
+
+.footer-social-icons a:hover {
+  color: #FFFFFF; /* Icono blanco al hacer hover */
+  background-color: var(--brand-blue-end); /* Fondo con color de marca */
+  border-color: var(--brand-blue-end); /* Borde con color de marca */
+  transform: translateY(-3px) scale(1.05); /* Efecto de elevación y zoom */
+}
+
+/* Contacto Directo en Footer */
+.footer-direct-contact a {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--footer-text-secondary-light);
+  font-size: 0.975rem; /* 15.6px */
+  margin-bottom: 0.75rem; /* 12px */
+  transition: color 0.2s ease;
+  padding: 0.3rem 0; /* Pequeño padding vertical */
+}
+
+.footer-direct-contact a i { /* Icono de contacto */
+  margin-right: 0.75rem; /* 12px */
+  font-size: 1.2rem; /* 19.2px */
+  width: 20px; /* Ancho fijo para alineación */
+  text-align: center;
+}
+
+.footer-direct-contact a:hover {
+  color: var(--footer-link-hover-color); /* Usar variable de hover del footer */
+}
+
+/* Barra Inferior del Footer */
+.footer-bottom-bar {
+  text-align: center;
+  padding-top: 2.5rem; /* 40px */
+  border-top: 1px solid rgba(255, 255, 255, 0.1); /* Línea separadora clara */
+  margin-top: 2rem; /* 32px */
+  transition: border-color 0.3s ease;
+}
+body.dark-mode .footer-bottom-bar {
+    border-top: 1px solid rgba(255, 255, 255, 0.08); /* Línea aún más sutil en modo oscuro */
+}
+
+.footer-bottom-bar p {
+  margin: 0;
+  font-size: 0.925rem; /* 14.8px */
+  color: var(--footer-text-secondary-light);
+}
+
+
+/*----------------------------------------------------------------------------*\
+ * ESTILOS RESPONSIVE
+\*----------------------------------------------------------------------------*/
+
+/* Tablets y Móviles Grandes (hasta 991px) */
+@media (max-width: 991px) {
+  /* --- Header y Navegación --- */
+  .nav-toggle {
+    display: block; /* Mostrar el botón de hamburguesa */
+  }
+  .theme-toggle-button {
+    margin-right: 0.5rem; /* Espacio a la derecha del botón de tema */
+  }
+  .header-inner > .logo-link {
+    flex-shrink: 0; /* Evitar que el logo se encoja */
+  }
+  .header-inner > .nav-toggle,
+  .header-inner > .theme-toggle-button {
+    order: 3; /* Mover botones a la derecha del logo */
+  }
+  .header-inner > .main-menu {
+    order: 4; /* Menú debajo de todo */
+    /* El menú se posiciona absolutamente */
+    position: absolute;
+    top: 100%; /* Debajo del header */
+    left: 0;
+    right: 0;
+    background-color: var(--bg-light);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+    max-height: 0; /* Oculto por defecto */
+    overflow-y: auto; /* Scroll si el menú es muy largo */
+    transition: max-height 0.4s ease-in-out, var(--transition-colors);
+    border-top: 1px solid var(--border-color-soft);
+  }
+  .main-menu.menu-visible {
+    max-height: calc(100vh - var(--header-height)); /* Altura máxima del menú visible */
+  }
+  .main-menu ul {
+    flex-direction: column; /* Apilar items verticalmente */
+    width: 100%;
+  }
+  .main-menu > ul > li {
+    margin-left: 0; /* Quitar margen izquierdo */
+    border-bottom: 1px solid var(--border-color-soft); /* Separador entre items */
+  }
+  .main-menu > ul > li:last-child {
+    border-bottom: none; /* Sin borde para el último */
+  }
+  .main-menu ul li a {
+    padding: 1rem 1.25rem; /* 16px 20px, más padding vertical */
+    justify-content: space-between; /* Icono de submenú a la derecha */
+    border-radius: 0; /* Sin bordes redondeados */
+  }
+  .main-menu .submenu {
+    position: static; /* Submenús se expanden en línea */
+    box-shadow: none;
+    border-radius: 0;
+    min-width: 100%;
+    padding: 0;
+    border-top: none;
+    background-color: var(--submenu-hover-bg); /* Fondo ligeramente diferente para anidados */
+    max-height: 0; /* Oculto por defecto, se expande con JS */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, var(--transition-colors);
+    /* opacity, visibility y transform ya no son necesarios para el despliegue */
+  }
+  .main-menu ul li.open > .submenu {
+    max-height: 500px; /* Altura máxima para el submenú (ajustar si es necesario) */
+    /* display: block no es necesario si se usa max-height */
+  }
+  .main-menu .submenu.level-3 {
+    margin-top: 0;
+    padding-left: 1rem; /* Indentación para nivel 3 */
+    background-color: var(--bg-section-alt); /* Fondo aún más diferenciado */
+  }
+  body.dark-mode .main-menu .submenu.level-3 {
+    background-color: #202038; /* Color específico para anidado en modo oscuro */
+  }
+  .main-menu .submenu li a {
+    padding: 0.75rem 1.5rem; /* 12px 24px */
+    padding-left: 2rem; /* Mayor indentación para items de submenú */
+  }
+  .main-menu .submenu.level-3 li a {
+    padding-left: 3rem; /* Aún más indentación para nivel 3 */
+  }
+  .main-menu .submenu li a:hover {
+    /* El hover general ya se aplica, no se necesita redefinir aquí
+       a menos que se quiera un comportamiento específico para submenús en móvil */
+    background-color: var(--submenu-hover-bg); /* Mantener consistencia */
+  }
+
+  /* --- Ajustes Generales de Layout --- */
+  .hero {
+    text-align: center; /* Centrar contenido del hero */
+  }
+  .hero-content-wrapper {
+    margin: 0 auto; /* Centrar el contenedor del hero */
+  }
+  .hero-main-title {
+    font-size: 2.25rem; /* 36px, más pequeño */
+  }
+  .hero-sub-title {
+    font-size: 1.0625rem; /* 17px */
+  }
+  .support-main-container {
+    grid-template-columns: 1fr; /* Apilar columnas de soporte */
+  }
+  .faq-and-info-column {
+    margin-bottom: 2rem; /* Espacio si el formulario va debajo */
+  }
+  .contact-form-card-wrapper {
+    margin-top: 0; /* Quitar margen si estaba antes */
+  }
+  .social-connect-intro {
+    text-align: center; /* Centrar introducción de "Conéctate" */
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .mv-content-card-final {
+    padding: 2rem; /* 32px, padding reducido */
+  }
+  .donation-intro-text {
+    font-size: 1rem; /* 16px */
+  }
+  .grid-three-cols:not(#que-hacemos .info-cards-wrapper.grid-three-cols):not(#proyectos-destacados .info-cards-wrapper.grid-three-cols) {
+    /* Para otros grids de 3 columnas que no sean "Qué Hacemos" ni el slider de proyectos */
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); /* Ajustar minmax */
+  }
+}
+
+/* Móviles Medianos y Pequeños (hasta 767px) */
+@media (max-width: 767px) {
+  .hero-main-title {
+    font-size: 1.875rem; /* 30px */
+  }
+  .hero-sub-title {
+    font-size: 1rem; /* 16px */
+    max-width: 95%; /* Ligeramente más estrecho */
+    margin-left: auto; /* Centrar si es más estrecho */
+    margin-right: auto;
+  }
+  .hero-button-group .btn {
+    width: 85%; /* Botones más anchos */
+    max-width: 300px; /* Pero con un máximo */
+    margin-right: 0; /* Quitar margen derecho, se apilan */
+  }
+  .block-title {
+    font-size: 1.625rem; /* 26px */
+  }
+  .social-connect-title {
+    font-size: 1.625rem; /* 26px */
+  }
+  .card {
+    padding: 1.5rem; /* 24px */
+  }
+  .card .card-title {
+    font-size: 1.1875rem; /* 19px */
+  }
+  .project-details {
+    padding: 1.25rem; /* 20px */
+  }
+  .project-name {
+    font-size: 1.0625rem; /* 17px */
+  }
+  .contact-form-card {
+    padding: 1.875rem; /* 30px */
+  }
+  .form-title {
+    font-size: 1.5rem; /* 24px */
+  }
+  .contact-channel-cards-grid {
+    grid-template-columns: 1fr; /* Asegurar 1 columna */
+  }
+  .mv-content-card-final {
+    padding: 1.8rem 1.5rem; /* 28.8px 24px */
+  }
+  .mv-content-card-final .mv-title-final {
+    font-size: 1.4rem; /* 22.4px */
+  }
+  .mv-content-card-final .mv-description-final {
+    font-size: 0.95rem; /* 15.2px */
+  }
+  .donation-intro-text {
+    font-size: 0.95rem; /* 15.2px */
+    padding: 0 0.5rem; /* Padding horizontal para que no toque bordes */
+  }
+  .btn-donate-paypal {
+    padding: 0.8rem 2rem; /* 12.8px 32px */
+    font-size: 0.95rem; /* 15.2px */
+  }
+  .faq-container,
+  .contact-info-container {
+    padding: 1.5rem; /* 24px */
+  }
+  .section-subtitle {
+    font-size: 1.3rem; /* 20.8px */
+  }
+  #proyectos-destacados .projects-slider-controls {
+    justify-content: center; /* Centrar controles del slider */
+  }
+  #proyectos-destacados .project-card {
+    flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px); /* Ajustar tamaño de tarjetas en slider */
+    scroll-snap-align: center; /* Asegurar snap al centro */
+  }
+
+  /* Footer Responsive */
+  .footer-grid {
+    grid-template-columns: 1fr; /* Apilar columnas del footer */
+    text-align: center; /* Centrar texto en columnas */
+  }
+  .footer-column .footer-heading::after {
+    left: 50%; /* Centrar la línea decorativa */
+    transform: translateX(-50%);
+  }
+  .footer-social-icons {
+    justify-content: center; /* Centrar iconos sociales */
+  }
+  .footer-direct-contact a {
+    justify-content: center; /* Centrar items de contacto directo */
+  }
+}
+
+/* Móviles Pequeños (hasta 576px) */
+@media (max-width: 576px) {
+  .contact-form-card {
+    padding: 1.5rem; /* 24px */
+  }
+  .mv-skewed-background-final {
+    border-radius: var(--mv-card-border-radius-final); /* Sincronizar con radio de tarjeta */
+    width: 102%; /* Ajustar tamaño del fondo sesgado */
+    height: 104%;
+  }
+  .mv-content-card-final {
+    padding: 1.5rem; /* 24px */
+  }
+  .mv-content-card-final .mv-title-final {
+    font-size: 1.3rem; /* 20.8px */
+  }
+  .mv-content-card-final .mv-description-final {
+    font-size: 0.9rem; /* 14.4px */
+  }
+  /* #que-hacemos ya tiene su media query específica para 1 columna */
+}
+
+/* Móviles Muy Pequeños (hasta 480px) */
+@media (max-width: 480px) {
+  .footer-column .footer-heading {
+    font-size: 1.1rem; /* 17.6px */
+  }
+  .footer-direct-contact a,
+  .footer-column .footer-description {
+    font-size: 0.88rem; /* 14px */
+  }
+  .footer-social-icons a {
+    font-size: 1.25rem; /* 20px, mantener tamaño de iconos sociales */
+  }
+  .footer-bottom-bar p {
+    font-size: 0.85rem; /* 13.6px */
+  }
+}
