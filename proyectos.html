@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
-            /* Colores Primarios y de Acento (valores base de proyectos.html, algunos serán sobreescritos abajo para el menú) */
+            /* --- Light Mode (Default) --- */
             --brand-purple-start: #6A11CB; 
             --brand-blue-end: #2575FC;     
             
@@ -16,50 +16,77 @@
             --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-hover-gradient: linear-gradient(105deg, #5e0ec4, #1c6cf0);
 
-            /* Colores de Texto (valores de index.html para consistencia del menú) */
-            --text-dark: #212529; /* Tomado de index.html para el menú */
-            --text-medium: #5f6773; /* Tomado de index.html para el menú */
+            --text-dark: #212529;
+            --text-medium: #5f6773;
             --text-light: #FFFFFF;
-            --text-subtle: #8a92a5; /* Mantenido de proyectos.html para otros elementos */
+            --text-subtle: #8a92a5;
 
-            /* Fondos (valores de index.html para consistencia del menú) */
             --bg-light: #FFFFFF;
-            --bg-section-alt: #f8f9fa; /* Tomado de index.html */
-            --submenu-bg: #fdfdfd; /* Tomado de index.html para el menú */
-            --submenu-hover-bg: #f0f0f0; /* Tomado de index.html para el menú */
+            --bg-light-rgb: 255, 255, 255; /* For RGBA shadows or backgrounds */
+            --bg-section-alt: #f8f9fa; 
+            --submenu-bg: #fdfdfd; 
+            --submenu-hover-bg: #f0f0f0; 
             
-            /* Bordes y Sombras (valores de index.html para consistencia del menú) */
-            --border-color-soft: #eaeaea; /* Tomado de index.html para el menú */
+            --border-color-soft: #eaeaea; 
             --input-border-color: #CED4DA;
             --input-focus-border-color: var(--brand-purple-start); 
-            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); /* Tomado de index.html */
-            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1); /* Mantenido de proyectos.html */
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); 
+            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
             
             --font-primary: 'Poppins', sans-serif;
             
-            /* Footer (Mantenido de proyectos.html) */
             --footer-bg-dark: #121224; 
             --footer-text-primary-light: #E8EAF6;
             --footer-text-secondary-light: #A0A8C0;
-            --footer-heading-color: var(--text-light);
+            --footer-heading-color: var(--text-light); /* Stays light on dark footer */
             --footer-link-hover-color: var(--brand-blue-end);
             --footer-icon-color: #A0A8C0;
             --footer-icon-hover-color: var(--text-light);
 
-            /* Transiciones */
             --transition-smooth: all 0.3s ease-in-out;
+            --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
             --transition-carousel: transform 0.5s ease-in-out; 
 
-            /* Variables auxiliares para opacidad con colores RGB */
             --brand-purple-start-rgb: 106, 17, 203;
             --brand-blue-end-rgb: 37, 117, 252;
             --whatsapp-bg-color: #25D366; 
             --whatsapp-hover-bg-color: #1DAE54; 
-            --header-height: 70px; /* Valor por defecto, se actualiza con JS */
+            --header-height: 70px;
+            --paypal-button-bg: #0070ba;
 
-            /* Variables específicas del menú de index.html (ya incluidas arriba o no necesarias si se usan las generales) */
-            --paypal-button-bg: #0070ba; /* No directamente para el menú */
+            /* --- Theme Toggle Button Colors --- */
+            --theme-toggle-icon-color: var(--text-medium);
+            --theme-toggle-bg-hover: var(--submenu-hover-bg);
         }
+
+        /* --- Dark Mode Variables --- */
+        body.dark-mode {
+            --text-dark: #e0e0e0; /* Light text on dark background */
+            --text-medium: #b0b0b0;
+            --text-light: #121212; /* Dark text if on a light element in dark mode (rare) */
+            --text-subtle: #7a7a7a;
+
+            --bg-light: #1a1a2e; /* Dark background for body */
+            --bg-light-rgb: 26, 26, 46;
+            --bg-section-alt: #23233c; /* Slightly lighter dark for sections */
+            --submenu-bg: #2c2c48; 
+            --submenu-hover-bg: #353558; 
+            
+            --border-color-soft: #3a3a5a; 
+            --input-border-color: #4a4a6a;
+            --input-focus-border-color: var(--brand-blue-end); /* Accent color for focus */
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25); /* Darker, more subtle shadow */
+            --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+
+            /* Footer in dark mode might need slight adjustments if its base dark isn't enough */
+            --footer-bg-dark: #0e0e1c; /* Even darker or adjusted footer */
+            --footer-text-primary-light: #d0d0e0;
+            --footer-text-secondary-light: #9090b0;
+            
+            --theme-toggle-icon-color: #c5c5c5;
+            --theme-toggle-bg-hover: #353558;
+        }
+
 
         /* Reset Básico y Estilos Generales */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -67,31 +94,37 @@
         body {
             font-family: var(--font-primary);
             background-color: var(--bg-light);
-            color: var(--text-dark); /* Usará el --text-dark de index.html */
+            color: var(--text-dark);
             line-height: 1.75; 
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            transition: var(--transition-colors); /* Smooth transition for theme change */
         }
-        .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; } /* Ancho de container de index */
+        .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; }
 
-        /* Header Fijo (mantenido de proyectos.html) */
+        /* Header Fijo */
         .site-header {
             background-color: var(--bg-light); 
             padding: 1rem 0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); /* Sombra de header de index.html */
-            position: fixed; /* Mantenido de proyectos.html para la lógica JS de padding */
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+            position: fixed; 
             top: 0;
             left: 0;
             width: 100%;
             z-index: 1000;
+            transition: var(--transition-colors);
         }
+        body.dark-mode .site-header {
+             box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); /* Lighter shadow for dark mode header */
+        }
+
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-icon-box { /* Estilos de logo de index.html */
+        .logo-icon-box { 
             width: 38px;
             height: 38px;
-            background: var(--button-gradient);
+            background: var(--button-gradient); /* Gradient remains */
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -99,64 +132,76 @@
             margin-right: 0.625rem;
         }
         .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3); }
-        .logo-abbr { /* Estilos de logo de index.html */
-            color: var(--text-light);
+        .logo-abbr { 
+            color: #FFFFFF; /* Text on gradient button should be light */
             font-weight: 700;
             font-size: 1.3rem;
         }
-        .logo-full-text { /* Estilos de logo de index.html */
+        .logo-full-text { 
             font-size: 1.1875rem;
             font-weight: 600;
-            color: var(--text-dark); /* Usará --text-dark de index.html */
+            color: var(--text-dark);
+            transition: color 0.2s ease;
         }
         .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
         
-        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL (TOMADOS DE INDEX.HTML) --- */
+        /* --- Theme Toggle Button --- */
+        .theme-toggle-button {
+            background: none;
+            border: none;
+            color: var(--theme-toggle-icon-color);
+            font-size: 1.25rem; /* Adjust size as needed */
+            padding: 0.5rem;
+            margin-left: 0.5rem; /* Space from nav toggle or logo */
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-colors), transform 0.2s ease;
+        }
+        .theme-toggle-button:hover {
+            background-color: var(--theme-toggle-bg-hover);
+            transform: scale(1.1);
+        }
+        .theme-toggle-button .fa-sun { display: none; } /* Hide sun by default */
+        body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
+        body.dark-mode .theme-toggle-button .fa-moon { display: none; }
+
+
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
         .nav-toggle {
             display: none;
             background: none;
             border: none;
-            font-size: 1.75rem; /* De index.html */
-            color: var(--text-dark); /* De index.html */
+            font-size: 1.75rem; 
+            color: var(--text-dark); 
             cursor: pointer;
             z-index: 1001;
-            padding: 0.25rem; /* Añadido para mejor área de toque */
+            padding: 0.25rem;
+            transition: var(--transition-colors);
         }
-        .main-menu {
-            position: relative;
-        }
-        .main-menu ul {
-            list-style: none;
-            display: flex;
-            margin: 0;
-            padding: 0;
-        }
-        .main-menu ul li {
-            position: relative;
-            margin-left: 0; /* De index.html */
-        }
-        .main-menu > ul > li {
-            margin-left: 0.5rem; /* De index.html, reducido para más items */
-        }
-        .main-menu > ul > li:first-child {
-            margin-left: 0;
-        }
+        .main-menu { position: relative; }
+        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        .main-menu ul li { position: relative; margin-left: 0; }
+        .main-menu > ul > li { margin-left: 0.5rem; }
+        .main-menu > ul > li:first-child { margin-left: 0; }
 
         .main-menu ul li a {
             display: flex;
             align-items: center;
             text-decoration: none;
-            color: var(--text-medium); /* De index.html */
+            color: var(--text-medium); 
             font-weight: 500;
-            font-size: 0.9rem; /* De index.html, ligeramente reducido */
-            padding: 0.75rem 0.8rem; /* De index.html, ajustado */
-            border-radius: 6px; /* Añadido para consistencia */
-            transition: color 0.2s ease, background-color 0.2s ease;
+            font-size: 0.9rem; 
+            padding: 0.75rem 0.8rem; 
+            border-radius: 6px; 
+            transition: var(--transition-colors), background-color 0.2s ease;
             white-space: nowrap;
-            position: relative; /* Para ::before si se usa */
+            position: relative; 
         }
 
-        .main-menu ul li a .submenu-toggle-icon { /* De index.html */
+        .main-menu ul li a .submenu-toggle-icon { 
             margin-left: 0.5em;
             font-size: 0.7em;
             display: inline-flex; 
@@ -164,18 +209,16 @@
             padding: 0.3em; 
             cursor: pointer; 
         }
-        .main-menu ul li a .submenu-toggle-icon i {
-            transition: transform 0.3s ease;
-        }
+        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
 
         .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
         .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
             transform: rotate(180deg);
         }
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { /* Específico para flecha derecha */
-            transform: rotate(90deg); /* En móvil, al abrir, la flecha derecha apunta hacia abajo */
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
+            transform: rotate(90deg); 
         }
-         @media (min-width: 992px) { /* En desktop, la flecha derecha rota para indicar apertura lateral */
+         @media (min-width: 992px) { 
              .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
                 transform: rotate(0deg); 
              }
@@ -185,82 +228,80 @@
         .main-menu ul li:hover > a,
         .main-menu ul li.open > a {
             color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg); /* Aplicado al 'a' en hover/open */
+            background-color: var(--submenu-hover-bg); 
         }
         
-        /* Estilo para el enlace de la página actual en el menú principal (de proyectos.html) */
         .main-menu > ul > li > a.current-page {
-            color: var(--text-light); 
+            color: #FFFFFF; /* Text on gradient button should be light */
             background: var(--text-gradient); 
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
         }
+        body.dark-mode .main-menu > ul > li > a.current-page {
+             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4); /* Slightly adjusted shadow for dark mode */
+        }
         .main-menu > ul > li > a.current-page:hover {
-            color: var(--text-light);
+            color: #FFFFFF;
             background: var(--button-hover-gradient); 
             opacity: 0.95;
         }
-        /* Estilo para el enlace de la página actual dentro de un submenú (de proyectos.html) */
         .main-menu .submenu li a.current-page {
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg); 
             font-weight: 600;
         }
         
-        .main-menu .submenu { /* De index.html */
+        .main-menu .submenu { 
             display: none;
             position: absolute;
             top: 100%;
             left: 0;
-            background-color: var(--submenu-bg); /* De index.html */
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* De index.html */
-            border-radius: 0 0 8px 8px; /* De index.html */
-            min-width: 230px; /* De index.html */
+            background-color: var(--submenu-bg); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            border-radius: 0 0 8px 8px; 
+            min-width: 230px; 
             z-index: 100;
-            padding: 0.5rem 0; /* De index.html */
-            border-top: 1px solid var(--border-color-soft); /* De index.html */
-            opacity: 0; /* Añadido para transición */
-            visibility: hidden; /* Añadido para transición */
-            transform: translateY(10px); /* Añadido para transición */
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease; /* Añadido para transición */
+            padding: 0.5rem 0; 
+            border-top: 1px solid var(--border-color-soft); 
+            opacity: 0; 
+            visibility: hidden; 
+            transform: translateY(10px); 
+            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
         }
-        .main-menu .submenu.level-3 { /* De index.html */
-            top: 0; /* Ajustado de -0.5rem para mejor alineación */
+        body.dark-mode .main-menu .submenu {
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08); /* Lighter shadow for submenus in dark mode */
+        }
+        .main-menu .submenu.level-3 { 
+            top: 0; 
             left: 100%;
-            border-radius: 0 8px 8px 8px; /* De index.html */
-            margin-top: -0.5rem; /* De index.html, para superponer un poco */
+            border-radius: 0 8px 8px 8px; 
+            margin-top: -0.5rem; 
         }
 
-        .main-menu ul li.open > .submenu { /* De index.html, con mejoras de transición */
+        .main-menu ul li.open > .submenu { 
             display: block;
             opacity: 1;
             visibility: visible;
             transform: translateY(0);
         }
 
-        .main-menu .submenu li { /* De index.html */
-            width: 100%;
-            margin-left: 0;
-        }
-        .main-menu .submenu li a { /* De index.html */
+        .main-menu .submenu li { width: 100%; margin-left: 0; }
+        .main-menu .submenu li a { 
             padding: 0.6rem 1.2rem;
-            font-size: 0.9rem; /* Coincide con el 'a' principal */
-            color: var(--text-dark); /* De index.html */
-            border-bottom: 1px solid var(--border-color-soft); /* De index.html */
+            font-size: 0.9rem; 
+            color: var(--text-dark); 
+            border-bottom: 1px solid var(--border-color-soft); 
             justify-content: space-between; 
-            border-radius: 0; /* Quitar border-radius de items de submenú */
+            border-radius: 0; 
         }
-        .main-menu .submenu li:last-child a { /* De index.html */
-            border-bottom: none;
-        }
-        .main-menu .submenu li a:hover { /* De index.html */
-            background-color: var(--submenu-hover-bg); /* De index.html */
+        .main-menu .submenu li:last-child a { border-bottom: none; }
+        .main-menu .submenu li a:hover { 
+            background-color: var(--submenu-hover-bg); 
             color: var(--brand-purple-start);
         }
-        /* --- FIN: ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
         
         /* Estilos generales para bloques de contenido */
-        .content-block { padding: 4.5rem 0; } 
+        .content-block { padding: 4.5rem 0; transition: var(--transition-colors); } 
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
         
         .block-title { 
@@ -269,8 +310,9 @@
             font-weight: 700; 
             color: var(--text-dark); 
             margin-bottom: 1.25rem; 
+            transition: var(--transition-colors);
         }
-        .gradient-title { 
+        .gradient-title { /* Gradient text should remain visually consistent */
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -moz-background-clip: text;
@@ -286,17 +328,19 @@
             max-width: 800px; 
             margin: 0 auto 3.5rem auto; 
             line-height: 1.8;
+            transition: var(--transition-colors);
         }
 
-        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS (mantenidos de proyectos.html) --- */
+        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
         .announcement-carousel-section {
             padding-top: 3rem; 
             padding-bottom: 2.5rem;
             background-color: var(--bg-section-alt); 
             margin-bottom: 2.5rem; 
+            transition: var(--transition-colors);
         }
         .announcement-carousel-section .block-title { 
-            color: var(--text-dark); /* Usará el --text-dark de index.html */
+            color: var(--text-dark);
             margin-bottom: 2.5rem; 
         }
 
@@ -307,97 +351,118 @@
             margin: 0 auto;
             overflow: hidden; 
             border-radius: 16px; 
-            box-shadow: var(--card-shadow-light); /* Usará la sombra de index.html */
+            box-shadow: var(--card-shadow-light);
             cursor: grab; 
+            transition: box-shadow 0.3s ease;
         }
-        .carousel-container.grabbing { cursor: grabbing; }
         .carousel-slides { display: flex; height: 450px; will-change: transform; }
         .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; user-select: none; }
         .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; pointer-events: none; }
-        .carousel-slide .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%); color: var(--text-light); padding: 2.5rem 2rem 1.5rem; text-align: left; border-radius: 0 0 16px 16px; transform: translateY(100%); opacity: 0; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out; transition-delay: 0.1s; }
+        .carousel-slide .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%); color: #FFFFFF; padding: 2.5rem 2rem 1.5rem; text-align: left; border-radius: 0 0 16px 16px; transform: translateY(100%); opacity: 0; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out; }
+        body.dark-mode .carousel-slide .carousel-caption { /* Caption text is light, background gradient is dark, should be fine */ }
         .carousel-slide.active .carousel-caption { transform: translateY(0); opacity: 1; }
         .carousel-slide .carousel-caption h3 { font-size: 1.75rem; margin-top: 0; margin-bottom: 0.6rem; font-weight: 700; }
         .carousel-slide .carousel-caption p { font-size: 1rem; margin-bottom: 0; opacity: 0.9; }
-        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(255,255,255,0.25); color: var(--text-light); border: 1px solid rgba(255,255,255,0.35); backdrop-filter: blur(6px); padding: 0.6rem; font-size: 1.75rem; cursor: pointer; z-index: 10; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
-        .carousel-button:hover { background-color: rgba(255,255,255,0.4); transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(255,255,255,0.2); }
+        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(var(--bg-light-rgb), 0.25); color: var(--text-dark); border: 1px solid rgba(var(--text-dark-rgb, 0,0,0), 0.15); backdrop-filter: blur(6px); padding: 0.6rem; font-size: 1.75rem; cursor: pointer; z-index: 10; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
+        body.dark-mode .carousel-button { background-color: rgba(var(--bg-light-rgb), 0.15); color: var(--text-dark); border: 1px solid rgba(var(--text-dark-rgb, 255,255,255), 0.2); }
+        .carousel-button:hover { background-color: rgba(var(--bg-light-rgb), 0.4); transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 0,0,0),0.1); }
+        body.dark-mode .carousel-button:hover { box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 255,255,255),0.1); }
         .carousel-button.prev { left: 1.5rem; }
         .carousel-button.next { right: 1.5rem; }
         .carousel-dots { text-align: center; padding-top: 1.25rem; }
         .carousel-dot { display: inline-block; width: 10px; height: 10px; background-color: #c0c8e0; border-radius: 50%; margin: 0 7px; cursor: pointer; transition: var(--transition-smooth); border: none; padding: 0; }
+        body.dark-mode .carousel-dot { background-color: #5a5a7a; }
         .carousel-dot:hover { background-color: var(--brand-blue-end); transform: scale(1.2); }
         .carousel-dot.active { background-color: var(--brand-purple-start); transform: scale(1.3); width: 25px; border-radius: 5px; }
         .carousel-view-all-container { text-align: center; margin-top: 1.75rem; }
-        .btn-view-all-announcements { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2rem; font-size: 1rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
+        .btn-view-all-announcements { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2rem; font-size: 1rem; font-weight: 600; color: #FFFFFF; background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
         .btn-view-all-announcements i { margin-left: 0.6rem; transition: transform 0.2s ease-out; }
         .btn-view-all-announcements:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
         .btn-view-all-announcements:hover i { transform: translateX(4px); }
-        /* --- FIN: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
-
-        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS (mantenidos de proyectos.html) --- */
-        .projects-page-wrapper { padding-top: 2.5rem; }
+        
+        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
+        .projects-page-wrapper { padding-top: 2.5rem; transition: var(--transition-colors); }
         .projects-page-wrapper .block-title { color: var(--text-dark); background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.5rem; }
-        .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth); }
+        .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth), var(--transition-colors); }
         .project-card-detailed:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); }
-        .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: #e9eef7; display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); }
+        .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: var(--submenu-hover-bg); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); transition: var(--transition-colors); }
         .project-card-detailed .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; }
+        .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; transition: var(--transition-colors); }
         .project-card-detailed .project-title a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
         .project-card-detailed .project-title a:hover { color: var(--brand-purple-start); }
         .project-card-detailed .project-category { font-size: 0.85rem; font-weight: 600; color: var(--brand-blue-end); text-transform: uppercase; letter-spacing: 0.75px; margin-bottom: 1.25rem; display: table; margin-left: auto; margin-right: auto; background-color: rgba(var(--brand-blue-end-rgb), 0.1); padding: 0.35rem 0.85rem; border-radius: 20px; }
-        .project-card-detailed .project-description-full { font-size: 0.975rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.75rem; flex-grow: 1; }
-        .project-card-detailed .btn-view-project-page { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; text-align: center; transition: var(--transition-smooth); align-self: flex-start; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
+        body.dark-mode .project-card-detailed .project-category { background-color: rgba(var(--brand-blue-end-rgb), 0.2); /* Lighter for dark mode */ }
+        .project-card-detailed .project-description-full { font-size: 0.975rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.75rem; flex-grow: 1; transition: var(--transition-colors); }
+        .project-card-detailed .btn-view-project-page { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF; background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; text-align: center; transition: var(--transition-smooth); align-self: flex-start; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
         .project-card-detailed .btn-view-project-page i { margin-left: 0.5rem; transition: transform 0.2s ease-out; }
         .project-card-detailed .btn-view-project-page:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
         .project-card-detailed .btn-view-project-page:hover i { transform: translateX(3px); }
-        /* --- FIN: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
-
+        
         /* Botón Flotante de Acción (FAB) */
-        .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: var(--text-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
+        .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
         .floating-action-button:hover { background-color: var(--whatsapp-hover-bg-color); transform: scale(1.08) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
 
         /* Footer Detallado */
-        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 5rem 0 2rem 0; margin-top: 5rem; border-top: 4px solid var(--brand-purple-start); }
+        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 5rem 0 2rem 0; margin-top: 5rem; border-top: 4px solid var(--brand-purple-start); transition: var(--transition-colors); }
         .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: flex-start; gap: 3rem; margin-bottom: 3.5rem; }
         .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
         .footer-column .footer-logo-icon-box { width: 42px; height: 42px; background: var(--button-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; }
-        .footer-column .footer-logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.4rem; }
+        .footer-column .footer-logo-abbr { color: #FFFFFF; font-weight: 700; font-size: 1.4rem; }
         .footer-column .footer-logo-full-text { font-size: 1.2rem; font-weight: 600; color: var(--footer-text-primary-light); }
         .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
         .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
         .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
         .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
         .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
-        .footer-social-icons a:hover { color: var(--text-light); background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
+        .footer-social-icons a:hover { color: #FFFFFF; background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
         .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
         .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
         .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
         .footer-bottom-bar { text-align: center; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
+        body.dark-mode .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); }
         .footer-bottom-bar p { margin: 0; font-size: 0.925rem; color: var(--footer-text-secondary-light); }
 
         /* Ajustes Responsivos */
         @media (max-width: 991px) {
-            .container { width: 95%; } /* Mantenido de proyectos.html */
+            .container { width: 95%; } 
             .nav-toggle { display: flex; align-items: center; justify-content: center; } 
-            .main-menu { /* Estilos de menú móvil de index.html adaptados */
+            .theme-toggle-button { margin-right: 0.5rem; /* Espacio entre toggles */ }
+            .header-inner { /* Alinear toggles a la derecha */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+            }
+            .header-inner > .logo-link { /* Asegurar que el logo no se comprima demasiado */
+                flex-shrink: 0; 
+            }
+            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button {
+                order: 3; /* Mover toggles al final en el flujo flex */
+            }
+             .header-inner > .main-menu {
+                order: 4; /* El menú desplegable después de los toggles */
+            }
+
+
+            .main-menu { 
                 position: absolute; 
                 top: 100%; 
                 left: 0; 
                 right: 0; 
                 background-color: var(--bg-light);
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); /* Sombra de index.html */
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
                 max-height: 0; 
                 overflow-y: auto; 
-                transition: max-height 0.4s ease-in-out; /* Transición de index.html */
-                border-top: 1px solid var(--border-color-soft); /* Borde de index.html */
+                transition: max-height 0.4s ease-in-out, var(--transition-colors); 
+                border-top: 1px solid var(--border-color-soft); 
             }
             .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
             .main-menu ul { flex-direction: column; width: 100%; }
-            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } /* Borde de index.html */
+            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
             .main-menu > ul > li:last-child { border-bottom: none; }
-            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} /* Padding de index.html */
+            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} 
             
-            .main-menu > ul > li > a.current-page { /* Estilo de current-page en móvil (de proyectos.html) */
+            .main-menu > ul > li > a.current-page { 
                 background: var(--submenu-hover-bg); 
                 color: var(--brand-purple-start); 
                 box-shadow: none;
@@ -407,19 +472,20 @@
                  opacity: 1;
             }
 
-            .main-menu .submenu { /* Estilos de submenú móvil de index.html adaptados */
+            .main-menu .submenu { 
                 position: static; 
                 box-shadow: none; border-radius: 0; min-width: 100%;
                 padding: 0; border-top: none;
-                background-color: var(--submenu-hover-bg); /* Fondo de submenú de index.html */
+                background-color: var(--submenu-hover-bg); 
                 max-height: 0; overflow: hidden; 
-                transition: max-height 0.3s ease-out; /* Transición de index.html */
+                transition: max-height 0.3s ease-out, var(--transition-colors); 
                 opacity: 1; visibility: visible; transform: none; 
             }
             .main-menu ul li.open > .submenu { max-height: 600px; }
-            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: #f9f9f9; } /* Estilo de nivel 3 de index.html */
-            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } /* Padding de index.html */
-            .main-menu .submenu.level-3 li a { padding-left: 3rem; } /* Padding de index.html */
+            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
+            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; } /* Ligeramente más oscuro para nivel 3 en dark mode */
+            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
+            .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
             
             .block-title { font-size: 2rem; }
             .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
@@ -470,6 +536,10 @@
                 <div class="logo-icon-box"><span class="logo-abbr">UC</span></div>
                 <span class="logo-full-text">Universe Community</span>
             </a>
+            <button class="theme-toggle-button" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <i class="fas fa-sun" aria-hidden="true"></i>
+            </button>
             <button class="nav-toggle" id="navToggleBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainMenuNav">
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
@@ -540,7 +610,7 @@
                                     <li><a href="proyecto-epsilon.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
-                            </ul>
+                        </ul>
                     </li>
                 </ul>
             </nav>
@@ -741,20 +811,52 @@
         const siteHeader = document.getElementById('siteHeader');
         let headerHeight = 0;
 
-        // Función para actualizar la altura del header y el padding del body
         function updateHeaderHeightAndPadding() {
             if (siteHeader) {
                 headerHeight = siteHeader.offsetHeight;
                 document.body.style.paddingTop = `${headerHeight}px`;
-                // Actualiza la variable CSS --header-height para que el menú móvil la use
                 document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
             }
         }
         
-        updateHeaderHeightAndPadding(); // Ejecutar al cargar
-        window.addEventListener('resize', updateHeaderHeightAndPadding); // Y en cada redimensión
+        updateHeaderHeightAndPadding();
+        window.addEventListener('resize', updateHeaderHeightAndPadding);
 
-        // --- Lógica para el Menú de Navegación Móvil ---
+        // --- Theme Toggle Logic ---
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const currentTheme = localStorage.getItem('theme');
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        if (currentTheme) {
+            applyTheme(currentTheme);
+        } else { // Check system preference if no theme is stored
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark'); // Save system preference as initial choice
+            }
+        }
+
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                let theme = 'light';
+                if (document.body.classList.contains('dark-mode')) {
+                    theme = 'dark';
+                }
+                localStorage.setItem('theme', theme);
+            });
+        }
+
+        // --- Mobile Navigation Menu Logic ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
@@ -763,48 +865,42 @@
             navToggleBtn.addEventListener('click', () => {
                 const isExpanded = mainMenuNav.classList.toggle('menu-visible');
                 navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
-                navIcon.classList.toggle('fa-bars', !isExpanded); // Cambia a 'fa-bars' si no está expandido
-                navIcon.classList.toggle('fa-times', isExpanded);  // Cambia a 'fa-times' si está expandido
+                navIcon.classList.toggle('fa-bars', !isExpanded);
+                navIcon.classList.toggle('fa-times', isExpanded);
 
-                // Si el menú se cierra, también cierra todos los submenús abiertos
                 if (!isExpanded) { 
                     mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
                         openSubmenuLi.classList.remove('open');
                         const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
                         if (link) link.setAttribute('aria-expanded', 'false');
                         const submenu = openSubmenuLi.querySelector('.submenu');
-                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null; // Resetea maxHeight en móvil
+                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
                     });
                 }
             });
         }
 
-        // --- Lógica para Desplegar Submenús (Click en icono o enlace padre en móvil) ---
         if (mainMenuNav) {
             mainMenuNav.querySelectorAll('li.has-submenu').forEach(listItem => {
-                const link = listItem.querySelector('a[aria-haspopup="true"]'); // Enlace que tiene el submenú
-                const toggleIcon = listItem.querySelector('.submenu-toggle-icon'); // Icono de flecha
-                const submenu = listItem.querySelector('.submenu'); // El submenú en sí
+                const link = listItem.querySelector('a[aria-haspopup="true"]');
+                const toggleIcon = listItem.querySelector('.submenu-toggle-icon');
+                const submenu = listItem.querySelector('.submenu');
 
-                // Evento para el icono de flecha (siempre togglea)
                 if (toggleIcon && submenu) {
                     toggleIcon.addEventListener('click', (event) => {
-                        event.preventDefault(); // Previene la navegación si el enlace tiene href
-                        event.stopPropagation(); // Evita que el evento llegue al 'link' y se ejecute dos veces
+                        event.preventDefault();
+                        event.stopPropagation();
                         toggleSubmenu(listItem, link, submenu);
                     });
                 }
                 
-                // Evento para el enlace padre (A)
                 if (link && submenu) {
                      link.addEventListener('click', (event) => {
-                        // Si el click fue directamente en el icono, ya se manejó, no hacer nada más.
                         if (event.target.closest('.submenu-toggle-icon')) {
                             return;
                         }
-
                         if (window.innerWidth <= 991 || !link.getAttribute('href') || link.getAttribute('href') === '#') {
-                            event.preventDefault(); 
+                            event.preventDefault();
                             toggleSubmenu(listItem, link, submenu);
                         }
                     });
@@ -832,7 +928,6 @@
             }
         }
 
-        // --- Cerrar menú móvil cuando se hace clic en un enlace (que navega) ---
         if (mainMenuNav) {
             mainMenuNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', (event) => {
@@ -859,7 +954,6 @@
             });
         }
 
-        // --- Resaltado de Página Actual en el Menú ---
         function updateCurrentPage() { 
             if (!mainMenuNav) return;
             const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
