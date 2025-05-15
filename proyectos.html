@@ -76,7 +76,6 @@
             left: 0;
             width: 100%;
             z-index: 1000;
-            /* No se aplica transform para ocultar/mostrar al hacer scroll */
         }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-link { display: flex; align-items: center; text-decoration: none; }
@@ -245,7 +244,7 @@
         /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
         .announcement-carousel-section {
             padding-top: 3rem; 
-            padding-bottom: 1.5rem; 
+            padding-bottom: 2.5rem; /* Aumentado para dar espacio al botón "Ver todos" */
             background-color: var(--bg-section-alt); 
             margin-bottom: 2.5rem; 
         }
@@ -356,8 +355,7 @@
 
         .carousel-dots {
             text-align: center;
-            padding-top: 1.5rem; 
-            margin-bottom: 1rem; 
+            padding-top: 1.25rem; /* Reducido ligeramente */
         }
 
         .carousel-dot {
@@ -382,6 +380,40 @@
             width: 25px; 
             border-radius: 5px; 
         }
+
+        .carousel-view-all-container {
+            text-align: center;
+            margin-top: 1.75rem; /* Ajustado para mejor cohesión */
+        }
+
+        .btn-view-all-announcements {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.9rem 2rem; 
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--text-light);
+            background: var(--button-gradient);
+            border: none;
+            border-radius: 30px; 
+            text-decoration: none;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.2);
+        }
+        .btn-view-all-announcements i {
+            margin-left: 0.6rem;
+            transition: transform 0.2s ease-out;
+        }
+        .btn-view-all-announcements:hover {
+            background: var(--button-hover-gradient);
+            box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3);
+            transform: translateY(-2px);
+        }
+         .btn-view-all-announcements:hover i {
+            transform: translateX(4px);
+        }
+
         /* --- FIN: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
 
         /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
@@ -666,6 +698,7 @@
             .project-card-detailed .project-img-placeholder { height: 200px; }
             .project-card-detailed .project-content { padding: 1.5rem; }
             .project-card-detailed .project-title { font-size: 1.3rem; }
+            .btn-view-all-announcements { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
         }
 
         /* Helper class for RGB colors for opacity */
@@ -805,6 +838,9 @@
                     <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
                     <div class="carousel-dots" aria-label="Navegación de anuncios">
                         </div>
+                </div>
+                <div class="carousel-view-all-container">
+                    <a href="todos-los-anuncios.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
@@ -966,8 +1002,8 @@
             }
         }
         
-        updateHeaderHeightAndPadding(); // Initial call
-        window.addEventListener('resize', updateHeaderHeightAndPadding); // Update on resize
+        updateHeaderHeightAndPadding(); 
+        window.addEventListener('resize', updateHeaderHeightAndPadding); 
 
         // --- Mobile Navigation Menu ---
         const navToggleBtn = document.getElementById('navToggleBtn');
@@ -1145,7 +1181,7 @@
                 }
 
                 function setPositionByIndex() {
-                    if (slidesContainer) { // Check if slidesContainer exists
+                    if (slidesContainer) { 
                         currentTranslate = currentIndex * -slidesContainer.offsetWidth;
                         prevTranslate = currentTranslate;
                         applyTransition();
