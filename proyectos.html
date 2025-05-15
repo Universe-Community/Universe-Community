@@ -62,14 +62,21 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
+            /* Padding top será añadido por JS para el header fijo */
         }
         .container { width: 92%; max-width: 1140px; margin-left: auto; margin-right: auto; padding: 0 15px; }
 
-        /* Header */
+        /* Header Fijo */
         .site-header {
-            background-color: var(--bg-light); padding: 1rem 0;
-            box-shadow: 0 2px 8px rgba(37,44,99,0.05); position: sticky; top: 0; z-index: 1000;
-            transition: transform 0.3s ease-out; 
+            background-color: var(--bg-light); 
+            padding: 1rem 0;
+            box-shadow: 0 2px 8px rgba(37,44,99,0.05); 
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            /* No se aplica transform para ocultar/mostrar al hacer scroll */
         }
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
         .logo-link { display: flex; align-items: center; text-decoration: none; }
@@ -136,19 +143,28 @@
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg);
         }
-        .main-menu a.current-page {
+        
+        .main-menu > ul > li > a.current-page {
+            color: var(--text-light); 
+            background: var(--text-gradient); 
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb, 106, 17, 203), 0.3);
+        }
+        .main-menu > ul > li > a.current-page::before {
+            display: none; 
+        }
+        .main-menu > ul > li > a.current-page:hover {
+            color: var(--text-light);
+            background: var(--button-hover-gradient); 
+            opacity: 0.95;
+        }
+
+         .main-menu .submenu li a.current-page {
             color: var(--brand-purple-start);
+            background-color: var(--submenu-hover-bg); 
             font-weight: 600;
         }
-        .main-menu a.current-page::before { 
-            content: '';
-            position: absolute;
-            bottom: 5px;
-            left: 1rem;
-            right: 1rem;
-            height: 2px;
-            background-color: var(--brand-purple-start);
-        }
+        .main-menu .submenu li a.current-page::before { display: none; } 
        
         .main-menu .submenu {
             display: none;
@@ -188,14 +204,9 @@
             justify-content: space-between; 
             border-radius: 0; 
         }
-         .main-menu .submenu li a.current-page::before { display: none; } 
-         .main-menu .submenu li a.current-page { background-color: var(--submenu-hover-bg); }
-
-
         .main-menu .submenu li:not(:last-child) a {
              border-bottom: 1px solid var(--border-color-soft); 
         }
-
         .main-menu .submenu li a:hover {
             background-color: var(--submenu-hover-bg);
             color: var(--brand-purple-start);
@@ -210,16 +221,16 @@
             text-align: center; 
             font-size: 2.5rem; 
             font-weight: 700; 
-            color: var(--text-dark); /* Color sólido por defecto */
+            color: var(--text-dark); 
             margin-bottom: 1.25rem; 
         }
-        .gradient-title { /* Clase específica para títulos con degradado */
+        .gradient-title { 
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -moz-background-clip: text;
             background-clip: text;
             color: transparent;
-            display: inline-block; /* Necesario para que el background-clip funcione correctamente */
+            display: inline-block; 
         }
 
         .block-subtitle { 
@@ -233,14 +244,14 @@
 
         /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
         .announcement-carousel-section {
-            padding-top: 3rem; /* Mantenemos padding superior */
-            padding-bottom: 1.5rem; /* Reducimos padding inferior para acercar al siguiente título */
+            padding-top: 3rem; 
+            padding-bottom: 1.5rem; 
             background-color: var(--bg-section-alt); 
             margin-bottom: 2.5rem; 
         }
-        .announcement-carousel-section .block-title { /* Título "Anuncios Destacados" en negro */
+        .announcement-carousel-section .block-title { 
             color: var(--text-dark);
-            margin-bottom: 2.5rem; /* Espacio antes del carrusel */
+            margin-bottom: 2.5rem; 
         }
 
 
@@ -289,12 +300,12 @@
             padding: 2.5rem 2rem 1.5rem; 
             text-align: left; 
             border-radius: 0 0 16px 16px; 
-            transform: translateY(100%); /* Start off-screen */
+            transform: translateY(100%); 
             opacity: 0;
             transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out;
-            transition-delay: 0.1s; /* Slight delay for caption appearance */
+            transition-delay: 0.1s; 
         }
-        .carousel-slide.active .carousel-caption { /* Animate caption in for active slide */
+        .carousel-slide.active .carousel-caption { 
             transform: translateY(0);
             opacity: 1;
         }
@@ -375,10 +386,10 @@
 
         /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
          .projects-page-wrapper {
-            padding-top: 2.5rem; /* Reducido el padding superior para acercar al carrusel */
+            padding-top: 2.5rem; 
         }
-        .projects-page-wrapper .block-title { /* Título "Explora Nuestros Proyectos" con degradado */
-            color: var(--text-dark); /* Fallback */
+        .projects-page-wrapper .block-title { 
+            color: var(--text-dark); 
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -moz-background-clip: text;
@@ -440,7 +451,6 @@
             color: var(--brand-purple-start);
         }
 
-
         .project-card-detailed .project-category {
             font-size: 0.85rem; 
             font-weight: 600; 
@@ -448,9 +458,11 @@
             text-transform: uppercase;
             letter-spacing: 0.75px; 
             margin-bottom: 1.25rem; 
-            display: inline-block;
+            display: table; 
+            margin-left: auto;
+            margin-right: auto;
             background-color: rgba(var(--brand-blue-end-rgb, 37, 117, 252), 0.1); 
-            padding: 0.25rem 0.75rem;
+            padding: 0.35rem 0.85rem; 
             border-radius: 20px;
         }
        
@@ -587,12 +599,22 @@
                 transition: max-height 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); 
                 border-top: 1px solid var(--border-color-soft);
             }
-            .main-menu.menu-visible { max-height: calc(100vh - 70px); }
+            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height, 70px)); } 
             .main-menu ul { flex-direction: column; width: 100%; }
             .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); }
             .main-menu > ul > li:last-child { border-bottom: none; }
             .main-menu ul li a { padding: 1rem 1.5rem; justify-content: space-between; border-radius: 0;}
-            .main-menu a.current-page::before { display: none; } 
+            
+            .main-menu > ul > li > a.current-page {
+                background: var(--submenu-hover-bg); 
+                color: var(--brand-purple-start); 
+                box-shadow: none;
+            }
+            .main-menu > ul > li > a.current-page:hover {
+                 background: var(--submenu-hover-bg);
+                 opacity: 1;
+            }
+
             .main-menu .submenu {
                 position: static; 
                 box-shadow: none; border-radius: 0; min-width: 100%;
@@ -652,6 +674,7 @@
             --brand-blue-end-rgb: 37, 117, 252;
             --whatsapp-bg-color-rgb: 37, 211, 102; 
             --whatsapp-hover-bg-color-rgb: 29, 174, 84;
+            --header-height: 70px; /* Default, updated by JS */
         }
 
     </style>
@@ -933,21 +956,18 @@
     <script>
     document.addEventListener('DOMContentLoaded', () => {
         const siteHeader = document.getElementById('siteHeader');
-        let lastScrollTop = 0;
+        let headerHeight = 0;
 
-        // Sticky header effect
-        window.addEventListener('scroll', () => {
-            let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        function updateHeaderHeightAndPadding() {
             if (siteHeader) {
-                if (scrollTop > lastScrollTop && scrollTop > 200) { 
-                    siteHeader.style.transform = 'translateY(-100%)';
-                } else { 
-                    siteHeader.style.transform = 'translateY(0)';
-                }
+                headerHeight = siteHeader.offsetHeight;
+                document.body.style.paddingTop = `${headerHeight}px`;
+                document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
             }
-            lastScrollTop = scrollTop <= 0 ? 0 : scrollTop; 
-        }, false);
-
+        }
+        
+        updateHeaderHeightAndPadding(); // Initial call
+        window.addEventListener('resize', updateHeaderHeightAndPadding); // Update on resize
 
         // --- Mobile Navigation Menu ---
         const navToggleBtn = document.getElementById('navToggleBtn');
@@ -1019,7 +1039,10 @@
             mainMenuNav.querySelectorAll('a').forEach(link => {
                 link.addEventListener('click', (event) => {
                     if (link.getAttribute('href') && link.getAttribute('href') !== '#' && mainMenuNav.classList.contains('menu-visible')) {
-                        if (!event.target.closest('.submenu-toggle-icon') && !link.parentElement.classList.contains('has-submenu')) {
+                        const isSubmenuToggle = link.parentElement.classList.contains('has-submenu') && 
+                                                (link.querySelector('.submenu-toggle-icon') || link.getAttribute('aria-haspopup') === 'true');
+                        
+                        if (!isSubmenuToggle || link.closest('.submenu')) { 
                              mainMenuNav.classList.remove('menu-visible');
                              if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
                              if (navIcon) {
@@ -1039,7 +1062,7 @@
             const currentHash = window.location.hash;
 
             mainMenuNav.querySelectorAll('a').forEach(navLink => {
-                navLink.classList.remove('current-page', 'parent-current-page');
+                navLink.classList.remove('current-page'); 
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
 
@@ -1048,35 +1071,30 @@
                 let isActive = false;
 
                 if (linkPath === currentPath) {
-                    if (linkHash && currentHash) { 
+                    if (linkHash) {
                         if (linkHash === currentHash) isActive = true;
-                    } else if (!linkHash && !currentHash) { 
+                    } 
+                    else if (!currentHash || currentHash === "") {
                          isActive = true;
-                    } else if (!linkHash && currentPath !== 'index.html') { 
-                        isActive = true; 
-                    } else if (linkPath === 'index.html' && !currentHash) { 
-                        isActive = true;
                     }
                 }
                 
-                if (linkHref === "proyectos.html#todos-los-proyectos" && currentPath === "proyectos.html" && (currentHash === "#todos-los-proyectos" || !currentHash || currentHash === "")) {
-                    isActive = true;
+                if (linkHref.includes("proyectos.html#todos-los-proyectos") && currentPath === "proyectos.html") {
+                    if (currentHash === "#todos-los-proyectos" || !currentHash || currentHash === "") {
+                         isActive = true;
+                    }
+                } else if (linkPath === "proyectos.html" && currentPath === "proyectos.html" && !linkHref.includes("#")) {
+                    // This is the main "Proyectos" link.
                 }
 
 
                 if (isActive) {
                     navLink.classList.add('current-page');
-                    let parentLi = navLink.closest('li.has-submenu');
-                    while (parentLi) {
+                    let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
+                    if (parentLi) {
                         const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
                         if (parentAnchor) {
                             parentAnchor.classList.add('current-page'); 
-                        }
-                        const grandParentUl = parentLi.parentElement;
-                        if (grandParentUl && grandParentUl.classList.contains('submenu')) {
-                            parentLi = grandParentUl.closest('li.has-submenu');
-                        } else {
-                            parentLi = null; 
                         }
                     }
                 }
@@ -1127,17 +1145,19 @@
                 }
 
                 function setPositionByIndex() {
-                    currentTranslate = currentIndex * -slidesContainer.offsetWidth;
-                    prevTranslate = currentTranslate;
-                    applyTransition();
-                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+                    if (slidesContainer) { // Check if slidesContainer exists
+                        currentTranslate = currentIndex * -slidesContainer.offsetWidth;
+                        prevTranslate = currentTranslate;
+                        applyTransition();
+                        slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+                    }
                 }
 
 
                 function updateCarouselState() {
                     setPositionByIndex();
                     slides.forEach((slide, index) => {
-                        slide.classList.toggle('active', index === currentIndex); // For caption animation
+                        slide.classList.toggle('active', index === currentIndex); 
                         slide.setAttribute('aria-hidden', String(index !== currentIndex));
                         slide.inert = index !== currentIndex; 
                     });
@@ -1208,7 +1228,7 @@
                         currentIndex -= 1;
                     }
                     
-                    updateCarouselState(); // Snap to the correct slide & update active states
+                    updateCarouselState(); 
                     resetInterval(); 
                 }
 
@@ -1229,6 +1249,7 @@
 
                 window.addEventListener('resize', () => {
                     removeTransition(); 
+                    updateHeaderHeightAndPadding(); 
                     setPositionByIndex();
                     setTimeout(applyTransition, 50); 
                 });
