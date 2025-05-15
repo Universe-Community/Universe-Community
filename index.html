@@ -71,7 +71,7 @@
             --telegram-hover-bg-color: #007AB8;
         }
 
-        /* Reset Básico y Estilos Generales (sin cambios) */
+        /* Reset Básico y Estilos Generales */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { font-size: 16px; scroll-behavior: smooth; }
         body {
@@ -83,7 +83,7 @@
         }
         .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; }
 
-        /* Header (sin cambios significativos en .site-header, .header-inner, logo) */
+        /* Header */
         .site-header {
             background-color: var(--bg-light); padding: 1rem 0;
             box-shadow: 0 1px 3px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
@@ -98,7 +98,7 @@
         .logo-abbr { color: var(--text-light); font-weight: 700; font-size: 1.3rem; }
         .logo-full-text { font-size: 1.1875rem; font-weight: 600; color: var(--text-dark); }
         
-        /* --- INICIO: ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
         .nav-toggle { 
             display: none; 
             background: none; 
@@ -106,10 +106,10 @@
             font-size: 1.75rem; 
             color: var(--text-dark); 
             cursor: pointer;
-            z-index: 1001; /* Para estar sobre el menú en algunas situaciones */
+            z-index: 1001; 
         }
         .main-menu {
-            position: relative; /* Para posicionar submenús en desktop */
+            position: relative; 
         }
         .main-menu ul {
             list-style: none;
@@ -118,70 +118,78 @@
             padding: 0;
         }
         .main-menu ul li {
-            position: relative; /* Para submenús */
-            margin-left: 0; /* Resetear margen, se controlará con padding en 'a' o espaciado en flex */
+            position: relative; 
+            margin-left: 0; 
         }
-         /* Espaciado entre items de primer nivel */
         .main-menu > ul > li {
-            margin-left: 1.5rem; /* Ajusta según sea necesario */
+            margin-left: 0.5rem; /* Reducido para más items */
         }
         .main-menu > ul > li:first-child {
             margin-left: 0;
         }
 
         .main-menu ul li a {
-            display: flex; /* Para alinear ícono y texto */
+            display: flex; 
             align-items: center;
             text-decoration: none;
             color: var(--text-medium);
             font-weight: 500;
-            font-size: 0.9375rem;
-            padding: 0.75rem 1rem; /* Padding para items de menú */
+            font-size: 0.9rem; /* Ligeramente reducido para más items */
+            padding: 0.75rem 0.8rem; /* Ajustado */
             transition: color 0.2s ease, background-color 0.2s ease;
-            white-space: nowrap; /* Evitar que el texto se rompa */
+            white-space: nowrap; 
         }
-        .main-menu ul li a .fa-chevron-down,
-        .main-menu ul li a .fa-chevron-right {
+        
+        /* Estilo para el span que contiene el icono de flecha */
+        .main-menu ul li a .submenu-toggle-icon {
             margin-left: 0.5em;
             font-size: 0.7em;
-            transition: transform 0.3s ease;
+            display: inline-flex; /* Para que el padding funcione */
+            align-items: center;
+            padding: 0.3em; /* Pequeño padding para facilitar el clic */
+            cursor: pointer; /* Indicar que es clickeable */
         }
-        .main-menu ul li.open > a .fa-chevron-down,
-        .main-menu ul li.open > a .fa-chevron-right {
+        .main-menu ul li a .submenu-toggle-icon i { /* El icono en sí */
+             transition: transform 0.3s ease;
+        }
+
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
             transform: rotate(180deg);
         }
-        .main-menu ul li.open > a .fa-chevron-right { /* Para flecha derecha que apunta hacia abajo */
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
              transform: rotate(90deg);
         }
 
-
         .main-menu a:hover, 
         .main-menu a.current-page,
-        .main-menu ul li:hover > a, /* Resaltar padre en hover */
-        .main-menu ul li.open > a { /* Mantener resaltado si está abierto */
+        .main-menu ul li:hover > a, 
+        .main-menu ul li.open > a { 
             color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg); /* Fondo sutil en hover/open */
+            /* background-color: var(--submenu-hover-bg); No aplicar a todo el 'a' si solo el icono abre */
+        }
+        .main-menu ul li a:hover .submenu-toggle-icon { /* Solo el icono cambia de fondo */
+             /* background-color: var(--submenu-hover-bg); Puede ser mucho, opcional */
         }
         
-        /* Estilos de Submenús (ocultos por defecto) */
         .main-menu .submenu {
             display: none;
             position: absolute;
-            top: 100%; /* Debajo del item padre */
+            top: 100%; 
             left: 0;
             background-color: var(--submenu-bg);
             box-shadow: 0 4px 12px rgba(0,0,0,0.1);
             border-radius: 0 0 8px 8px;
-            min-width: 220px; /* Ancho mínimo del desplegable */
-            z-index: 100; /* Para estar sobre otros elementos */
+            min-width: 230px; /* Ajustado */
+            z-index: 100; 
             padding: 0.5rem 0;
             border-top: 1px solid var(--border-color-soft);
         }
         .main-menu .submenu.level-3 {
             top: 0;
-            left: 100%; /* Al lado del item padre de nivel 2 */
+            left: 100%; 
             border-radius: 0 8px 8px 8px;
-            margin-top: -0.5rem; /* Para alinear con el padding del padre */
+            margin-top: -0.5rem; 
         }
 
         .main-menu ul li.open > .submenu {
@@ -190,13 +198,14 @@
 
         .main-menu .submenu li {
             width: 100%;
-            margin-left: 0; /* Resetear margen para items de submenú */
+            margin-left: 0; 
         }
         .main-menu .submenu li a {
             padding: 0.6rem 1.2rem;
             font-size: 0.9rem;
-            color: var(--text-dark); /* Texto más oscuro para subitems */
+            color: var(--text-dark); 
             border-bottom: 1px solid var(--border-color-soft);
+            justify-content: space-between; /* Para la flecha del nivel 3 */
         }
         .main-menu .submenu li:last-child a {
             border-bottom: none;
@@ -366,26 +375,24 @@
         @media (max-width: 991px) {
             .nav-toggle { display: block; }
             .main-menu {
-                /* Estilos para el menú móvil principal */
                 position: absolute; 
-                top: 100%; /* Debajo del header */
+                top: 100%; 
                 left: 0; 
                 right: 0; 
                 background-color: var(--bg-light);
                 box-shadow: 0 3px 8px rgba(0,0,0,0.1); 
-                max-height: 0; /* Oculto por defecto */
-                overflow-y: auto; /* Scroll si el contenido excede */
+                max-height: 0; 
+                overflow-y: auto; 
                 transition: max-height 0.4s ease-in-out; 
                 border-top: 1px solid var(--border-color-soft);
             }
             .main-menu.menu-visible { 
-                max-height: calc(100vh - 70px); /* Altura máxima, ej. altura de viewport menos altura del header */
+                max-height: calc(100vh - 70px); 
             }
             .main-menu ul { 
                 flex-direction: column; 
                 width: 100%;
             }
-            /* Items de primer nivel en móvil */
             .main-menu > ul > li {
                 margin-left: 0;
                 border-bottom: 1px solid var(--border-color-soft);
@@ -394,35 +401,39 @@
                 border-bottom: none;
             }
             .main-menu ul li a {
-                padding: 1rem 1.25rem; /* Padding más generoso para móvil */
-                justify-content: space-between; /* Para que el ícono de flecha esté a la derecha */
+                padding: 1rem 1.25rem; 
+                justify-content: space-between; 
             }
-            /* Submenús en móvil */
             .main-menu .submenu {
-                position: static; /* Fluyen normalmente en móvil */
+                position: static; 
                 box-shadow: none;
                 border-radius: 0;
                 min-width: 100%;
                 padding: 0;
                 border-top: none;
-                background-color: var(--submenu-bg); /* Un poco diferente para distinguir */
+                background-color: var(--submenu-bg); 
+                max-height: 0; /* Oculto por defecto en móvil */
+                overflow: hidden;
+                transition: max-height 0.3s ease-out;
             }
-             .main-menu .submenu.level-3 { /* Nivel 3 en móvil */
+             .main-menu ul li.open > .submenu { /* Mostrar submenú en móvil */
+                max-height: 500px; /* Un valor suficientemente grande */
+            }
+             .main-menu .submenu.level-3 { 
                 margin-top: 0;
-                padding-left: 1rem; /* Indentación para nivel 3 */
-                background-color: #f9f9f9; /* Fondo ligeramente diferente para nivel 3 */
+                padding-left: 1rem; 
+                background-color: #f9f9f9; 
             }
             .main-menu .submenu li a {
-                padding: 0.75rem 1.5rem; /* Padding para subitems */
-                 padding-left: 2rem; /* Mayor indentación para nivel 2 */
+                padding: 0.75rem 1.5rem; 
+                 padding-left: 2rem; 
             }
             .main-menu .submenu.level-3 li a {
-                 padding-left: 3rem; /* Mayor indentación para nivel 3 */
+                 padding-left: 3rem; 
             }
             .main-menu .submenu li a:hover {
                  background-color: var(--submenu-hover-bg);
             }
-
 
             .hero { text-align: center; }
             .hero-content-wrapper { margin: 0 auto; }
@@ -504,51 +515,74 @@
             <nav class="main-menu" id="mainMenuNav">
                 <ul>
                     <li class="has-submenu">
-                        <a href="#" aria-haspopup="true" aria-expanded="false">Universe Community <i class="fas fa-chevron-down"></i></a>
+                        <a href="index.html" aria-haspopup="true" aria-expanded="false">
+                            Universe Community 
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </a>
                         <ul class="submenu level-2">
                             <li><a href="index.html">Inicio</a></li>
-                            <li><a href="#proyectos-destacados">Proyectos</a></li>
-                            <li><a href="#apoyanos">Donar</a></li>
-                            <li><a href="#comunidad">Comunidad</a></li>
-                            <li><a href="#soporte-contacto">Soporte y Contacto</a></li>
+                            <li><a href="#proyectos">Proyectos</a></li>
+                            <li><a href="#donaciones">Donar</a></li>
+                            <li><a href="#contacto">Contacto</a></li>
+                            <li><a href="#soporte">Soporte</a></li>
                         </ul>
                     </li>
                     <li class="has-submenu">
-                        <a href="#proyectos-destacados" aria-haspopup="true" aria-expanded="false">Proyectos <i class="fas fa-chevron-down"></i></a>
+                        <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
+                            Proyectos
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </a>
                         <ul class="submenu level-2">
                             <li class="has-submenu">
-                                <a href="proyecto-detalle.html?id=alpha" aria-haspopup="true" aria-expanded="false">Proyecto Alpha <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <a href="proyecto-alpha.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Alpha 
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right "></i></span>
+                                </a>
                                 <ul class="submenu level-3">
-                                    <li><a href="proyecto-detalle.html?id=alpha#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-alpha.html#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-alpha.html#detalles">Detalles</a></li>
                                 </ul>
                             </li>
                             <li class="has-submenu">
-                                <a href="proyecto-detalle.html?id=beta" aria-haspopup="true" aria-expanded="false">Proyecto Beta <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <a href="proyecto-beta.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Beta 
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right "></i></span>
+                                </a>
                                 <ul class="submenu level-3">
-                                    <li><a href="proyecto-detalle.html?id=beta#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-beta.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
                             <li class="has-submenu">
-                                <a href="proyecto-detalle.html?id=gamma" aria-haspopup="true" aria-expanded="false">Proyecto Gamma <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                                <a href="proyecto-gamma.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Gamma
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right "></i></span>
+                                </a>
                                 <ul class="submenu level-3">
-                                    <li><a href="proyecto-detalle.html?id=gamma#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-gamma.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-detalle.html?id=delta" aria-haspopup="true" aria-expanded="false">Proyecto Delta <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                             <li class="has-submenu">
+                                <a href="proyecto-delta.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Delta
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right "></i></span>
+                                </a>
                                 <ul class="submenu level-3">
-                                    <li><a href="proyecto-detalle.html?id=delta#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-delta.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-detalle.html?id=epsilon" aria-haspopup="true" aria-expanded="false">Proyecto Epsilon <i class="fas fa-chevron-right nav-arrow-level2"></i></a>
+                             <li class="has-submenu">
+                                <a href="proyecto-epsilon.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Epsilon
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right "></i></span>
+                                </a>
                                 <ul class="submenu level-3">
-                                    <li><a href="proyecto-detalle.html?id=epsilon#inicio">Inicio del Proyecto</a></li>
+                                    <li><a href="proyecto-epsilon.html#inicio">Inicio del Proyecto</a></li>
                                 </ul>
                             </li>
+                            <li><a href="proyectos.html">Ver Todos los Proyectos</a></li>
                         </ul>
                     </li>
-                </ul>
+                     </ul>
             </nav>
         </div>
     </header>
@@ -628,7 +662,7 @@
                         <div class="project-details">
                             <h3 class="project-name">Proyecto Alpha</h3>
                             <p class="project-summary">Exploración cósmica y desarrollo de simulaciones interactivas del universo.</p>
-                            <a href="proyecto-detalle.html?id=alpha" class="btn btn-details-project">Ver detalles</a>
+                            <a href="proyecto-alpha.html" class="btn btn-details-project">Ver detalles</a>
                         </div>
                     </article>
                     <article class="project-card">
@@ -638,7 +672,7 @@
                         <div class="project-details">
                             <h3 class="project-name">Proyecto Beta</h3>
                             <p class="project-summary">Herramientas educativas de código abierto para comunidades globales y accesibles.</p>
-                            <a href="proyecto-detalle.html?id=beta" class="btn btn-details-project">Ver detalles</a>
+                            <a href="proyecto-beta.html" class="btn btn-details-project">Ver detalles</a>
                         </div>
                     </article>
                     <article class="project-card">
@@ -648,7 +682,7 @@
                         <div class="project-details">
                             <h3 class="project-name">Proyecto Gamma</h3>
                             <p class="project-summary">Fusión de expresión artística con nuevas tecnologías digitales y creativas e innovadoras.</p>
-                            <a href="proyecto-detalle.html?id=gamma" class="btn btn-details-project">Ver detalles</a>
+                            <a href="proyecto-gamma.html" class="btn btn-details-project">Ver detalles</a>
                         </div>
                     </article>
                      <article class="project-card">
@@ -658,7 +692,7 @@
                         <div class="project-details">
                             <h3 class="project-name">Proyecto Delta</h3>
                             <p class="project-summary">Investigación en IA para la sostenibilidad ambiental y conservación de recursos.</p>
-                            <a href="proyecto-detalle.html?id=delta" class="btn btn-details-project">Ver detalles</a>
+                            <a href="proyecto-delta.html" class="btn btn-details-project">Ver detalles</a>
                         </div>
                     </article>
                      <article class="project-card">
@@ -668,7 +702,7 @@
                         <div class="project-details">
                             <h3 class="project-name">Proyecto Epsilon</h3>
                             <p class="project-summary">Plataforma comunitaria para el intercambio de habilidades y mentoría entre pares.</p>
-                            <a href="proyecto-detalle.html?id=epsilon" class="btn btn-details-project">Ver detalles</a>
+                            <a href="proyecto-epsilon.html" class="btn btn-details-project">Ver detalles</a>
                         </div>
                     </article>
                 </div>
@@ -903,59 +937,55 @@
                     navIcon.classList.toggle('fa-bars', !isExpanded);
                     navIcon.classList.toggle('fa-times', isExpanded);
                 }
-                // Close all submenus when main menu is toggled
                 if (!isExpanded) {
-                    mainMenuNav.querySelectorAll('.submenu.open').forEach(submenu => {
-                        submenu.classList.remove('open');
-                        submenu.style.maxHeight = null; // For CSS transition
-                        const parentLi = submenu.closest('.has-submenu');
-                        if (parentLi) parentLi.classList.remove('open');
-                        const parentLink = parentLi.querySelector('a[aria-haspopup="true"]');
-                        if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                    mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                        openSubmenuLi.classList.remove('open');
+                        const openSubmenu = openSubmenuLi.querySelector('.submenu');
+                        if (openSubmenu) openSubmenu.style.maxHeight = null;
+                        const openSubmenuLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                        if (openSubmenuLink) openSubmenuLink.setAttribute('aria-expanded', 'false');
                     });
                 }
             });
         }
 
-        // --- Submenu Toggle Logic ---
-        const menuItemsWithSubmenu = mainMenuNav.querySelectorAll('li.has-submenu > a');
+        // --- Submenu Toggle Logic (Click on Arrow Icon) ---
+        const menuItemsWithSubmenu = mainMenuNav.querySelectorAll('li.has-submenu');
 
-        menuItemsWithSubmenu.forEach(itemLink => {
-            itemLink.addEventListener('click', function(event) {
-                const listItem = this.parentElement;
-                const submenu = this.nextElementSibling; // Assuming submenu is direct sibling ul
+        menuItemsWithSubmenu.forEach(listItem => {
+            const link = listItem.querySelector('a');
+            const toggleIcon = listItem.querySelector('.submenu-toggle-icon');
+            const submenu = listItem.querySelector('.submenu');
 
-                // Prevent navigation if it's just a toggle for a submenu,
-                // unless it's a direct link (e.g. main "Proyectos" link)
-                if (this.getAttribute('href') === '#' || (submenu && submenu.classList.contains('submenu'))) {
-                    event.preventDefault();
-                }
+            if (link && toggleIcon && submenu) {
+                toggleIcon.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent navigation when only arrow is clicked
+                    event.stopPropagation(); // Prevent event from bubbling to the 'a' tag listener
 
-                if (submenu && submenu.classList.contains('submenu')) {
                     const isOpen = listItem.classList.toggle('open');
-                    this.setAttribute('aria-expanded', isOpen);
+                    link.setAttribute('aria-expanded', isOpen);
                     
-                    // Mobile: toggle max-height for CSS transition
-                    if (window.innerWidth <= 991) {
+                    if (window.innerWidth <= 991) { // Mobile view with max-height transition
                         if (isOpen) {
                             submenu.style.maxHeight = submenu.scrollHeight + "px";
                         } else {
                             submenu.style.maxHeight = null;
                         }
                     }
-                }
-                // If it's a link with a valid href and not just '#', allow navigation
-                // The click on the link itself will handle navigation.
-            });
+                });
+            }
         });
-
-
-        // Close mobile menu when a link inside it is clicked (if it's a hash link or different page)
+        
+        // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll('ul li ul li a').forEach(link => { // Target only actual navigation links in submenus
-                 link.addEventListener('click', () => {
-                    if (mainMenuNav.classList.contains('menu-visible')) {
-                        if (!link.closest('.has-submenu > a[aria-haspopup="true"]')) { // Don't close if it's a submenu toggle itself
+            mainMenuNav.querySelectorAll('ul li a').forEach(link => {
+                link.addEventListener('click', (event) => {
+                    // Only close if it's a direct link (not part of a submenu toggle mechanism)
+                    // and the mobile menu is visible
+                    const isSubmenuToggleIcon = event.target.closest('.submenu-toggle-icon');
+                    if (!isSubmenuToggleIcon && mainMenuNav.classList.contains('menu-visible')) {
+                        // If it's a link that should navigate and not just toggle
+                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
                             mainMenuNav.classList.remove('menu-visible');
                             navToggleBtn.setAttribute('aria-expanded', 'false');
                             const navIcon = navToggleBtn.querySelector('i');
@@ -965,14 +995,15 @@
                             }
                         }
                     }
-                 });
+                    // Update current page class after any click
+                    mainMenuNav.querySelectorAll('a').forEach(navLink => navLink.classList.remove('current-page'));
+                    link.classList.add('current-page'); // Add to clicked link
+                });
             });
         }
 
 
         // --- Navigation Link Highlighting on Scroll (NavHighlighter) ---
-        // (This part remains complex with multi-level menus and external pages,
-        // current version will highlight based on on-page sections)
         const sections = document.querySelectorAll("main section[id]");
         const allNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll('nav ul li a') : []; 
 
@@ -996,28 +1027,27 @@
             allNavLinks.forEach(navLink => {
                 navLink.classList.remove('current-page');
                 const href = navLink.getAttribute('href');
-                if (currentActiveSectionId && href && href.includes(currentActiveSectionId)) {
+                // Check for direct section match
+                if (currentActiveSectionId && href && href.includes("#" + currentActiveSectionId)) {
                     navLink.classList.add('current-page');
-                    // Open parent submenus if a child is active (for desktop view)
-                    let parentLi = navLink.closest('li.has-submenu');
-                    while(parentLi) {
-                        const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
-                        if (parentAnchor) parentAnchor.classList.add('current-page'); // Or a different class like 'parent-active'
-                        parentLi = parentLi.parentElement.closest('li.has-submenu');
-                    }
+                }
+                // Check for page match (simple version)
+                if (href && window.location.pathname.endsWith(href.split('#')[0]) && href.split('#')[0] !== '' && href.split('#')[0] !== 'index.html') {
+                     if (!currentActiveSectionId || !href.includes("#")) { // Prioritize section highlighting
+                        navLink.classList.add('current-page');
+                     }
                 }
             });
 
             const homeLink = mainMenuNav.querySelector("a[href='index.html']");
-            if (homeLink && !currentActiveSectionId && scrollY < (sections[0] ? sections[0].offsetTop - 150 : 200)) {
-                 let isHomeAlreadyActive = homeLink.classList.contains('current-page');
-                 if (!isHomeAlreadyActive) {
+            if (homeLink) {
+                const isAtTop = scrollY < (sections[0] ? sections[0].offsetTop - 150 : 200);
+                const noOtherSectionActive = !Array.from(allNavLinks).some(link => link !== homeLink && link.classList.contains('current-page'));
+
+                if ( (isAtTop && noOtherSectionActive) || (window.location.pathname.endsWith('/') || window.location.pathname.endsWith('index.html')) && noOtherSectionActive ) {
                     allNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
                     homeLink.classList.add('current-page');
-                 }
-            } else if (homeLink && !currentActiveSectionId && scrollY < 50) { 
-                 allNavLinks.forEach(navLink => navLink.classList.remove('current-page'));
-                 homeLink.classList.add('current-page');
+                }
             }
         }
 
@@ -1045,9 +1075,7 @@
                     question.setAttribute('aria-expanded', isActive);
 
                     if (isActive) {
-                        setTimeout(() => {
-                            answer.style.maxHeight = answer.scrollHeight + 20 + "px"; 
-                        }, 0); 
+                        setTimeout(() => { answer.style.maxHeight = answer.scrollHeight + 20 + "px"; }, 0); 
                     } else {
                         answer.style.maxHeight = '0';
                     }
