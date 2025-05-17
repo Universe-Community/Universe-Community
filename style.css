@@ -1461,8 +1461,6 @@ body.dark-mode .footer-bottom-bar {
   .mv-content-card-final .mv-description-final {
     font-size: 0.9rem;
   }
-<<<<<<< Updated upstream
-=======
 }
 @media (max-width: 480px) {
   .footer-column .footer-heading {
@@ -1478,7 +1476,6 @@ body.dark-mode .footer-bottom-bar {
   .footer-bottom-bar p {
     font-size: 0.85rem;
   }
->>>>>>> Stashed changes
 }
 @media (max-width: 480px) {
   .footer-column .footer-heading {
@@ -1494,4 +1491,4 @@ body.dark-mode .footer-bottom-bar {
   .footer-bottom-bar p {
     font-size: 0.85rem;
   }
-  }
+}
