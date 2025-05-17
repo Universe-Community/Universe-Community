@@ -204,42 +204,69 @@
       }
     ],
     "perfilesSociales": [
-      {
+      { 
         "plataforma": "Facebook",
-        "url": "#",
-        "icono": "fab fa-facebook-f",
-        "titulo": "Facebook"
+        "url": "#", 
+        "icono": "fab fa-facebook-f", 
+        "titulo": "Facebook" 
       },
-      {
+      { 
         "plataforma": "Twitter",
-        "url": "#",
-        "icono": "fab fa-x-twitter",
-        "titulo": "Twitter / X"
+        "url": "#", 
+        "icono": "fab fa-x-twitter", 
+        "titulo": "Twitter / X" 
       },
-      {
+      { 
         "plataforma": "Instagram",
-        "url": "#",
-        "icono": "fab fa-instagram",
-        "titulo": "Instagram"
+        "url": "#", 
+        "icono": "fab fa-instagram", 
+        "titulo": "Instagram" 
       },
-      {
+      { 
         "plataforma": "Discord",
-        "url": "#",
-        "icono": "fab fa-discord",
-        "titulo": "Discord"
+        "url": "#", 
+        "icono": "fab fa-discord", 
+        "titulo": "Discord" 
       },
-      {
+      { 
         "plataforma": "YouTube",
         "url": "#",
-        "icono": "fab fa-youtube",
-        "titulo": "YouTube"
+        "icono": "fab fa-youtube", 
+        "titulo": "YouTube" 
       },
-      {
+      { 
         "plataforma": "LinkedIn",
         "url": "#",
-        "icono": "fab fa-linkedin-in",
-        "titulo": "LinkedIn"
+        "icono": "fab fa-linkedin-in", 
+        "titulo": "LinkedIn" 
       }
     ]
-  }
+  },
+  "preguntasFrecuentes": [
+    {
+      "id": "faq001",
+      "pregunta": "¿Cómo puedo unirme a Universe Community?",
+      "respuesta": "Es muy sencillo unirte. Puedes comenzar explorando nuestros proyectos activos y participando en nuestros canales de comunicación como Discord o Telegram. También puedes contactarnos directamente para más información sobre cómo involucrarte."
+    },
+    {
+      "id": "faq002",
+      "pregunta": "¿Cómo puedo contribuir a un proyecto existente?",
+      "respuesta": "Explora nuestra sección de 'Proyectos' en la web. Cada proyecto tiene una descripción y, a menudo, un enlace a su repositorio o canal de discusión donde puedes ofrecer tu ayuda, ya sea programando, diseñando, traduciendo, probando o de cualquier otra forma que se alinee con tus habilidades e intereses."
+    },
+    {
+      "id": "faq003",
+      "pregunta": "¿Puedo proponer un nuevo proyecto a la comunidad?",
+      "respuesta": "¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos unirte a nuestros canales de discusión (como Discord) para presentar tu propuesta, discutirla con otros miembros de la comunidad y explorar posibles colaboraciones para llevarla a cabo."
+    },
+    {
+      "id": "faq004",
+      "pregunta": "¿Hay reuniones regulares o eventos en la comunidad?",
+      "respuesta": "Sí, organizamos reuniones generales periódicas para discutir el progreso de los proyectos y temas de interés común. También realizamos eventos especiales, talleres y webinars. Mantente atento a nuestra sección de 'Anuncios' y a nuestros canales de comunicación para no perderte ninguna novedad."
+    },
+    {
+      "id": "faq005",
+      "pregunta": "¿Cómo puedo realizar una donación para apoyar a Universe Community?",
+      "respuesta": "Agradecemos enormemente tu interés en apoyar a la comunidad. Puedes realizar donaciones a través de nuestro enlace de PayPal que encontrarás en la sección 'Donar' de nuestra página de inicio. Tu contribución nos ayuda a mantener la plataforma y a seguir impulsando proyectos."
+    }
+  ]
 }
