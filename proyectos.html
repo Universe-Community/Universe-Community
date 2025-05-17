@@ -13,8 +13,8 @@
             --brand-blue-end: #2575FC;     
             
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
-            --button-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
-            --button-hover-gradient: linear-gradient(105deg, #5e0ec4, #1c6cf0);
+            --button-gradient: linear-gradient(135deg, var(--brand-purple-start), var(--brand-blue-end));
+            --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
 
             --text-dark: #212529;
             --text-medium: #5f6773;
@@ -22,7 +22,7 @@
             --text-subtle: #8a92a5;
 
             --bg-light: #FFFFFF;
-            --bg-light-rgb: 255, 255, 255; /* For RGBA shadows or backgrounds */
+            --bg-light-rgb: 255, 255, 255;
             --bg-section-alt: #f8f9fa; 
             --submenu-bg: #fdfdfd; 
             --submenu-hover-bg: #f0f0f0; 
@@ -38,7 +38,7 @@
             --footer-bg-dark: #121224; 
             --footer-text-primary-light: #E8EAF6;
             --footer-text-secondary-light: #A0A8C0;
-            --footer-heading-color: var(--text-light); /* Stays light on dark footer */
+            --footer-heading-color: var(--text-light);
             --footer-link-hover-color: var(--brand-blue-end);
             --footer-icon-color: #A0A8C0;
             --footer-icon-hover-color: var(--text-light);
@@ -61,25 +61,24 @@
 
         /* --- Dark Mode Variables --- */
         body.dark-mode {
-            --text-dark: #e0e0e0; /* Light text on dark background */
+            --text-dark: #e0e0e0;
             --text-medium: #b0b0b0;
-            --text-light: #121212; /* Dark text if on a light element in dark mode (rare) */
+            --text-light: #121212; 
             --text-subtle: #7a7a7a;
 
-            --bg-light: #1a1a2e; /* Dark background for body */
+            --bg-light: #1a1a2e;
             --bg-light-rgb: 26, 26, 46;
-            --bg-section-alt: #23233c; /* Slightly lighter dark for sections */
+            --bg-section-alt: #23233c;
             --submenu-bg: #2c2c48; 
             --submenu-hover-bg: #353558; 
             
             --border-color-soft: #3a3a5a; 
             --input-border-color: #4a4a6a;
-            --input-focus-border-color: var(--brand-blue-end); /* Accent color for focus */
-            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25); /* Darker, more subtle shadow */
+            --input-focus-border-color: var(--brand-blue-end);
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
             --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
 
-            /* Footer in dark mode might need slight adjustments if its base dark isn't enough */
-            --footer-bg-dark: #0e0e1c; /* Even darker or adjusted footer */
+            --footer-bg-dark: #0e0e1c;
             --footer-text-primary-light: #d0d0e0;
             --footer-text-secondary-light: #9090b0;
             
@@ -99,7 +98,7 @@
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased;
             -moz-osx-font-smoothing: grayscale;
-            transition: var(--transition-colors); /* Smooth transition for theme change */
+            transition: var(--transition-colors); 
         }
         .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; }
 
@@ -116,7 +115,7 @@
             transition: var(--transition-colors);
         }
         body.dark-mode .site-header {
-             box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); /* Lighter shadow for dark mode header */
+             box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); 
         }
 
         .header-inner { display: flex; justify-content: space-between; align-items: center; }
@@ -124,7 +123,7 @@
         .logo-icon-box { 
             width: 38px;
             height: 38px;
-            background: var(--button-gradient); /* Gradient remains */
+            background: var(--button-gradient);
             border-radius: 8px;
             display: flex;
             align-items: center;
@@ -133,7 +132,7 @@
         }
         .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3); }
         .logo-abbr { 
-            color: #FFFFFF; /* Text on gradient button should be light */
+            color: #FFFFFF;
             font-weight: 700;
             font-size: 1.3rem;
         }
@@ -150,9 +149,9 @@
             background: none;
             border: none;
             color: var(--theme-toggle-icon-color);
-            font-size: 1.25rem; /* Adjust size as needed */
+            font-size: 1.25rem; 
             padding: 0.5rem;
-            margin-left: 0.5rem; /* Space from nav toggle or logo */
+            margin-left: 0.5rem; 
             cursor: pointer;
             border-radius: 50%;
             display: flex;
@@ -164,7 +163,7 @@
             background-color: var(--theme-toggle-bg-hover);
             transform: scale(1.1);
         }
-        .theme-toggle-button .fa-sun { display: none; } /* Hide sun by default */
+        .theme-toggle-button .fa-sun { display: none; } 
         body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
         body.dark-mode .theme-toggle-button .fa-moon { display: none; }
 
@@ -232,13 +231,13 @@
         }
         
         .main-menu > ul > li > a.current-page {
-            color: #FFFFFF; /* Text on gradient button should be light */
+            color: #FFFFFF; 
             background: var(--text-gradient); 
             font-weight: 600;
             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
         }
         body.dark-mode .main-menu > ul > li > a.current-page {
-             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4); /* Slightly adjusted shadow for dark mode */
+             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
         }
         .main-menu > ul > li > a.current-page:hover {
             color: #FFFFFF;
@@ -269,7 +268,7 @@
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
         }
         body.dark-mode .main-menu .submenu {
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08); /* Lighter shadow for submenus in dark mode */
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
         }
         .main-menu .submenu.level-3 { 
             top: 0; 
@@ -312,7 +311,7 @@
             margin-bottom: 1.25rem; 
             transition: var(--transition-colors);
         }
-        .gradient-title { /* Gradient text should remain visually consistent */
+        .gradient-title { 
             background: var(--text-gradient);
             -webkit-background-clip: text;
             -moz-background-clip: text;
@@ -387,12 +386,13 @@
         .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth), var(--transition-colors); }
         .project-card-detailed:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); }
         .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: var(--submenu-hover-bg); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); transition: var(--transition-colors); }
+        .project-card-detailed .project-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; /* Las imágenes dentro no necesitan radio si el contenedor ya lo tiene */ }
         .project-card-detailed .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
         .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; transition: var(--transition-colors); }
         .project-card-detailed .project-title a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
         .project-card-detailed .project-title a:hover { color: var(--brand-purple-start); }
         .project-card-detailed .project-category { font-size: 0.85rem; font-weight: 600; color: var(--brand-blue-end); text-transform: uppercase; letter-spacing: 0.75px; margin-bottom: 1.25rem; display: table; margin-left: auto; margin-right: auto; background-color: rgba(var(--brand-blue-end-rgb), 0.1); padding: 0.35rem 0.85rem; border-radius: 20px; }
-        body.dark-mode .project-card-detailed .project-category { background-color: rgba(var(--brand-blue-end-rgb), 0.2); /* Lighter for dark mode */ }
+        body.dark-mode .project-card-detailed .project-category { background-color: rgba(var(--brand-blue-end-rgb), 0.2); }
         .project-card-detailed .project-description-full { font-size: 0.975rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.75rem; flex-grow: 1; transition: var(--transition-colors); }
         .project-card-detailed .btn-view-project-page { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF; background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; text-align: center; transition: var(--transition-smooth); align-self: flex-start; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
         .project-card-detailed .btn-view-project-page i { margin-left: 0.5rem; transition: transform 0.2s ease-out; }
@@ -413,9 +413,10 @@
         .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
         .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
         .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
-        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
+        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
         .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
         .footer-social-icons a:hover { color: #FFFFFF; background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
+        .footer-direct-contact { }
         .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
         .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
         .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
@@ -427,22 +428,10 @@
         @media (max-width: 991px) {
             .container { width: 95%; } 
             .nav-toggle { display: flex; align-items: center; justify-content: center; } 
-            .theme-toggle-button { margin-right: 0.5rem; /* Espacio entre toggles */ }
-            .header-inner { /* Alinear toggles a la derecha */
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-            }
-            .header-inner > .logo-link { /* Asegurar que el logo no se comprima demasiado */
-                flex-shrink: 0; 
-            }
-            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button {
-                order: 3; /* Mover toggles al final en el flujo flex */
-            }
-             .header-inner > .main-menu {
-                order: 4; /* El menú desplegable después de los toggles */
-            }
-
+            .theme-toggle-button { margin-right: 0.5rem; }
+            .header-inner > .logo-link { flex-shrink: 0; }
+            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
+            .header-inner > .main-menu { order: 4; }
 
             .main-menu { 
                 position: absolute; 
@@ -483,7 +472,7 @@
             }
             .main-menu ul li.open > .submenu { max-height: 600px; }
             .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
-            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; } /* Ligeramente más oscuro para nivel 3 en dark mode */
+            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
             .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
             .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
             
@@ -517,6 +506,8 @@
             .carousel-slide .carousel-caption p { font-size: 0.85rem; }
         }
          @media (max-width: 480px) {
+            .block-title { font-size: 1.5rem; } 
+            .block-subtitle { font-size: 0.95rem; }
             .carousel-slides { height: 280px; }
             .carousel-slide .carousel-caption { padding: 1.5rem 1rem 0.75rem; }
             .carousel-slide .carousel-caption h3 { font-size: 1.1rem; }
@@ -612,6 +603,7 @@
                             </li>
                         </ul>
                     </li>
+                     <li><a href="avisos.html">Avisos</a></li> 
                 </ul>
             </nav>
         </div>
@@ -623,142 +615,35 @@
                 <h2 class="block-title"> Anuncios Destacados </h2>
                 <div class="carousel-container" id="announcementsCarousel" aria-roledescription="carousel" aria-label="Anuncios importantes de proyectos">
                     <div class="carousel-slides" id="carouselSlides">
-                        <div class="carousel-slide active" role="group" aria-roledescription="slide" aria-label="1 de 4">
-                            <img src="https://placehold.co/960x450/6A11CB/FFFFFF?text=Nuevo+Proyecto+Alpha" alt="Anuncio Nuevo Proyecto Alpha" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
-                            <div class="carousel-caption">
-                                <h3>¡Explora el Proyecto Alpha!</h3>
-                                <p>Sumérgete en simulaciones cósmicas interactivas y expande tu conocimiento del universo.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="2 de 4">
-                            <img src="https://placehold.co/960x450/2575FC/FFFFFF?text=Evento+Educativo+Beta" alt="Anuncio Evento Educativo Beta" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
-                            <div class="carousel-caption">
-                                <h3>Educación Abierta con Proyecto Beta</h3>
-                                <p>Descubre herramientas educativas innovadoras y gratuitas para todas las comunidades.</p>
-                            </div>
-                        </div>
-                        <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="3 de 4">
-                             <img src="https://placehold.co/960x450/FF5733/FFFFFF?text=Colabora+en+Gamma" alt="Anuncio Colabora en Gamma" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
-                            <div class="carousel-caption">
-                                <h3>¡Únete al Proyecto Gamma!</h3>
-                                <p>Buscamos mentes creativas para fusionar el arte y la tecnología digital de vanguardia.</p>
-                            </div>
-                        </div>
-                         <div class="carousel-slide" role="group" aria-roledescription="slide" aria-label="4 de 4">
-                             <img src="https://placehold.co/960x450/33FF57/212121?text=IA+Sostenible+Delta" alt="Anuncio IA Sostenible Delta" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
-                            <div class="carousel-caption">
-                                <h3>Innovación Sostenible con Delta</h3>
-                                <p>Descubre cómo la Inteligencia Artificial puede ayudar a proteger nuestro planeta para el futuro.</p>
-                            </div>
-                        </div>
+                        <p>Cargando carrusel...</p>
                     </div>
                     <button class="carousel-button prev" aria-label="Anuncio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                    <div class="carousel-dots" aria-label="Navegación de anuncios">
-                    </div>
+                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios">
+                        </div>
                 </div>
                 <div class="carousel-view-all-container">
-                    <a href="todos-los-anuncios.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
+                    <a href="avisos.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
                 </div>
             </div>
         </section>
         <section class="content-block projects-page-wrapper" id="todos-los-proyectos">
             <div class="container">
-                <h1 class="block-title gradient-title"> Explora Nuestros Proyectos </h1>
+                <h1 class="block-title">
+                    <span class="gradient-title">Explora Nuestros Proyectos</span>
+                </h1>
                 <p class="block-subtitle">
                     Descubre la diversidad de iniciativas que nuestra comunidad está impulsando con pasión. Desde desarrollos tecnológicos pioneros hasta proyectos sociales y creativos de gran impacto, cada uno es una puerta abierta para aprender, colaborar y co-crear un futuro mejor.
                 </p>
 
-                <div class="projects-grid">
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                             <span>[Imagen Representativa del Proyecto Alpha]</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-category">Exploración y Simulación</p>
-                            <h3 class="project-title"><a href="proyecto-alpha.html">Proyecto Alpha</a></h3>
-                            <p class="project-description-full">
-                                El Proyecto Alpha se enfoca en la creación de simulaciones interactivas del universo, permitiendo a los usuarios explorar conceptos cósmicos complejos de una manera visual y atractiva. Buscamos fomentar la curiosidad científica y el aprendizaje a través de la tecnología.
-                            </p>
-                            <a href="proyecto-alpha.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                            <span>[Imagen Representativa del Proyecto Beta]</span>
-                        </div>
-                        <div class="project-content">
-                             <p class="project-category">Educación y Código Abierto</p>
-                            <h3 class="project-title"><a href="proyecto-beta.html">Proyecto Beta</a></h3>
-                            <p class="project-description-full">
-                                Este proyecto está dedicado al desarrollo de herramientas educativas innovadoras y de código abierto. Nuestro objetivo es hacer que el aprendizaje de calidad sea accesible para comunidades globales, promoviendo la colaboración y el conocimiento compartido.
-                            </p>
-                            <a href="proyecto-beta.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                            <span>[Imagen Representativa del Proyecto Gamma]</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-category">Arte y Tecnología Digital</p>
-                            <h3 class="project-title"><a href="proyecto-gamma.html">Proyecto Gamma</a></h3>
-                            <p class="project-description-full">
-                                Proyecto Gamma explora la intersección entre la expresión artística y las nuevas tecnologías digitales. Fomentamos la creación de obras interactivas, visualizaciones de datos creativas y experiencias inmersivas que desafían los límites tradicionales del arte.
-                            </p>
-                            <a href="proyecto-gamma.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                            <span>[Imagen Representativa del Proyecto Delta]</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-category">IA y Sostenibilidad</p>
-                            <h3 class="project-title"><a href="proyecto-delta.html">Proyecto Delta</a></h3>
-                            <p class="project-description-full">
-                                Centrado en la investigación y aplicación de la Inteligencia Artificial para abordar desafíos de sostenibilidad ambiental. Desarrollamos modelos y herramientas para la conservación de recursos, monitoreo ecológico y promoción de prácticas sostenibles.
-                            </p>
-                            <a href="proyecto-delta.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                           <span>[Imagen Representativa del Proyecto Epsilon]</span>
-                        </div>
-                        <div class="project-content">
-                             <p class="project-category">Comunidad y Mentoría</p>
-                            <h3 class="project-title"><a href="proyecto-epsilon.html">Proyecto Epsilon</a></h3>
-                            <p class="project-description-full">
-                                Epsilon es una plataforma comunitaria diseñada para facilitar el intercambio de habilidades y la mentoría entre pares. Conectamos a personas con diferentes niveles de experiencia para fomentar el aprendizaje colaborativo y el desarrollo profesional.
-                            </p>
-                            <a href="proyecto-epsilon.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
-                    
-                    <article class="project-card-detailed">
-                        <div class="project-img-placeholder">
-                           <span>[Imagen Representativa del Proyecto Zeta]</span>
-                        </div>
-                        <div class="project-content">
-                            <p class="project-category">Salud y Bienestar Digital</p>
-                            <h3 class="project-title"><a href="proyecto-zeta.html">Proyecto Zeta</a></h3>
-                            <p class="project-description-full">
-                                Este proyecto se dedica a desarrollar soluciones digitales que promuevan la salud mental y el bienestar. Creamos aplicaciones y recursos para ayudar a las personas a gestionar el estrés, mejorar la atención plena y acceder a apoyo emocional.
-                            </p>
-                            <a href="proyecto-zeta.html" class="btn-view-project-page">Ver detalles <i class="fas fa-arrow-right"></i></a>
-                        </div>
-                    </article>
+                <div class="projects-grid" id="projectsGrid">
+                    <p>Cargando proyectos...</p> 
                 </div>
             </div>
         </section>
     </main>
 
-    <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
@@ -776,27 +661,14 @@
                 </div>
                  <div class="footer-column footer-column-contact">
                     <h4 class="footer-heading">Contacto Directo</h4>
-                     <div class="footer-direct-contact">
-                        <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" aria-label="Contactar por WhatsApp">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" aria-label="Contactar por Telegram">
-                            <i class="fab fa-telegram-plane" aria-hidden="true"></i> Telegram
-                        </a>
-                         <a href="mailto:contacto@universecommunity.com" aria-label="Enviar correo electrónico">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Email
-                        </a>
+                     <div class="footer-direct-contact" id="footerContactDirectContainer">
+                        <p>Cargando contactos...</p>
                     </div>
                 </div>
                 <div class="footer-column footer-column-social">
                     <h4 class="footer-heading">Síguenos</h4>
-                    <div class="footer-social-icons">
-                        <a href="#" target="_blank" title="Facebook" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Twitter / X" aria-label="Visita nuestro perfil de Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Instagram" aria-label="Visita nuestro perfil de Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Discord" aria-label="Únete a nuestro servidor de Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="YouTube" aria-label="Visita nuestro canal de YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn" aria-label="Visita nuestro perfil de LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <div class="footer-social-icons" id="footerSocialProfilesContainer">
+                        <p>Cargando redes...</p>
                     </div>
                 </div>
             </div>
@@ -836,14 +708,13 @@
 
         if (currentTheme) {
             applyTheme(currentTheme);
-        } else { // Check system preference if no theme is stored
+        } else { 
             const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
             if (prefersDark) {
                 applyTheme('dark');
-                localStorage.setItem('theme', 'dark'); // Save system preference as initial choice
+                localStorage.setItem('theme', 'dark'); 
             }
         }
-
 
         if (themeToggleBtn) {
             themeToggleBtn.addEventListener('click', () => {
@@ -856,7 +727,7 @@
             });
         }
 
-        // --- Mobile Navigation Menu Logic ---
+        // --- Mobile Navigation Menu (Main Toggle) ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
@@ -880,48 +751,21 @@
             });
         }
 
-        if (mainMenuNav) {
-            mainMenuNav.querySelectorAll('li.has-submenu').forEach(listItem => {
-                const link = listItem.querySelector('a[aria-haspopup="true"]');
-                const toggleIcon = listItem.querySelector('.submenu-toggle-icon');
-                const submenu = listItem.querySelector('.submenu');
-
-                if (toggleIcon && submenu) {
-                    toggleIcon.addEventListener('click', (event) => {
-                        event.preventDefault();
-                        event.stopPropagation();
-                        toggleSubmenu(listItem, link, submenu);
-                    });
-                }
-                
-                if (link && submenu) {
-                     link.addEventListener('click', (event) => {
-                        if (event.target.closest('.submenu-toggle-icon')) {
-                            return;
-                        }
-                        if (window.innerWidth <= 991 || !link.getAttribute('href') || link.getAttribute('href') === '#') {
-                            event.preventDefault();
-                            toggleSubmenu(listItem, link, submenu);
-                        }
-                    });
-                }
-            });
-        }
-        
-        function toggleSubmenu(listItem, link, submenu) {
+        // --- Submenu Toggle Logic (Revised) ---
+        function performToggleVisually(listItem, linkElement, submenuElement) {
             const isOpen = listItem.classList.toggle('open');
-            if (link) link.setAttribute('aria-expanded', String(isOpen));
-            
-            if (window.innerWidth <= 991) { 
+            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+
+            if (window.innerWidth <= 991 && submenuElement) { 
                 if (isOpen) {
-                    submenu.style.maxHeight = submenu.scrollHeight + "px";
+                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
                 } else {
-                    submenu.style.maxHeight = null;
-                    submenu.querySelectorAll('.has-submenu.open').forEach(openChild => {
-                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
-                        const childSubmenu = openChild.querySelector('.submenu');
+                    submenuElement.style.maxHeight = null;
+                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
                         openChild.classList.remove('open');
+                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
                         if(childLink) childLink.setAttribute('aria-expanded', 'false');
+                        const childSubmenu = openChild.querySelector('.submenu');
                         if(childSubmenu) childSubmenu.style.maxHeight = null;
                     });
                 }
@@ -929,31 +773,88 @@
         }
 
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', (event) => {
-                    if (mainMenuNav.classList.contains('menu-visible') && link.getAttribute('href') && link.getAttribute('href') !== '#') {
-                        const isSubmenuToggleItself = link.querySelector('.submenu-toggle-icon') && (window.innerWidth <= 991 || !link.getAttribute('href') || link.getAttribute('href') === '#');
-                        if (event.target.closest('.submenu-toggle-icon') || isSubmenuToggleItself) {
-                            return;
+            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
+                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
+                const submenu = listItem.querySelector(":scope > .submenu"); 
+
+                if (!link || !submenu) return;
+
+                if (toggleIcon) {
+                    toggleIcon.addEventListener("click", function (event) {
+                        event.preventDefault();  
+                        event.stopPropagation(); 
+                        performToggleVisually(listItem, link, submenu);
+                    });
+                }
+
+                link.addEventListener("click", function (event) {
+                    if (event.target.closest(".submenu-toggle-icon")) {
+                        return; 
+                    }
+
+                    const isMobileView = window.innerWidth <= 991;
+                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
+                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
+
+
+                    if (isMobileView) {
+                        if (listItem.classList.contains('has-submenu')) {
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
                         }
-                        mainMenuNav.classList.remove('menu-visible');
-                        if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
-                        if (navIcon) {
-                            navIcon.classList.remove('fa-times');
-                            navIcon.classList.add('fa-bars');
+                    } else { // Desktop View
+                        if (hasValidHref) {
+                             if (isLinkToCurrentPagePathOnly) { 
+                                event.preventDefault(); 
+                                performToggleVisually(listItem, link, submenu);
+                            }
+                        } else { 
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
                         }
-                        mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                            openSubmenuLi.classList.remove('open');
-                            const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                            if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
-                            const submenu = openSubmenuLi.querySelector('.submenu');
-                            if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
-                        });
                     }
                 });
             });
         }
 
+
+        // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll("ul li a").forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
+                    const listItem = link.closest('li');
+                    const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
+                    
+                    if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
+                        return;
+                    }
+
+                    if (mainMenuNav.classList.contains('menu-visible')) {
+                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
+                            mainMenuNav.classList.remove('menu-visible');
+                            if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
+                            if (navIcon) {
+                                navIcon.classList.remove('fa-times');
+                                navIcon.classList.add('fa-bars');
+                            }
+                            mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                                openSubmenuLi.classList.remove('open');
+                                const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                                if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                                const submenu = openSubmenuLi.querySelector('.submenu');
+                                if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // --- Resaltado de Página Actual en el Menú ---
         function updateCurrentPage() { 
             if (!mainMenuNav) return;
             const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
@@ -964,9 +865,9 @@
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
 
-                const linkFullUrl = new URL(linkHref, window.location.origin);
-                const linkPath = linkFullUrl.pathname.split('/').pop() || 'index.html';
-                const linkHash = linkFullUrl.hash;
+                const linkUrl = new URL(linkHref, window.location.origin); 
+                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+                const linkHash = linkUrl.hash;
                 
                 let isActive = false;
 
@@ -997,188 +898,297 @@
             });
         }
         
-        const sections = document.querySelectorAll("main section[id]"); 
-        const allNavLinks = mainMenuNav ? mainMenuNav.querySelectorAll("nav ul li a") : [];
-
-        function navHighlighter() {
-            if (!mainMenuNav || allNavLinks.length === 0) return;
-
-            let scrollY = window.pageYOffset;
-            let currentActiveSectionId = null;
-            const currentPagePath = window.location.pathname.split('/').pop() || 'index.html';
-
-            sections.forEach((current) => { 
-                if (!current) return;
-                const sectionHeight = current.offsetHeight;
-                const sectionTop = current.offsetTop - 150; 
-                let sectionId = current.getAttribute("id");
-
-                if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
-                    currentActiveSectionId = sectionId;
-                }
-            });
-            
-            allNavLinks.forEach((navLink) => {
-                const href = navLink.getAttribute("href");
-                if (!href) return;
-
-                const linkUrl = new URL(href, window.location.origin);
-                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
-                const linkHash = linkUrl.hash;
-
-                if (linkPath === currentPagePath && linkHash && linkHash === "#" + currentActiveSectionId) {
-                    allNavLinks.forEach(nl => nl.classList.remove("current-page-scroll"));
-                    navLink.classList.add("current-page-scroll"); 
-                }
-            });
-            updateCurrentPage();
-
-            const scrolledActive = mainMenuNav.querySelector('a.current-page-scroll');
-            if (scrolledActive) {
-                scrolledActive.classList.add('current-page');
-                 let currentElementForParentCheck = scrolledActive;
-                    while (currentElementForParentCheck) {
-                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
-                        if (!parentSubmenuUl) break; 
-                        const parentLi = parentSubmenuUl.parentElement; 
-                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
-                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
-                        if (parentAnchor) {
-                            parentAnchor.classList.add('current-page'); 
-                        } else { break; }
-                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
-                        currentElementForParentCheck = parentLi; 
-                    }
-            }
-            mainMenuNav.querySelectorAll('a.current-page-scroll').forEach(l => l.classList.remove('current-page-scroll'));
-        }
-
-        if (sections.length > 0 && allNavLinks.length > 0) { 
-            window.addEventListener("scroll", navHighlighter);
-        }
         updateCurrentPage(); 
         window.addEventListener('hashchange', updateCurrentPage); 
+        
 
+        // --- Cargar Contenido Dinámico desde JSON ---
+        const announcementsCarouselContainer = document.getElementById('announcementsCarousel');
+        const carouselSlidesContainer = document.getElementById('carouselSlides');
+        const carouselDotsContainer = document.getElementById('carouselDotsContainer');
+        const projectsGridContainer = document.getElementById('projectsGrid');
+        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
+        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
+        const fabWhatsapp = document.getElementById('fabWhatsapp');
 
-        // --- Carousel Logic ---
-        const carouselContainer = document.getElementById('announcementsCarousel');
-        if (carouselContainer) {
-            const slidesContainer = carouselContainer.querySelector('.carousel-slides');
-            const slides = Array.from(carouselContainer.querySelectorAll('.carousel-slide'));
+        async function cargarContenidoDesdeJSON() {
+            console.log("Intentando cargar bases.json...");
+            try {
+                const response = await fetch('bases.json'); 
+                console.log("Respuesta del fetch:", response);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar bases.json`);
+                }
+                const data = await response.json();
+                console.log("Datos JSON cargados:", data);
+                
+                // 1. Cargar Anuncios para el Carrusel
+                if (announcementsCarouselContainer && data.anuncios) {
+                    renderizarCarruselAnuncios(data.anuncios, carouselSlidesContainer, carouselDotsContainer);
+                    // La inicialización de la lógica del carrusel se hará dentro de renderizarCarruselAnuncios
+                } else if (carouselSlidesContainer) {
+                    carouselSlidesContainer.innerHTML = '<p>No hay anuncios para mostrar en el carrusel.</p>';
+                }
+
+                // 2. Cargar Tarjetas de Proyectos
+                if (projectsGridContainer && data.proyectos) {
+                    renderizarTarjetasDeProyectos(data.proyectos, projectsGridContainer);
+                } else if (projectsGridContainer) {
+                    projectsGridContainer.innerHTML = '<p>No hay proyectos para mostrar.</p>';
+                }
+
+                // 3. Cargar Contenido del Footer y FAB
+                if (data.redesSociales) {
+                    renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar contenido desde JSON:', error);
+                if (carouselSlidesContainer) carouselSlidesContainer.innerHTML = `<p>Error al cargar anuncios del carrusel: ${error.message}.</p>`;
+                if (projectsGridContainer) projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
+                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
+                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
+                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+            }
+        }
+
+        function renderizarCarruselAnuncios(anuncios, slidesContainer, dotsContainer) {
+            if (!slidesContainer || !dotsContainer) return;
+
+            slidesContainer.innerHTML = ''; 
+            dotsContainer.innerHTML = '';   
+
+            anuncios.forEach((anuncio, index) => {
+                const slide = document.createElement('div');
+                slide.classList.add('carousel-slide');
+                if (index === 0) slide.classList.add('active');
+                slide.setAttribute('role', 'group');
+                slide.setAttribute('aria-roledescription', 'slide');
+                slide.setAttribute('aria-label', `${index + 1} de ${anuncios.length}`);
+
+                slide.innerHTML = `
+                    <img src="${anuncio.flyerUrl || 'https://placehold.co/960x450/cccccc/333333?text=Anuncio'}" alt="${anuncio.altFlyer || anuncio.titulo}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+                    <div class="carousel-caption">
+                        <h3>${anuncio.titulo}</h3>
+                        <p>${anuncio.contenido ? anuncio.contenido.substring(0, 100) + (anuncio.contenido.length > 100 ? '...' : '') : 'Contenido no disponible.'}</p> 
+                    </div>
+                `;
+                slidesContainer.appendChild(slide);
+
+                const dot = document.createElement('button');
+                dot.classList.add('carousel-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Ir al anuncio ${index + 1}`);
+                dot.dataset.slideTo = index; 
+                dotsContainer.appendChild(dot);
+            });
+            
+            // Inicializar la lógica del carrusel DESPUÉS de que los slides y dots se hayan renderizado
+            if (anuncios.length > 0) {
+                inicializarLogicaCarruselInterna(announcementsCarouselContainer, slidesContainer, dotsContainer);
+            }
+        }
+        
+        function inicializarLogicaCarruselInterna(carouselContainer, slidesContainer, dotsContainer) {
+            const slides = Array.from(slidesContainer.querySelectorAll('.carousel-slide'));
+            const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
             const prevButton = carouselContainer.querySelector('.carousel-button.prev');
             const nextButton = carouselContainer.querySelector('.carousel-button.next');
-            const dotsContainer = carouselContainer.querySelector('.carousel-dots');
             
             let currentIndex = 0;
             let slideInterval;
             const slideCount = slides.length;
+
+            if (slideCount <= 0) return;
+
             let isDragging = false;
             let startPosX = 0;
             let currentTranslate = 0;
             let prevTranslate = 0;
             const swipeThreshold = 50;
 
-            if (slideCount > 0) {
-                for (let i = 0; i < slideCount; i++) {
-                    const dot = document.createElement('button'); 
-                    dot.classList.add('carousel-dot');
-                    dot.setAttribute('aria-label', `Ir al anuncio ${i + 1}`);
-                    if (i === 0) dot.classList.add('active');
-                    dot.addEventListener('click', () => { goToSlide(i); resetInterval(); });
-                    dotsContainer.appendChild(dot);
+            function applyTransition() { slidesContainer.style.transition = 'var(--transition-carousel)'; }
+            function removeTransition() { slidesContainer.style.transition = 'none'; }
+
+            function setPositionByIndex() {
+                if (slidesContainer && slidesContainer.offsetWidth > 0) { 
+                    currentTranslate = currentIndex * -slidesContainer.offsetWidth;
+                    prevTranslate = currentTranslate;
+                    applyTransition();
+                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
                 }
-                const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
+            }
 
-                function applyTransition() { slidesContainer.style.transition = 'var(--transition-carousel)'; }
-                function removeTransition() { slidesContainer.style.transition = 'none'; }
-
-                function setPositionByIndex() {
-                    if (slidesContainer) { 
-                        currentTranslate = currentIndex * -slidesContainer.offsetWidth;
-                        prevTranslate = currentTranslate;
-                        applyTransition();
-                        slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
-                    }
-                }
-
-                function updateCarouselState() {
-                    setPositionByIndex();
-                    slides.forEach((slide, index) => {
-                        slide.classList.toggle('active', index === currentIndex); 
-                        slide.setAttribute('aria-hidden', String(index !== currentIndex));
-                        slide.inert = (index !== currentIndex); 
-                    });
-                    dots.forEach((dot, index) => {
-                        dot.classList.toggle('active', index === currentIndex);
-                        dot.setAttribute('aria-current', String(index === currentIndex));
-                    });
-                }
-
-                function goToSlide(index) { currentIndex = (index + slideCount) % slideCount; updateCarouselState(); }
-                function nextSlide() { goToSlide(currentIndex + 1); }
-                function prevSlide() { goToSlide(currentIndex - 1); }
-
-                if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
-                if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
-                
-                function startInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); }
-                function resetInterval() { clearInterval(slideInterval); startInterval(); }
-                
-                slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
-                slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
-                slidesContainer.addEventListener('touchend', touchEnd);
-                slidesContainer.addEventListener('mousedown', touchStart);
-                slidesContainer.addEventListener('mousemove', touchMove);
-                slidesContainer.addEventListener('mouseup', touchEnd);
-                slidesContainer.addEventListener('mouseleave', touchEnd);
-
-                function touchStart(event) {
-                    isDragging = true;
-                    startPosX = getPositionX(event);
-                    removeTransition(); 
-                    carouselContainer.classList.add('grabbing');
-                    clearInterval(slideInterval); 
-                }
-
-                function touchMove(event) {
-                    if (isDragging) {
-                        const currentPosition = getPositionX(event);
-                        currentTranslate = prevTranslate + currentPosition - startPosX;
-                        slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
-                    }
-                }
-
-                function touchEnd() {
-                    if (!isDragging) return;
-                    isDragging = false;
-                    carouselContainer.classList.remove('grabbing');
-                    const movedBy = currentTranslate - prevTranslate;
-                    applyTransition(); 
-                    if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) { currentIndex += 1; }
-                    if (movedBy > swipeThreshold && currentIndex > 0) { currentIndex -= 1; }
-                    updateCarouselState(); 
-                    resetInterval(); 
-                }
-
-                function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
-                
-                updateCarouselState(); 
-                startInterval(); 
-
-                carouselContainer.addEventListener('mouseenter', () => { if(!isDragging) clearInterval(slideInterval); });
-                carouselContainer.addEventListener('mouseleave', () => { if(!isDragging) startInterval(); });
-                carouselContainer.addEventListener('keydown', (e) => {
-                    if (e.key === 'ArrowLeft') { prevSlide(); resetInterval(); } 
-                    else if (e.key === 'ArrowRight') { nextSlide(); resetInterval(); }
+            function updateCarouselState() {
+                setPositionByIndex();
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentIndex); 
+                    slide.setAttribute('aria-hidden', String(index !== currentIndex));
+                    slide.inert = (index !== currentIndex); 
                 });
-                window.addEventListener('resize', () => {
-                    removeTransition(); 
-                    updateHeaderHeightAndPadding(); 
-                    setPositionByIndex();
-                    setTimeout(applyTransition, 50); 
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                    dot.setAttribute('aria-current', String(index === currentIndex));
                 });
             }
+
+            function goToSlide(index) { 
+                currentIndex = (index + slideCount) % slideCount; 
+                updateCarouselState(); 
+            }
+            function nextSlide() { goToSlide(currentIndex + 1); }
+            function prevSlide() { goToSlide(currentIndex - 1); }
+
+            if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
+            if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
+            
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    goToSlide(parseInt(e.target.dataset.slideTo));
+                    resetInterval();
+                });
+            });
+
+            function startInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); }
+            function resetInterval() { clearInterval(slideInterval); startInterval(); }
+            
+            slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
+            slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
+            slidesContainer.addEventListener('touchend', touchEnd);
+            slidesContainer.addEventListener('mousedown', touchStart);
+            slidesContainer.addEventListener('mousemove', touchMove);
+            slidesContainer.addEventListener('mouseup', touchEnd);
+            slidesContainer.addEventListener('mouseleave', touchEnd);
+
+            function touchStart(event) {
+                isDragging = true;
+                startPosX = getPositionX(event);
+                removeTransition(); 
+                carouselContainer.classList.add('grabbing');
+                clearInterval(slideInterval); 
+            }
+
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentPosition = getPositionX(event);
+                    currentTranslate = prevTranslate + currentPosition - startPosX;
+                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                carouselContainer.classList.remove('grabbing');
+                const movedBy = currentTranslate - prevTranslate;
+                applyTransition(); 
+                if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) { currentIndex += 1; }
+                if (movedBy > swipeThreshold && currentIndex > 0) { currentIndex -= 1; }
+                updateCarouselState(); 
+                resetInterval(); 
+            }
+
+            function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
+            
+            updateCarouselState(); 
+            startInterval(); 
+
+            carouselContainer.addEventListener('mouseenter', () => { if(!isDragging) clearInterval(slideInterval); });
+            carouselContainer.addEventListener('mouseleave', () => { if(!isDragging) startInterval(); });
+            carouselContainer.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { prevSlide(); resetInterval(); } 
+                else if (e.key === 'ArrowRight') { nextSlide(); resetInterval(); }
+            });
+            window.addEventListener('resize', () => {
+                removeTransition(); 
+                updateHeaderHeightAndPadding(); 
+                setPositionByIndex();
+                setTimeout(applyTransition, 50); 
+            });
         }
+
+
+        function renderizarTarjetasDeProyectos(proyectos, gridContainer) {
+            if (!gridContainer) return;
+            gridContainer.innerHTML = ''; 
+            proyectos.forEach(proyecto => {
+                const card = document.createElement('article');
+                card.classList.add('project-card-detailed');
+                
+                let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
+                if (proyecto.portadaUrl) {
+                    imgHTML = `
+                        <div class="project-img-placeholder">
+                            <img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                        </div>`;
+                }
+
+                card.innerHTML = `
+                    ${imgHTML}
+                    <div class="project-content">
+                        <p class="project-category">${proyecto.categoria || 'Categoría'}</p>
+                        <h3 class="project-title"><a href="${proyecto.enlacePagina || '#'}">${proyecto.titulo}</a></h3>
+                        <p class="project-description-full">
+                            ${proyecto.descripcionCompleta || 'Descripción no disponible.'}
+                        </p>
+                        <a href="${proyecto.enlacePagina || '#'}" class="btn-view-project-page">${proyecto.enlaceDetalles || 'Ver detalles'} <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                `;
+                gridContainer.appendChild(card);
+            });
+        }
+
+        function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
+            // Contactos Directos del Footer
+            if (contactContainer && redesSociales.contactosDirectos) {
+                contactContainer.innerHTML = ''; 
+                redesSociales.contactosDirectos.forEach(contacto => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = contacto.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
+                    linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
+                    contactContainer.appendChild(linkElement);
+                });
+            } else if (contactContainer) {
+                contactContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
+            }
+
+            // Perfiles Sociales del Footer
+            if (socialContainer && redesSociales.perfilesSociales) {
+                socialContainer.innerHTML = ''; 
+                redesSociales.perfilesSociales.forEach(perfil => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = perfil.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.title = perfil.titulo;
+                    linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
+                    linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+                    socialContainer.appendChild(linkElement);
+                });
+            } else if (socialContainer) {
+                 socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
+            }
+
+            // Botón Flotante de WhatsApp (FAB)
+            if (fabElement && redesSociales.contactosDirectos) {
+                const whatsappFabInfo = redesSociales.contactosDirectos.find(
+                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
+                );
+                if (whatsappFabInfo && whatsappFabInfo.url) {
+                    fabElement.href = whatsappFabInfo.url;
+                } else {
+                     fabElement.href = "javascript:void(0);"; 
+                     fabElement.style.cursor = "default"; 
+                }
+            } else if (fabElement) {
+                fabElement.href = "javascript:void(0);"; 
+                fabElement.style.cursor = "default";
+            }
+        }
+
+        cargarContenidoDesdeJSON();
 
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
