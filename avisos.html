@@ -460,9 +460,10 @@
         .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
         .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
         .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
-        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
+        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
         .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
         .footer-social-icons a:hover { color: #FFFFFF; background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
+        .footer-direct-contact { }
         .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
         .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
         .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
@@ -642,7 +643,9 @@
     <main>
         <section class="content-block announcements-page-wrapper" id="todos-los-anuncios">
             <div class="container">
-                <h1 class="block-title gradient-title"> Anuncios y Avisos </h1>
+                <h1 class="block-title">
+                    <span class="gradient-title">Anuncios y Avisos</span>
+                </h1>
                 <p class="block-subtitle">
                     Mantente al día con las últimas noticias, actualizaciones importantes y próximos eventos de Universe Community.
                 </p>
@@ -654,7 +657,7 @@
         </section>
     </main>
 
-    <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
@@ -672,27 +675,14 @@
                 </div>
                  <div class="footer-column footer-column-contact">
                     <h4 class="footer-heading">Contacto Directo</h4>
-                     <div class="footer-direct-contact">
-                        <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" aria-label="Contactar por WhatsApp">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" aria-label="Contactar por Telegram">
-                            <i class="fab fa-telegram-plane" aria-hidden="true"></i> Telegram
-                        </a>
-                         <a href="mailto:contacto@universecommunity.com" aria-label="Enviar correo electrónico">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Email
-                        </a>
+                     <div class="footer-direct-contact" id="footerContactDirectContainer">
+                        <p>Cargando contactos...</p>
                     </div>
                 </div>
                 <div class="footer-column footer-column-social">
                     <h4 class="footer-heading">Síguenos</h4>
-                    <div class="footer-social-icons">
-                        <a href="#" target="_blank" title="Facebook" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Twitter / X" aria-label="Visita nuestro perfil de Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Instagram" aria-label="Visita nuestro perfil de Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Discord" aria-label="Únete a nuestro servidor de Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="YouTube" aria-label="Visita nuestro canal de YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn" aria-label="Visita nuestro perfil de LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <div class="footer-social-icons" id="footerSocialProfilesContainer">
+                        <p>Cargando redes...</p>
                     </div>
                 </div>
             </div>
@@ -819,10 +809,10 @@
 
                     const isMobileView = window.innerWidth <= 991;
                     const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    // Check if the link is for the current page (ignoring hash for this specific check)
-                    const linkPathOnly = link.pathname.split('/').pop() || 'index.html';
-                    const currentPathOnly = window.location.pathname.split('/').pop() || 'index.html';
-                    const isLinkToCurrentPage = linkPathOnly === currentPathOnly;
+                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
+
 
                     if (isMobileView) {
                         if (listItem.classList.contains('has-submenu')) {
@@ -831,18 +821,11 @@
                         }
                     } else { // Desktop View
                         if (hasValidHref) {
-                             if (isLinkToCurrentPage) { 
-                                // If it's a link to the current page (e.g., "Proyectos" on proyectos.html)
-                                // AND it's not just a hash link for the same page (which navHighlighter would handle)
-                                // then toggle. Otherwise, allow navigation.
-                                if (!link.hash || link.hash === "#") {
-                                     event.preventDefault(); 
-                                     performToggleVisually(listItem, link, submenu);
-                                }
-                                // If it has a hash and is for the current page, let navHighlighter and default scroll work.
+                             if (isLinkToCurrentPagePathOnly) { 
+                                event.preventDefault(); 
+                                performToggleVisually(listItem, link, submenu);
                             }
-                            // If it's a link to a different page, allow default navigation.
-                        } else { // Placeholder link
+                        } else { 
                             event.preventDefault();
                             performToggleVisually(listItem, link, submenu);
                         }
@@ -933,81 +916,159 @@
         window.addEventListener('hashchange', updateCurrentPage); 
         
 
-        // --- Cargar Anuncios desde JSON ---
+        // --- Cargar Anuncios y Footer desde JSON ---
         const announcementsGrid = document.getElementById('announcementsGrid');
+        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
+        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
+        const fabWhatsapp = document.getElementById('fabWhatsapp');
 
-        async function cargarAnuncios() {
-            if (!announcementsGrid) return;
-
+        async function cargarContenidoDesdeJSON() {
+            console.log("Intentando cargar bases.json..."); // Depuración
             try {
-                // IMPORTANTE: Asegúrate de que la ruta al archivo 'datos_web.json' sea correcta.
-                // Si está en la misma carpeta que avisos.html, 'datos_web.json' es correcto.
-                // Si está en una subcarpeta (ej. 'data/'), usa 'data/datos_web.json'.
-                const response = await fetch('bases.json'); 
+                const response = await fetch('bases.json'); // Si tu archivo se llama bases.json, cámbialo aquí.
+                console.log("Respuesta del fetch:", response); // Depuración
+
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar el archivo JSON.`);
                 }
                 const data = await response.json();
-                const anuncios = data.anuncios; // Accede a la lista de anuncios del JSON
+                console.log("Datos JSON cargados:", data); // Depuración
+                
+                // Cargar Anuncios
+                if (announcementsGrid && data.anuncios) {
+                    const anuncios = data.anuncios;
+                    if (anuncios && anuncios.length > 0) {
+                        announcementsGrid.innerHTML = ''; 
+                        anuncios.forEach(anuncio => {
+                            const card = document.createElement('article');
+                            card.classList.add('announcement-card');
+                            card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`);
 
-                if (anuncios && anuncios.length > 0) {
-                    announcementsGrid.innerHTML = ''; // Limpiar mensaje de "Cargando..."
-                    anuncios.forEach(anuncio => {
-                        const card = document.createElement('article');
-                        card.classList.add('announcement-card');
-                        card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`);
+                            let flyerHTML = '';
+                            if (anuncio.flyerUrl) {
+                                flyerHTML = `
+                                    <div class="announcement-flyer">
+                                        <img src="${anuncio.flyerUrl}" alt="${anuncio.altFlyer || 'Flyer del anuncio'}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '<span class=\\'flyer-placeholder-text\\'>[Imagen no disponible]</span>';">
+                                    </div>`;
+                            } else {
+                                 flyerHTML = `
+                                    <div class="announcement-flyer">
+                                        <span class="flyer-placeholder-text">[No hay flyer para este anuncio]</span>
+                                    </div>`;
+                            }
 
-                        let flyerHTML = '';
-                        if (anuncio.flyerUrl) {
-                            flyerHTML = `
-                                <div class="announcement-flyer">
-                                    <img src="${anuncio.flyerUrl}" alt="${anuncio.altFlyer || 'Flyer del anuncio'}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '<span class=\\'flyer-placeholder-text\\'>[Imagen no disponible]</span>';">
-                                </div>`;
-                        } else {
-                             flyerHTML = `
-                                <div class="announcement-flyer">
-                                    <span class="flyer-placeholder-text">[No hay flyer para este anuncio]</span>
-                                </div>`;
-                        }
+                            let enlaceHTML = '';
+                            if (anuncio.enlaceUrl && anuncio.enlaceTexto) {
+                                enlaceHTML = `<a href="${anuncio.enlaceUrl}" class="announcement-link">${anuncio.enlaceTexto} <i class="fas fa-arrow-right"></i></a>`;
+                            }
 
-                        let enlaceHTML = '';
-                        if (anuncio.enlaceUrl && anuncio.enlaceTexto) {
-                            enlaceHTML = `<a href="${anuncio.enlaceUrl}" class="announcement-link">${anuncio.enlaceTexto} <i class="fas fa-arrow-right"></i></a>`;
-                        }
+                            let etiquetaHTML = '';
+                            if (anuncio.etiqueta) {
+                                etiquetaHTML = `<span class="announcement-tag">${anuncio.etiqueta}</span>`;
+                            }
 
-                        let etiquetaHTML = '';
-                        if (anuncio.etiqueta) {
-                            etiquetaHTML = `<span class="announcement-tag">${anuncio.etiqueta}</span>`;
-                        }
-
-                        card.innerHTML = `
-                            ${flyerHTML}
-                            <div class="announcement-header">
-                                <h3 class="announcement-title">${anuncio.titulo}</h3>
-                                <span class="announcement-date">${anuncio.fecha}</span>
-                            </div>
-                            <div class="announcement-content">
-                                <p>${anuncio.contenido.replace(/\n/g, '<br>')}</p> 
-                            </div>
-                            <div class="announcement-footer">
-                                ${enlaceHTML}
-                                ${etiquetaHTML}
-                            </div>
-                        `;
-                        announcementsGrid.appendChild(card);
-                    });
-                } else {
-                    announcementsGrid.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
+                            card.innerHTML = `
+                                ${flyerHTML}
+                                <div class="announcement-header">
+                                    <h3 class="announcement-title">${anuncio.titulo}</h3>
+                                    <span class="announcement-date">${anuncio.fecha}</span>
+                                </div>
+                                <div class="announcement-content">
+                                    <p>${anuncio.contenido.replace(/\n/g, '<br>')}</p> 
+                                </div>
+                                <div class="announcement-footer">
+                                    ${enlaceHTML}
+                                    ${etiquetaHTML}
+                                </div>
+                            `;
+                            announcementsGrid.appendChild(card);
+                        });
+                    } else {
+                        announcementsGrid.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
+                    }
+                } else if (announcementsGrid) {
+                     announcementsGrid.innerHTML = '<p>No se encontró la sección de anuncios en los datos.</p>';
                 }
+
+
+                // Cargar Contenido del Footer y FAB
+                if (data.redesSociales) {
+                    console.log("Cargando datos de redesSociales:", data.redesSociales); // Depuración
+                    // Contactos Directos del Footer
+                    if (footerContactDirectContainer && data.redesSociales.contactosDirectos) {
+                        footerContactDirectContainer.innerHTML = ''; 
+                        data.redesSociales.contactosDirectos.forEach(contacto => {
+                            const linkElement = document.createElement('a');
+                            linkElement.href = contacto.url || '#';
+                            linkElement.target = "_blank";
+                            linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
+                            linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
+                            footerContactDirectContainer.appendChild(linkElement);
+                        });
+                    } else if (footerContactDirectContainer) {
+                        footerContactDirectContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
+                    }
+
+                    // Perfiles Sociales del Footer
+                    if (footerSocialProfilesContainer && data.redesSociales.perfilesSociales) {
+                        footerSocialProfilesContainer.innerHTML = ''; 
+                        data.redesSociales.perfilesSociales.forEach(perfil => {
+                            const linkElement = document.createElement('a');
+                            linkElement.href = perfil.url || '#';
+                            linkElement.target = "_blank";
+                            linkElement.title = perfil.titulo;
+                            linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
+                            linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+                            footerSocialProfilesContainer.appendChild(linkElement);
+                        });
+                    } else if (footerSocialProfilesContainer) {
+                         footerSocialProfilesContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
+                    }
+
+                    // Botón Flotante de WhatsApp (FAB)
+                    if (fabWhatsapp && data.redesSociales.contactosDirectos) {
+                        const whatsappFabInfo = data.redesSociales.contactosDirectos.find(
+                            c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
+                        );
+                        if (whatsappFabInfo && whatsappFabInfo.url) {
+                            fabWhatsapp.href = whatsappFabInfo.url;
+                            console.log("FAB WhatsApp URL asignada:", whatsappFabInfo.url); // Depuración
+                        } else {
+                             fabWhatsapp.href = "javascript:void(0);"; 
+                             fabWhatsapp.style.cursor = "default"; 
+                             console.log("FAB WhatsApp: No se encontró URL específica, se usó placeholder."); // Depuración
+                        }
+                    } else if (fabWhatsapp) {
+                        fabWhatsapp.href = "javascript:void(0);"; 
+                        fabWhatsapp.style.cursor = "default";
+                        console.log("FAB WhatsApp: No se encontró data.redesSociales.contactosDirectos."); // Depuración
+                    }
+                } else {
+                    console.log("No se encontró la sección 'redesSociales' en el JSON."); // Depuración
+                    if(footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
+                    if(footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
+                    if(fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+                }
+
+
             } catch (error) {
-                console.error('Error al cargar los anuncios:', error);
+                console.error('Error al cargar contenido desde JSON:', error);
                 if (announcementsGrid) {
-                    announcementsGrid.innerHTML = '<p>Error al cargar los anuncios. Por favor, inténtalo más tarde.</p>';
+                    announcementsGrid.innerHTML = `<p>Error al cargar los anuncios: ${error.message}. Por favor, verifica la consola y el archivo JSON.</p>`;
+                }
+                if (footerContactDirectContainer) {
+                    footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
+                }
+                if (footerSocialProfilesContainer) {
+                    footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
+                }
+                if(fabWhatsapp) {
+                    fabWhatsapp.href = "javascript:void(0);";
                 }
             }
         }
 
-        cargarAnuncios();
+        cargarContenidoDesdeJSON();
 
 
         const currentYearElement = document.getElementById('currentYear');
