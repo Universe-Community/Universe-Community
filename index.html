@@ -910,16 +910,21 @@
       /* Sección Soporte y Contacto */
       .support-main-container {
         display: grid;
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* Default one column */
         gap: 2.5rem;
-        align-items: flex-start;
+        align-items: flex-start; 
+        /* max-width: 960px; /* Ajusta este valor si quieres que el bloque sea más estrecho que .container */
+        /* margin-left: auto;  /* Centra el bloque si max-width es menor que 100% */
+        /* margin-right: auto; /* Centra el bloque si max-width es menor que 100% */
       }
       @media (min-width: 992px) {
         .support-main-container {
-          grid-template-columns: 1fr 1.2fr;
+          grid-template-columns: 1fr 1fr; /* Columnas iguales para mejor balance visual */
         }
       }
       .faq-and-info-column { }
+      .contact-form-card-wrapper { }
+
       .faq-container,
       .contact-info-container {
         background-color: var(--bg-light);
@@ -1025,12 +1030,12 @@
       }
       .contact-form-card-wrapper { }
       .contact-form-card {
-        flex: 1.5;
+        /* flex: 1.5; */ /* No es necesario con grid */
         background-color: var(--bg-light);
         padding: 2.5rem;
         border-radius: 12px;
         box-shadow: var(--card-shadow-light);
-        min-width: 300px;
+        /* min-width: 300px; */ /* No es necesario con grid fr units */
         transition: var(--transition-colors), box-shadow 0.3s ease;
       }
       .form-title {
@@ -2049,18 +2054,20 @@
         const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
         const fabWhatsapp = document.getElementById('fabWhatsapp');
 
+
         async function cargarContenidoIndexDesdeJSON() {
             console.log("Intentando cargar bases.json para index.html...");
             try {
-                const response = await fetch('bases.json');    
-              if (!response.ok) {
+                const response = await fetch('bases.json'); 
+                console.log("Respuesta del fetch (index):", response);
+                if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status} al cargar bases.json`);
                 }
                 const data = await response.json();
                 console.log("Datos JSON cargados (index):", data);
 
                 // 1. Renderizar Proyectos Destacados
-                if (projectListContainer && data.proyectosresumen) { // Usando proyectosresumen como indicaste
+                if (projectListContainer && data.proyectosresumen) { 
                     renderizarProyectosDestacados(data.proyectosresumen, projectListContainer);
                     inicializarSliderProyectos(); 
                 } else if (projectListContainer) {
@@ -2085,7 +2092,8 @@
                 if (faqContainer && data.preguntasFrecuentes) {
                     renderizarPreguntasFrecuentes(data.preguntasFrecuentes, faqContainer);
                 } else if (faqContainer) {
-                    faqContainer.innerHTML = "<p>No hay preguntas frecuentes disponibles.</p>";
+                    const placeholder = faqContainer.querySelector('p');
+                    if (placeholder) placeholder.textContent = "No hay preguntas frecuentes disponibles.";
                 }
                 
                 // 5. Renderizar Información de Contacto (Sección "Soporte y Contacto")
@@ -2100,12 +2108,17 @@
                     renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
                 }
 
+
             } catch (error) {
                 console.error('Error al cargar contenido del index desde JSON:', error);
                 if (projectListContainer) projectListContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
                 if (paypalButtonContainer) paypalButtonContainer.innerHTML = `<p>Error al cargar botón de donación.</p>`;
                 if (contactChannelCardsContainer) contactChannelCardsContainer.innerHTML = `<p>Error al cargar canales de contacto.</p>`;
-                if (faqContainer) faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes.</p>`;
+                if (faqContainer) {
+                    const placeholder = faqContainer.querySelector('p');
+                    if (placeholder) placeholder.textContent = `Error al cargar preguntas frecuentes: ${error.message}`;
+                    else faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes: ${error.message}</p>`;
+                }
                 if (contactInfoListContainer) contactInfoListContainer.innerHTML = `<p>Error al cargar información de contacto.</p>`;
                 if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos del footer.</p>';
                 if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes del footer.</p>';
@@ -2169,7 +2182,6 @@
             container.innerHTML = ''; 
             contactos.forEach(contacto => {
                 if (contacto.plataforma && (contacto.plataforma.toLowerCase() === 'whatsapp' || contacto.plataforma.toLowerCase() === 'telegram')) {
-                    // Solo mostrar el primer WhatsApp y el primer Telegram para esta sección específica
                     if ( (contacto.plataforma.toLowerCase() === 'whatsapp' && !container.querySelector('.whatsapp')) ||
                          (contacto.plataforma.toLowerCase() === 'telegram' && !container.querySelector('.telegram')) ) {
                         const card = document.createElement('div');
@@ -2201,10 +2213,9 @@
         }
 
         function renderizarPreguntasFrecuentes(faqs, container) {
-            if (!container.querySelector('.faq-item')) { // Solo limpiar si no hay items (evita borrar el título)
-                 const placeholder = container.querySelector('p'); // Eliminar el "Cargando..."
-                 if(placeholder) placeholder.remove();
-            }
+            const placeholder = container.querySelector('p'); 
+            if(placeholder) placeholder.remove();
+
             faqs.forEach(faq => {
                 const item = document.createElement('div');
                 item.classList.add('faq-item');
@@ -2219,7 +2230,6 @@
                 `;
                 container.appendChild(item);
 
-                // Re-attach event listener for the new FAQ item
                 const question = item.querySelector(".faq-question");
                 const answer = item.querySelector(".faq-answer");
                 if (question && answer) {
@@ -2351,7 +2361,6 @@
 
                 const updateButtonStatesAndCentering = () => {
                     if (!projectListContainerSlider || !prevBtnSlider || !nextBtnSlider) return;
-                     // Ensure cards are loaded before calculating widths
                     if (projectListContainerSlider.children.length === 0 || projectListContainerSlider.children[0].tagName === 'P') return;
 
                     const scrollLeft = projectListContainerSlider.scrollLeft;
@@ -2385,19 +2394,18 @@
                 });
                 projectListContainerSlider.addEventListener("scroll",updateButtonStatesAndCentering);
                 window.addEventListener("resize", updateButtonStatesAndCentering);
-                // Use a MutationObserver to wait for cards to be added before initializing slider
+                
                 const observer = new MutationObserver((mutationsList, observer) => {
                     for(let mutation of mutationsList) {
                         if (mutation.type === 'childList' && projectListContainerSlider.querySelector(".project-card")) {
                             updateButtonStatesAndCentering();
-                            observer.disconnect(); // Stop observing once cards are loaded
+                            observer.disconnect(); 
                             break;
                         }
                     }
                 });
                 observer.observe(projectListContainerSlider, { childList: true });
 
-                // Fallback if MutationObserver doesn't fire or content is already there
                  setTimeout(() => {
                     if (!projectListContainerSlider.querySelector(".project-card")) {
                         console.warn("Slider cards not found after timeout, slider controls might not be accurate.");
