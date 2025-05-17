@@ -276,7 +276,7 @@
         font-weight: 500;
         font-size: 0.9rem; 
         padding: 0.75rem 0.8rem; 
-        border-radius: 6px;
+        border-radius: 6px; 
         transition: var(--transition-colors), background-color 0.2s ease;
         white-space: nowrap;
       }
@@ -624,6 +624,11 @@
         font-size: 0.875rem;
         font-style: italic;
         transition: var(--transition-colors);
+      }
+      .project-img-placeholder img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
       }
       .project-details {
         padding: 1.5rem;
@@ -1167,7 +1172,7 @@
           height: 3px;
           background: var(--brand-blue-end);
       }
-      .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; }
+      .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
       .footer-social-icons a { 
           color: var(--footer-icon-color); font-size: 1.25rem; 
           transition: var(--transition-smooth); 
@@ -1182,6 +1187,7 @@
           border-color: var(--brand-blue-end);
           transform: translateY(-3px) scale(1.05); 
       }
+      .footer-direct-contact { }
       .footer-direct-contact a { 
           display: flex; align-items: center; text-decoration: none; 
           color: var(--footer-text-secondary-light); font-size: 0.975rem; 
@@ -1354,7 +1360,8 @@
         <nav class="main-menu" id="mainMenuNav">
           <ul>
             <li class="has-submenu">
-              <a href="index.html" aria-haspopup="true" aria-expanded="false"> Universe Community
+              <a href="index.html" aria-haspopup="true" aria-expanded="false"> 
+                Universe Community
                 <span class="submenu-toggle-icon"
                   ><i class="fas fa-chevron-down"></i
                 ></span>
@@ -1369,7 +1376,8 @@
             </li>
             <li class="has-submenu">
               <a
-                href="proyectos.html" aria-haspopup="true"
+                href="proyectos.html" 
+                aria-haspopup="true"
                 aria-expanded="false"
               >
                 Proyectos
@@ -1476,6 +1484,7 @@
                 </li>
               </ul>
             </li>
+             <li><a href="avisos.html">Avisos</a></li> 
           </ul>
         </nav>
       </div>
@@ -1595,81 +1604,7 @@
             class="info-cards-wrapper grid-three-cols"
             id="projectListContainer"
           >
-            <article class="project-card">
-              <div class="project-img-placeholder">
-                <span>[Imagen del Proyecto Alpha]</span>
-              </div>
-              <div class="project-details">
-                <h3 class="project-name">Proyecto Alpha</h3>
-                <p class="project-summary">
-                  Exploración cósmica y desarrollo de simulaciones interactivas
-                  del universo.
-                </p>
-                <a href="proyecto-alpha.html" class="btn btn-details-project"
-                  >Ver detalles</a
-                >
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-img-placeholder">
-                <span>[Imagen del Proyecto Beta]</span>
-              </div>
-              <div class="project-details">
-                <h3 class="project-name">Proyecto Beta</h3>
-                <p class="project-summary">
-                  Herramientas educativas de código abierto para comunidades
-                  globales y accesibles.
-                </p>
-                <a href="proyecto-beta.html" class="btn btn-details-project"
-                  >Ver detalles</a
-                >
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-img-placeholder">
-                <span>[Imagen del Proyecto Gamma]</span>
-              </div>
-              <div class="project-details">
-                <h3 class="project-name">Proyecto Gamma</h3>
-                <p class="project-summary">
-                  Fusión de expresión artística con nuevas tecnologías digitales
-                  y creativas e innovadoras.
-                </p>
-                <a href="proyecto-gamma.html" class="btn btn-details-project"
-                  >Ver detalles</a
-                >
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-img-placeholder">
-                <span>[Imagen del Proyecto Delta]</span>
-              </div>
-              <div class="project-details">
-                <h3 class="project-name">Proyecto Delta</h3>
-                <p class="project-summary">
-                  Investigación en IA para la sostenibilidad ambiental y
-                  conservación de recursos.
-                </p>
-                <a href="proyecto-delta.html" class="btn btn-details-project"
-                  >Ver detalles</a
-                >
-              </div>
-            </article>
-            <article class="project-card">
-              <div class="project-img-placeholder">
-                <span>[Imagen del Proyecto Epsilon]</span>
-              </div>
-              <div class="project-details">
-                <h3 class="project-name">Proyecto Epsilon</h3>
-                <p class="project-summary">
-                  Plataforma comunitaria para el intercambio de habilidades y
-                  mentoría entre pares.
-                </p>
-                <a href="proyecto-epsilon.html" class="btn btn-details-project"
-                  >Ver detalles</a
-                >
-              </div>
-            </article>
+            <p>Cargando proyectos destacados...</p>
           </div>
           <div class="all-projects-link-container">
             <a href="proyectos.html" class="view-all-projects-link">
@@ -1688,14 +1623,9 @@
             Cada contribución, grande o pequeña, marca una diferencia
             significativa. ¡Gracias por considerar apoyar a Universe Community!
           </p>
-          <a
-            href="https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="btn-donate-paypal"
-          >
-            <i class="fab fa-paypal"></i> Donar con PayPal
-          </a>
+          <div id="paypalButtonContainer">
+            <p>Cargando opciones de donación...</p>
+          </div>
         </div>
       </section>
 
@@ -1713,49 +1643,8 @@
             </p>
           </div>
 
-          <div class="contact-channel-cards-grid">
-            <div class="contact-channel-card">
-              <div class="channel-icon-wrapper">
-                <span class="channel-icon whatsapp-icon"
-                  ><i class="fab fa-whatsapp"></i
-                ></span>
-              </div>
-              <div class="channel-content">
-                <h3 class="channel-title">Grupo de WhatsApp</h3>
-                <p class="channel-description">
-                  Únete a nuestro grupo principal de WhatsApp para discusiones
-                  diarias, anuncios y soporte rápido.
-                </p>
-                <a
-                  href="https://wa.me/TUNUMERODEWHATSAPP"
-                  target="_blank"
-                  class="btn-join whatsapp"
-                >
-                  Unirse al grupo <span class="arrow">&rarr;</span>
-                </a>
-              </div>
-            </div>
-            <div class="contact-channel-card">
-              <div class="channel-icon-wrapper">
-                <span class="channel-icon telegram-icon"
-                  ><i class="fab fa-telegram-plane"></i
-                ></span>
-              </div>
-              <div class="channel-content">
-                <h3 class="channel-title">Canal de Telegram</h3>
-                <p class="channel-description">
-                  Sigue nuestro canal oficial de Telegram para recibir
-                  actualizaciones, noticias y contenido exclusivo.
-                </p>
-                <a
-                  href="https://t.me/TUNOMBREDECANALTELEGRAM"
-                  target="_blank"
-                  class="btn-join telegram"
-                >
-                  Unirse al canal <span class="arrow">&rarr;</span>
-                </a>
-              </div>
-            </div>
+          <div class="contact-channel-cards-grid" id="contactChannelCardsContainer">
+             <p>Cargando canales de contacto...</p>
           </div>
         </div>
       </section>
@@ -1766,96 +1655,15 @@
 
           <div class="support-main-container">
             <div class="faq-and-info-column">
-              <div class="faq-container card">
+              <div class="faq-container card" id="faqContainer">
                 <h3 class="section-subtitle">Preguntas Frecuentes</h3>
-                <div class="faq-item">
-                  <div
-                    class="faq-question"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="faq-answer-1"
-                  >
-                    <span>¿Cómo puedo unirme a Universe Community?</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
-                  <div class="faq-answer" id="faq-answer-1">
-                    <p>Es muy sencillo...</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <div
-                    class="faq-question"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="faq-answer-2"
-                  >
-                    <span>¿Cómo puedo contribuir a un proyecto?</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
-                  <div class="faq-answer" id="faq-answer-2">
-                    <p>Explora nuestra sección de "Proyectos"...</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <div
-                    class="faq-question"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="faq-answer-3"
-                  >
-                    <span>¿Puedo proponer un nuevo proyecto?</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
-                  <div class="faq-answer" id="faq-answer-3">
-                    <p>¡Claro que sí! Nos encantan las nuevas ideas...</p>
-                  </div>
-                </div>
-                <div class="faq-item">
-                  <div
-                    class="faq-question"
-                    role="button"
-                    tabindex="0"
-                    aria-expanded="false"
-                    aria-controls="faq-answer-4"
-                  >
-                    <span>¿Hay reuniones regulares de la comunidad?</span>
-                    <i class="fas fa-chevron-down"></i>
-                  </div>
-                  <div class="faq-answer" id="faq-answer-4">
-                    <p>Sí, organizamos reuniones generales periódicas...</p>
-                  </div>
-                </div>
+                <p>Cargando preguntas frecuentes...</p>
               </div>
 
               <div class="contact-info-container card">
                 <h3 class="section-subtitle">Información de contacto</h3>
-                <ul class="contact-info-list">
-                  <li class="contact-info-item">
-                    <i class="fas fa-envelope"></i>
-                    <div>
-                      <span class="info-label">Correo electrónico</span>
-                      <a href="mailto:contacto@universecommunity.org"
-                        >contacto@universecommunity.org</a
-                      >
-                    </div>
-                  </li>
-                  <li class="contact-info-item">
-                    <i class="fas fa-clock"></i>
-                    <div>
-                      <span class="info-label">Horario de soporte</span>
-                      Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
-                    </div>
-                  </li>
-                  <li class="contact-info-item">
-                    <i class="fas fa-headset"></i>
-                    <div>
-                      <span class="info-label">Soporte en línea</span>
-                      Disponible en nuestro servidor de Discord
-                    </div>
-                  </li>
+                <ul class="contact-info-list" id="contactInfoListContainer">
+                   <p>Cargando información de contacto...</p>
                 </ul>
               </div>
             </div>
@@ -1925,14 +1733,8 @@
       </section>
     </main>
 
-    <a
-      href="https://wa.me/TUNUMERODEWHATSAPP"
-      target="_blank"
-      class="floating-action-button"
-      title="Contactar por WhatsApp"
-      aria-label="Contactar por WhatsApp"
-    >
-      <i class="fab fa-whatsapp"></i>
+    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <footer class="site-footer-detailed">
@@ -1949,27 +1751,14 @@
                 </div>
                  <div class="footer-column footer-column-contact">
                     <h4 class="footer-heading">Contacto Directo</h4>
-                     <div class="footer-direct-contact">
-                        <a href="https://wa.me/TUNUMERODEWHATSAPP" target="_blank" aria-label="Contactar por WhatsApp">
-                            <i class="fab fa-whatsapp" aria-hidden="true"></i> WhatsApp
-                        </a>
-                        <a href="https://t.me/TUNOMBREDECANALTELEGRAM" target="_blank" aria-label="Contactar por Telegram">
-                            <i class="fab fa-telegram-plane" aria-hidden="true"></i> Telegram
-                        </a>
-                         <a href="mailto:contacto@universecommunity.com" aria-label="Enviar correo electrónico">
-                            <i class="fas fa-envelope" aria-hidden="true"></i> Email
-                        </a>
+                     <div class="footer-direct-contact" id="footerContactDirectContainer">
+                        <p>Cargando contactos...</p>
                     </div>
                 </div>
                 <div class="footer-column footer-column-social">
                     <h4 class="footer-heading">Síguenos</h4>
-                    <div class="footer-social-icons">
-                        <a href="#" target="_blank" title="Facebook" aria-label="Visita nuestra página de Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Twitter / X" aria-label="Visita nuestro perfil de Twitter"><i class="fab fa-x-twitter" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Instagram" aria-label="Visita nuestro perfil de Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="Discord" aria-label="Únete a nuestro servidor de Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="YouTube" aria-label="Visita nuestro canal de YouTube"><i class="fab fa-youtube" aria-hidden="true"></i></a>
-                        <a href="#" target="_blank" title="LinkedIn" aria-label="Visita nuestro perfil de LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+                    <div class="footer-social-icons" id="footerSocialProfilesContainer">
+                        <p>Cargando redes...</p>
                     </div>
                 </div>
             </div>
@@ -2058,7 +1847,7 @@
         window.addEventListener('resize', updateHeaderHeightForMenu);
 
 
-        // --- Submenu Toggle Logic (Revised for clearer click handling) ---
+        // --- Submenu Toggle Logic (Revised) ---
         function performToggleVisually(listItem, linkElement, submenuElement) {
             const isOpen = listItem.classList.toggle('open');
             if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
@@ -2081,9 +1870,9 @@
 
         if (mainMenuNav) {
             mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
-                const link = listItem.querySelector("a[aria-haspopup='true']"); 
-                const toggleIcon = listItem.querySelector(".submenu-toggle-icon"); 
-                const submenu = listItem.querySelector(".submenu"); 
+                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
+                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
+                const submenu = listItem.querySelector(":scope > .submenu"); 
 
                 if (!link || !submenu) return;
 
@@ -2097,11 +1886,15 @@
 
                 link.addEventListener("click", function (event) {
                     if (event.target.closest(".submenu-toggle-icon")) {
-                        return; // Handled by icon's listener
+                        return; 
                     }
 
                     const isMobileView = window.innerWidth <= 991;
                     const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
+                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
+
 
                     if (isMobileView) {
                         if (listItem.classList.contains('has-submenu')) {
@@ -2109,13 +1902,14 @@
                             performToggleVisually(listItem, link, submenu);
                         }
                     } else { // Desktop View
-                        if (listItem.classList.contains('has-submenu')) {
-                            if (hasValidHref) {
-                                // Allow default navigation, do not toggle submenu
-                            } else {
-                                event.preventDefault(); // Placeholder link, toggle submenu
+                        if (hasValidHref) {
+                             if (isLinkToCurrentPagePathOnly) { 
+                                event.preventDefault(); 
                                 performToggleVisually(listItem, link, submenu);
                             }
+                        } else { 
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
                         }
                     }
                 });
@@ -2128,11 +1922,11 @@
           mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
             link.addEventListener("click", (event) => {
               const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
-              const listItem = link.closest('li'); // Get the li element
+              const listItem = link.closest('li'); 
               const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
               
               if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
-                return; // Action handled by submenu toggle logic or it's a mobile parent toggle
+                return; 
               }
 
               if (mainMenuNav.classList.contains("menu-visible")) {
@@ -2182,29 +1976,56 @@
             }
           });
           
-          allNavLinks.forEach((navLink) => {
+          allNavLinks.forEach((navLink) => { 
             navLink.classList.remove("current-page"); 
             let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
             if (parentLi) {
-                const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
+                const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
                 if (parentAnchor) parentAnchor.classList.remove('current-page');
             }
           });
 
+          let anActiveLinkIsSetByScroll = false;
           if (currentActiveSectionId) {
             const activeNavLink = mainMenuNav.querySelector("a[href*='#" + currentActiveSectionId + "']");
             if (activeNavLink) {
               activeNavLink.classList.add("current-page");
+              anActiveLinkIsSetByScroll = true;
               let parentLi = activeNavLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
               if (parentLi) {
-                  const parentAnchor = parentLi.querySelector('a[aria-haspopup="true"]');
+                  const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
                   if (parentAnchor) parentAnchor.classList.add('current-page');
               }
             }
-          } else {
+          } 
+          
+          if (!anActiveLinkIsSetByScroll) { 
             const currentPagePath = window.location.pathname.split('/').pop() || 'index.html';
-            if (homeLink && (currentPagePath === 'index.html' || currentPagePath === '') && (!window.location.hash || window.location.hash === '#')) {
+            const currentHash = window.location.hash;
+
+            if (homeLink && (currentPagePath === 'index.html' || currentPagePath === '') && (!currentHash || currentHash === '#')) {
+                 allNavLinks.forEach(nl => nl.classList.remove("current-page")); 
                  homeLink.classList.add("current-page");
+            } else {
+                 allNavLinks.forEach(navLink => {
+                    const linkHref = navLink.getAttribute("href");
+                    if (!linkHref) return;
+
+                    const linkUrl = new URL(linkHref, window.location.origin);
+                    const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+                    const linkHash = linkUrl.hash;
+
+                    if (linkPath === currentPagePath) {
+                        if ((linkHash && linkHash === currentHash) || (!linkHash && (!currentHash || currentHash === '#'))) {
+                            navLink.classList.add('current-page');
+                            let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
+                            if (parentLi) {
+                                const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
+                                if (parentAnchor) parentAnchor.classList.add('current-page');
+                            }
+                        }
+                    }
+                 });
             }
           }
         }
@@ -2218,106 +2039,376 @@
             homeLink.classList.add("current-page");
         }
 
+        // --- Cargar Contenido Dinámico desde JSON para Index ---
+        const projectListContainer = document.getElementById("projectListContainer");
+        const paypalButtonContainer = document.getElementById("paypalButtonContainer");
+        const contactChannelCardsContainer = document.getElementById("contactChannelCardsContainer");
+        const faqContainer = document.getElementById("faqContainer");
+        const contactInfoListContainer = document.getElementById("contactInfoListContainer");
+        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
+        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
+        const fabWhatsapp = document.getElementById('fabWhatsapp');
 
-        // --- FAQ Accordion ---
-        const faqItems = document.querySelectorAll(".faq-item");
-        faqItems.forEach((item) => {
-          const question = item.querySelector(".faq-question");
-          const answer = item.querySelector(".faq-answer");
+        async function cargarContenidoIndexDesdeJSON() {
+            console.log("Intentando cargar bases.json para index.html...");
+            try {
+                const response = await fetch('bases.json');    
+              if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} al cargar bases.json`);
+                }
+                const data = await response.json();
+                console.log("Datos JSON cargados (index):", data);
 
-          if (question && answer) {
-            question.addEventListener("click", () => {
-              item.classList.toggle("active");
-              const isActive = item.classList.contains("active");
-              question.setAttribute("aria-expanded", String(isActive));
+                // 1. Renderizar Proyectos Destacados
+                if (projectListContainer && data.proyectosresumen) { // Usando proyectosresumen como indicaste
+                    renderizarProyectosDestacados(data.proyectosresumen, projectListContainer);
+                    inicializarSliderProyectos(); 
+                } else if (projectListContainer) {
+                    projectListContainer.innerHTML = "<p>No hay proyectos destacados para mostrar.</p>";
+                }
 
-              if (isActive) {
-                answer.style.maxHeight = answer.scrollHeight + 20 + "px";
-              } else {
-                answer.style.maxHeight = "0";
-              }
-            });
-            question.addEventListener("keydown", (event) => {
-              if (event.key === "Enter" || event.key === " ") {
-                event.preventDefault();
-                question.click();
-              }
-            });
-          }
-        });
+                // 2. Renderizar Botón de Donación PayPal
+                if (paypalButtonContainer && data.redesSociales && data.redesSociales.donaciones) {
+                    renderizarBotonDonacion(data.redesSociales.donaciones, paypalButtonContainer);
+                } else if (paypalButtonContainer) {
+                    paypalButtonContainer.innerHTML = "<p>Opciones de donación no disponibles.</p>";
+                }
+                
+                // 3. Renderizar Tarjetas de Canales de Contacto (Sección "Conéctate")
+                if (contactChannelCardsContainer && data.redesSociales && data.redesSociales.contactosDirectos) {
+                    renderizarTarjetasCanalesContacto(data.redesSociales.contactosDirectos, contactChannelCardsContainer);
+                } else if (contactChannelCardsContainer) {
+                    contactChannelCardsContainer.innerHTML = "<p>Canales de contacto no disponibles.</p>";
+                }
 
-        // --- Project Slider ---
-        const projectListContainer = document.getElementById(
-          "projectListContainer"
-        );
-        const prevBtn = document.querySelector(
-          "#proyectos-destacados .prev-btn"
-        );
-        const nextBtn = document.querySelector(
-          "#proyectos-destacados .next-btn"
-        );
+                // 4. Renderizar Preguntas Frecuentes
+                if (faqContainer && data.preguntasFrecuentes) {
+                    renderizarPreguntasFrecuentes(data.preguntasFrecuentes, faqContainer);
+                } else if (faqContainer) {
+                    faqContainer.innerHTML = "<p>No hay preguntas frecuentes disponibles.</p>";
+                }
+                
+                // 5. Renderizar Información de Contacto (Sección "Soporte y Contacto")
+                if (contactInfoListContainer && data.redesSociales && data.redesSociales.contactosDirectos) {
+                    renderizarInformacionContacto(data.redesSociales.contactosDirectos, contactInfoListContainer);
+                } else if (contactInfoListContainer) {
+                    contactInfoListContainer.innerHTML = "<p>Información de contacto detallada no disponible.</p>";
+                }
 
-        if (projectListContainer && prevBtn && nextBtn) {
-          const getScrollAmount = () => {
-            const firstCard =
-              projectListContainer.querySelector(".project-card");
-            if (firstCard) {
-              const cardStyle = window.getComputedStyle(firstCard);
-              const cardWidth = firstCard.offsetWidth;
-              const containerStyle =
-                window.getComputedStyle(projectListContainer);
-              let gapValue = parseFloat(containerStyle.gap);
-              if (isNaN(gapValue)) {
-                gapValue = parseFloat(cardStyle.marginRight) || 0;
-                if (isNaN(gapValue)) gapValue = 24; 
-              }
-              return cardWidth + gapValue;
+                // 6. Renderizar Footer y FAB 
+                if (data.redesSociales) {
+                    renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar contenido del index desde JSON:', error);
+                if (projectListContainer) projectListContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
+                if (paypalButtonContainer) paypalButtonContainer.innerHTML = `<p>Error al cargar botón de donación.</p>`;
+                if (contactChannelCardsContainer) contactChannelCardsContainer.innerHTML = `<p>Error al cargar canales de contacto.</p>`;
+                if (faqContainer) faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes.</p>`;
+                if (contactInfoListContainer) contactInfoListContainer.innerHTML = `<p>Error al cargar información de contacto.</p>`;
+                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos del footer.</p>';
+                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes del footer.</p>';
+                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
             }
-            return 320; 
-          };
-
-          const updateButtonStatesAndCentering = () => {
-            if (!projectListContainer || !prevBtn || !nextBtn) return;
-            const scrollLeft = projectListContainer.scrollLeft;
-            const scrollWidth = projectListContainer.scrollWidth;
-            const clientWidth = projectListContainer.clientWidth;
-            const maxScrollLeft = scrollWidth - clientWidth;
-            const tolerance = 5; 
-            prevBtn.disabled = scrollLeft <= tolerance;
-            nextBtn.disabled = scrollLeft >= maxScrollLeft - tolerance;
-            if (scrollWidth <= clientWidth + tolerance) { 
-              projectListContainer.classList.add("center-flex-items");
-            } else {
-              projectListContainer.classList.remove("center-flex-items");
-            }
-          };
-          prevBtn.addEventListener("click", () => {
-            const currentScroll = projectListContainer.scrollLeft;
-            const scrollAmount = getScrollAmount();
-            projectListContainer.scrollTo({
-              left: currentScroll - scrollAmount,
-              behavior: "smooth",
-            });
-          });
-          nextBtn.addEventListener("click", () => {
-            const currentScroll = projectListContainer.scrollLeft;
-            const scrollAmount = getScrollAmount();
-            projectListContainer.scrollTo({
-              left: currentScroll + scrollAmount,
-              behavior: "smooth",
-            });
-          });
-          projectListContainer.addEventListener(
-            "scroll",
-            updateButtonStatesAndCentering
-          );
-          window.addEventListener("resize", updateButtonStatesAndCentering);
-          setTimeout(() => {
-            updateButtonStatesAndCentering();
-          }, 100); 
         }
 
-        // --- Footer Current Year ---
+        function renderizarProyectosDestacados(proyectos, container) {
+            container.innerHTML = ''; 
+            const proyectosAMostrar = proyectos.slice(0, 5); 
+
+            proyectosAMostrar.forEach(proyecto => {
+                const card = document.createElement('article');
+                card.classList.add('project-card');
+
+                let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
+                if (proyecto.portadaUrl) {
+                    imgHTML = `
+                        <div class="project-img-placeholder">
+                            <img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                        </div>`;
+                }
+                
+                let resumen = proyecto.descripcionCompleta || 'Descripción no disponible.';
+                if (resumen.length > 100) { 
+                    resumen = resumen.substring(0, 100) + "...";
+                }
+
+                card.innerHTML = `
+                    ${imgHTML}
+                    <div class="project-details">
+                        <h3 class="project-name">${proyecto.titulo}</h3>
+                        <p class="project-summary">${resumen}</p>
+                        <a href="${proyecto.enlacePagina || '#'}" class="btn btn-details-project">${proyecto.enlaceDetalles || 'Ver detalles'}</a>
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderizarBotonDonacion(donaciones, container) {
+            container.innerHTML = ''; 
+            const paypalInfo = donaciones.find(d => d.plataforma && d.plataforma.toLowerCase() === 'paypal');
+            if (paypalInfo && paypalInfo.url && paypalInfo.textoBoton) {
+                const buttonHTML = `
+                    <a
+                      href="${paypalInfo.url}"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="btn-donate-paypal"
+                    >
+                      <i class="${paypalInfo.icono || 'fab fa-paypal'}"></i> ${paypalInfo.textoBoton}
+                    </a>`;
+                container.innerHTML = buttonHTML;
+            } else {
+                container.innerHTML = "<p>Opción de donación no configurada.</p>";
+            }
+        }
+        
+        function renderizarTarjetasCanalesContacto(contactos, container) {
+            container.innerHTML = ''; 
+            contactos.forEach(contacto => {
+                if (contacto.plataforma && (contacto.plataforma.toLowerCase() === 'whatsapp' || contacto.plataforma.toLowerCase() === 'telegram')) {
+                    // Solo mostrar el primer WhatsApp y el primer Telegram para esta sección específica
+                    if ( (contacto.plataforma.toLowerCase() === 'whatsapp' && !container.querySelector('.whatsapp')) ||
+                         (contacto.plataforma.toLowerCase() === 'telegram' && !container.querySelector('.telegram')) ) {
+                        const card = document.createElement('div');
+                        card.classList.add('contact-channel-card');
+                        card.innerHTML = `
+                            <div class="channel-icon-wrapper">
+                                <span class="channel-icon ${contacto.plataforma.toLowerCase()}-icon">
+                                    <i class="${contacto.icono}"></i>
+                                </span>
+                            </div>
+                            <div class="channel-content">
+                                <h3 class="channel-title">${contacto.tipo || contacto.plataforma}</h3>
+                                <p class="channel-description">
+                                    ${contacto.textoAlternativo || `Conéctate con nosotros vía ${contacto.plataforma}.`}
+                                </p>
+                                <a
+                                  href="${contacto.url}"
+                                  target="_blank"
+                                  class="btn-join ${contacto.plataforma.toLowerCase()}"
+                                >
+                                  Unirse <span class="arrow">&rarr;</span>
+                                </a>
+                            </div>
+                        `;
+                        container.appendChild(card);
+                    }
+                }
+            });
+        }
+
+        function renderizarPreguntasFrecuentes(faqs, container) {
+            if (!container.querySelector('.faq-item')) { // Solo limpiar si no hay items (evita borrar el título)
+                 const placeholder = container.querySelector('p'); // Eliminar el "Cargando..."
+                 if(placeholder) placeholder.remove();
+            }
+            faqs.forEach(faq => {
+                const item = document.createElement('div');
+                item.classList.add('faq-item');
+                item.innerHTML = `
+                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${faq.id}">
+                        <span>${faq.pregunta}</span>
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer" id="faq-answer-${faq.id}">
+                        <p>${faq.respuesta.replace(/\n/g, '<br>')}</p>
+                    </div>
+                `;
+                container.appendChild(item);
+
+                // Re-attach event listener for the new FAQ item
+                const question = item.querySelector(".faq-question");
+                const answer = item.querySelector(".faq-answer");
+                if (question && answer) {
+                    question.addEventListener("click", () => {
+                        item.classList.toggle("active");
+                        const isActive = item.classList.contains("active");
+                        question.setAttribute("aria-expanded", String(isActive));
+                        if (isActive) {
+                            answer.style.maxHeight = answer.scrollHeight + 20 + "px";
+                        } else {
+                            answer.style.maxHeight = "0";
+                        }
+                    });
+                     question.addEventListener("keydown", (event) => {
+                        if (event.key === "Enter" || event.key === " ") {
+                            event.preventDefault();
+                            question.click();
+                        }
+                    });
+                }
+            });
+        }
+        
+        function renderizarInformacionContacto(contactos, listContainer) {
+            listContainer.innerHTML = ''; 
+            const emailContacto = contactos.find(c => c.plataforma && c.plataforma.toLowerCase() === 'email');
+            
+            if (emailContacto && emailContacto.url) {
+                const emailItem = document.createElement('li');
+                emailItem.classList.add('contact-info-item');
+                emailItem.innerHTML = `
+                    <i class="${emailContacto.icono || 'fas fa-envelope'}"></i>
+                    <div>
+                        <span class="info-label">Correo electrónico</span>
+                        <a href="${emailContacto.url}">${emailContacto.url.replace('mailto:', '')}</a>
+                    </div>`;
+                listContainer.appendChild(emailItem);
+            }
+
+            const horarioItem = document.createElement('li');
+            horarioItem.classList.add('contact-info-item');
+            horarioItem.innerHTML = `
+                <i class="fas fa-clock"></i>
+                <div>
+                    <span class="info-label">Horario de soporte</span>
+                    Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
+                </div>`;
+            listContainer.appendChild(horarioItem);
+
+            const discordItem = document.createElement('li');
+            discordItem.classList.add('contact-info-item');
+            discordItem.innerHTML = `
+                <i class="fas fa-headset"></i>
+                <div>
+                    <span class="info-label">Soporte en línea</span>
+                    Disponible en nuestro servidor de Discord
+                </div>`;
+            listContainer.appendChild(discordItem);
+        }
+
+
+        function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
+            if (contactContainer && redesSociales.contactosDirectos) {
+                contactContainer.innerHTML = ''; 
+                redesSociales.contactosDirectos.forEach(contacto => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = contacto.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
+                    linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
+                    contactContainer.appendChild(linkElement);
+                });
+            } else if (contactContainer) {
+                contactContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
+            }
+
+            if (socialContainer && redesSociales.perfilesSociales) {
+                socialContainer.innerHTML = ''; 
+                redesSociales.perfilesSociales.forEach(perfil => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = perfil.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.title = perfil.titulo;
+                    linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
+                    linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+                    socialContainer.appendChild(linkElement);
+                });
+            } else if (socialContainer) {
+                 socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
+            }
+
+            if (fabElement && redesSociales.contactosDirectos) {
+                const whatsappFabInfo = redesSociales.contactosDirectos.find(
+                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
+                );
+                if (whatsappFabInfo && whatsappFabInfo.url) {
+                    fabElement.href = whatsappFabInfo.url;
+                } else {
+                     fabElement.href = "javascript:void(0);"; 
+                     fabElement.style.cursor = "default"; 
+                }
+            } else if (fabElement) {
+                fabElement.href = "javascript:void(0);"; 
+                fabElement.style.cursor = "default";
+            }
+        }
+        
+        function inicializarSliderProyectos() {
+            const projectListContainerSlider = document.getElementById("projectListContainer");
+            const prevBtnSlider = document.querySelector("#proyectos-destacados .prev-btn");
+            const nextBtnSlider = document.querySelector("#proyectos-destacados .next-btn");
+
+            if (projectListContainerSlider && prevBtnSlider && nextBtnSlider) {
+                const getScrollAmount = () => {
+                    const firstCard = projectListContainerSlider.querySelector(".project-card");
+                    if (firstCard) {
+                        const cardStyle = window.getComputedStyle(firstCard);
+                        const cardWidth = firstCard.offsetWidth;
+                        const containerStyle = window.getComputedStyle(projectListContainerSlider);
+                        let gapValue = parseFloat(containerStyle.gap);
+                        if (isNaN(gapValue)) {
+                            gapValue = parseFloat(cardStyle.marginRight) || 0;
+                            if (isNaN(gapValue)) gapValue = 24; 
+                        }
+                        return cardWidth + gapValue;
+                    }
+                    return 320; 
+                };
+
+                const updateButtonStatesAndCentering = () => {
+                    if (!projectListContainerSlider || !prevBtnSlider || !nextBtnSlider) return;
+                     // Ensure cards are loaded before calculating widths
+                    if (projectListContainerSlider.children.length === 0 || projectListContainerSlider.children[0].tagName === 'P') return;
+
+                    const scrollLeft = projectListContainerSlider.scrollLeft;
+                    const scrollWidth = projectListContainerSlider.scrollWidth;
+                    const clientWidth = projectListContainerSlider.clientWidth;
+                    const maxScrollLeft = scrollWidth - clientWidth;
+                    const tolerance = 5; 
+                    prevBtnSlider.disabled = scrollLeft <= tolerance;
+                    nextBtnSlider.disabled = scrollLeft >= maxScrollLeft - tolerance;
+                    if (scrollWidth <= clientWidth + tolerance) { 
+                        projectListContainerSlider.classList.add("center-flex-items");
+                    } else {
+                        projectListContainerSlider.classList.remove("center-flex-items");
+                    }
+                };
+                prevBtnSlider.addEventListener("click", () => {
+                    const currentScroll = projectListContainerSlider.scrollLeft;
+                    const scrollAmount = getScrollAmount();
+                    projectListContainerSlider.scrollTo({
+                        left: currentScroll - scrollAmount,
+                        behavior: "smooth",
+                    });
+                });
+                nextBtnSlider.addEventListener("click", () => {
+                    const currentScroll = projectListContainerSlider.scrollLeft;
+                    const scrollAmount = getScrollAmount();
+                    projectListContainerSlider.scrollTo({
+                        left: currentScroll + scrollAmount,
+                        behavior: "smooth",
+                    });
+                });
+                projectListContainerSlider.addEventListener("scroll",updateButtonStatesAndCentering);
+                window.addEventListener("resize", updateButtonStatesAndCentering);
+                // Use a MutationObserver to wait for cards to be added before initializing slider
+                const observer = new MutationObserver((mutationsList, observer) => {
+                    for(let mutation of mutationsList) {
+                        if (mutation.type === 'childList' && projectListContainerSlider.querySelector(".project-card")) {
+                            updateButtonStatesAndCentering();
+                            observer.disconnect(); // Stop observing once cards are loaded
+                            break;
+                        }
+                    }
+                });
+                observer.observe(projectListContainerSlider, { childList: true });
+
+                // Fallback if MutationObserver doesn't fire or content is already there
+                 setTimeout(() => {
+                    if (!projectListContainerSlider.querySelector(".project-card")) {
+                        console.warn("Slider cards not found after timeout, slider controls might not be accurate.");
+                    }
+                    updateButtonStatesAndCentering();
+                }, 500);
+            }
+        }
+
+        cargarContenidoIndexDesdeJSON();
+        
         const currentYearElement = document.getElementById("currentYear");
         if (currentYearElement) {
           currentYearElement.textContent = new Date().getFullYear();
