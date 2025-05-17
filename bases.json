@@ -188,7 +188,7 @@
       {
         "plataforma": "Email",
         "tipo": "Contacto General",
-        "url": "mailto:universecommunity.soporte@gmail.com",
+        "url": "mailto:universecommunity@gmail.com",
         "icono": "fas fa-envelope",
         "textoAlternativo": "Enviar correo electrónico a Universe Community"
       }
