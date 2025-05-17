@@ -112,14 +112,14 @@
       { 
         "plataforma": "WhatsApp",
         "tipo": "Contacto Directo", 
-        "url": "https://wa.me/TUNUMERODEWHATSAPP", /* Reemplaza TUNUMERODEWHATSAPP con tu número */
+        "url": "https://wa.me/TUNUMERODEWHATSAPP", 
         "icono": "fab fa-whatsapp", 
         "textoAlternativo": "Contactar por WhatsApp" 
       },
       { 
         "plataforma": "Telegram",
         "tipo": "Canal Oficial", 
-        "url": "https://t.me/TUNOMBREDECANALTELEGRAM", /* Reemplaza TUNOMBREDECANALTELEGRAM con tu canal */
+        "url": "https://t.me/TUNOMBREDECANALTELEGRAM",
         "icono": "fab fa-telegram-plane", 
         "textoAlternativo": "Canal de Telegram de Universe Community" 
       },
