@@ -159,6 +159,13 @@
       "enlaceDetalles": "Ver detalles"
     }
   ],
+  "Recepciones": [
+    {
+      "id": "recepcion_general",
+      "enlaceUrl": "link",
+      "etiqueta": "recepción general"
+    }
+],
   "redesSociales": {
     "contactosDirectos": [
       {
