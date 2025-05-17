@@ -337,18 +337,18 @@
         .announcements-grid {
             display: grid;
             grid-template-columns: 1fr; 
-            gap: 2.5rem; /* Aumentado el espacio entre tarjetas */
+            gap: 2.5rem; 
         }
 
         .announcement-card {
             background-color: var(--bg-light);
-            border-radius: 16px; /* Bordes más redondeados */
+            border-radius: 16px; 
             box-shadow: var(--card-shadow-light);
             padding: 2rem;
             transition: var(--transition-smooth), var(--transition-colors);
             border-left: 6px solid var(--brand-purple-start); 
             display: flex;
-            flex-direction: column; /* Asegura que el contenido fluya verticalmente */
+            flex-direction: column; 
         }
         .announcement-card:hover {
             transform: translateY(-6px);
@@ -357,20 +357,20 @@
 
         .announcement-flyer {
             width: 100%;
-            max-height: 350px; /* Altura máxima para el flyer */
+            max-height: 350px; 
             overflow: hidden;
-            border-radius: 10px; /* Bordes redondeados para la imagen */
-            margin-bottom: 1.5rem; /* Espacio entre flyer y contenido */
-            display: flex; /* Para centrar la imagen si es más pequeña */
+            border-radius: 10px; 
+            margin-bottom: 1.5rem; 
+            display: flex; 
             justify-content: center;
             align-items: center;
-            background-color: var(--submenu-hover-bg); /* Fondo para el placeholder */
+            background-color: var(--submenu-hover-bg); 
         }
         .announcement-flyer img {
             width: 100%;
-            height: auto; /* Mantiene la proporción */
-            max-height: 100%; /* Asegura que no exceda el contenedor */
-            object-fit: cover; /* Cubre el área, puede recortar */
+            height: auto; 
+            max-height: 100%; 
+            object-fit: cover; 
             border-radius: 10px;
         }
         .announcement-flyer .flyer-placeholder-text {
@@ -382,29 +382,29 @@
         .announcement-card .announcement-header {
             display: flex;
             justify-content: space-between;
-            align-items: flex-start; /* Alinea al inicio para títulos largos */
+            align-items: flex-start; 
             margin-bottom: 1rem;
             border-bottom: 1px solid var(--border-color-soft);
             padding-bottom: 1rem;
-            flex-wrap: wrap; /* Permite que la fecha pase abajo si no hay espacio */
+            flex-wrap: wrap; 
         }
         .announcement-card .announcement-title {
-            font-size: 1.6rem; /* Ligeramente más grande */
+            font-size: 1.6rem; 
             font-weight: 600;
             color: var(--text-dark);
             margin: 0;
-            margin-right: 1rem; /* Espacio para la fecha */
-            flex-grow: 1; /* Permite que el título ocupe espacio */
+            margin-right: 1rem; 
+            flex-grow: 1; 
         }
         .announcement-card .announcement-date {
-            font-size: 0.9rem; /* Un poco más grande */
+            font-size: 0.9rem; 
             color: var(--text-subtle);
             font-weight: 500;
             white-space: nowrap;
-            margin-top: 0.25rem; /* Alineación vertical con el título */
+            margin-top: 0.25rem; 
         }
         .announcement-card .announcement-content {
-            flex-grow: 1; /* Permite que el contenido ocupe el espacio restante */
+            flex-grow: 1; 
         }
         .announcement-card .announcement-content p {
             font-size: 1rem; 
@@ -416,11 +416,11 @@
             margin-bottom: 0;
         }
         .announcement-card .announcement-footer {
-            margin-top: 1.5rem; /* Espacio sobre el footer de la tarjeta */
+            margin-top: 1.5rem; 
             display: flex;
             justify-content: space-between;
             align-items: center;
-            flex-wrap: wrap; /* Para que los elementos se ajusten en pantallas pequeñas */
+            flex-wrap: wrap; 
         }
         .announcement-card .announcement-link {
             color: var(--brand-blue-end);
@@ -633,7 +633,8 @@
                             </li>
                         </ul>
                     </li>
-                     <li><a href="avisos.html">Avisos</a></li> </ul>
+                     <li><a href="avisos.html">Avisos</a></li> 
+                </ul>
             </nav>
         </div>
     </header>
@@ -646,73 +647,8 @@
                     Mantente al día con las últimas noticias, actualizaciones importantes y próximos eventos de Universe Community.
                 </p>
 
-                <div class="announcements-grid">
-                    <article class="announcement-card">
-                        <div class="announcement-flyer">
-                            <img src="https://placehold.co/800x350/6A11CB/FFFFFF?text=Flyer+Proyecto+Omega" alt="Flyer del Anuncio sobre el Proyecto Omega" onerror="this.onerror=null;this.src='https://placehold.co/800x350/cccccc/333333?text=Imagen+no+disponible';">
-                            </div>
-                        <div class="announcement-header">
-                            <h3 class="announcement-title">Lanzamiento del Proyecto Omega</h3>
-                            <span class="announcement-date">15 de Mayo, 2025</span>
-                        </div>
-                        <div class="announcement-content">
-                            <p>¡Estamos emocionados de anunciar el lanzamiento oficial de nuestro nuevo Proyecto Omega! Esta iniciativa busca revolucionar la forma en que colaboramos en proyectos de código abierto. ¡Descubre más y únete a la aventura!</p>
-                        </div>
-                        <div class="announcement-footer">
-                            <a href="#" class="announcement-link">Leer más <i class="fas fa-arrow-right"></i></a>
-                            <span class="announcement-tag">Nuevos Proyectos</span>
-                        </div>
-                    </article>
-
-                    <article class="announcement-card">
-                         <div class="announcement-flyer">
-                            <img src="https://placehold.co/800x350/2575FC/FFFFFF?text=Flyer+Evento+Anual" alt="Flyer del Anuncio sobre el Evento Anual" onerror="this.onerror=null;this.src='https://placehold.co/800x350/cccccc/333333?text=Imagen+no+disponible';">
-                        </div>
-                        <div class="announcement-header">
-                            <h3 class="announcement-title">Convocatoria Abierta: Voluntarios para Evento Anual</h3>
-                            <span class="announcement-date">10 de Mayo, 2025</span>
-                        </div>
-                        <div class="announcement-content">
-                            <p>Nuestro evento anual se acerca y ¡necesitamos tu ayuda! Buscamos voluntarios entusiastas para diversas áreas. Si quieres ser parte de la organización y vivir una experiencia increíble, inscríbete aquí.</p>
-                        </div>
-                        <div class="announcement-footer">
-                            <a href="#" class="announcement-link">Inscribirse <i class="fas fa-arrow-right"></i></a>
-                            <span class="announcement-tag">Eventos</span>
-                        </div>
-                    </article>
-
-                    <article class="announcement-card">
-                        <div class="announcement-flyer">
-                            <span class="flyer-placeholder-text">[Espacio para Flyer de Actualización]</span>
-                        </div>
-                        <div class="announcement-header">
-                            <h3 class="announcement-title">Actualización Importante de la Plataforma</h3>
-                            <span class="announcement-date">5 de Mayo, 2025</span>
-                        </div>
-                        <div class="announcement-content">
-                            <p>Hemos realizado mejoras significativas en nuestra plataforma de colaboración. Nuevas herramientas, interfaz optimizada y mayor rendimiento te esperan. Revisa todos los cambios y cómo pueden beneficiar tus proyectos.</p>
-                        </div>
-                        <div class="announcement-footer">
-                             <span class="announcement-tag">Plataforma</span>
-                        </div>
-                    </article>
-                    
-                    <article class="announcement-card">
-                        <div class="announcement-flyer">
-                            <img src="https://placehold.co/800x350/FF5733/FFFFFF?text=Flyer+Webinar+IA" alt="Flyer del Webinar sobre IA Generativa" onerror="this.onerror=null;this.src='https://placehold.co/800x350/cccccc/333333?text=Imagen+no+disponible';">
-                        </div>
-                        <div class="announcement-header">
-                            <h3 class="announcement-title">Webinar: Introducción a la IA Generativa</h3>
-                            <span class="announcement-date">28 de Abril, 2025</span>
-                        </div>
-                        <div class="announcement-content">
-                            <p>No te pierdas nuestro próximo webinar gratuito donde exploraremos los fundamentos de la Inteligencia Artificial Generativa y sus aplicaciones prácticas. ¡Reserva tu cupo!</p>
-                        </div>
-                         <div class="announcement-footer">
-                             <a href="#" class="announcement-link">Más información y registro <i class="fas fa-arrow-right"></i></a>
-                            <span class="announcement-tag">Webinars</span>
-                        </div>
-                    </article>
+                <div class="announcements-grid" id="announcementsGrid">
+                    <p>Cargando anuncios...</p> 
                 </div>
             </div>
         </section>
@@ -986,6 +922,81 @@
         
         updateCurrentPage(); 
         window.addEventListener('hashchange', updateCurrentPage); 
+        
+
+        // --- Cargar Anuncios desde JSON ---
+        const announcementsGrid = document.getElementById('announcementsGrid');
+
+        async function cargarAnuncios() {
+            if (!announcementsGrid) return;
+
+            try {
+                const response = await fetch('datos_web.json'); // Asegúrate que la ruta sea correcta
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                const anuncios = data.anuncios;
+
+                if (anuncios && anuncios.length > 0) {
+                    announcementsGrid.innerHTML = ''; // Limpiar mensaje de "Cargando..."
+                    anuncios.forEach(anuncio => {
+                        const card = document.createElement('article');
+                        card.classList.add('announcement-card');
+                        card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`); // ID único
+
+                        let flyerHTML = '';
+                        if (anuncio.flyerUrl) {
+                            flyerHTML = `
+                                <div class="announcement-flyer">
+                                    <img src="${anuncio.flyerUrl}" alt="${anuncio.altFlyer || 'Flyer del anuncio'}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '<span class=\\'flyer-placeholder-text\\'>[Imagen no disponible]</span>';">
+                                </div>`;
+                        } else {
+                             flyerHTML = `
+                                <div class="announcement-flyer">
+                                    <span class="flyer-placeholder-text">[No hay flyer para este anuncio]</span>
+                                </div>`;
+                        }
+
+                        let enlaceHTML = '';
+                        if (anuncio.enlaceUrl && anuncio.enlaceTexto) {
+                            enlaceHTML = `<a href="${anuncio.enlaceUrl}" class="announcement-link">${anuncio.enlaceTexto} <i class="fas fa-arrow-right"></i></a>`;
+                        }
+
+                        let etiquetaHTML = '';
+                        if (anuncio.etiqueta) {
+                            etiquetaHTML = `<span class="announcement-tag">${anuncio.etiqueta}</span>`;
+                        }
+
+                        card.innerHTML = `
+                            ${flyerHTML}
+                            <div class="announcement-header">
+                                <h3 class="announcement-title">${anuncio.titulo}</h3>
+                                <span class="announcement-date">${anuncio.fecha}</span>
+                            </div>
+                            <div class="announcement-content">
+                                <p>${anuncio.contenido.replace(/\n/g, '<br>')}</p> 
+                            </div>
+                            <div class="announcement-footer">
+                                ${enlaceHTML}
+                                ${etiquetaHTML}
+                            </div>
+                        `;
+                        announcementsGrid.appendChild(card);
+                    });
+                } else {
+                    announcementsGrid.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
+                }
+            } catch (error) {
+                console.error('Error al cargar los anuncios:', error);
+                if (announcementsGrid) {
+                    announcementsGrid.innerHTML = '<p>Error al cargar los anuncios. Por favor, inténtalo más tarde.</p>';
+                }
+            }
+        }
+
+        cargarAnuncios();
+
 
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
