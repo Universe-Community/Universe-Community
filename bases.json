@@ -135,7 +135,7 @@
       {
         "plataforma": "PayPal",
         "tipo": "Donar",
-        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID", /* Reemplaza TU_PAYPAL_BUTTON_ID con tu ID real */
+        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID", 
         "icono": "fab fa-paypal",
         "textoAlternativo": "Donar con PayPal a Universe Community",
         "textoBoton": "Donar con PayPal" 
@@ -144,37 +144,37 @@
     "perfilesSociales": [
       { 
         "plataforma": "Facebook",
-        "url": "#", /* Reemplaza con tu URL de Facebook */
+        "url": "#", 
         "icono": "fab fa-facebook-f", 
         "titulo": "Facebook" 
       },
       { 
         "plataforma": "Twitter",
-        "url": "#", /* Reemplaza con tu URL de Twitter/X */
+        "url": "#", 
         "icono": "fab fa-x-twitter", 
         "titulo": "Twitter / X" 
       },
       { 
         "plataforma": "Instagram",
-        "url": "#", /* Reemplaza con tu URL de Instagram */
+        "url": "#", 
         "icono": "fab fa-instagram", 
         "titulo": "Instagram" 
       },
       { 
         "plataforma": "Discord",
-        "url": "#", /* Reemplaza con tu enlace de invitación a Discord */
+        "url": "#", 
         "icono": "fab fa-discord", 
         "titulo": "Discord" 
       },
       { 
         "plataforma": "YouTube",
-        "url": "#", /* Reemplaza con tu URL de YouTube */
+        "url": "#",
         "icono": "fab fa-youtube", 
         "titulo": "YouTube" 
       },
       { 
         "plataforma": "LinkedIn",
-        "url": "#", /* Reemplaza con tu URL de LinkedIn */
+        "url": "#",
         "icono": "fab fa-linkedin-in", 
         "titulo": "LinkedIn" 
       }
