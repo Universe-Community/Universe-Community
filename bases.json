@@ -188,7 +188,7 @@
       {
         "plataforma": "Email",
         "tipo": "Contacto General",
-        "url": "mailto:contacto@universecommunity.com",
+        "url": "mailto:universecommunity.soporte@gmail.com",
         "icono": "fas fa-envelope",
         "textoAlternativo": "Enviar correo electrónico a Universe Community"
       }
@@ -197,7 +197,7 @@
       {
         "plataforma": "PayPal",
         "tipo": "Donar",
-        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID",
+        "url": "https://www.paypal.com/ncp/payment/4AG6BEZMG8YWS",
         "icono": "fab fa-paypal",
         "textoAlternativo": "Donar con PayPal a Universe Community",
         "textoBoton": "Donar con PayPal"
@@ -212,13 +212,13 @@
       },
       { 
         "plataforma": "Twitter",
-        "url": "#", 
+        "url": "https://x.com/UniversoBL68986?t=dbteR6iUZqX6h0TDdSN96A&s=09", 
         "icono": "fab fa-x-twitter", 
         "titulo": "Twitter / X" 
       },
       { 
         "plataforma": "Instagram",
-        "url": "#", 
+        "url": "https://www.instagram.com/_universo.bl?igsh=cG5jZ2FwdmR6aTBk", 
         "icono": "fab fa-instagram", 
         "titulo": "Instagram" 
       },
@@ -235,10 +235,10 @@
         "titulo": "YouTube" 
       },
       { 
-        "plataforma": "LinkedIn",
-        "url": "#",
-        "icono": "fab fa-linkedin-in", 
-        "titulo": "LinkedIn" 
+        "plataforma": "TikTok",
+        "url": "https://www.tiktok.com/@universo_yaoi_bl?_t=ZS-8wQKo1RzYQM&_r=1",
+        "icono": "fab fa-tiktok", 
+        "titulo": "TikTok" 
       }
     ]
   },
