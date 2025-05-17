@@ -161,10 +161,13 @@
   ],
   "Recepciones": [
     {
-      "id": "recepcion_general",
-      "enlaceUrl": "link",
-      "etiqueta": "recepción general"
-    }
+      "id": "recepcion_general_whatsapp",
+      "plataforma": "WhatsApp",
+      "descripcion": "Grupo de recepción general.",
+      "enlaceUrl": "ENLACE_A_TU_GRUPO_DE_RECEPCION_WHATSAPP",
+      "icono": "fab fa-whatsapp",
+      "textoBoton": "Solicitar Unión de Grupo (WhatsApp)"
+    }
 ],
   "redesSociales": {
     "contactosDirectos": [
