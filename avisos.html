@@ -940,10 +940,7 @@
             if (!announcementsGrid) return;
 
             try {
-                // IMPORTANTE: Asegúrate de que la ruta al archivo 'datos_web.json' sea correcta.
-                // Si está en la misma carpeta que avisos.html, 'datos_web.json' es correcto.
-                // Si está en una subcarpeta (ej. 'data/'), usa 'data/datos_web.json'.
-                const response = await fetch('datos_web.json'); 
+                const response = await fetch('bases.json'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
