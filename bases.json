@@ -106,5 +106,78 @@
       "enlacePagina": "proyecto-zeta.html",
       "enlaceDetalles": "Ver detalles"
     }
-  ]
+  ],
+  "redesSociales": {
+    "contactosDirectos": [
+      { 
+        "plataforma": "WhatsApp",
+        "tipo": "Contacto Directo", 
+        "url": "https://wa.me/TUNUMERODEWHATSAPP", /* Reemplaza TUNUMERODEWHATSAPP con tu número */
+        "icono": "fab fa-whatsapp", 
+        "textoAlternativo": "Contactar por WhatsApp" 
+      },
+      { 
+        "plataforma": "Telegram",
+        "tipo": "Canal Oficial", 
+        "url": "https://t.me/TUNOMBREDECANALTELEGRAM", /* Reemplaza TUNOMBREDECANALTELEGRAM con tu canal */
+        "icono": "fab fa-telegram-plane", 
+        "textoAlternativo": "Canal de Telegram de Universe Community" 
+      },
+      { 
+        "plataforma": "Email",
+        "tipo": "Contacto General", 
+        "url": "mailto:contacto@universecommunity.com", 
+        "icono": "fas fa-envelope", 
+        "textoAlternativo": "Enviar correo electrónico a Universe Community"
+      }
+    ],
+    "donaciones": [
+      {
+        "plataforma": "PayPal",
+        "tipo": "Donar",
+        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID", /* Reemplaza TU_PAYPAL_BUTTON_ID con tu ID real */
+        "icono": "fab fa-paypal",
+        "textoAlternativo": "Donar con PayPal a Universe Community",
+        "textoBoton": "Donar con PayPal" 
+      }
+    ],
+    "perfilesSociales": [
+      { 
+        "plataforma": "Facebook",
+        "url": "#", /* Reemplaza con tu URL de Facebook */
+        "icono": "fab fa-facebook-f", 
+        "titulo": "Facebook" 
+      },
+      { 
+        "plataforma": "Twitter",
+        "url": "#", /* Reemplaza con tu URL de Twitter/X */
+        "icono": "fab fa-x-twitter", 
+        "titulo": "Twitter / X" 
+      },
+      { 
+        "plataforma": "Instagram",
+        "url": "#", /* Reemplaza con tu URL de Instagram */
+        "icono": "fab fa-instagram", 
+        "titulo": "Instagram" 
+      },
+      { 
+        "plataforma": "Discord",
+        "url": "#", /* Reemplaza con tu enlace de invitación a Discord */
+        "icono": "fab fa-discord", 
+        "titulo": "Discord" 
+      },
+      { 
+        "plataforma": "YouTube",
+        "url": "#", /* Reemplaza con tu URL de YouTube */
+        "icono": "fab fa-youtube", 
+        "titulo": "YouTube" 
+      },
+      { 
+        "plataforma": "LinkedIn",
+        "url": "#", /* Reemplaza con tu URL de LinkedIn */
+        "icono": "fab fa-linkedin-in", 
+        "titulo": "LinkedIn" 
+      }
+    ]
+  }
 }
