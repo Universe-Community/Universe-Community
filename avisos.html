@@ -809,11 +809,8 @@
 
                     const isMobileView = window.innerWidth <= 991;
                     const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    
-                    // Determine if the link points to the current page (ignoring hash for this specific check if it's a page link)
                     const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
                     const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const isLinkToCurrentPageExactly = linkPathOnly === currentPathOnly && link.hash === window.location.hash;
                     const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
 
 
@@ -824,14 +821,11 @@
                         }
                     } else { // Desktop View
                         if (hasValidHref) {
-                             if (isLinkToCurrentPagePathOnly && !link.hash) { 
-                                // If link is to the current page (e.g., "Proyectos" on proyectos.html, and no hash)
-                                // Prevent reload, just toggle. This might be desired for top-level links on their own page.
+                             if (isLinkToCurrentPagePathOnly) { 
                                 event.preventDefault(); 
                                 performToggleVisually(listItem, link, submenu);
                             }
-                            // If it's a link to a different page, or a link to a hash on the current page, allow default navigation.
-                        } else { // Placeholder link
+                        } else { 
                             event.preventDefault();
                             performToggleVisually(listItem, link, submenu);
                         }
@@ -930,9 +924,9 @@
 
         async function cargarContenidoDesdeJSON() {
             try {
-                const response = await fetch('bases.json');
+                const response = await fetch('bases.json'); 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
+                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar bases.json`);
                 }
                 const data = await response.json();
                 
@@ -988,7 +982,10 @@
                     } else {
                         announcementsGrid.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
                     }
+                } else if (announcementsGrid) {
+                     announcementsGrid.innerHTML = '<p>No se encontró la sección de anuncios en los datos.</p>';
                 }
+
 
                 // Cargar Contenido del Footer y FAB
                 if (data.redesSociales) {
@@ -1024,17 +1021,22 @@
                     }
 
                     // Botón Flotante de WhatsApp (FAB)
-                    if (fabWhatsapp && data.redesSociales.whatsapp && data.redesSociales.whatsapp.length > 0) {
-                        // Usar el primer enlace de WhatsApp para el FAB, o uno con un tipo específico si lo defines.
-                        const whatsappFabInfo = data.redesSociales.whatsapp.find(w => w.tipo === "Contacto Directo") || data.redesSociales.whatsapp[0];
+                    if (fabWhatsapp && data.redesSociales.contactosDirectos) {
+                        const whatsappFabInfo = data.redesSociales.contactosDirectos.find(c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo');
                         if (whatsappFabInfo && whatsappFabInfo.url) {
                             fabWhatsapp.href = whatsappFabInfo.url;
                         } else {
-                             fabWhatsapp.href = "#"; // No redirecciona si no hay URL
+                             fabWhatsapp.href = "javascript:void(0);"; // No redirecciona si no hay URL
+                             fabWhatsapp.style.cursor = "default"; // Opcional: cambiar cursor
                         }
                     } else if (fabWhatsapp) {
-                        fabWhatsapp.href = "#"; // No redirecciona si no hay data de WhatsApp
+                        fabWhatsapp.href = "javascript:void(0);"; 
+                        fabWhatsapp.style.cursor = "default";
                     }
+                } else {
+                    if(footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
+                    if(footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
+                    if(fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
                 }
 
 
@@ -1050,7 +1052,7 @@
                     footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
                 }
                 if(fabWhatsapp) {
-                    fabWhatsapp.href = "#"; // No redirecciona en caso de error
+                    fabWhatsapp.href = "javascript:void(0);";
                 }
             }
         }
