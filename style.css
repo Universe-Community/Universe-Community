@@ -1461,6 +1461,24 @@ body.dark-mode .footer-bottom-bar {
   .mv-content-card-final .mv-description-final {
     font-size: 0.9rem;
   }
+<<<<<<< Updated upstream
+=======
+}
+@media (max-width: 480px) {
+  .footer-column .footer-heading {
+    font-size: 1.1rem;
+  }
+  .footer-direct-contact a,
+  .footer-column .footer-description {
+    font-size: 0.88rem;
+  }
+  .footer-social-icons a {
+    font-size: 1.25rem;
+  }
+  .footer-bottom-bar p {
+    font-size: 0.85rem;
+  }
+>>>>>>> Stashed changes
 }
 @media (max-width: 480px) {
   .footer-column .footer-heading {
