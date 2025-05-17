@@ -48,8 +48,8 @@
   "proyectosresumen": [
     {
       "id": "proyectoAlpha",
-      "titulo": "Proyecto Alpha",
-      "portadaUrl": "https://placehold.co/600x400/6A11CB/FFFFFF?text=Portada+Proyecto+Alpha",
+      "titulo": "Comunidades Universo",
+      "portadaUrl": "https://placehold.co/600x400/6A11CB/FFFFFF?text=Comunidades+Universo",
       "altPortada": "Imagen de portada del Proyecto Alpha",
       "categoria": "Exploración y Simulación",
       "descripcionCompleta": "El Proyecto Alpha se enfoca en la creación de simulaciones interactivas del universo, permitiendo a los usuarios explorar conceptos cósmicos complejos de una manera visual y atractiva. Buscamos fomentar la curiosidad científica y el aprendizaje a través de la tecnología.",
