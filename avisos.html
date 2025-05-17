@@ -819,8 +819,10 @@
 
                     const isMobileView = window.innerWidth <= 991;
                     const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    const isCurrentPageLink = (link.getAttribute("href") === window.location.pathname.split('/').pop() || (link.getAttribute("href") === "index.html" && (window.location.pathname === "/" || window.location.pathname.endsWith("/index.html")))) && !link.hash;
-
+                    // Check if the link is for the current page (ignoring hash for this specific check)
+                    const linkPathOnly = link.pathname.split('/').pop() || 'index.html';
+                    const currentPathOnly = window.location.pathname.split('/').pop() || 'index.html';
+                    const isLinkToCurrentPage = linkPathOnly === currentPathOnly;
 
                     if (isMobileView) {
                         if (listItem.classList.contains('has-submenu')) {
@@ -829,11 +831,18 @@
                         }
                     } else { // Desktop View
                         if (hasValidHref) {
-                             if (isCurrentPageLink) { 
-                                event.preventDefault(); 
-                                performToggleVisually(listItem, link, submenu);
+                             if (isLinkToCurrentPage) { 
+                                // If it's a link to the current page (e.g., "Proyectos" on proyectos.html)
+                                // AND it's not just a hash link for the same page (which navHighlighter would handle)
+                                // then toggle. Otherwise, allow navigation.
+                                if (!link.hash || link.hash === "#") {
+                                     event.preventDefault(); 
+                                     performToggleVisually(listItem, link, submenu);
+                                }
+                                // If it has a hash and is for the current page, let navHighlighter and default scroll work.
                             }
-                        } else { 
+                            // If it's a link to a different page, allow default navigation.
+                        } else { // Placeholder link
                             event.preventDefault();
                             performToggleVisually(listItem, link, submenu);
                         }
@@ -931,19 +940,22 @@
             if (!announcementsGrid) return;
 
             try {
-                const response = await fetch('datos_web.json'); // Asegúrate que la ruta sea correcta
+                // IMPORTANTE: Asegúrate de que la ruta al archivo 'datos_web.json' sea correcta.
+                // Si está en la misma carpeta que avisos.html, 'datos_web.json' es correcto.
+                // Si está en una subcarpeta (ej. 'data/'), usa 'data/datos_web.json'.
+                const response = await fetch('datos_web.json'); 
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
                 const data = await response.json();
-                const anuncios = data.anuncios;
+                const anuncios = data.anuncios; // Accede a la lista de anuncios del JSON
 
                 if (anuncios && anuncios.length > 0) {
                     announcementsGrid.innerHTML = ''; // Limpiar mensaje de "Cargando..."
                     anuncios.forEach(anuncio => {
                         const card = document.createElement('article');
                         card.classList.add('announcement-card');
-                        card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`); // ID único
+                        card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`);
 
                         let flyerHTML = '';
                         if (anuncio.flyerUrl) {
