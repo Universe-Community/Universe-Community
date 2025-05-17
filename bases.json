@@ -29,7 +29,7 @@
       "flyerUrl": "https://placehold.co/800x400/FF5733/FFFFFF?text=Flyer+Actualizacion+Plataforma",
       "altFlyer": "Flyer sobre la actualización de la plataforma",
       "contenido": "Hemos implementado una serie de mejoras significativas en nuestra plataforma de colaboración. Entre las novedades se incluyen una interfaz de usuario rediseñada para una navegación más intuitiva, nuevas herramientas de gestión de proyectos y un notable incremento en el rendimiento general. Te invitamos a explorar estos cambios y descubrir cómo pueden potenciar tus proyectos y tu experiencia en Universe Community.",
-      "enlaceUrl": null, 
+      "enlaceUrl": null,
       "enlaceTexto": null,
       "etiqueta": "Plataforma"
     },
@@ -109,25 +109,25 @@
   ],
   "redesSociales": {
     "contactosDirectos": [
-      { 
+      {
         "plataforma": "WhatsApp",
-        "tipo": "Contacto Directo", 
-        "url": "https://wa.me/TUNUMERODEWHATSAPP", 
-        "icono": "fab fa-whatsapp", 
-        "textoAlternativo": "Contactar por WhatsApp" 
+        "tipo": "Contacto Directo",
+        "url": "https://wa.me/TUNUMERODEWHATSAPP",
+        "icono": "fab fa-whatsapp",
+        "textoAlternativo": "Contactar por WhatsApp"
       },
-      { 
+      {
         "plataforma": "Telegram",
-        "tipo": "Canal Oficial", 
+        "tipo": "Canal Oficial",
         "url": "https://t.me/TUNOMBREDECANALTELEGRAM",
-        "icono": "fab fa-telegram-plane", 
-        "textoAlternativo": "Canal de Telegram de Universe Community" 
+        "icono": "fab fa-telegram-plane",
+        "textoAlternativo": "Canal de Telegram de Universe Community"
       },
-      { 
+      {
         "plataforma": "Email",
-        "tipo": "Contacto General", 
-        "url": "mailto:contacto@universecommunity.com", 
-        "icono": "fas fa-envelope", 
+        "tipo": "Contacto General",
+        "url": "mailto:contacto@universecommunity.com",
+        "icono": "fas fa-envelope",
         "textoAlternativo": "Enviar correo electrónico a Universe Community"
       }
     ],
@@ -135,48 +135,48 @@
       {
         "plataforma": "PayPal",
         "tipo": "Donar",
-        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID", 
+        "url": "https://www.paypal.com/donate/?hosted_button_id=TU_PAYPAL_BUTTON_ID",
         "icono": "fab fa-paypal",
         "textoAlternativo": "Donar con PayPal a Universe Community",
-        "textoBoton": "Donar con PayPal" 
+        "textoBoton": "Donar con PayPal"
       }
     ],
     "perfilesSociales": [
-      { 
+      {
         "plataforma": "Facebook",
-        "url": "#", 
-        "icono": "fab fa-facebook-f", 
-        "titulo": "Facebook" 
+        "url": "#",
+        "icono": "fab fa-facebook-f",
+        "titulo": "Facebook"
       },
-      { 
+      {
         "plataforma": "Twitter",
-        "url": "#", 
-        "icono": "fab fa-x-twitter", 
-        "titulo": "Twitter / X" 
+        "url": "#",
+        "icono": "fab fa-x-twitter",
+        "titulo": "Twitter / X"
       },
-      { 
+      {
         "plataforma": "Instagram",
-        "url": "#", 
-        "icono": "fab fa-instagram", 
-        "titulo": "Instagram" 
+        "url": "#",
+        "icono": "fab fa-instagram",
+        "titulo": "Instagram"
       },
-      { 
+      {
         "plataforma": "Discord",
-        "url": "#", 
-        "icono": "fab fa-discord", 
-        "titulo": "Discord" 
+        "url": "#",
+        "icono": "fab fa-discord",
+        "titulo": "Discord"
       },
-      { 
+      {
         "plataforma": "YouTube",
         "url": "#",
-        "icono": "fab fa-youtube", 
-        "titulo": "YouTube" 
+        "icono": "fab fa-youtube",
+        "titulo": "YouTube"
       },
-      { 
+      {
         "plataforma": "LinkedIn",
         "url": "#",
-        "icono": "fab fa-linkedin-in", 
-        "titulo": "LinkedIn" 
+        "icono": "fab fa-linkedin-in",
+        "titulo": "LinkedIn"
       }
     ]
   }
