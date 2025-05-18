@@ -161,7 +161,7 @@
   ],
   "Recepciones": [
     {
-      "id": "recepcion_general_whatsapp",
+      "id": "recepcion_01",
       "plataforma": "WhatsApp",
       "descripcion": "Grupo de recepción general.",
       "enlaceUrl": "http:",
