@@ -11,7 +11,7 @@
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-      integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
@@ -910,20 +910,21 @@
       /* Sección Soporte y Contacto */
       .support-main-container {
         display: grid;
-        grid-template-columns: 1fr; /* Default one column */
+        grid-template-columns: 1fr; /* Por defecto una columna */
         gap: 2.5rem;
         align-items: flex-start; 
-        /* max-width: 960px; /* Ajusta este valor si quieres que el bloque sea más estrecho que .container */
-        /* margin-left: auto;  /* Centra el bloque si max-width es menor que 100% */
-        /* margin-right: auto; /* Centra el bloque si max-width es menor que 100% */
       }
       @media (min-width: 992px) {
         .support-main-container {
-          grid-template-columns: 1fr 1fr; /* Columnas iguales para mejor balance visual */
+          grid-template-columns: 1fr; /* Cambiado a 1fr para que ocupe todo el ancho */
+        }
+        .faq-and-info-column {
+            max-width: 720px; /* Opcional: limitar el ancho de esta columna */
+            margin: 0 auto; /* Centrar si se usa max-width */
         }
       }
       .faq-and-info-column { }
-      .contact-form-card-wrapper { }
+      /* El .contact-form-card-wrapper se eliminará */
 
       .faq-container,
       .contact-info-container {
@@ -1028,91 +1029,7 @@
       .contact-info-item a:hover {
         text-decoration: underline;
       }
-      .contact-form-card-wrapper { }
-      .contact-form-card {
-        /* flex: 1.5; */ /* No es necesario con grid */
-        background-color: var(--bg-light);
-        padding: 2.5rem;
-        border-radius: 12px;
-        box-shadow: var(--card-shadow-light);
-        /* min-width: 300px; */ /* No es necesario con grid fr units */
-        transition: var(--transition-colors), box-shadow 0.3s ease;
-      }
-      .form-title {
-        font-size: 1.625rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 1.875rem;
-        text-align: left;
-        transition: var(--transition-colors);
-      }
-      .form-group {
-        margin-bottom: 1.25rem;
-      }
-      .form-group label {
-        display: block;
-        font-size: 0.875rem;
-        color: var(--text-medium);
-        font-weight: 500;
-        margin-bottom: 0.5rem;
-        transition: var(--transition-colors);
-      }
-      .form-control {
-        width: 100%;
-        padding: 0.8125rem 1rem;
-        font-size: 0.9375rem;
-        font-family: var(--font-primary);
-        color: var(--text-dark);
-        background-color: var(--bg-light); 
-        border: 1px solid var(--input-border-color);
-        border-radius: 8px;
-        transition: border-color 0.2s ease, box-shadow 0.2s ease, var(--transition-colors);
-      }
-      .form-control:focus {
-        outline: none;
-        border-color: var(--input-focus-border-color);
-        box-shadow: 0 0 0 0.125rem rgba(var(--brand-purple-start-rgb), 0.25);
-      }
-      body.dark-mode .form-control:focus {
-         box-shadow: 0 0 0 0.125rem rgba(var(--brand-blue-end-rgb), 0.35); 
-      }
-      textarea.form-control {
-        min-height: 120px;
-        resize: vertical;
-      }
-      select.form-control {
-        appearance: none;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%235F6773' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
-        background-repeat: no-repeat;
-        background-position: right 1rem center;
-        background-size: 0.8em;
-        padding-right: 2.5rem;
-      }
-      body.dark-mode select.form-control {
-         background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath fill='none' stroke='%23b0b0b0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3E%3C/svg%3E");
-      }
-      .submit-button-container {
-        margin-top: 1.875rem;
-      }
-      .btn-submit-form {
-        display: block;
-        width: 100%;
-        padding: 0.875rem 1.5rem;
-        font-size: 1rem;
-        font-weight: 600;
-        color: #FFFFFF; 
-        background: var(--button-gradient);
-        border: none;
-        border-radius: 25px;
-        cursor: pointer;
-        transition: opacity 0.2s ease, box-shadow 0.2s ease;
-        box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
-      }
-      .btn-submit-form:hover {
-        opacity: 0.9;
-        box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.25);
-      }
-
+      
       /* FAB */
       .floating-action-button {
         position: fixed;
@@ -1288,7 +1205,7 @@
         .hero-sub-title { font-size: 1.0625rem; }
         .support-main-container { grid-template-columns: 1fr; }
         .faq-and-info-column { margin-bottom: 2rem; }
-        .contact-form-card-wrapper { margin-top: 0; }
+        /* .contact-form-card-wrapper { margin-top: 0; } Ya no existe */
         .social-connect-intro { text-align: center; margin-left: auto; margin-right: auto; }
         .mv-content-card-final { padding: 2rem; }
         .donation-intro-text { font-size: 1rem; }
@@ -1307,8 +1224,8 @@
         .card .card-title { font-size: 1.1875rem; }
         .project-details { padding: 1.25rem; }
         .project-name { font-size: 1.0625rem; }
-        .contact-form-card { padding: 1.875rem; }
-        .form-title { font-size: 1.5rem; }
+        /* .contact-form-card { padding: 1.875rem; } Ya no existe */
+        /* .form-title { font-size: 1.5rem; } Ya no existe */
         .contact-channel-cards-grid { grid-template-columns: 1fr; }
         .mv-content-card-final { padding: 1.8rem 1.5rem; }
         .mv-content-card-final .mv-title-final { font-size: 1.4rem; }
@@ -1326,7 +1243,7 @@
         .footer-direct-contact a { justify-content: center; }
       }
       @media (max-width: 576px) {
-        .contact-form-card { padding: 1.5rem; }
+        /* .contact-form-card { padding: 1.5rem; } Ya no existe */
         .mv-skewed-background-final { border-radius: var(--mv-card-border-radius-final); width: 102%; height: 104%; }
         .mv-content-card-final { padding: 1.5rem; }
         .mv-content-card-final .mv-title-final { font-size: 1.3rem; }
@@ -1391,24 +1308,16 @@
                 ></span>
               </a>
               <ul class="submenu level-2">
-                <li class="has-submenu">
-                  <a
-                    href="proyecto-alpha.html"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Proyecto Alpha
-                    <span class="submenu-toggle-icon level2-arrow"
-                      ><i class="fas fa-chevron-right"></i
-                    ></span>
+                <li class="has-submenu"> 
+                  <a href="comunidades-whatsapp.html" aria-haspopup="true" aria-expanded="false">
+                    Comunidades WhatsApp
+                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
                   </a>
                   <ul class="submenu level-3">
-                    <li>
-                      <a href="proyecto-alpha.html#inicio"
-                        >Inicio del Proyecto</a
-                      >
-                    </li>
-                    <li><a href="proyecto-alpha.html#detalles">Detalles</a></li>
+                    <li><a href="universo-bl.html">Universo BL</a></li>
+                    <li><a href="universo-multifandom.html">Universo Multifandom</a></li>
+                    <li><a href="universo-rol.html">Universo Rol</a></li>
+                    <li><a href="comunidades-whatsapp.html#admin-info">Une tu Grupo</a></li> 
                   </ul>
                 </li>
                 <li class="has-submenu">
@@ -1657,14 +1566,12 @@
       <section class="content-block" id="soporte-contacto">
         <div class="container">
           <h2 class="block-title">Soporte y Contacto</h2>
-
           <div class="support-main-container">
             <div class="faq-and-info-column">
               <div class="faq-container card" id="faqContainer">
                 <h3 class="section-subtitle">Preguntas Frecuentes</h3>
                 <p>Cargando preguntas frecuentes...</p>
               </div>
-
               <div class="contact-info-container card">
                 <h3 class="section-subtitle">Información de contacto</h3>
                 <ul class="contact-info-list" id="contactInfoListContainer">
@@ -1672,68 +1579,7 @@
                 </ul>
               </div>
             </div>
-
-            <div class="contact-form-card-wrapper">
-              <div class="contact-form-card">
-                <h3 class="form-title">Envíanos un mensaje</h3>
-                <form action="#" method="POST" id="contactFormPage">
-                  <div class="form-group">
-                    <label for="mainPageFullName">Nombre completo</label>
-                    <input
-                      type="text"
-                      id="mainPageFullName"
-                      name="fullName"
-                      class="form-control"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="mainPageEmail">Correo electrónico</label>
-                    <input
-                      type="email"
-                      id="mainPageEmail"
-                      name="email"
-                      class="form-control"
-                      required
-                    />
-                  </div>
-                  <div class="form-group">
-                    <label for="mainPageSubject">Asunto</label>
-                    <select
-                      id="mainPageSubject"
-                      name="subject"
-                      class="form-control"
-                      required
-                    >
-                      <option value="" disabled selected>
-                        Selecciona una opción
-                      </option>
-                      <option value="consulta_general">Consulta General</option>
-                      <option value="soporte_tecnico">Soporte Técnico</option>
-                      <option value="colaboraciones">Colaboraciones</option>
-                      <option value="feedback">Feedback y Sugerencias</option>
-                      <option value="otro">Otro</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label for="mainPageMessage">Mensaje</label>
-                    <textarea
-                      id="mainPageMessage"
-                      name="message"
-                      class="form-control"
-                      rows="5"
-                      required
-                    ></textarea>
-                  </div>
-                  <div class="submit-button-container">
-                    <button type="submit" class="btn-submit-form">
-                      Enviar mensaje
-                    </button>
-                  </div>
-                </form>
-              </div>
             </div>
-          </div>
         </div>
       </section>
     </main>
@@ -2056,12 +1902,12 @@
 
 
         async function cargarContenidoIndexDesdeJSON() {
-            console.log("Intentando cargar bases.json para index.html...");
+            console.log("Intentando cargar datos_web.json para index.html...");
             try {
-                const response = await fetch('bases.json'); 
+                const response = await fetch('datos_web.json');
                 console.log("Respuesta del fetch (index):", response);
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} al cargar bases.json`);
+                    throw new Error(`HTTP error! status: ${response.status} al cargar datos_web.json`);
                 }
                 const data = await response.json();
                 console.log("Datos JSON cargados (index):", data);
@@ -2215,6 +2061,10 @@
         function renderizarPreguntasFrecuentes(faqs, container) {
             const placeholder = container.querySelector('p'); 
             if(placeholder) placeholder.remove();
+            const subtitle = container.querySelector('.section-subtitle'); 
+            if(subtitle) container.innerHTML = ''; 
+            if(subtitle) container.appendChild(subtitle);
+
 
             faqs.forEach(faq => {
                 const item = document.createElement('div');
