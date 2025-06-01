@@ -949,13 +949,13 @@
         const fabWhatsapp = document.getElementById('fabWhatsapp');
 
         async function cargarContenidoDesdeJSON() {
-            console.log("Intentando cargar bases.json para comunidades-whatsapp.html (botón admin, footer, fab)...");
+            console.log("Intentando cargar datos_web.json para comunidades-whatsapp.html (botón admin, footer, fab)...");
             try {
-                const response = await fetch('bases.json');
+                const response = await fetch('datos_web.json');
                 console.log("Respuesta del fetch (comunidades):", response);
 
                 if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} al cargar bases.json`);
+                    throw new Error(`HTTP error! status: ${response.status} al cargar datos_web.json`);
                 }
                 const data = await response.json();
                 console.log("Datos JSON cargados (comunidades):", data);
