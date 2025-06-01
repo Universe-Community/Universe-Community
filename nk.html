@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NKProyect - Quiénes Somos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        :root {
+            /* --- Light Mode (Default) --- */
+            --brand-purple-start: #6A11CB; 
+            --brand-blue-end: #2575FC;     
+            
+            --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
+            --button-gradient: linear-gradient(135deg, var(--brand-purple-start), var(--brand-blue-end));
+            --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
+
+            --text-dark: #212529;
+            --text-medium: #5f6773;
+            --text-light: #FFFFFF;
+            --text-subtle: #8a92a5;
+
+            --bg-light: #FFFFFF;
+            --bg-light-rgb: 255, 255, 255;
+            --bg-section-alt: #f8f9fa; 
+            --submenu-bg: #fdfdfd; 
+            --submenu-hover-bg: #f0f0f0; 
+            
+            --border-color-soft: #eaeaea; 
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); 
+            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
+            
+            --font-primary: 'Poppins', sans-serif;
+            
+            --footer-bg-dark: #121224; 
+            --footer-text-primary-light: #E8EAF6;
+            --footer-text-secondary-light: #A0A8C0;
+            --footer-heading-color: var(--text-light);
+            --footer-link-hover-color: var(--brand-blue-end);
+            --footer-icon-color: #A0A8C0;
+            --footer-icon-hover-color: var(--text-light);
+
+            --transition-smooth: all 0.3s ease-in-out;
+            --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+            --header-height: 70px; 
+
+            --brand-purple-start-rgb: 106, 17, 203;
+            --brand-blue-end-rgb: 37, 117, 252;
+            --whatsapp-bg-color: #25D366; 
+            --whatsapp-hover-bg-color: #1DAE54; 
+
+            /* --- Theme Toggle Button Colors --- */
+            --theme-toggle-icon-color: var(--text-medium);
+            --theme-toggle-bg-hover: var(--submenu-hover-bg);
+        }
+
+        body.dark-mode {
+            --text-dark: #e0e0e0;
+            --text-medium: #b0b0b0;
+            --text-light: #121212; 
+            --text-subtle: #7a7a7a;
+
+            --bg-light: #1a1a2e;
+            --bg-light-rgb: 26, 26, 46;
+            --bg-section-alt: #23233c;
+            --submenu-bg: #2c2c48; 
+            --submenu-hover-bg: #353558; 
+            
+            --border-color-soft: #3a3a5a; 
+            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
+            --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+
+            --footer-bg-dark: #0e0e1c;
+            --footer-text-primary-light: #d0d0e0;
+            --footer-text-secondary-light: #9090b0;
+            
+            --theme-toggle-icon-color: #c5c5c5;
+            --theme-toggle-bg-hover: #353558;
+        }
+
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--bg-light);
+            color: var(--text-dark);
+            line-height: 1.75; 
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: var(--transition-colors); 
+            padding-top: var(--header-height); 
+        }
+        .container { width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto; padding: 0 15px; }
+
+        /* Header Fijo */
+        .site-header {
+            background-color: var(--bg-light); 
+            padding: 1rem 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
+            position: fixed; 
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            transition: var(--transition-colors);
+        }
+        body.dark-mode .site-header {
+             box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); 
+        }
+
+        .header-inner { display: flex; justify-content: space-between; align-items: center; }
+        .logo-link { display: flex; align-items: center; text-decoration: none; }
+        .logo-icon-box { 
+            width: 38px;
+            height: 38px;
+            background: var(--button-gradient); /* Usando el gradiente de Universe Community para el icono */
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-right: 0.625rem;
+        }
+        .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3); }
+        .logo-abbr { 
+            color: #FFFFFF;
+            font-weight: 700;
+            font-size: 1.3rem;
+        }
+        .logo-full-text { 
+            font-size: 1.1875rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            transition: color 0.2s ease;
+        }
+        .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
+        
+        .theme-toggle-button {
+            background: none; border: none; color: var(--theme-toggle-icon-color); font-size: 1.25rem; 
+            padding: 0.5rem; margin-left: 0.5rem; cursor: pointer; border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; transition: var(--transition-colors), transform 0.2s ease;
+        }
+        .theme-toggle-button:hover { background-color: var(--theme-toggle-bg-hover); transform: scale(1.1); }
+        .theme-toggle-button .fa-sun { display: none; } 
+        body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
+        body.dark-mode .theme-toggle-button .fa-moon { display: none; }
+
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; z-index: 1001; padding: 0.25rem; transition: var(--transition-colors); }
+        .main-menu { position: relative; }
+        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        .main-menu ul li { position: relative; margin-left: 0; }
+        .main-menu > ul > li { margin-left: 0.5rem; }
+        .main-menu > ul > li:first-child { margin-left: 0; }
+        .main-menu ul li a { display: flex; align-items: center; text-decoration: none; color: var(--text-medium); font-weight: 500; font-size: 0.9rem; padding: 0.75rem 0.8rem; border-radius: 6px; transition: var(--transition-colors), background-color 0.2s ease; white-space: nowrap; position: relative; }
+        .main-menu ul li a .submenu-toggle-icon { margin-left: 0.5em; font-size: 0.7em; display: inline-flex; align-items: center; padding: 0.3em; cursor: pointer; }
+        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { transform: rotate(180deg); }
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { transform: rotate(90deg); }
+        @media (min-width: 992px) { .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { transform: rotate(0deg); } }
+        .main-menu a:hover, .main-menu ul li:hover > a, .main-menu ul li.open > a { color: var(--brand-purple-start); background-color: var(--submenu-hover-bg); }
+        .main-menu > ul > li > a.current-page { color: #FFFFFF; background: var(--text-gradient); font-weight: 600; box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3); }
+        body.dark-mode .main-menu > ul > li > a.current-page { box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4); }
+        .main-menu > ul > li > a.current-page:hover { color: #FFFFFF; background: var(--button-hover-gradient); opacity: 0.95; }
+        .main-menu .submenu li a.current-page { color: var(--brand-purple-start); background-color: var(--submenu-hover-bg); font-weight: 600; }
+        .main-menu .submenu { display: none; position: absolute; top: 100%; left: 0; background-color: var(--submenu-bg); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); border-radius: 0 0 8px 8px; min-width: 230px; z-index: 100; padding: 0.5rem 0; border-top: 1px solid var(--border-color-soft); opacity: 0; visibility: hidden; transform: translateY(10px); transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors); }
+        body.dark-mode .main-menu .submenu { box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08); }
+        .main-menu .submenu.level-3 { top: 0; left: 100%; border-radius: 0 8px 8px 8px; margin-top: -0.5rem; }
+        .main-menu ul li.open > .submenu { display: block; opacity: 1; visibility: visible; transform: translateY(0); }
+        .main-menu .submenu li { width: 100%; margin-left: 0; }
+        .main-menu .submenu li a { padding: 0.6rem 1.2rem; font-size: 0.9rem; color: var(--text-dark); border-bottom: 1px solid var(--border-color-soft); justify-content: space-between; border-radius: 0; }
+        .main-menu .submenu li:last-child a { border-bottom: none; }
+        .main-menu .submenu li a:hover { background-color: var(--submenu-hover-bg); color: var(--brand-purple-start); }
+        
+        .content-block { padding: 2.5rem 0; } 
+        .page-title-section { padding: 3rem 0 2rem; text-align: center; background: var(--text-gradient); color: var(--text-light); margin-bottom: 2.5rem;}
+        .page-title-section h1 { font-size: 2.8rem; font-weight: 800; margin-bottom: 0.25rem; color: var(--text-light); text-transform: uppercase; letter-spacing: 1px;}
+        .page-title-section .page-subtitle { font-size: 1.1rem; font-weight: 500; opacity: 0.9; letter-spacing: 0.5px; color: var(--text-light); }
+
+        .about-us-layout { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+        @media (min-width: 992px) { .about-us-layout { grid-template-columns: 280px 1fr; } }
+
+        .about-us-sidebar .sidebar-widget { background-color: var(--bg-section-alt); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem; box-shadow: var(--card-shadow-light); }
+        .about-us-sidebar .widget-title { font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 1rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border-color-soft); }
+        .about-us-sidebar .internal-nav ul { list-style: none; padding: 0; }
+        .about-us-sidebar .internal-nav li a { display: block; padding: 0.6rem 0; color: var(--text-medium); text-decoration: none; font-weight: 500; font-size: 0.95rem; border-bottom: 1px dashed var(--border-color-soft); transition: color 0.2s ease, padding-left 0.2s ease; }
+        .about-us-sidebar .internal-nav li:last-child a { border-bottom: none; }
+        .about-us-sidebar .internal-nav li a:hover,
+        .about-us-sidebar .internal-nav li a.active-section { color: var(--brand-purple-start); padding-left: 0.5rem; }
+        .about-us-sidebar .more-info-widget p { font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.75rem; }
+        .about-us-sidebar .more-info-widget .contact-email { font-weight: 500; color: var(--brand-blue-end); text-decoration: none; }
+        .about-us-sidebar .more-info-widget .contact-email:hover { text-decoration: underline; }
+        .about-us-sidebar .btn-sidebar { display: block; width: 100%; text-align: center; padding: 0.75rem 1rem; margin-top: 1rem; font-size: 0.9rem; font-weight: 600; color: var(--text-light); background: var(--button-gradient); border: none; border-radius: 20px; text-decoration: none; transition: var(--transition-smooth); }
+        .about-us-sidebar .btn-sidebar:hover { background: var(--button-hover-gradient); transform: translateY(-2px); }
+        .about-us-sidebar .btn-sidebar i { margin-right: 0.5rem; }
+
+        .about-us-main-content .content-card { background-color: var(--bg-light); padding: 2.5rem; border-radius: 12px; box-shadow: var(--card-shadow-light); margin-bottom: 2.5rem; transition: var(--transition-colors), box-shadow 0.3s ease; }
+        .about-us-main-content .content-card:hover { box-shadow: var(--card-hover-shadow); }
+        .about-us-main-content .section-heading { font-size: 2rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.5rem; padding-bottom: 0.75rem; border-bottom: 3px solid var(--brand-purple-start); display: inline-block; transition: var(--transition-colors), border-color 0.3s ease; }
+        body.dark-mode .about-us-main-content .section-heading { border-bottom-color: var(--brand-blue-end); }
+        .about-us-main-content p { font-size: 1.05rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.5rem; transition: var(--transition-colors); }
+        .about-us-main-content p:last-child { margin-bottom: 0; }
+        
+        .values-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; margin-top: 1rem; }
+        .value-item { background-color: var(--bg-section-alt); padding: 1.75rem; border-radius: 10px; text-align: left; transition: var(--transition-colors), transform 0.2s ease, box-shadow 0.2s ease; display: flex; align-items: flex-start; gap: 1rem; }
+        .value-item:hover { transform: translateY(-5px); box-shadow: var(--card-hover-shadow); }
+        .value-item .value-icon { font-size: 1.8rem; color: var(--brand-blue-end); margin-top: 0.1em; flex-shrink: 0; }
+        body.dark-mode .value-item .value-icon { color: var(--brand-purple-start); }
+        .value-item div { flex-grow: 1; }
+        .value-item strong { font-weight: 600; font-size: 1.1rem; color: var(--text-dark); display: block; margin-bottom: 0.3rem; }
+        .value-item span { font-size: 0.9rem; color: var(--text-medium); line-height: 1.6; }
+
+        .collaborator-card { background-color: var(--bg-section-alt); border-radius: 12px; padding: 1.5rem; display: flex; align-items: center; gap: 1.5rem; margin-bottom: 1.5rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
+        body.dark-mode .collaborator-card { background-color: var(--submenu-hover-bg); box-shadow: 0 2px 10px rgba(255,255,255,0.05); }
+        .collaborator-card img { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; border: 3px solid var(--brand-blue-end); }
+        .collaborator-info h4 { font-size: 1.25rem; color: var(--text-dark); margin-bottom: 0.25rem; }
+        .collaborator-info p { font-size: 0.9rem; color: var(--text-medium); margin-bottom: 0.5rem; }
+        .collaborator-socials a { color: var(--text-subtle); margin-right: 0.75rem; font-size: 1.1rem; transition: color 0.2s ease; }
+        .collaborator-socials a:hover { color: var(--brand-purple-start); }
+        body.dark-mode .collaborator-socials a:hover { color: var(--brand-blue-end); }
+
+        .faq-container { /* Reutilizando estilos de index.html */ }
+        .faq-item { border-bottom: 1px solid var(--border-color-soft); padding: 0.875rem 0; transition: border-color 0.3s ease; }
+        .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+        .faq-item:first-child { padding-top: 0; }
+        .faq-question { display: flex; justify-content: space-between; align-items: center; font-weight: 500; color: var(--text-dark); cursor: pointer; font-size: 0.9375rem; padding: 0.5rem 0; transition: var(--transition-colors); }
+        .faq-question i.fa-chevron-down { color: var(--text-medium); transition: transform 0.3s ease, color 0.3s ease; font-size: 0.8em; }
+        .faq-item.active .faq-question i.fa-chevron-down { transform: rotate(180deg); }
+        .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.35s ease-out, padding-top 0.35s ease-out, margin-top 0.35s ease-out, var(--transition-colors); color: var(--text-medium); font-size: 0.875rem; line-height: 1.6; }
+        .faq-item.active .faq-answer { padding-top: 0.75rem; margin-top: 0.25rem; }
+        
+        .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
+        .floating-action-button:hover { background-color: var(--whatsapp-hover-bg-color); transform: scale(1.08) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
+
+        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 5rem 0 2rem 0; margin-top: 5rem; border-top: 4px solid var(--brand-purple-start); transition: var(--transition-colors); }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: flex-start; gap: 3rem; margin-bottom: 3.5rem; }
+        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
+        .footer-column .footer-logo-icon-box { width: 42px; height: 42px; background: var(--button-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; }
+        .footer-column .footer-logo-abbr { color: #FFFFFF; font-weight: 700; font-size: 1.4rem; }
+        .footer-column .footer-logo-full-text { font-size: 1.2rem; font-weight: 600; color: var(--footer-text-primary-light); }
+        .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
+        .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
+        .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
+        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
+        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
+        .footer-social-icons a:hover { color: #FFFFFF; background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
+        .footer-direct-contact { }
+        .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
+        .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
+        .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
+        .footer-bottom-bar { text-align: center; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
+        body.dark-mode .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); }
+        .footer-bottom-bar p { margin: 0; font-size: 0.925rem; color: var(--footer-text-secondary-light); }
+
+        @media (max-width: 991px) {
+            .container { width: 95%; } 
+            .nav-toggle { display: flex; align-items: center; justify-content: center; } 
+            .theme-toggle-button { margin-right: 0.5rem; }
+            .header-inner > .logo-link { flex-shrink: 0; }
+            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
+            .header-inner > .main-menu { order: 4; }
+            .main-menu { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); max-height: 0; overflow-y: auto; transition: max-height 0.4s ease-in-out, var(--transition-colors); border-top: 1px solid var(--border-color-soft); }
+            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
+            .main-menu ul { flex-direction: column; width: 100%; }
+            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
+            .main-menu > ul > li:last-child { border-bottom: none; }
+            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} 
+            .main-menu > ul > li > a.current-page { background: var(--submenu-hover-bg); color: var(--brand-purple-start); box-shadow: none; }
+            .main-menu > ul > li > a.current-page:hover { background: var(--submenu-hover-bg); opacity: 1; }
+            .main-menu .submenu { position: static; box-shadow: none; border-radius: 0; min-width: 100%; padding: 0; border-top: none; background-color: var(--submenu-hover-bg); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, var(--transition-colors); opacity: 1; visibility: visible; transform: none; }
+            .main-menu ul li.open > .submenu { max-height: 600px; }
+            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
+            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
+            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
+            .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
+            
+            .page-title-section h1 { font-size: 2.2rem; }
+            .page-title-section .page-subtitle { font-size: 1rem; }
+            .about-us-section .section-heading { font-size: 1.6rem; }
+            .about-us-layout { grid-template-columns: 1fr; } 
+            .about-us-sidebar { margin-bottom: 2rem; }
+        }
+
+        @media (max-width: 767px) {
+            .page-title-section h1 { font-size: 1.8rem; }
+            .page-title-section .page-subtitle { font-size: 0.95rem; }
+            .about-us-main-content .content-card { padding: 2rem 1.5rem; }
+            .about-us-main-content .section-heading { font-size: 1.4rem; }
+            .values-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); } 
+            .footer-social-icons { justify-content: center; }
+            .footer-direct-contact a { justify-content: center; }
+        }
+         @media (max-width: 480px) {
+            .page-title-section h1 { font-size: 1.6rem; } 
+            .page-title-section .page-subtitle { font-size: 0.9rem; }
+            .about-us-main-content .content-card { padding: 1.5rem; }
+            .about-us-main-content .section-heading { font-size: 1.3rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header" id="siteHeader">
+        <div class="container header-inner">
+             <a href="index.html" class="logo-link" aria-label="NKProyect Home">
+                <div class="logo-icon-box"><span class="logo-abbr">NK</span></div>
+                <span class="logo-full-text">NKProyect</span>
+            </a>
+            <button class="theme-toggle-button" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
+                <i class="fas fa-moon" aria-hidden="true"></i>
+                <i class="fas fa-sun" aria-hidden="true"></i>
+            </button>
+            <button class="nav-toggle" id="navToggleBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainMenuNav">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+            </button>
+            <nav class="main-menu" id="mainMenuNav" aria-label="Navegación principal">
+                <ul>
+                    <li class="has-submenu">
+                        <a href="index.html" aria-haspopup="true" aria-expanded="false"> 
+                            Universe Community
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </a>
+                        <ul class="submenu level-2">
+                            <li><a href="index.html">Inicio UC</a></li>
+                            <li><a href="quienes-somos-uc.html">Quiénes Somos UC</a></li> <li><a href="index.html#proyectos-destacados">Proyectos UC</a></li>
+                            <li><a href="index.html#donaciones">Donar a UC</a></li>
+                            <li><a href="index.html#comunidad">Contacto UC</a></li>
+                            <li><a href="index.html#soporte-contacto">Soporte UC</a></li>
+                        </ul>
+                    </li>
+                    <li class="has-submenu">
+                        <a href="proyectos.html" aria-haspopup="true" aria-expanded="false"> 
+                            Proyectos
+                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
+                        </a>
+                         <ul class="submenu level-2">
+                            <li><a href="nk.html">NKProyect Quiénes Somos</a></li>
+                            <li><a href="comunidades.html">Comunidades WhatsApp</a></li>
+                            <li class="has-submenu">
+                                <a href="proyecto-beta.html" aria-haspopup="true" aria-expanded="false">
+                                    Proyecto Beta (UC)
+                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
+                                </a>
+                                <ul class="submenu level-3">
+                                    <li><a href="proyecto-beta.html#inicio">Inicio del Proyecto</a></li>
+                                </ul>
+                            </li>
+                            </ul>
+                    </li>
+                     <li><a href="avisos.html">Avisos (UC)</a></li> 
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title-section">
+            <div class="container">
+                <h1>NK PROYECT</h1>
+                <p class="page-subtitle">SPANISH FAN DUBBING</p>
+            </div>
+        </section>
+
+        <section class="content-block about-us-section">
+            <div class="container">
+                <div class="about-us-layout">
+                    <aside class="about-us-sidebar">
+                        <div class="sidebar-widget internal-nav">
+                            <h3 class="widget-title">Navegación</h3>
+                            <ul>
+                                <li><a href="#quienes-somos-contenido" class="active-section">¿Quiénes somos?</a></li>
+                                <li><a href="#nuestros-objetivos">Nuestros Objetivos</a></li>
+                                <li><a href="#nuestros-colaboradores">Nuestros Colaboradores</a></li>
+                                <li><a href="#preguntas-frecuentes-nk">Preguntas Frecuentes</a></li>
+                            </ul>
+                        </div>
+                        <div class="sidebar-widget more-info-widget">
+                            <h3 class="widget-title">¿Necesitas más Información?</h3>
+                            <p>Si tienes alguna duda o sugerencia puedes contactarnos a través de nuestro correo o Instagram.</p>
+                            <p><a href="mailto:nk.proyectfandub@gmail.com" class="contact-email">nk.proyectfandub@gmail.com</a></p>
+                            <a href="URL_A_TU_FORMULARIO_DE_CASTING" target="_blank" class="btn-sidebar"><i class="fas fa-microphone-alt"></i> Formulario de Casting</a>
+                            <a href="URL_A_TU_DISCORD" target="_blank" class="btn-sidebar"><i class="fab fa-discord"></i> Ir a Discord</a>
+                        </div>
+                    </aside>
+
+                    <div class="about-us-main-content">
+                        <div class="content-card" id="quienes-somos-contenido">
+                            <h2 class="section-heading">¿Quiénes Somos?</h2>
+                             <img src="https://placehold.co/700x300/A9A9A9/FFFFFF?text=Imagen+Representativa+NKProyect" alt="Imagen representativa de NKProyect" style="width:100%; border-radius: 8px; margin-bottom: 1.5rem;">
+                            <p>
+                                Somos un grupo de entusiastas del anime que, hace aproximadamente 2 años, decidimos aventurarnos en el mundo del fandoblaje. Aunque aún somos novatos y seguimos aprendiendo, ponemos todo nuestro esfuerzo y pasión en cada proyecto.
+                            </p>
+                            <p>
+                                Nos motiva el deseo de mejorar, divertirnos y compartir nuestra pasión con otros fans del anime. Creemos que cada doblaje es una oportunidad para crecer y perfeccionar nuestras habilidades.
+                            </p>
+                        </div>
+        
+                        <div class="content-card" id="nuestros-objetivos">
+                            <h2 class="section-heading">Nuestros Objetivos</h2>
+                            <ul class="values-grid">
+                                <li class="value-item">
+                                    <i class="fas fa-microphone-alt value-icon"></i>
+                                    <div>
+                                        <strong>Mejorar nuestras habilidades</strong>
+                                        <span>en actuación de voz y edición de audio.</span>
+                                    </div>
+                                </li>
+                                <li class="value-item">
+                                    <i class="fas fa-users-cog value-icon"></i>
+                                    <div>
+                                        <strong>Fomentar el aprendizaje</strong>
+                                        <span>y la práctica del doblaje entre nuestros miembros.</span>
+                                    </div>
+                                </li>
+                                <li class="value-item">
+                                    <i class="fas fa-tv value-icon"></i>
+                                    <div>
+                                        <strong>Crear un espacio</strong>
+                                        <span>donde los fans del anime puedan disfrutar y participar en el fandoblaje.</span>
+                                    </div>
+                                </li>
+                                <li class="value-item">
+                                    <i class="fas fa-bullseye value-icon"></i>
+                                    <div>
+                                        <strong>Producir contenido de calidad</strong>
+                                        <span>respetando la esencia de cada serie.</span>
+                                    </div>
+                                </li>
+                            </ul>
+                            <p style="text-align: center; margin-top: 2rem; font-style: italic;">
+                                Si te gusta el fandoblaje tanto como a nosotros, ¡únete a nuestra comunidad y sé parte de este viaje!
+                            </p>
+                        </div>
+
+                        <div class="content-card" id="nuestros-colaboradores">
+                            <h2 class="section-heading">¿Nuestros Colaboradores?</h2>
+                            <p>
+                                Para llevar a cabo nuestros proyectos, contamos con el apoyo de increíbles colaboradores que comparten nuestra visión y entusiasmo.
+                            </p>
+                            <div class="collaborator-card">
+                                <img src="https://placehold.co/100x100/6A11CB/FFFFFF?text=UC" alt="Logo Universe Community">
+                                <div class="collaborator-info">
+                                    <h4>Universe Community</h4>
+                                    <p>Comunidad de WhatsApp</p>
+                                    <div class="collaborator-socials" id="universeCommunitySocials">
+                                        Cargando redes de Universe Community...
+                                    </div>
+                                </div>
+                            </div>
+                            <p>
+                                La información es limitada por lo que te recomendaría seguirlos en sus redes sociales. Son personas increíblemente talentosas y bellas personas. Agradecemos mucho su ayuda en la realización de los proyectos.
+                            </p>
+                        </div>
+
+                        <div class="content-card faq-container" id="preguntas-frecuentes-nk">
+                            <h2 class="section-heading">Preguntas Frecuentes</h2>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>01. ¿Qué es el fandoblaje?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>El fandoblaje es la práctica de doblar contenido audiovisual (como anime, series, películas) por aficionados, generalmente sin fines de lucro y por pasión al material original y al arte del doblaje.</p></div>
+                            </div>
+                            <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>02. ¿Tienen experiencia en doblaje?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>Somos un grupo principalmente de novatos que estamos aprendiendo y mejorando con cada proyecto. ¡La pasión y el esfuerzo no nos faltan!</p></div>
+                            </div>
+                             <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>03. ¿Cómo puedo unirme a su grupo?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>Puedes estar atento a nuestros formularios de casting que publicamos en nuestras redes o contactarnos por correo o Instagram si tienes interés en colaborar.</p></div>
+                            </div>
+                             <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>04. ¿Qué series han doblado?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>Hemos trabajado en varios proyectos y siempre estamos explorando nuevas series. Puedes ver nuestros trabajos completados y en progreso en nuestros canales (ej. YouTube).</p></div>
+                            </div>
+                             <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>05. ¿Tienen colaboraciones con otros grupos?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>Sí, estamos abiertos a colaboraciones y hemos trabajado con otros grupos y fandubers. Creemos que la colaboración enriquece a la comunidad.</p></div>
+                            </div>
+                             <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>06. ¿Dónde puedo ver sus fandoblajes?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>Nuestros fandoblajes suelen publicarse en plataformas como YouTube. ¡Síguenos en nuestras redes sociales para estar al tanto de los últimos lanzamientos!</p></div>
+                            </div>
+                             <div class="faq-item">
+                                <div class="faq-question" role="button" tabindex="0" aria-expanded="false">
+                                    <span>07. ¿Aceptan sugerencias de proyectos?</span>
+                                    <i class="fas fa-chevron-down"></i>
+                                </div>
+                                <div class="faq-answer"><p>¡Claro! Siempre estamos interesados en escuchar las sugerencias de la comunidad. Puedes enviarnos tus ideas a través de nuestros canales de contacto.</p></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
+
+    <footer class="site-footer-detailed">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column footer-column-brand">
+                    <a href="index.html" class="footer-logo-link" aria-label="NKProyect Home">
+                        <div class="footer-logo-icon-box"><span class="logo-abbr">NK</span></div>
+                        <span class="footer-logo-full-text">NKProyect</span>
+                    </a>
+                    <p class="footer-description">
+                        Apasionados por el anime y el fandoblaje, trayendo tus series favoritas al español.
+                    </p>
+                </div>
+                 <div class="footer-column footer-column-contact">
+                    <h4 class="footer-heading">Contacto NKProyect</h4>
+                     <div class="footer-direct-contact" id="footerContactDirectContainerNK">
+                        <a href="mailto:nk.proyectfandub@gmail.com" aria-label="Enviar correo electrónico a NKProyect">
+                            <i class="fas fa-envelope" aria-hidden="true"></i> nk.proyectfandub@gmail.com
+                        </a>
+                        </div>
+                </div>
+                <div class="footer-column footer-column-social">
+                    <h4 class="footer-heading">Síguenos (NKProyect)</h4>
+                    <div class="footer-social-icons" id="footerSocialProfilesContainerNK">
+                        <a href="#" target="_blank" title="Instagram NKProyect" aria-label="Visita nuestro perfil de Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+                        <a href="#" target="_blank" title="Discord NKProyect" aria-label="Únete a nuestro servidor de Discord"><i class="fab fa-discord" aria-hidden="true"></i></a>
+                        </div>
+                </div>
+            </div>
+            <div class="footer-bottom-bar">
+                <p>&copy; <span id="currentYear"></span> NKProyect &amp; Universe Community. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: #e25555;"></i> por Yil The Queen.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const siteHeader = document.getElementById('siteHeader'); 
+        let headerHeight = 0;
+
+        function updateHeaderHeightAndPadding() {
+            if (siteHeader) {
+                headerHeight = siteHeader.offsetHeight;
+                document.body.style.paddingTop = `${headerHeight}px`;
+                document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+            }
+        }
+        
+        updateHeaderHeightAndPadding();
+        window.addEventListener('resize', updateHeaderHeightAndPadding);
+
+        // --- Theme Toggle Logic ---
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const currentTheme = localStorage.getItem('theme');
+
+        function applyTheme(theme) {
+            if (theme === 'dark') {
+                document.body.classList.add('dark-mode');
+            } else {
+                document.body.classList.remove('dark-mode');
+            }
+        }
+
+        if (currentTheme) {
+            applyTheme(currentTheme);
+        } else { 
+            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+            if (prefersDark) {
+                applyTheme('dark');
+                localStorage.setItem('theme', 'dark'); 
+            }
+        }
+
+        if (themeToggleBtn) {
+            themeToggleBtn.addEventListener('click', () => {
+                document.body.classList.toggle('dark-mode');
+                let theme = 'light';
+                if (document.body.classList.contains('dark-mode')) {
+                    theme = 'dark';
+                }
+                localStorage.setItem('theme', theme);
+            });
+        }
+
+        // --- Mobile Navigation Menu (Main Toggle) ---
+        const navToggleBtn = document.getElementById('navToggleBtn');
+        const mainMenuNav = document.getElementById('mainMenuNav');
+        const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
+
+        if (navToggleBtn && mainMenuNav && navIcon) {
+            navToggleBtn.addEventListener('click', () => {
+                const isExpanded = mainMenuNav.classList.toggle('menu-visible');
+                navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
+                navIcon.classList.toggle('fa-bars', !isExpanded);
+                navIcon.classList.toggle('fa-times', isExpanded);
+
+                if (!isExpanded) { 
+                    mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                        openSubmenuLi.classList.remove('open');
+                        const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                        if (link) link.setAttribute('aria-expanded', 'false');
+                        const submenu = openSubmenuLi.querySelector('.submenu');
+                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                    });
+                }
+            });
+        }
+
+        // --- Submenu Toggle Logic (Revised) ---
+        function performToggleVisually(listItem, linkElement, submenuElement) {
+            const isOpen = listItem.classList.toggle('open');
+            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+
+            if (window.innerWidth <= 991 && submenuElement) { 
+                if (isOpen) {
+                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
+                } else {
+                    submenuElement.style.maxHeight = null;
+                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
+                        openChild.classList.remove('open');
+                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
+                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
+                        const childSubmenu = openChild.querySelector('.submenu');
+                        if(childSubmenu) childSubmenu.style.maxHeight = null;
+                    });
+                }
+            }
+        }
+
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
+                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
+                const submenu = listItem.querySelector(":scope > .submenu"); 
+
+                if (!link || !submenu) return;
+
+                if (toggleIcon) {
+                    toggleIcon.addEventListener("click", function (event) {
+                        event.preventDefault();  
+                        event.stopPropagation(); 
+                        performToggleVisually(listItem, link, submenu);
+                    });
+                }
+
+                link.addEventListener("click", function (event) {
+                    if (event.target.closest(".submenu-toggle-icon")) {
+                        return; 
+                    }
+
+                    const isMobileView = window.innerWidth <= 991;
+                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
+                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
+
+
+                    if (isMobileView) {
+                        if (listItem.classList.contains('has-submenu')) {
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
+                        }
+                    } else { // Desktop View
+                        if (hasValidHref) {
+                             if (isLinkToCurrentPagePathOnly) { 
+                                event.preventDefault(); 
+                                performToggleVisually(listItem, link, submenu);
+                            }
+                        } else { 
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
+                        }
+                    }
+                });
+            });
+        }
+
+
+        // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll("ul li a").forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
+                    const listItem = link.closest('li');
+                    const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
+                    
+                    if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
+                        return;
+                    }
+
+                    if (mainMenuNav.classList.contains('menu-visible')) {
+                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
+                            mainMenuNav.classList.remove('menu-visible');
+                            if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
+                            if (navIcon) {
+                                navIcon.classList.remove('fa-times');
+                                navIcon.classList.add('fa-bars');
+                            }
+                            mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                                openSubmenuLi.classList.remove('open');
+                                const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                                if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                                const submenu = openSubmenuLi.querySelector('.submenu');
+                                if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                            });
+                        }
+                    }
+                });
+            });
+        }
+
+        // --- Resaltado de Página Actual en el Menú ---
+        function updateCurrentPage() { 
+            if (!mainMenuNav) return;
+            const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
+            const currentUrlHash = window.location.hash;
+
+            mainMenuNav.querySelectorAll('a').forEach(navLink => {
+                navLink.classList.remove('current-page'); 
+                const linkHref = navLink.getAttribute('href');
+                if (!linkHref) return;
+
+                const linkUrl = new URL(linkHref, window.location.origin); 
+                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+                const linkHash = linkUrl.hash;
+                
+                let isActive = false;
+
+                if (linkPath === currentUrlPath) {
+                    if (linkHash) { 
+                        if (linkHash === currentUrlHash) isActive = true;
+                    } else { 
+                        if (!currentUrlHash || currentUrlHash === "#") isActive = true; 
+                    }
+                }
+                
+                if (isActive) {
+                    navLink.classList.add('current-page');
+                    let currentElementForParentCheck = navLink;
+                    while (currentElementForParentCheck) {
+                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
+                        if (!parentSubmenuUl) break; 
+                        const parentLi = parentSubmenuUl.parentElement; 
+                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
+                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
+                        if (parentAnchor) {
+                            parentAnchor.classList.add('current-page'); 
+                        } else { break; }
+                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
+                        currentElementForParentCheck = parentLi; 
+                    }
+                }
+            });
+        }
+        
+        updateCurrentPage(); 
+        window.addEventListener('hashchange', updateCurrentPage); 
+        
+        // --- FAQ Accordion (para las FAQ estáticas de NKProyect) ---
+        const faqItems = document.querySelectorAll(".faq-container .faq-item");
+        faqItems.forEach((item) => {
+          const question = item.querySelector(".faq-question");
+          const answer = item.querySelector(".faq-answer");
+
+          if (question && answer) {
+            question.addEventListener("click", () => {
+              item.classList.toggle("active");
+              const isActive = item.classList.contains("active");
+              question.setAttribute("aria-expanded", String(isActive));
+
+              if (isActive) {
+                answer.style.maxHeight = answer.scrollHeight + 20 + "px";
+              } else {
+                answer.style.maxHeight = "0";
+              }
+            });
+            question.addEventListener("keydown", (event) => {
+              if (event.key === "Enter" || event.key === " ") {
+                event.preventDefault();
+                question.click();
+              }
+            });
+          }
+        });
+
+
+        // --- Cargar Contenido Dinámico del Footer y FAB desde JSON ---
+        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
+        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
+        const fabWhatsapp = document.getElementById('fabWhatsapp');
+        const universeCommunitySocialsContainer = document.getElementById('universeCommunitySocials');
+
+
+        async function cargarFooterYFABDesdeJSON() {
+            console.log("Intentando cargar datos_web.json para footer/FAB en nkproyect-quienes-somos.html...");
+            try {
+                // IMPORTANTE: Asegúrate de que la ruta al archivo 'datos_web.json' (o 'bases.json') sea correcta.
+                const response = await fetch('datos_web.json'); 
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} al cargar datos_web.json`);
+                }
+                const data = await response.json();
+                console.log("Datos JSON cargados para footer/FAB:", data);
+                
+                if (data.redesSociales) {
+                    // Para el footer de NKProyect, usaremos los enlaces que definamos estáticamente o de una sección NKProyect en el JSON.
+                    // Por ahora, los placeholders en el HTML del footer se mantendrán a menos que decidas cargarlos.
+                    // La siguiente función es para el FAB y los iconos de Universe Community.
+                    renderizarFooterYFAB(data.redesSociales, null, universeCommunitySocialsContainer, fabWhatsapp);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar contenido del footer desde JSON:', error);
+                // No se actualizan los placeholders del footer de NKProyect en caso de error, se quedan como están.
+                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+                if (universeCommunitySocialsContainer) universeCommunitySocialsContainer.textContent = 'Error al cargar redes de UC.';
+            }
+        }
+        
+        function renderizarFooterYFAB(redesSociales, _contactContainer, socialContainerUC, fabElement) {
+            // _contactContainer no se usa aquí porque los contactos del footer de NKProyect son estáticos.
+            // socialContainerUC es para los iconos de Universe Community en la sección de colaboradores.
+            // fabElement es para el botón flotante de WhatsApp global.
+
+            if (socialContainerUC && redesSociales.perfilesSociales) {
+                socialContainerUC.innerHTML = ''; 
+                const iconosAMostrar = ["fab fa-youtube", "fab fa-instagram", "fab fa-tiktok", "fab fa-facebook-f", "fab fa-x-twitter"];
+                redesSociales.perfilesSociales.forEach(perfil => {
+                    if (iconosAMostrar.includes(perfil.icono)) {
+                        const linkElement = document.createElement('a');
+                        linkElement.href = perfil.url || '#';
+                        linkElement.target = "_blank";
+                        linkElement.title = perfil.titulo;
+                        linkElement.setAttribute('aria-label', `Visita el perfil de Universe Community en ${perfil.titulo}`);
+                        linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+                        socialContainerUC.appendChild(linkElement);
+                    }
+                });
+                 if (socialContainerUC.children.length === 0) {
+                    socialContainerUC.textContent = 'Redes no disponibles.';
+                }
+            } else if (socialContainerUC) {
+                 socialContainerUC.innerHTML = '<p>Redes sociales de UC no disponibles.</p>';
+            }
+
+            if (fabElement && redesSociales.contactosDirectos) {
+                const whatsappFabInfo = redesSociales.contactosDirectos.find(
+                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
+                );
+                if (whatsappFabInfo && whatsappFabInfo.url) {
+                    fabElement.href = whatsappFabInfo.url;
+                } else {
+                     fabElement.href = "javascript:void(0);"; 
+                     fabElement.style.cursor = "default"; 
+                }
+            } else if (fabElement) {
+                fabElement.href = "javascript:void(0);"; 
+                fabElement.style.cursor = "default";
+            }
+        }
+
+        cargarFooterYFABDesdeJSON(); 
+
+        const currentYearElement = document.getElementById('currentYear');
+        if (currentYearElement) {
+            currentYearElement.textContent = new Date().getFullYear();
+        }
+    });
+    </script>
+
+</body>
+</html>
