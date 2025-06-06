@@ -5,13 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Universe Community - Anuncios y Avisos</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
         :root {
             /* --- Light Mode (Default) --- */
             --brand-purple-start: #6A11CB; 
-            --brand-blue-end: #2575FC;     
-            
+            --brand-blue-end: #2575FC;    
+           
             --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-gradient: linear-gradient(135deg, var(--brand-purple-start), var(--brand-blue-end));
             --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
@@ -24,17 +24,16 @@
             --bg-light: #FFFFFF;
             --bg-light-rgb: 255, 255, 255;
             --bg-section-alt: #f8f9fa; 
-            --submenu-bg: #fdfdfd; 
             --submenu-hover-bg: #f0f0f0; 
-            
+           
             --border-color-soft: #eaeaea; 
             --input-border-color: #CED4DA;
             --input-focus-border-color: var(--brand-purple-start); 
             --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); 
             --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
-            
+           
             --font-primary: 'Poppins', sans-serif;
-            
+           
             --footer-bg-dark: #121224; 
             --footer-text-primary-light: #E8EAF6;
             --footer-text-secondary-light: #A0A8C0;
@@ -45,18 +44,12 @@
 
             --transition-smooth: all 0.3s ease-in-out;
             --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            --transition-carousel: transform 0.5s ease-in-out; 
 
             --brand-purple-start-rgb: 106, 17, 203;
             --brand-blue-end-rgb: 37, 117, 252;
             --whatsapp-bg-color: #25D366; 
             --whatsapp-hover-bg-color: #1DAE54; 
             --header-height: 70px;
-            --paypal-button-bg: #0070ba;
-
-            /* --- Theme Toggle Button Colors --- */
-            --theme-toggle-icon-color: var(--text-medium);
-            --theme-toggle-bg-hover: var(--submenu-hover-bg);
         }
 
         /* --- Dark Mode Variables --- */
@@ -69,9 +62,8 @@
             --bg-light: #1a1a2e;
             --bg-light-rgb: 26, 26, 46;
             --bg-section-alt: #23233c;
-            --submenu-bg: #2c2c48; 
             --submenu-hover-bg: #353558; 
-            
+           
             --border-color-soft: #3a3a5a; 
             --input-border-color: #4a4a6a;
             --input-focus-border-color: var(--brand-blue-end);
@@ -81,11 +73,10 @@
             --footer-bg-dark: #0e0e1c;
             --footer-text-primary-light: #d0d0e0;
             --footer-text-secondary-light: #9090b0;
-            
+           
             --theme-toggle-icon-color: #c5c5c5;
             --theme-toggle-bg-hover: #353558;
         }
-
 
         /* Reset Básico y Estilos Generales */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -143,20 +134,13 @@
             transition: color 0.2s ease;
         }
         .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
-        
-        /* --- Theme Toggle Button --- */
+       
+        /* Theme Toggle Button */
         .theme-toggle-button {
-            background: none;
-            border: none;
-            color: var(--theme-toggle-icon-color);
-            font-size: 1.25rem; 
-            padding: 0.5rem;
-            margin-left: 0.5rem; 
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            background: none; border: none; color: var(--theme-toggle-icon-color);
+            font-size: 1.25rem; padding: 0.5rem; margin-left: 0.5rem; 
+            cursor: pointer; border-radius: 50%; display: flex;
+            align-items: center; justify-content: center;
             transition: var(--transition-colors), transform 0.2s ease;
         }
         .theme-toggle-button:hover {
@@ -167,285 +151,62 @@
         body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
         body.dark-mode .theme-toggle-button .fa-moon { display: none; }
 
-
-        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
-        .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.75rem; 
-            color: var(--text-dark); 
-            cursor: pointer;
-            z-index: 1001;
-            padding: 0.25rem;
-            transition: var(--transition-colors);
-        }
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
+        .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; z-index: 1001; padding: 0.25rem; transition: var(--transition-colors); }
         .main-menu { position: relative; }
-        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
-        .main-menu ul li { position: relative; margin-left: 0; }
-        .main-menu > ul > li { margin-left: 0.5rem; }
-        .main-menu > ul > li:first-child { margin-left: 0; }
-
+        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
+        .main-menu ul li { margin-left: 0.5rem; }
+        .main-menu ul li:first-child { margin-left: 0; }
         .main-menu ul li a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-medium); 
-            font-weight: 500;
-            font-size: 0.9rem; 
-            padding: 0.75rem 0.8rem; 
-            border-radius: 6px; 
-            transition: var(--transition-colors), background-color 0.2s ease;
+            display: flex; align-items: center; text-decoration: none;
+            color: var(--text-medium); font-weight: 500; font-size: 0.9rem; 
+            padding: 0.75rem 0.8rem; border-radius: 6px; 
+            transition: var(--transition-smooth);
             white-space: nowrap;
-            position: relative; 
         }
-
-        .main-menu ul li a .submenu-toggle-icon { 
-            margin-left: 0.5em;
-            font-size: 0.7em;
-            display: inline-flex; 
-            align-items: center;
-            padding: 0.3em; 
-            cursor: pointer; 
-        }
-        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
-
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
-            transform: rotate(180deg);
-        }
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
-            transform: rotate(90deg); 
-        }
-         @media (min-width: 992px) { 
-             .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
-                transform: rotate(0deg); 
-             }
-        }
-
-        .main-menu a:hover,
-        .main-menu ul li:hover > a,
-        .main-menu ul li.open > a {
+        .main-menu ul li a:hover,
+        .main-menu ul li a.current-page {
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg); 
         }
-        
-        .main-menu > ul > li > a.current-page {
-            color: #FFFFFF; 
-            background: var(--text-gradient); 
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
+        .main-menu ul li a.main-cta {
+             color: #FFFFFF; background: var(--button-gradient); font-weight: 600;
+             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.2);
         }
-        body.dark-mode .main-menu > ul > li > a.current-page {
-             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+        .main-menu ul li a.main-cta:hover {
+             color: #FFFFFF;
+             background: var(--button-hover-gradient);
+             transform: translateY(-2px);
+             box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.3);
         }
-        .main-menu > ul > li > a.current-page:hover {
-            color: #FFFFFF;
-            background: var(--button-hover-gradient); 
-            opacity: 0.95;
-        }
-        .main-menu .submenu li a.current-page {
-            color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg); 
-            font-weight: 600;
-        }
-        
-        .main-menu .submenu { 
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--submenu-bg); 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-            border-radius: 0 0 8px 8px; 
-            min-width: 230px; 
-            z-index: 100;
-            padding: 0.5rem 0; 
-            border-top: 1px solid var(--border-color-soft); 
-            opacity: 0; 
-            visibility: hidden; 
-            transform: translateY(10px); 
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
-        }
-        body.dark-mode .main-menu .submenu {
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
-        }
-        .main-menu .submenu.level-3 { 
-            top: 0; 
-            left: 100%;
-            border-radius: 0 8px 8px 8px; 
-            margin-top: -0.5rem; 
-        }
-
-        .main-menu ul li.open > .submenu { 
-            display: block;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
-
-        .main-menu .submenu li { width: 100%; margin-left: 0; }
-        .main-menu .submenu li a { 
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem; 
-            color: var(--text-dark); 
-            border-bottom: 1px solid var(--border-color-soft); 
-            justify-content: space-between; 
-            border-radius: 0; 
-        }
-        .main-menu .submenu li:last-child a { border-bottom: none; }
-        .main-menu .submenu li a:hover { 
-            background-color: var(--submenu-hover-bg); 
-            color: var(--brand-purple-start);
-        }
-        
+       
         /* Estilos generales para bloques de contenido */
         .content-block { padding: 4.5rem 0; transition: var(--transition-colors); } 
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
-        
-        .block-title { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            color: var(--text-dark); 
-            margin-bottom: 1.25rem; 
-            transition: var(--transition-colors);
-        }
-        .gradient-title { 
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block; 
-        }
-
-        .block-subtitle { 
-            text-align: center; 
-            font-size: 1.125rem; 
-            color: var(--text-medium); 
-            max-width: 800px; 
-            margin: 0 auto 3.5rem auto; 
-            line-height: 1.8;
-            transition: var(--transition-colors);
-        }
+        .block-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.25rem; transition: var(--transition-colors); }
+        .gradient-title { background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
+        .block-subtitle { text-align: center; font-size: 1.125rem; color: var(--text-medium); max-width: 800px; margin: 0 auto 3.5rem auto; line-height: 1.8; transition: var(--transition-colors); }
 
         /* --- ESTILOS PARA LA PÁGINA DE ANUNCIOS --- */
-        .announcements-page-wrapper {
-            padding-top: 2.5rem; 
-        }
-        .announcements-grid {
-            display: grid;
-            grid-template-columns: 1fr; 
-            gap: 2.5rem; 
-        }
-
-        .announcement-card {
-            background-color: var(--bg-light);
-            border-radius: 16px; 
-            box-shadow: var(--card-shadow-light);
-            padding: 2rem;
-            transition: var(--transition-smooth), var(--transition-colors);
-            border-left: 6px solid var(--brand-purple-start); 
-            display: flex;
-            flex-direction: column; 
-        }
-        .announcement-card:hover {
-            transform: translateY(-6px);
-            box-shadow: var(--card-hover-shadow);
-        }
-
-        .announcement-flyer {
-            width: 100%;
-            max-height: 350px; 
-            overflow: hidden;
-            border-radius: 10px; 
-            margin-bottom: 1.5rem; 
-            display: flex; 
-            justify-content: center;
-            align-items: center;
-            background-color: var(--submenu-hover-bg); 
-        }
-        .announcement-flyer img {
-            width: 100%;
-            height: auto; 
-            max-height: 100%; 
-            object-fit: cover; 
-            border-radius: 10px;
-        }
-        .announcement-flyer .flyer-placeholder-text {
-            color: var(--text-subtle);
-            font-style: italic;
-        }
-
-
-        .announcement-card .announcement-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start; 
-            margin-bottom: 1rem;
-            border-bottom: 1px solid var(--border-color-soft);
-            padding-bottom: 1rem;
-            flex-wrap: wrap; 
-        }
-        .announcement-card .announcement-title {
-            font-size: 1.6rem; 
-            font-weight: 600;
-            color: var(--text-dark);
-            margin: 0;
-            margin-right: 1rem; 
-            flex-grow: 1; 
-        }
-        .announcement-card .announcement-date {
-            font-size: 0.9rem; 
-            color: var(--text-subtle);
-            font-weight: 500;
-            white-space: nowrap;
-            margin-top: 0.25rem; 
-        }
-        .announcement-card .announcement-content {
-            flex-grow: 1; 
-        }
-        .announcement-card .announcement-content p {
-            font-size: 1rem; 
-            color: var(--text-medium);
-            line-height: 1.75;
-            margin-bottom: 1.25rem;
-        }
-        .announcement-card .announcement-content p:last-child {
-            margin-bottom: 0;
-        }
-        .announcement-card .announcement-footer {
-            margin-top: 1.5rem; 
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap; 
-        }
-        .announcement-card .announcement-link {
-            color: var(--brand-blue-end);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.2s ease;
-        }
-        .announcement-card .announcement-link:hover {
-            text-decoration: underline;
-            color: var(--brand-purple-start);
-        }
-        .announcement-card .announcement-tag {
-            display: inline-block;
-            background-color: rgba(var(--brand-blue-end-rgb), 0.1);
-            color: var(--brand-blue-end);
-            padding: 0.3rem 0.8rem;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 500;
-        }
-        body.dark-mode .announcement-card .announcement-tag {
-            background-color: rgba(var(--brand-blue-end-rgb), 0.2);
-        }
-        
+        .announcements-page-wrapper { padding-top: 2.5rem; }
+        .announcements-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+        .announcement-card { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); padding: 2rem; transition: var(--transition-smooth), var(--transition-colors); border-left: 6px solid var(--brand-purple-start); display: flex; flex-direction: column; }
+        .announcement-card:hover { transform: translateY(-6px); box-shadow: var(--card-hover-shadow); }
+        .announcement-flyer { width: 100%; max-height: 350px; overflow: hidden; border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; background-color: var(--submenu-hover-bg); }
+        .announcement-flyer img { width: 100%; height: auto; max-height: 100%; object-fit: cover; border-radius: 10px; }
+        .announcement-flyer .flyer-placeholder-text { color: var(--text-subtle); font-style: italic; }
+        .announcement-card .announcement-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color-soft); padding-bottom: 1rem; flex-wrap: wrap; }
+        .announcement-card .announcement-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin: 0; margin-right: 1rem; flex-grow: 1; }
+        .announcement-card .announcement-date { font-size: 0.9rem; color: var(--text-subtle); font-weight: 500; white-space: nowrap; margin-top: 0.25rem; }
+        .announcement-card .announcement-content { flex-grow: 1; }
+        .announcement-card .announcement-content p { font-size: 1rem; color: var(--text-medium); line-height: 1.75; margin-bottom: 1.25rem; }
+        .announcement-card .announcement-content p:last-child { margin-bottom: 0; }
+        .announcement-card .announcement-footer { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .announcement-card .announcement-link { color: var(--brand-blue-end); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+        .announcement-card .announcement-link:hover { text-decoration: underline; color: var(--brand-purple-start); }
+        .announcement-card .announcement-tag { display: inline-block; background-color: rgba(var(--brand-blue-end-rgb), 0.1); color: var(--brand-blue-end); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        body.dark-mode .announcement-card .announcement-tag { background-color: rgba(var(--brand-blue-end-rgb), 0.2); }
+       
         /* Botón Flotante de Acción (FAB) */
         .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
         .floating-action-button:hover { background-color: var(--whatsapp-hover-bg-color); transform: scale(1.08) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
@@ -480,49 +241,14 @@
             .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
             .header-inner > .main-menu { order: 4; }
 
-            .main-menu { 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                right: 0; 
-                background-color: var(--bg-light);
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
-                max-height: 0; 
-                overflow-y: auto; 
-                transition: max-height 0.4s ease-in-out, var(--transition-colors); 
-                border-top: 1px solid var(--border-color-soft); 
-            }
+            .main-menu { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); max-height: 0; overflow-y: auto; transition: max-height 0.4s ease-in-out, var(--transition-colors); border-top: 1px solid var(--border-color-soft); }
             .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
-            .main-menu ul { flex-direction: column; width: 100%; }
+            .main-menu ul { flex-direction: column; width: 100%; align-items: stretch; }
             .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
             .main-menu > ul > li:last-child { border-bottom: none; }
-            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} 
-            
-            .main-menu > ul > li > a.current-page { 
-                background: var(--submenu-hover-bg); 
-                color: var(--brand-purple-start); 
-                box-shadow: none;
-            }
-            .main-menu > ul > li > a.current-page:hover {
-                 background: var(--submenu-hover-bg); 
-                 opacity: 1;
-            }
-
-            .main-menu .submenu { 
-                position: static; 
-                box-shadow: none; border-radius: 0; min-width: 100%;
-                padding: 0; border-top: none;
-                background-color: var(--submenu-hover-bg); 
-                max-height: 0; overflow: hidden; 
-                transition: max-height 0.3s ease-out, var(--transition-colors); 
-                opacity: 1; visibility: visible; transform: none; 
-            }
-            .main-menu ul li.open > .submenu { max-height: 600px; }
-            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
-            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
-            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
-            .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
-            
+            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: flex-start; border-radius: 0; }
+            .main-menu ul li a.main-cta { justify-content: center; }
+           
             .block-title { font-size: 2rem; }
             .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
             .announcements-grid { grid-template-columns: 1fr; }
@@ -566,75 +292,12 @@
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <nav class="main-menu" id="mainMenuNav" aria-label="Navegación principal">
-                <ul>
-                    <li class="has-submenu">
-                        <a href="index.html" aria-haspopup="true" aria-expanded="false">
-                            Universe Community
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                        </a>
-                        <ul class="submenu level-2">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="index.html#proyectos-destacados">Proyectos</a></li>
-                            <li><a href="index.html#donaciones">Donar</a></li>
-                            <li><a href="index.html#comunidad">Contacto</a></li>
-                            <li><a href="index.html#soporte-contacto">Soporte</a></li>
-                        </ul>
-                    </li>
-                    <li class="has-submenu">
-                        <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
-                            Proyectos
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                        </a>
-                        <ul class="submenu level-2">
-                            <li class="has-submenu">
-                                <a href="proyecto-alpha.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Alpha
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-alpha.html#inicio">Inicio del Proyecto</a></li>
-                                    <li><a href="proyecto-alpha.html#detalles">Detalles</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-beta.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Beta
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-beta.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-gamma.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Gamma
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-gamma.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-delta.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Delta
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-delta.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-epsilon.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Epsilon
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-epsilon.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                        </ul>
-                    </li>
-                     <li><a href="avisos.html">Avisos</a></li> 
+                <!-- El UL se llena dinámicamente, incluyendo los enlaces de donación -->
+                <ul id="main-menu-list">
+                    <li><a href="index.html">Universe Community</a></li>
+                    <li><a href="proyectos.html">Proyectos</a></li>
+                    <li><a href="avisos.html">Avisos</a></li>
+                    <!-- Los enlaces de donación se insertarán aquí por JS -->
                 </ul>
             </nav>
         </div>
@@ -704,7 +367,7 @@
                 document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
             }
         }
-        
+       
         updateHeaderHeightAndPadding();
         window.addEventListener('resize', updateHeaderHeightAndPadding);
 
@@ -741,7 +404,7 @@
             });
         }
 
-        // --- Mobile Navigation Menu (Main Toggle) ---
+        // --- Mobile Navigation Menu (Simplified) ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
@@ -752,324 +415,160 @@
                 navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
                 navIcon.classList.toggle('fa-bars', !isExpanded);
                 navIcon.classList.toggle('fa-times', isExpanded);
-
-                if (!isExpanded) { 
-                    mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                        openSubmenuLi.classList.remove('open');
-                        const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                        if (link) link.setAttribute('aria-expanded', 'false');
-                        const submenu = openSubmenuLi.querySelector('.submenu');
-                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
-                    });
-                }
             });
         }
-
-        // --- Submenu Toggle Logic (Revised) ---
-        function performToggleVisually(listItem, linkElement, submenuElement) {
-            const isOpen = listItem.classList.toggle('open');
-            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
-
-            if (window.innerWidth <= 991 && submenuElement) { 
-                if (isOpen) {
-                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
-                } else {
-                    submenuElement.style.maxHeight = null;
-                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
-                        openChild.classList.remove('open');
-                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
-                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
-                        const childSubmenu = openChild.querySelector('.submenu');
-                        if(childSubmenu) childSubmenu.style.maxHeight = null;
-                    });
-                }
-            }
-        }
-
+        
+        // --- Close mobile menu when a link is clicked ---
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
-                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
-                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
-                const submenu = listItem.querySelector(":scope > .submenu"); 
-
-                if (!link || !submenu) return;
-
-                if (toggleIcon) {
-                    toggleIcon.addEventListener("click", function (event) {
-                        event.preventDefault();  
-                        event.stopPropagation(); 
-                        performToggleVisually(listItem, link, submenu);
-                    });
+            mainMenuNav.addEventListener('click', (event) => {
+                if (event.target.tagName === 'A' && mainMenuNav.classList.contains('menu-visible')) {
+                     if (navToggleBtn) {
+                        navToggleBtn.click();
+                     }
                 }
-
-                link.addEventListener("click", function (event) {
-                    if (event.target.closest(".submenu-toggle-icon")) {
-                        return; 
-                    }
-
-                    const isMobileView = window.innerWidth <= 991;
-                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
-
-
-                    if (isMobileView) {
-                        if (listItem.classList.contains('has-submenu')) {
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    } else { // Desktop View
-                        if (hasValidHref) {
-                             if (isLinkToCurrentPagePathOnly) { 
-                                event.preventDefault(); 
-                                performToggleVisually(listItem, link, submenu);
-                            }
-                        } else { 
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    }
-                });
-            });
-        }
-
-
-        // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
-        if (mainMenuNav) {
-            mainMenuNav.querySelectorAll("ul li a").forEach(link => {
-                link.addEventListener('click', (event) => {
-                    const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
-                    const listItem = link.closest('li');
-                    const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
-                    
-                    if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
-                        return;
-                    }
-
-                    if (mainMenuNav.classList.contains('menu-visible')) {
-                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
-                            mainMenuNav.classList.remove('menu-visible');
-                            if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
-                            if (navIcon) {
-                                navIcon.classList.remove('fa-times');
-                                navIcon.classList.add('fa-bars');
-                            }
-                            mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                                openSubmenuLi.classList.remove('open');
-                                const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                                if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
-                                const submenu = openSubmenuLi.querySelector('.submenu');
-                                if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
-                            });
-                        }
-                    }
-                });
             });
         }
 
         // --- Resaltado de Página Actual en el Menú ---
         function updateCurrentPage() { 
-            if (!mainMenuNav) return;
-            const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
-            const currentUrlHash = window.location.hash;
-
-            mainMenuNav.querySelectorAll('a').forEach(navLink => {
-                navLink.classList.remove('current-page'); 
+            const mainMenu = document.getElementById('main-menu-list');
+            if (!mainMenu) return;
+            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+            mainMenu.querySelectorAll('a').forEach(navLink => {
+                navLink.classList.remove('current-page');
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
-
-                const linkUrl = new URL(linkHref, window.location.origin); 
-                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
-                const linkHash = linkUrl.hash;
-                
-                let isActive = false;
-
-                if (linkPath === currentUrlPath) {
-                    if (linkHash) { 
-                        if (linkHash === currentUrlHash) isActive = true;
-                    } else { 
-                        if (!currentUrlHash || currentUrlHash === "#") isActive = true; 
-                    }
-                }
-                
-                if (isActive) {
+                const linkPath = (linkHref.split('/').pop() || 'index.html').split('#')[0];
+                if (linkPath === currentPath) {
                     navLink.classList.add('current-page');
-                    let currentElementForParentCheck = navLink;
-                    while (currentElementForParentCheck) {
-                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
-                        if (!parentSubmenuUl) break; 
-                        const parentLi = parentSubmenuUl.parentElement; 
-                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
-                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
-                        if (parentAnchor) {
-                            parentAnchor.classList.add('current-page'); 
-                        } else { break; }
-                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
-                        currentElementForParentCheck = parentLi; 
-                    }
                 }
             });
         }
-        
-        updateCurrentPage(); 
-        window.addEventListener('hashchange', updateCurrentPage); 
-        
-
-        // --- Cargar Anuncios y Footer desde JSON ---
+       
+        // --- Cargar Contenido Dinámico desde JSON ---
         const announcementsGrid = document.getElementById('announcementsGrid');
+        const mainMenuList = document.getElementById('main-menu-list');
         const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
         const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
         const fabWhatsapp = document.getElementById('fabWhatsapp');
+        
+        function renderizarMenuDonaciones(donaciones, container) {
+            if (!container || !donaciones) return;
+            donaciones.forEach(donacion => {
+                const li = document.createElement('li');
+                const link = document.createElement('a');
+                link.href = donacion.url;
+                link.target = "_blank";
+                link.rel = "noopener noreferrer";
+                link.classList.add('main-cta'); 
+                link.innerHTML = `<i class="${donacion.icono}" style="margin-right: 8px;"></i>${donacion.plataforma}`;
+                li.appendChild(link);
+                container.appendChild(li);
+            });
+        }
+
+        function renderizarAnuncios(anuncios, container) {
+            if (!container || !anuncios || anuncios.length === 0) {
+                if(container) container.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
+                return;
+            }
+            container.innerHTML = ''; 
+            anuncios.forEach(anuncio => {
+                const card = document.createElement('article');
+                card.classList.add('announcement-card');
+                card.id = anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`;
+
+                let flyerHTML = '';
+                if (anuncio.flyerUrl) {
+                    flyerHTML = `<div class="announcement-flyer"><img src="${anuncio.flyerUrl}" alt="${anuncio.altFlyer || 'Flyer del anuncio'}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '<span class=\\'flyer-placeholder-text\\'>[Imagen no disponible]</span>';"></div>`;
+                }
+
+                let enlaceHTML = '';
+                if (anuncio.enlaceUrl && anuncio.enlaceTexto) {
+                    enlaceHTML = `<a href="${anuncio.enlaceUrl}" class="announcement-link" target="_blank" rel="noopener">${anuncio.enlaceTexto} <i class="fas fa-arrow-right"></i></a>`;
+                }
+
+                let etiquetaHTML = '';
+                if (anuncio.etiqueta) {
+                    etiquetaHTML = `<span class="announcement-tag">${anuncio.etiqueta}</span>`;
+                }
+
+                card.innerHTML = `
+                    ${flyerHTML}
+                    <div class="announcement-header">
+                        <h3 class="announcement-title">${anuncio.titulo}</h3>
+                        <span class="announcement-date">${anuncio.fecha}</span>
+                    </div>
+                    <div class="announcement-content">
+                        <p>${anuncio.contenido.replace(/\n/g, '<br>')}</p> 
+                    </div>
+                    <div class="announcement-footer">
+                        ${enlaceHTML}
+                        ${etiquetaHTML}
+                    </div>
+                `;
+                container.appendChild(card);
+            });
+        }
+
+        function renderizarFooter(redesSociales, contactContainer, socialContainer, fabElement) {
+            if (!redesSociales) return;
+            
+            if (contactContainer && redesSociales.contactosDirectos) {
+                contactContainer.innerHTML = ''; 
+                redesSociales.contactosDirectos.forEach(contacto => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = contacto.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
+                    linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
+                    contactContainer.appendChild(linkElement);
+                });
+            }
+
+            if (socialContainer && redesSociales.perfilesSociales) {
+                socialContainer.innerHTML = ''; 
+                redesSociales.perfilesSociales.forEach(perfil => {
+                    const linkElement = document.createElement('a');
+                    linkElement.href = perfil.url || '#';
+                    linkElement.target = "_blank";
+                    linkElement.title = perfil.titulo;
+                    linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
+                    linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+                    socialContainer.appendChild(linkElement);
+                });
+            }
+
+            if (fabElement && redesSociales.contactosDirectos) {
+                const whatsappFabInfo = redesSociales.contactosDirectos.find(
+                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
+                );
+                fabElement.href = whatsappFabInfo ? whatsappFabInfo.url : 'javascript:void(0);';
+            }
+        }
+
 
         async function cargarContenidoDesdeJSON() {
-            console.log("Intentando cargar datos_web.json..."); // Depuración
             try {
                 const response = await fetch('datos_web.json'); 
-                console.log("Respuesta del fetch:", response); // Depuración
-
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar el archivo JSON.`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
-                console.log("Datos JSON cargados:", data); // Depuración
-                
-                // Cargar Anuncios
-                if (announcementsGrid && data.anuncios) {
-                    const anuncios = data.anuncios;
-                    if (anuncios && anuncios.length > 0) {
-                        announcementsGrid.innerHTML = ''; 
-                        anuncios.forEach(anuncio => {
-                            const card = document.createElement('article');
-                            card.classList.add('announcement-card');
-                            card.setAttribute('id', anuncio.id || `anuncio-${Math.random().toString(36).substr(2, 9)}`);
-
-                            let flyerHTML = '';
-                            if (anuncio.flyerUrl) {
-                                flyerHTML = `
-                                    <div class="announcement-flyer">
-                                        <img src="${anuncio.flyerUrl}" alt="${anuncio.altFlyer || 'Flyer del anuncio'}" loading="lazy" onerror="this.style.display='none'; this.parentElement.innerHTML = '<span class=\\'flyer-placeholder-text\\'>[Imagen no disponible]</span>';">
-                                    </div>`;
-                            } else {
-                                 flyerHTML = `
-                                    <div class="announcement-flyer">
-                                        <span class="flyer-placeholder-text">[No hay flyer para este anuncio]</span>
-                                    </div>`;
-                            }
-
-                            let enlaceHTML = '';
-                            if (anuncio.enlaceUrl && anuncio.enlaceTexto) {
-                                enlaceHTML = `<a href="${anuncio.enlaceUrl}" class="announcement-link">${anuncio.enlaceTexto} <i class="fas fa-arrow-right"></i></a>`;
-                            }
-
-                            let etiquetaHTML = '';
-                            if (anuncio.etiqueta) {
-                                etiquetaHTML = `<span class="announcement-tag">${anuncio.etiqueta}</span>`;
-                            }
-
-                            card.innerHTML = `
-                                ${flyerHTML}
-                                <div class="announcement-header">
-                                    <h3 class="announcement-title">${anuncio.titulo}</h3>
-                                    <span class="announcement-date">${anuncio.fecha}</span>
-                                </div>
-                                <div class="announcement-content">
-                                    <p>${anuncio.contenido.replace(/\n/g, '<br>')}</p> 
-                                </div>
-                                <div class="announcement-footer">
-                                    ${enlaceHTML}
-                                    ${etiquetaHTML}
-                                </div>
-                            `;
-                            announcementsGrid.appendChild(card);
-                        });
-                    } else {
-                        announcementsGrid.innerHTML = '<p>No hay anuncios disponibles en este momento.</p>';
-                    }
-                } else if (announcementsGrid) {
-                     announcementsGrid.innerHTML = '<p>No se encontró la sección de anuncios en los datos.</p>';
-                }
-
-
-                // Cargar Contenido del Footer y FAB
-                if (data.redesSociales) {
-                    console.log("Cargando datos de redesSociales:", data.redesSociales); // Depuración
-                    // Contactos Directos del Footer
-                    if (footerContactDirectContainer && data.redesSociales.contactosDirectos) {
-                        footerContactDirectContainer.innerHTML = ''; 
-                        data.redesSociales.contactosDirectos.forEach(contacto => {
-                            const linkElement = document.createElement('a');
-                            linkElement.href = contacto.url || '#';
-                            linkElement.target = "_blank";
-                            linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
-                            linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
-                            footerContactDirectContainer.appendChild(linkElement);
-                        });
-                    } else if (footerContactDirectContainer) {
-                        footerContactDirectContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
-                    }
-
-                    // Perfiles Sociales del Footer
-                    if (footerSocialProfilesContainer && data.redesSociales.perfilesSociales) {
-                        footerSocialProfilesContainer.innerHTML = ''; 
-                        data.redesSociales.perfilesSociales.forEach(perfil => {
-                            const linkElement = document.createElement('a');
-                            linkElement.href = perfil.url || '#';
-                            linkElement.target = "_blank";
-                            linkElement.title = perfil.titulo;
-                            linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
-                            linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
-                            footerSocialProfilesContainer.appendChild(linkElement);
-                        });
-                    } else if (footerSocialProfilesContainer) {
-                         footerSocialProfilesContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
-                    }
-
-                    // Botón Flotante de WhatsApp (FAB)
-                    if (fabWhatsapp && data.redesSociales.contactosDirectos) {
-                        const whatsappFabInfo = data.redesSociales.contactosDirectos.find(
-                            c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
-                        );
-                        if (whatsappFabInfo && whatsappFabInfo.url) {
-                            fabWhatsapp.href = whatsappFabInfo.url;
-                            console.log("FAB WhatsApp URL asignada:", whatsappFabInfo.url); // Depuración
-                        } else {
-                             fabWhatsapp.href = "javascript:void(0);"; 
-                             fabWhatsapp.style.cursor = "default"; 
-                             console.log("FAB WhatsApp: No se encontró URL específica, se usó placeholder."); // Depuración
-                        }
-                    } else if (fabWhatsapp) {
-                        fabWhatsapp.href = "javascript:void(0);"; 
-                        fabWhatsapp.style.cursor = "default";
-                        console.log("FAB WhatsApp: No se encontró data.redesSociales.contactosDirectos."); // Depuración
-                    }
-                } else {
-                    console.log("No se encontró la sección 'redesSociales' en el JSON."); // Depuración
-                    if(footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
-                    if(footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Datos de redes sociales no encontrados.</p>';
-                    if(fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
-                }
-
+               
+                renderizarMenuDonaciones(data.redesSociales?.donaciones, mainMenuList);
+                renderizarAnuncios(data.anuncios, announcementsGrid);
+                renderizarFooter(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
 
             } catch (error) {
                 console.error('Error al cargar contenido desde JSON:', error);
-                if (announcementsGrid) {
-                    announcementsGrid.innerHTML = `<p>Error al cargar los anuncios: ${error.message}. Por favor, verifica la consola y el archivo JSON.</p>`;
-                }
-                if (footerContactDirectContainer) {
-                    footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
-                }
-                if (footerSocialProfilesContainer) {
-                    footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
-                }
-                if(fabWhatsapp) {
-                    fabWhatsapp.href = "javascript:void(0);";
-                }
+                if (announcementsGrid) announcementsGrid.innerHTML = `<p>Error al cargar los anuncios: ${error.message}.</p>`;
+                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
+                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
+            } finally {
+                updateCurrentPage(); 
             }
         }
 
         cargarContenidoDesdeJSON();
-
 
         const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
