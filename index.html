@@ -26,15 +26,15 @@
           var(--brand-purple-start),
           var(--brand-blue-end)
         );
-        --button-gradient: linear-gradient( 
+        --button-gradient: linear-gradient(
           135deg, /* Ángulo cambiado */
           var(--brand-purple-start),
           var(--brand-blue-end)
         );
-         --button-hover-gradient: linear-gradient(
+        --button-hover-gradient: linear-gradient(
           135deg, /* Ángulo cambiado y colores oscurecidos */
-          #5a0fb3, 
-          #1e62d0 
+          #5a0fb3,
+          #1e62d0
         );
         --paypal-button-bg: #0070ba;
         --paypal-button-hover-bg: #005ea6;
@@ -43,7 +43,6 @@
         --text-medium: #5f6773;
         --text-light: #ffffff;
         --text-subtle: #8a92a5;
-
 
         --bg-light: #ffffff;
         --bg-light-rgb: 255, 255, 255;
@@ -56,7 +55,6 @@
         --input-focus-border-color: var(--brand-purple-start);
         --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06);
         --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
-
 
         --font-primary: "Poppins", sans-serif;
 
@@ -71,14 +69,13 @@
         --details-link-blue: #007bff;
 
         /* Footer variables (consistent with proyectos.html) */
-        --footer-bg-dark: #121224; 
-        --footer-text-primary-light: #E8EAF6;
-        --footer-text-secondary-light: #A0A8C0;
+        --footer-bg-dark: #121224;
+        --footer-text-primary-light: #e8eaf6;
+        --footer-text-secondary-light: #a0a8c0;
         --footer-heading-color: var(--text-light);
         --footer-link-hover-color: var(--brand-blue-end);
-        --footer-icon-color: #A0A8C0;
+        --footer-icon-color: #a0a8c0;
         --footer-icon-hover-color: var(--text-light);
-
 
         --social-facebook-color: #1877f2;
         --social-twitter-color: #1da1f2;
@@ -93,7 +90,8 @@
         --telegram-hover-bg-color: #007ab8;
 
         --transition-smooth: all 0.3s ease-in-out;
-        --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        --transition-colors: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
         --header-height: 70px;
 
         --brand-purple-start-rgb: 106, 17, 203;
@@ -108,26 +106,26 @@
       body.dark-mode {
         --text-dark: #e0e0e0;
         --text-medium: #b0b0b0;
-        --text-light: #121212; 
+        --text-light: #121212;
         --text-subtle: #7a7a7a;
 
         --bg-light: #1a1a2e;
         --bg-light-rgb: 26, 26, 46;
         --bg-section-alt: #23233c;
-        --submenu-bg: #2c2c48; 
-        --submenu-hover-bg: #353558; 
-        
-        --border-color-soft: #3a3a5a; 
+        --submenu-bg: #2c2c48;
+        --submenu-hover-bg: #353558;
+
+        --border-color-soft: #3a3a5a;
         --input-border-color: #4a4a6a;
         --input-focus-border-color: var(--brand-blue-end);
         --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
         --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
 
         /* Footer in dark mode */
-        --footer-bg-dark: #0e0e1c; 
+        --footer-bg-dark: #0e0e1c;
         --footer-text-primary-light: #d0d0e0;
         --footer-text-secondary-light: #9090b0;
-        
+
         --mv-skewed-gradient-start: rgba(106, 17, 203, 0.12);
         --mv-skewed-gradient-end: rgba(37, 117, 252, 0.12);
         --mv-card-shadow-final: 0 12px 36px rgba(0, 0, 0, 0.2);
@@ -137,7 +135,6 @@
         --theme-toggle-icon-color: #c5c5c5;
         --theme-toggle-bg-hover: #353558;
       }
-
 
       /* Reset Básico y Estilos Generales */
       *,
@@ -171,13 +168,13 @@
         background-color: var(--bg-light);
         padding: 1rem 0;
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        position: sticky; 
+        position: sticky;
         top: 0;
         z-index: 1000;
         transition: var(--transition-colors);
       }
-       body.dark-mode .site-header {
-         box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05);
+      body.dark-mode .site-header {
+        box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05);
       }
       .header-inner {
         display: flex;
@@ -200,7 +197,7 @@
         margin-right: 0.625rem;
       }
       .logo-abbr {
-        color: #FFFFFF;
+        color: #ffffff;
         font-weight: 700;
         font-size: 1.3rem;
       }
@@ -210,32 +207,38 @@
         color: var(--text-dark);
         transition: color 0.2s ease;
       }
-      .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
-
+      .logo-link:hover .logo-full-text {
+        color: var(--brand-purple-start);
+      }
 
       /* --- Theme Toggle Button --- */
       .theme-toggle-button {
-          background: none;
-          border: none;
-          color: var(--theme-toggle-icon-color);
-          font-size: 1.25rem; 
-          padding: 0.5rem;
-          margin-left: 0.5rem; 
-          cursor: pointer;
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          transition: var(--transition-colors), transform 0.2s ease;
+        background: none;
+        border: none;
+        color: var(--theme-toggle-icon-color);
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin-left: 0.5rem;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-colors), transform 0.2s ease;
       }
       .theme-toggle-button:hover {
-          background-color: var(--theme-toggle-bg-hover);
-          transform: scale(1.1);
+        background-color: var(--theme-toggle-bg-hover);
+        transform: scale(1.1);
       }
-      .theme-toggle-button .fa-sun { display: none; }
-      body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
-      body.dark-mode .theme-toggle-button .fa-moon { display: none; }
-
+      .theme-toggle-button .fa-sun {
+        display: none;
+      }
+      body.dark-mode .theme-toggle-button .fa-sun {
+        display: inline-block;
+      }
+      body.dark-mode .theme-toggle-button .fa-moon {
+        display: none;
+      }
 
       /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
       .nav-toggle {
@@ -262,7 +265,7 @@
         margin-left: 0;
       }
       .main-menu > ul > li {
-        margin-left: 0.5rem; 
+        margin-left: 0.5rem;
       }
       .main-menu > ul > li:first-child {
         margin-left: 0;
@@ -274,9 +277,9 @@
         text-decoration: none;
         color: var(--text-medium);
         font-weight: 500;
-        font-size: 0.9rem; 
-        padding: 0.75rem 0.8rem; 
-        border-radius: 6px; 
+        font-size: 0.9rem;
+        padding: 0.75rem 0.8rem;
+        border-radius: 6px;
         transition: var(--transition-colors), background-color 0.2s ease;
         white-space: nowrap;
       }
@@ -284,10 +287,10 @@
       .main-menu ul li a .submenu-toggle-icon {
         margin-left: 0.5em;
         font-size: 0.7em;
-        display: inline-flex; 
+        display: inline-flex;
         align-items: center;
-        padding: 0.3em; 
-        cursor: pointer; 
+        padding: 0.3em;
+        cursor: pointer;
       }
       .main-menu ul li a .submenu-toggle-icon i {
         transition: transform 0.3s ease;
@@ -310,12 +313,17 @@
         i.fa-chevron-right.level2-arrow {
         transform: rotate(90deg);
       }
-      @media (min-width: 992px) { 
-         .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
-            transform: rotate(0deg); 
-         }
+      @media (min-width: 992px) {
+        .main-menu
+          ul
+          li.has-submenu
+          li.open
+          > a
+          .submenu-toggle-icon
+          i.fa-chevron-right.level2-arrow {
+          transform: rotate(0deg);
+        }
       }
-
 
       .main-menu a:hover,
       .main-menu ul li:hover > a,
@@ -323,27 +331,26 @@
         color: var(--brand-purple-start);
         background-color: var(--submenu-hover-bg);
       }
-      
+
       .main-menu > ul > li > a.current-page {
-          color: #FFFFFF; 
-          background: var(--text-gradient); 
-          font-weight: 600;
-          box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
+        color: #ffffff;
+        background: var(--text-gradient);
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
       }
       body.dark-mode .main-menu > ul > li > a.current-page {
-           box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
       }
       .main-menu > ul > li > a.current-page:hover {
-          color: #FFFFFF;
-          background: var(--button-hover-gradient); 
-          opacity: 0.95;
+        color: #ffffff;
+        background: var(--button-hover-gradient);
+        opacity: 0.95;
       }
       .main-menu .submenu li a.current-page {
-          color: var(--brand-purple-start);
-          background-color: var(--submenu-hover-bg); 
-          font-weight: 600;
+        color: var(--brand-purple-start);
+        background-color: var(--submenu-hover-bg);
+        font-weight: 600;
       }
-
 
       .main-menu .submenu {
         display: none;
@@ -353,17 +360,18 @@
         background-color: var(--submenu-bg);
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         border-radius: 0 0 8px 8px;
-        min-width: 230px; 
+        min-width: 230px;
         z-index: 100;
         padding: 0.5rem 0;
         border-top: 1px solid var(--border-color-soft);
-        opacity: 0; 
-        visibility: hidden; 
-        transform: translateY(10px); 
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease,
+          var(--transition-colors);
       }
       body.dark-mode .main-menu .submenu {
-          box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
       }
       .main-menu .submenu.level-3 {
         top: 0;
@@ -388,7 +396,7 @@
         font-size: 0.9rem;
         color: var(--text-dark);
         border-bottom: 1px solid var(--border-color-soft);
-        justify-content: space-between; 
+        justify-content: space-between;
         border-radius: 0;
       }
       .main-menu .submenu li:last-child a {
@@ -418,7 +426,7 @@
         margin-bottom: 1.25rem;
         transition: var(--transition-colors);
       }
-      .hero-main-title .highlight-text { 
+      .hero-main-title .highlight-text {
         background: var(--text-gradient);
         -webkit-background-clip: text;
         -moz-background-clip: text;
@@ -448,15 +456,15 @@
       }
       .btn-filled-gradient {
         background: var(--button-gradient);
-        color: #FFFFFF; 
+        color: #ffffff;
         box-shadow: 0 3px 8px rgba(0, 0, 0, 0.07);
       }
       body.dark-mode .btn-filled-gradient {
-         box-shadow: 0 3px 8px rgba(var(--brand-purple-start-rgb), 0.2);
+        box-shadow: 0 3px 8px rgba(var(--brand-purple-start-rgb), 0.2);
       }
       .btn-filled-gradient:hover {
-        background: var(--button-hover-gradient); 
-        opacity: 1; 
+        background: var(--button-hover-gradient);
+        opacity: 1;
         box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.25);
       }
       .btn-bordered {
@@ -466,7 +474,7 @@
       }
       .btn-bordered:hover {
         background: var(--button-gradient);
-        color: #FFFFFF;
+        color: #ffffff;
         border-color: transparent;
       }
 
@@ -488,7 +496,8 @@
       }
 
       /* Estilos Tarjeta Misión y Visión */
-      .mission-vision-section-wrapper { }
+      .mission-vision-section-wrapper {
+      }
       .mission-vision-container {
         display: flex;
         justify-content: center;
@@ -586,7 +595,7 @@
       }
       .card .card-icon-top {
         font-size: 2.25rem;
-        color: var(--brand-purple-start); 
+        color: var(--brand-purple-start);
         margin-bottom: 1rem;
       }
       .card .card-description {
@@ -603,20 +612,21 @@
         overflow: hidden;
         display: flex;
         flex-direction: column;
-        transition: transform 0.25s ease, box-shadow 0.25s ease, var(--transition-colors);
-        background-color: var(--bg-light); 
+        transition: transform 0.25s ease, box-shadow 0.25s ease,
+          var(--transition-colors);
+        background-color: var(--bg-light);
       }
       .project-card:hover {
         transform: translateY(-4px);
         box-shadow: 0px 6px 20px rgba(0, 0, 0, 0.08);
       }
       body.dark-mode .project-card:hover {
-         box-shadow: 0px 6px 20px rgba(var(--brand-purple-start-rgb), 0.15);
+        box-shadow: 0px 6px 20px rgba(var(--brand-purple-start-rgb), 0.15);
       }
       .project-img-placeholder {
         width: 100%;
         height: 210px;
-        background-color: var(--submenu-hover-bg); 
+        background-color: var(--submenu-hover-bg);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -626,9 +636,9 @@
         transition: var(--transition-colors);
       }
       .project-img-placeholder img {
-          width: 100%;
-          height: 100%;
-          object-fit: cover;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
       }
       .project-details {
         padding: 1.5rem;
@@ -660,12 +670,13 @@
         border: 1.5px solid var(--details-link-blue);
         border-radius: 6px;
         text-decoration: none;
-        transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, var(--transition-colors);
+        transition: background-color 0.2s ease, color 0.2s ease,
+          border-color 0.2s ease, var(--transition-colors);
         align-self: flex-start;
       }
       .btn-details-project:hover {
         background-color: var(--details-link-blue);
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .all-projects-link-container {
         text-align: center;
@@ -784,7 +795,7 @@
         padding: 0.875rem 2.5rem;
         font-size: 1rem;
         font-weight: 600;
-        color: #FFFFFF; 
+        color: #ffffff;
         background-color: var(--paypal-button-bg);
         border: none;
         border-radius: 25px;
@@ -856,7 +867,7 @@
         align-items: center;
         justify-content: center;
         font-size: 1.5rem;
-        color: #FFFFFF; 
+        color: #ffffff;
       }
       .contact-channel-card .whatsapp-icon {
         background-color: var(--whatsapp-bg-color);
@@ -886,7 +897,7 @@
         padding: 0.625rem 1.25rem;
         font-size: 0.875rem;
         font-weight: 500;
-        color: #FFFFFF; 
+        color: #ffffff;
         border-radius: 6px;
         text-decoration: none;
         transition: background-color 0.2s ease;
@@ -912,18 +923,19 @@
         display: grid;
         grid-template-columns: 1fr; /* Por defecto una columna */
         gap: 2.5rem;
-        align-items: flex-start; 
+        align-items: flex-start;
       }
       @media (min-width: 992px) {
         .support-main-container {
           grid-template-columns: 1fr; /* Cambiado a 1fr para que ocupe todo el ancho */
         }
         .faq-and-info-column {
-            max-width: 720px; /* Opcional: limitar el ancho de esta columna */
-            margin: 0 auto; /* Centrar si se usa max-width */
+          max-width: 720px; /* Opcional: limitar el ancho de esta columna */
+          margin: 0 auto; /* Centrar si se usa max-width */
         }
       }
-      .faq-and-info-column { }
+      .faq-and-info-column {
+      }
       /* El .contact-form-card-wrapper se eliminará */
 
       .faq-container,
@@ -1029,7 +1041,7 @@
       .contact-info-item a:hover {
         text-decoration: underline;
       }
-      
+
       /* FAB */
       .floating-action-button {
         position: fixed;
@@ -1038,7 +1050,7 @@
         bottom: 1.5rem;
         right: 1.5rem;
         background-color: var(--whatsapp-bg-color);
-        color: #FFFFFF; 
+        color: #ffffff;
         border-radius: 50%;
         display: flex;
         align-items: center;
@@ -1055,86 +1067,148 @@
       }
 
       /* Footer (Styles from proyectos.html) */
-      .site-footer-detailed { 
-          background-color: var(--footer-bg-dark); 
-          color: var(--footer-text-secondary-light); 
-          padding: 5rem 0 2rem 0; 
-          margin-top: 5rem; 
-          border-top: 4px solid var(--brand-purple-start); 
-          transition: var(--transition-colors);
+      .site-footer-detailed {
+        background-color: var(--footer-bg-dark);
+        color: var(--footer-text-secondary-light);
+        padding: 5rem 0 2rem 0;
+        margin-top: 5rem;
+        border-top: 4px solid var(--brand-purple-start);
+        transition: var(--transition-colors);
       }
-      .footer-grid { 
-          display: grid; 
-          grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-          align-items: flex-start; 
-          gap: 3rem; 
-          margin-bottom: 3.5rem; 
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: flex-start;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
       }
-      .footer-column .footer-logo-link { 
-          display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; 
+      .footer-column .footer-logo-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 1.5rem;
       }
-      .footer-column .footer-logo-icon-box { 
-          width: 42px; height: 42px; background: var(--button-gradient); 
-          border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; 
+      .footer-column .footer-logo-icon-box {
+        width: 42px;
+        height: 42px;
+        background: var(--button-gradient);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.75rem;
       }
-      .footer-column .footer-logo-abbr { color: #FFFFFF; font-weight: 700; font-size: 1.4rem; }
-      .footer-column .footer-logo-full-text { font-size: 1.2rem; font-weight: 600; color: var(--footer-text-primary-light); }
-      .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
-      .footer-column .footer-heading { 
-          font-size: 1.3rem; font-weight: 700; 
-          color: var(--footer-heading-color); margin-bottom: 1.5rem; 
-          position: relative; padding-bottom: 0.5rem; 
+      .footer-column .footer-logo-abbr {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.4rem;
       }
-      .footer-column .footer-heading::after { 
-          content: '';
-          position: absolute;
-          left: 0;
-          bottom: 0;
-          width: 40px;
-          height: 3px;
-          background: var(--brand-blue-end);
+      .footer-column .footer-logo-full-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--footer-text-primary-light);
       }
-      .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
-      .footer-social-icons a { 
-          color: var(--footer-icon-color); font-size: 1.25rem; 
-          transition: var(--transition-smooth); 
-          width: 40px; height: 40px; 
-          display: inline-flex; align-items: center; justify-content: center; 
-          border: 1px solid var(--footer-icon-color); 
-          border-radius: 50%; 
+      .footer-column .footer-description {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1.75rem;
       }
-      .footer-social-icons a:hover { 
-          color: #FFFFFF; 
-          background-color: var(--brand-blue-end);
-          border-color: var(--brand-blue-end);
-          transform: translateY(-3px) scale(1.05); 
+      .footer-column .footer-heading {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--footer-heading-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
       }
-      .footer-direct-contact { }
-      .footer-direct-contact a { 
-          display: flex; align-items: center; text-decoration: none; 
-          color: var(--footer-text-secondary-light); font-size: 0.975rem; 
-          margin-bottom: 0.75rem; 
-          transition: color 0.2s ease; padding: 0.3rem 0; 
+      .footer-column .footer-heading::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--brand-blue-end);
       }
-      .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
-      .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
-      .footer-bottom-bar { 
-          text-align: center; padding-top: 2.5rem; 
-          border-top: 1px solid rgba(255,255,255,0.1); 
-          margin-top: 2rem; 
-          transition: border-color 0.3s ease;
+      .footer-social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
       }
-      body.dark-mode .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); }
-      .footer-bottom-bar p { margin: 0; font-size: 0.925rem; color: var(--footer-text-secondary-light); }
-
+      .footer-social-icons a {
+        color: var(--footer-icon-color);
+        font-size: 1.25rem;
+        transition: var(--transition-smooth);
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--footer-icon-color);
+        border-radius: 50%;
+      }
+      .footer-social-icons a:hover {
+        color: #ffffff;
+        background-color: var(--brand-blue-end);
+        border-color: var(--brand-blue-end);
+        transform: translateY(-3px) scale(1.05);
+      }
+      .footer-direct-contact {
+      }
+      .footer-direct-contact a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--footer-text-secondary-light);
+        font-size: 0.975rem;
+        margin-bottom: 0.75rem;
+        transition: color 0.2s ease;
+        padding: 0.3rem 0;
+      }
+      .footer-direct-contact a i {
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
+      }
+      .footer-direct-contact a:hover {
+        color: var(--footer-link-hover-color);
+      }
+      .footer-bottom-bar {
+        text-align: center;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 2rem;
+        transition: border-color 0.3s ease;
+      }
+      body.dark-mode .footer-bottom-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-bottom-bar p {
+        margin: 0;
+        font-size: 0.925rem;
+        color: var(--footer-text-secondary-light);
+      }
 
       /* Responsive */
       @media (max-width: 991px) {
-        .nav-toggle { display: block; }
-        .theme-toggle-button { margin-right: 0.5rem; }
-        .header-inner > .logo-link { flex-shrink: 0; }
-        .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
-        .header-inner > .main-menu { order: 4; }
+        .nav-toggle {
+          display: block;
+        }
+        .theme-toggle-button {
+          margin-right: 0.5rem;
+        }
+        .header-inner > .logo-link {
+          flex-shrink: 0;
+        }
+        .header-inner > .nav-toggle,
+        .header-inner > .theme-toggle-button {
+          order: 3;
+        }
+        .header-inner > .main-menu {
+          order: 4;
+        }
 
         .main-menu {
           position: absolute;
@@ -1174,20 +1248,22 @@
           min-width: 100%;
           padding: 0;
           border-top: none;
-          background-color: var(--submenu-hover-bg); 
-          max-height: 0; 
+          background-color: var(--submenu-hover-bg);
+          max-height: 0;
           overflow: hidden;
           transition: max-height 0.3s ease-out, var(--transition-colors);
         }
         .main-menu ul li.open > .submenu {
-          max-height: 500px; 
+          max-height: 500px;
         }
         .main-menu .submenu.level-3 {
           margin-top: 0;
           padding-left: 1rem;
-          background-color: var(--bg-section-alt); 
+          background-color: var(--bg-section-alt);
         }
-        body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
+        body.dark-mode .main-menu .submenu.level-3 {
+          background-color: #202038;
+        }
         .main-menu .submenu li a {
           padding: 0.75rem 1.5rem;
           padding-left: 2rem;
@@ -1199,61 +1275,158 @@
           background-color: var(--submenu-hover-bg);
         }
 
-        .hero { text-align: center; }
-        .hero-content-wrapper { margin: 0 auto; }
-        .hero-main-title { font-size: 2.25rem; }
-        .hero-sub-title { font-size: 1.0625rem; }
-        .support-main-container { grid-template-columns: 1fr; }
-        .faq-and-info-column { margin-bottom: 2rem; }
+        .hero {
+          text-align: center;
+        }
+        .hero-content-wrapper {
+          margin: 0 auto;
+        }
+        .hero-main-title {
+          font-size: 2.25rem;
+        }
+        .hero-sub-title {
+          font-size: 1.0625rem;
+        }
+        .support-main-container {
+          grid-template-columns: 1fr;
+        }
+        .faq-and-info-column {
+          margin-bottom: 2rem;
+        }
         /* .contact-form-card-wrapper { margin-top: 0; } Ya no existe */
-        .social-connect-intro { text-align: center; margin-left: auto; margin-right: auto; }
-        .mv-content-card-final { padding: 2rem; }
-        .donation-intro-text { font-size: 1rem; }
+        .social-connect-intro {
+          text-align: center;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .mv-content-card-final {
+          padding: 2rem;
+        }
+        .donation-intro-text {
+          font-size: 1rem;
+        }
         .grid-three-cols:not(#que-hacemos .info-cards-wrapper.grid-three-cols) {
-          grid-template-columns: repeat(auto-fit,minmax(min(100%, 220px), 1fr));
+          grid-template-columns: repeat(
+            auto-fit,
+            minmax(min(100%, 220px), 1fr)
+          );
         }
       }
 
       @media (max-width: 767px) {
-        .hero-main-title { font-size: 1.875rem; }
-        .hero-sub-title { font-size: 1rem; max-width: 95%; }
-        .hero-button-group .btn { width: 85%; max-width: 300px; margin-right: 0; }
-        .block-title { font-size: 1.625rem; }
-        .social-connect-title { font-size: 1.625rem; }
-        .card { padding: 1.5rem; }
-        .card .card-title { font-size: 1.1875rem; }
-        .project-details { padding: 1.25rem; }
-        .project-name { font-size: 1.0625rem; }
+        .hero-main-title {
+          font-size: 1.875rem;
+        }
+        .hero-sub-title {
+          font-size: 1rem;
+          max-width: 95%;
+        }
+        .hero-button-group .btn {
+          width: 85%;
+          max-width: 300px;
+          margin-right: 0;
+        }
+        .block-title {
+          font-size: 1.625rem;
+        }
+        .social-connect-title {
+          font-size: 1.625rem;
+        }
+        .card {
+          padding: 1.5rem;
+        }
+        .card .card-title {
+          font-size: 1.1875rem;
+        }
+        .project-details {
+          padding: 1.25rem;
+        }
+        .project-name {
+          font-size: 1.0625rem;
+        }
         /* .contact-form-card { padding: 1.875rem; } Ya no existe */
         /* .form-title { font-size: 1.5rem; } Ya no existe */
-        .contact-channel-cards-grid { grid-template-columns: 1fr; }
-        .mv-content-card-final { padding: 1.8rem 1.5rem; }
-        .mv-content-card-final .mv-title-final { font-size: 1.4rem; }
-        .mv-content-card-final .mv-description-final { font-size: 0.95rem; }
-        .donation-intro-text { font-size: 0.95rem; padding: 0 0.5rem; }
-        .btn-donate-paypal { padding: 0.8rem 2rem; font-size: 0.95rem; }
-        .faq-container, .contact-info-container { padding: 1.5rem; }
-        .section-subtitle { font-size: 1.3rem; }
-        #proyectos-destacados .projects-slider-controls { justify-content: center; }
-        #proyectos-destacados .project-card { flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px); scroll-snap-align: center; }
-        
-        .footer-grid { grid-template-columns: 1fr; text-align: center; }
-        .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); } 
-        .footer-social-icons { justify-content: center; }
-        .footer-direct-contact a { justify-content: center; }
+        .contact-channel-cards-grid {
+          grid-template-columns: 1fr;
+        }
+        .mv-content-card-final {
+          padding: 1.8rem 1.5rem;
+        }
+        .mv-content-card-final .mv-title-final {
+          font-size: 1.4rem;
+        }
+        .mv-content-card-final .mv-description-final {
+          font-size: 0.95rem;
+        }
+        .donation-intro-text {
+          font-size: 0.95rem;
+          padding: 0 0.5rem;
+        }
+        .btn-donate-paypal {
+          padding: 0.8rem 2rem;
+          font-size: 0.95rem;
+        }
+        .faq-container,
+        .contact-info-container {
+          padding: 1.5rem;
+        }
+        .section-subtitle {
+          font-size: 1.3rem;
+        }
+        #proyectos-destacados .projects-slider-controls {
+          justify-content: center;
+        }
+        #proyectos-destacados .project-card {
+          flex: 0 0 clamp(250px, calc(90vw - 2rem), 300px);
+          scroll-snap-align: center;
+        }
+
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .footer-column .footer-heading::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .footer-social-icons {
+          justify-content: center;
+        }
+        .footer-direct-contact a {
+          justify-content: center;
+        }
       }
       @media (max-width: 576px) {
         /* .contact-form-card { padding: 1.5rem; } Ya no existe */
-        .mv-skewed-background-final { border-radius: var(--mv-card-border-radius-final); width: 102%; height: 104%; }
-        .mv-content-card-final { padding: 1.5rem; }
-        .mv-content-card-final .mv-title-final { font-size: 1.3rem; }
-        .mv-content-card-final .mv-description-final { font-size: 0.9rem; }
+        .mv-skewed-background-final {
+          border-radius: var(--mv-card-border-radius-final);
+          width: 102%;
+          height: 104%;
+        }
+        .mv-content-card-final {
+          padding: 1.5rem;
+        }
+        .mv-content-card-final .mv-title-final {
+          font-size: 1.3rem;
+        }
+        .mv-content-card-final .mv-description-final {
+          font-size: 0.9rem;
+        }
       }
       @media (max-width: 480px) {
-        .footer-column .footer-heading { font-size: 1.1rem; }
-        .footer-direct-contact a, .footer-column .footer-description { font-size: 0.88rem; }
-        .footer-social-icons a { font-size: 1.25rem; }
-        .footer-bottom-bar p { font-size: 0.85rem; }
+        .footer-column .footer-heading {
+          font-size: 1.1rem;
+        }
+        .footer-direct-contact a,
+        .footer-column .footer-description {
+          font-size: 0.88rem;
+        }
+        .footer-social-icons a {
+          font-size: 1.25rem;
+        }
+        .footer-bottom-bar p {
+          font-size: 0.85rem;
+        }
       }
     </style>
   </head>
@@ -1264,10 +1437,15 @@
           <div class="logo-icon-box"><span class="logo-abbr">UC</span></div>
           <span class="logo-full-text">Universe Community</span>
         </a>
-        
-        <button class="theme-toggle-button" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
-            <i class="fas fa-moon" aria-hidden="true"></i>
-            <i class="fas fa-sun" aria-hidden="true"></i>
+
+        <button
+          class="theme-toggle-button"
+          id="themeToggleBtn"
+          aria-label="Cambiar tema"
+          title="Cambiar tema"
+        >
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          <i class="fas fa-sun" aria-hidden="true"></i>
         </button>
 
         <button
@@ -1281,8 +1459,9 @@
 
         <nav class="main-menu" id="mainMenuNav">
           <ul>
+            <!-- 1. Universe Community (con submenú) -->
             <li class="has-submenu">
-              <a href="index.html" aria-haspopup="true" aria-expanded="false"> 
+              <a href="index.html" aria-haspopup="true" aria-expanded="false">
                 Universe Community
                 <span class="submenu-toggle-icon"
                   ><i class="fas fa-chevron-down"></i
@@ -1296,109 +1475,23 @@
                 <li><a href="#soporte-contacto">Soporte</a></li>
               </ul>
             </li>
-            <li class="has-submenu">
+
+            <!-- 2. Proyectos (enlace simple) -->
+            <li><a href="proyectos.html">Proyectos</a></li>
+
+            <!-- 3. Avisos (enlace simple) -->
+            <li><a href="avisos.html">Avisos</a></li>
+
+            <!-- 4. Donación (AÑADIDO: Enlace de Donación, el href se rellena con JS) -->
+            <li>
               <a
-                href="proyectos.html" 
-                aria-haspopup="true"
-                aria-expanded="false"
+                href="#"
+                id="paypalMenuLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Donación</a
               >
-                Proyectos
-                <span class="submenu-toggle-icon"
-                  ><i class="fas fa-chevron-down"></i
-                ></span>
-              </a>
-              <ul class="submenu level-2">
-                <li class="has-submenu"> 
-                  <a href="comunidades.html" aria-haspopup="true" aria-expanded="false">
-                    Comunidades WhatsApp
-                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                  </a>
-                  <ul class="submenu level-3">
-                    <li><a href="universo-bl.html">Universo BL</a></li>
-                    <li><a href="universo-multifandom.html">Universo Multifandom</a></li>
-                    <li><a href="universo-rol.html">Universo Rol</a></li>
-                    <li><a href="comunidades.html#admin-info">Une tu Grupo</a></li> 
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="us.html"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Universe Scan
-                    <span class="submenu-toggle-icon level2-arrow"
-                      ><i class="fas fa-chevron-right"></i
-                    ></span>
-                  </a>
-                  <ul class="submenu level-3">
-                    <li>
-                      <a href="us.html#inicio"
-                        >Inicio del Proyecto</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="nk.html"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    NKproyect
-                    <span class="submenu-toggle-icon level2-arrow"
-                      ><i class="fas fa-chevron-right"></i
-                    ></span>
-                  </a>
-                  <ul class="submenu level-3">
-                    <li>
-                      <a href="nk.html#inicio"
-                        >Inicio del Proyecto</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="proyecto-delta.html"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Proyecto Delta
-                    <span class="submenu-toggle-icon level2-arrow"
-                      ><i class="fas fa-chevron-right"></i
-                    ></span>
-                  </a>
-                  <ul class="submenu level-3">
-                    <li>
-                      <a href="proyecto-delta.html#inicio"
-                        >Inicio del Proyecto</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-                <li class="has-submenu">
-                  <a
-                    href="proyecto-epsilon.html"
-                    aria-haspopup="true"
-                    aria-expanded="false"
-                  >
-                    Proyecto Epsilon
-                    <span class="submenu-toggle-icon level2-arrow"
-                      ><i class="fas fa-chevron-right"></i
-                    ></span>
-                  </a>
-                  <ul class="submenu level-3">
-                    <li>
-                      <a href="proyecto-epsilon.html#inicio"
-                        >Inicio del Proyecto</a
-                      >
-                    </li>
-                  </ul>
-                </li>
-              </ul>
             </li>
-             <li><a href="avisos.html">Avisos</a></li> 
           </ul>
         </nav>
       </div>
@@ -1557,8 +1650,11 @@
             </p>
           </div>
 
-          <div class="contact-channel-cards-grid" id="contactChannelCardsContainer">
-             <p>Cargando canales de contacto...</p>
+          <div
+            class="contact-channel-cards-grid"
+            id="contactChannelCardsContainer"
+          >
+            <p>Cargando canales de contacto...</p>
           </div>
         </div>
       </section>
@@ -1575,90 +1671,116 @@
               <div class="contact-info-container card">
                 <h3 class="section-subtitle">Información de contacto</h3>
                 <ul class="contact-info-list" id="contactInfoListContainer">
-                   <p>Cargando información de contacto...</p>
+                  <p>Cargando información de contacto...</p>
                 </ul>
               </div>
             </div>
-            </div>
+          </div>
         </div>
       </section>
     </main>
 
-    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <a
+      href="#"
+      id="fabWhatsapp"
+      target="_blank"
+      class="floating-action-button"
+      title="Contactar por WhatsApp"
+      aria-label="Contactar por WhatsApp"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <footer class="site-footer-detailed">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column footer-column-brand">
-                    <a href="index.html" class="footer-logo-link" aria-label="Universe Community Home">
-                        <div class="footer-logo-icon-box"><span class="footer-logo-abbr">UC</span></div>
-                        <span class="footer-logo-full-text">Universe Community</span>
-                    </a>
-                    <p class="footer-description">
-                        Una comunidad global dedicada a crear, innovar y conectar personas a través de proyectos colaborativos que transforman ideas en realidad.
-                    </p>
-                </div>
-                 <div class="footer-column footer-column-contact">
-                    <h4 class="footer-heading">Contacto Directo</h4>
-                     <div class="footer-direct-contact" id="footerContactDirectContainer">
-                        <p>Cargando contactos...</p>
-                    </div>
-                </div>
-                <div class="footer-column footer-column-social">
-                    <h4 class="footer-heading">Síguenos</h4>
-                    <div class="footer-social-icons" id="footerSocialProfilesContainer">
-                        <p>Cargando redes...</p>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column footer-column-brand">
+            <a
+              href="index.html"
+              class="footer-logo-link"
+              aria-label="Universe Community Home"
+            >
+              <div class="footer-logo-icon-box">
+                <span class="footer-logo-abbr">UC</span>
+              </div>
+              <span class="footer-logo-full-text">Universe Community</span>
+            </a>
+            <p class="footer-description">
+              Una comunidad global dedicada a crear, innovar y conectar personas
+              a través de proyectos colaborativos que transforman ideas en
+              realidad.
+            </p>
+          </div>
+          <div class="footer-column footer-column-contact">
+            <h4 class="footer-heading">Contacto Directo</h4>
+            <div
+              class="footer-direct-contact"
+              id="footerContactDirectContainer"
+            >
+              <p>Cargando contactos...</p>
             </div>
-            <div class="footer-bottom-bar">
-                <p>&copy; <span id="currentYear"></span> Universe Community. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: #e25555;"></i>.</p>
+          </div>
+          <div class="footer-column footer-column-social">
+            <h4 class="footer-heading">Síguenos</h4>
+            <div
+              class="footer-social-icons"
+              id="footerSocialProfilesContainer"
+            >
+              <p>Cargando redes...</p>
             </div>
+          </div>
         </div>
+        <div class="footer-bottom-bar">
+          <p>
+            &copy; <span id="currentYear"></span> Universe Community. Todos los
+            derechos reservados. Diseñado con
+            <i class="fas fa-heart" style="color: #e25555"></i>.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         // --- Theme Toggle Logic ---
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const currentTheme = localStorage.getItem('theme');
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const currentTheme = localStorage.getItem("theme");
 
         function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
+          if (theme === "dark") {
+            document.body.classList.add("dark-mode");
+          } else {
+            document.body.classList.remove("dark-mode");
+          }
         }
 
         if (currentTheme) {
-            applyTheme(currentTheme);
-        } else { 
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                applyTheme('dark');
-                localStorage.setItem('theme', 'dark'); 
-            }
+          applyTheme(currentTheme);
+        } else {
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (prefersDark) {
+            applyTheme("dark");
+            localStorage.setItem("theme", "dark");
+          }
         }
 
         if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                let theme = 'light';
-                if (document.body.classList.contains('dark-mode')) {
-                    theme = 'dark';
-                }
-                localStorage.setItem('theme', theme);
-            });
+          themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+              theme = "dark";
+            }
+            localStorage.setItem("theme", theme);
+          });
         }
-
 
         // --- Mobile Navigation Menu (Main Toggle) ---
         const navToggleBtn = document.getElementById("navToggleBtn");
         const mainMenuNav = document.getElementById("mainMenuNav");
-        const siteHeader = document.querySelector('.site-header');
+        const siteHeader = document.querySelector(".site-header");
         let headerHeight = siteHeader ? siteHeader.offsetHeight : 70;
 
         if (navToggleBtn && mainMenuNav) {
@@ -1687,114 +1809,152 @@
             }
           });
         }
-        
+
         function updateHeaderHeightForMenu() {
-            if (siteHeader) {
-                headerHeight = siteHeader.offsetHeight;
-                document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-            }
+          if (siteHeader) {
+            headerHeight = siteHeader.offsetHeight;
+            document.documentElement.style.setProperty(
+              "--header-height",
+              `${headerHeight}px`
+            );
+          }
         }
         updateHeaderHeightForMenu();
-        window.addEventListener('resize', updateHeaderHeightForMenu);
-
+        window.addEventListener("resize", updateHeaderHeightForMenu);
 
         // --- Submenu Toggle Logic (Revised) ---
         function performToggleVisually(listItem, linkElement, submenuElement) {
-            const isOpen = listItem.classList.toggle('open');
-            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+          const isOpen = listItem.classList.toggle("open");
+          if (linkElement)
+            linkElement.setAttribute("aria-expanded", String(isOpen));
 
-            if (window.innerWidth <= 991 && submenuElement) { 
-                if (isOpen) {
-                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
-                } else {
-                    submenuElement.style.maxHeight = null;
-                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
-                        openChild.classList.remove('open');
-                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
-                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
-                        const childSubmenu = openChild.querySelector('.submenu');
-                        if(childSubmenu) childSubmenu.style.maxHeight = null;
-                    });
-                }
+          if (window.innerWidth <= 991 && submenuElement) {
+            if (isOpen) {
+              submenuElement.style.maxHeight =
+                submenuElement.scrollHeight + "px";
+            } else {
+              submenuElement.style.maxHeight = null;
+              submenuElement
+                .querySelectorAll(".has-submenu.open")
+                .forEach((openChild) => {
+                  openChild.classList.remove("open");
+                  const childLink = openChild.querySelector(
+                    'a[aria-haspopup="true"]'
+                  );
+                  if (childLink)
+                    childLink.setAttribute("aria-expanded", "false");
+                  const childSubmenu = openChild.querySelector(".submenu");
+                  if (childSubmenu) childSubmenu.style.maxHeight = null;
+                });
             }
+          }
         }
 
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
-                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
-                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
-                const submenu = listItem.querySelector(":scope > .submenu"); 
+          mainMenuNav
+            .querySelectorAll("li.has-submenu")
+            .forEach((listItem) => {
+              const link = listItem.querySelector(
+                ":scope > a[aria-haspopup='true']"
+              );
+              const toggleIcon = listItem.querySelector(
+                ":scope > a > .submenu-toggle-icon"
+              );
+              const submenu = listItem.querySelector(":scope > .submenu");
 
-                if (!link || !submenu) return;
+              if (!link || !submenu) return;
 
-                if (toggleIcon) {
-                    toggleIcon.addEventListener("click", function (event) {
-                        event.preventDefault();  
-                        event.stopPropagation(); 
-                        performToggleVisually(listItem, link, submenu);
-                    });
+              if (toggleIcon) {
+                toggleIcon.addEventListener("click", function (event) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                  performToggleVisually(listItem, link, submenu);
+                });
+              }
+
+              link.addEventListener("click", function (event) {
+                if (event.target.closest(".submenu-toggle-icon")) {
+                  return;
                 }
 
-                link.addEventListener("click", function (event) {
-                    if (event.target.closest(".submenu-toggle-icon")) {
-                        return; 
+                const isMobileView = window.innerWidth <= 991;
+                const hasValidHref =
+                  link.getAttribute("href") &&
+                  link.getAttribute("href") !== "#" &&
+                  link.getAttribute("href") !== "";
+                const linkPathOnly = (
+                  link.pathname.split("/").pop() || "index.html"
+                ).split("#")[0];
+                const currentPathOnly = (
+                  window.location.pathname.split("/").pop() || "index.html"
+                ).split("#")[0];
+                const isLinkToCurrentPagePathOnly =
+                  linkPathOnly === currentPathOnly && !link.hash;
+
+                if (isMobileView) {
+                  if (listItem.classList.contains("has-submenu")) {
+                    event.preventDefault();
+                    performToggleVisually(listItem, link, submenu);
+                  }
+                } else {
+                  // Desktop View
+                  if (hasValidHref) {
+                    if (isLinkToCurrentPagePathOnly) {
+                      event.preventDefault();
+                      performToggleVisually(listItem, link, submenu);
                     }
-
-                    const isMobileView = window.innerWidth <= 991;
-                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
-
-
-                    if (isMobileView) {
-                        if (listItem.classList.contains('has-submenu')) {
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    } else { // Desktop View
-                        if (hasValidHref) {
-                             if (isLinkToCurrentPagePathOnly) { 
-                                event.preventDefault(); 
-                                performToggleVisually(listItem, link, submenu);
-                            }
-                        } else { 
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    }
-                });
+                  } else {
+                    event.preventDefault();
+                    performToggleVisually(listItem, link, submenu);
+                  }
+                }
+              });
             });
         }
-
 
         // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
         if (mainMenuNav) {
           mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
             link.addEventListener("click", (event) => {
-              const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
-              const listItem = link.closest('li'); 
-              const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
-              
+              const isSubmenuToggleIcon =
+                event.target.closest(".submenu-toggle-icon");
+              const listItem = link.closest("li");
+              const isParentLinkThatTogglesOnMobile =
+                listItem &&
+                listItem.classList.contains("has-submenu") &&
+                window.innerWidth <= 991;
+
               if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
-                return; 
+                return;
               }
 
               if (mainMenuNav.classList.contains("menu-visible")) {
-                if (link.getAttribute("href") && link.getAttribute("href") !== "#") {
+                if (
+                  link.getAttribute("href") &&
+                  link.getAttribute("href") !== "#"
+                ) {
                   mainMenuNav.classList.remove("menu-visible");
-                  if(navToggleBtn) navToggleBtn.setAttribute("aria-expanded", "false");
-                  const navIcon = navToggleBtn ? navToggleBtn.querySelector("i") : null;
+                  if (navToggleBtn)
+                    navToggleBtn.setAttribute("aria-expanded", "false");
+                  const navIcon = navToggleBtn
+                    ? navToggleBtn.querySelector("i")
+                    : null;
                   if (navIcon) {
                     navIcon.classList.remove("fa-times");
                     navIcon.classList.add("fa-bars");
                   }
-                   mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                        openSubmenuLi.classList.remove('open');
-                        const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                        if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
-                        const submenu = openSubmenuLi.querySelector('.submenu');
-                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                  mainMenuNav
+                    .querySelectorAll(".has-submenu.open")
+                    .forEach((openSubmenuLi) => {
+                      openSubmenuLi.classList.remove("open");
+                      const parentLink = openSubmenuLi.querySelector(
+                        'a[aria-haspopup="true"]'
+                      );
+                      if (parentLink)
+                        parentLink.setAttribute("aria-expanded", "false");
+                      const submenu = openSubmenuLi.querySelector(".submenu");
+                      if (submenu && window.innerWidth <= 991)
+                        submenu.style.maxHeight = null;
                     });
                 }
               }
@@ -1807,14 +1967,16 @@
         const allNavLinks = mainMenuNav
           ? mainMenuNav.querySelectorAll("nav ul li a")
           : [];
-        const homeLink = mainMenuNav ? mainMenuNav.querySelector("a[href='index.html']") : null;
+        const homeLink = mainMenuNav
+          ? mainMenuNav.querySelector("a[href='index.html']")
+          : null;
 
         function navHighlighter() {
           if (!mainMenuNav || allNavLinks.length === 0) return;
 
           let scrollY = window.pageYOffset;
           let currentActiveSectionId = null;
-          const offset = headerHeight + 60; 
+          const offset = headerHeight + 60;
 
           sections.forEach((current) => {
             if (!current) return;
@@ -1826,447 +1988,642 @@
               currentActiveSectionId = sectionId;
             }
           });
-          
-          allNavLinks.forEach((navLink) => { 
-            navLink.classList.remove("current-page"); 
-            let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
+
+          allNavLinks.forEach((navLink) => {
+            navLink.classList.remove("current-page");
+            let parentLi = navLink
+              .closest("ul.submenu")
+              ?.parentElement.closest("li.has-submenu");
             if (parentLi) {
-                const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
-                if (parentAnchor) parentAnchor.classList.remove('current-page');
+              const parentAnchor = parentLi.querySelector(
+                ':scope > a[aria-haspopup="true"]'
+              );
+              if (parentAnchor) parentAnchor.classList.remove("current-page");
             }
           });
 
           let anActiveLinkIsSetByScroll = false;
           if (currentActiveSectionId) {
-            const activeNavLink = mainMenuNav.querySelector("a[href*='#" + currentActiveSectionId + "']");
+            const activeNavLink = mainMenuNav.querySelector(
+              "a[href*='#" + currentActiveSectionId + "']"
+            );
             if (activeNavLink) {
               activeNavLink.classList.add("current-page");
               anActiveLinkIsSetByScroll = true;
-              let parentLi = activeNavLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
+              let parentLi = activeNavLink
+                .closest("ul.submenu")
+                ?.parentElement.closest("li.has-submenu");
               if (parentLi) {
-                  const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
-                  if (parentAnchor) parentAnchor.classList.add('current-page');
+                const parentAnchor = parentLi.querySelector(
+                  ':scope > a[aria-haspopup="true"]'
+                );
+                if (parentAnchor) parentAnchor.classList.add("current-page");
               }
             }
-          } 
-          
-          if (!anActiveLinkIsSetByScroll) { 
-            const currentPagePath = window.location.pathname.split('/').pop() || 'index.html';
+          }
+
+          if (!anActiveLinkIsSetByScroll) {
+            const currentPagePath =
+              window.location.pathname.split("/").pop() || "index.html";
             const currentHash = window.location.hash;
 
-            if (homeLink && (currentPagePath === 'index.html' || currentPagePath === '') && (!currentHash || currentHash === '#')) {
-                 allNavLinks.forEach(nl => nl.classList.remove("current-page")); 
-                 homeLink.classList.add("current-page");
+            if (
+              homeLink &&
+              (currentPagePath === "index.html" || currentPagePath === "") &&
+              (!currentHash || currentHash === "#")
+            ) {
+              allNavLinks.forEach((nl) => nl.classList.remove("current-page"));
+              homeLink.classList.add("current-page");
             } else {
-                 allNavLinks.forEach(navLink => {
-                    const linkHref = navLink.getAttribute("href");
-                    if (!linkHref) return;
+              allNavLinks.forEach((navLink) => {
+                const linkHref = navLink.getAttribute("href");
+                if (!linkHref) return;
 
-                    const linkUrl = new URL(linkHref, window.location.origin);
-                    const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
-                    const linkHash = linkUrl.hash;
+                const linkUrl = new URL(linkHref, window.location.origin);
+                const linkPath =
+                  linkUrl.pathname.split("/").pop() || "index.html";
+                const linkHash = linkUrl.hash;
 
-                    if (linkPath === currentPagePath) {
-                        if ((linkHash && linkHash === currentHash) || (!linkHash && (!currentHash || currentHash === '#'))) {
-                            navLink.classList.add('current-page');
-                            let parentLi = navLink.closest('ul.submenu')?.parentElement.closest('li.has-submenu');
-                            if (parentLi) {
-                                const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]');
-                                if (parentAnchor) parentAnchor.classList.add('current-page');
-                            }
-                        }
+                if (linkPath === currentPagePath) {
+                  if (
+                    (linkHash && linkHash === currentHash) ||
+                    (!linkHash && (!currentHash || currentHash === "#"))
+                  ) {
+                    navLink.classList.add("current-page");
+                    let parentLi = navLink
+                      .closest("ul.submenu")
+                      ?.parentElement.closest("li.has-submenu");
+                    if (parentLi) {
+                      const parentAnchor = parentLi.querySelector(
+                        ':scope > a[aria-haspopup="true"]'
+                      );
+                      if (parentAnchor)
+                        parentAnchor.classList.add("current-page");
                     }
-                 });
+                  }
+                }
+              });
             }
           }
         }
 
         if (sections.length > 0 && allNavLinks.length > 0) {
           window.addEventListener("scroll", navHighlighter);
-          window.addEventListener("hashchange", navHighlighter); 
-          navHighlighter(); 
-        } else if (homeLink && (window.location.pathname.endsWith("index.html") || window.location.pathname === "/")) {
-            allNavLinks.forEach(nl => nl.classList.remove("current-page"));
-            homeLink.classList.add("current-page");
+          window.addEventListener("hashchange", navHighlighter);
+          navHighlighter();
+        } else if (
+          homeLink &&
+          (window.location.pathname.endsWith("index.html") ||
+            window.location.pathname === "/")
+        ) {
+          allNavLinks.forEach((nl) => nl.classList.remove("current-page"));
+          homeLink.classList.add("current-page");
         }
 
         // --- Cargar Contenido Dinámico desde JSON para Index ---
-        const projectListContainer = document.getElementById("projectListContainer");
-        const paypalButtonContainer = document.getElementById("paypalButtonContainer");
-        const contactChannelCardsContainer = document.getElementById("contactChannelCardsContainer");
+        const projectListContainer =
+          document.getElementById("projectListContainer");
+        const paypalButtonContainer = document.getElementById(
+          "paypalButtonContainer"
+        );
+        const contactChannelCardsContainer = document.getElementById(
+          "contactChannelCardsContainer"
+        );
         const faqContainer = document.getElementById("faqContainer");
-        const contactInfoListContainer = document.getElementById("contactInfoListContainer");
-        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
-        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
-        const fabWhatsapp = document.getElementById('fabWhatsapp');
-
+        const contactInfoListContainer = document.getElementById(
+          "contactInfoListContainer"
+        );
+        const footerContactDirectContainer = document.getElementById(
+          "footerContactDirectContainer"
+        );
+        const footerSocialProfilesContainer = document.getElementById(
+          "footerSocialProfilesContainer"
+        );
+        const fabWhatsapp = document.getElementById("fabWhatsapp");
+        
+        // AÑADIDO: Referencia al enlace de donación del menú
+        const paypalMenuLink = document.getElementById("paypalMenuLink");
 
         async function cargarContenidoIndexDesdeJSON() {
-            console.log("Intentando cargar datos_web.json para index.html...");
-            try {
-                const response = await fetch('datos_web.json');
-                console.log("Respuesta del fetch (index):", response);
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} al cargar datos_web.json`);
-                }
-                const data = await response.json();
-                console.log("Datos JSON cargados (index):", data);
-
-                // 1. Renderizar Proyectos Destacados
-                if (projectListContainer && data.proyectosresumen) { 
-                    renderizarProyectosDestacados(data.proyectosresumen, projectListContainer);
-                    inicializarSliderProyectos(); 
-                } else if (projectListContainer) {
-                    projectListContainer.innerHTML = "<p>No hay proyectos destacados para mostrar.</p>";
-                }
-
-                // 2. Renderizar Botón de Donación PayPal
-                if (paypalButtonContainer && data.redesSociales && data.redesSociales.donaciones) {
-                    renderizarBotonDonacion(data.redesSociales.donaciones, paypalButtonContainer);
-                } else if (paypalButtonContainer) {
-                    paypalButtonContainer.innerHTML = "<p>Opciones de donación no disponibles.</p>";
-                }
-                
-                // 3. Renderizar Tarjetas de Canales de Contacto (Sección "Conéctate")
-                if (contactChannelCardsContainer && data.redesSociales && data.redesSociales.contactosDirectos) {
-                    renderizarTarjetasCanalesContacto(data.redesSociales.contactosDirectos, contactChannelCardsContainer);
-                } else if (contactChannelCardsContainer) {
-                    contactChannelCardsContainer.innerHTML = "<p>Canales de contacto no disponibles.</p>";
-                }
-
-                // 4. Renderizar Preguntas Frecuentes
-                if (faqContainer && data.preguntasFrecuentes) {
-                    renderizarPreguntasFrecuentes(data.preguntasFrecuentes, faqContainer);
-                } else if (faqContainer) {
-                    const placeholder = faqContainer.querySelector('p');
-                    if (placeholder) placeholder.textContent = "No hay preguntas frecuentes disponibles.";
-                }
-                
-                // 5. Renderizar Información de Contacto (Sección "Soporte y Contacto")
-                if (contactInfoListContainer && data.redesSociales && data.redesSociales.contactosDirectos) {
-                    renderizarInformacionContacto(data.redesSociales.contactosDirectos, contactInfoListContainer);
-                } else if (contactInfoListContainer) {
-                    contactInfoListContainer.innerHTML = "<p>Información de contacto detallada no disponible.</p>";
-                }
-
-                // 6. Renderizar Footer y FAB 
-                if (data.redesSociales) {
-                    renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
-                }
-
-
-            } catch (error) {
-                console.error('Error al cargar contenido del index desde JSON:', error);
-                if (projectListContainer) projectListContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
-                if (paypalButtonContainer) paypalButtonContainer.innerHTML = `<p>Error al cargar botón de donación.</p>`;
-                if (contactChannelCardsContainer) contactChannelCardsContainer.innerHTML = `<p>Error al cargar canales de contacto.</p>`;
-                if (faqContainer) {
-                    const placeholder = faqContainer.querySelector('p');
-                    if (placeholder) placeholder.textContent = `Error al cargar preguntas frecuentes: ${error.message}`;
-                    else faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes: ${error.message}</p>`;
-                }
-                if (contactInfoListContainer) contactInfoListContainer.innerHTML = `<p>Error al cargar información de contacto.</p>`;
-                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos del footer.</p>';
-                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes del footer.</p>';
-                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+          console.log(
+            "Intentando cargar datos_web.json para index.html..."
+          );
+          try {
+            const response = await fetch("datos_web.json");
+            console.log("Respuesta del fetch (index):", response);
+            if (!response.ok) {
+              throw new Error(
+                `HTTP error! status: ${response.status} al cargar datos_web.json`
+              );
             }
+            const data = await response.json();
+            console.log("Datos JSON cargados (index):", data);
+
+            // 1. Renderizar Proyectos Destacados
+            if (projectListContainer && data.proyectosresumen) {
+              renderizarProyectosDestacados(
+                data.proyectosresumen,
+                projectListContainer
+              );
+              inicializarSliderProyectos();
+            } else if (projectListContainer) {
+              projectListContainer.innerHTML =
+                "<p>No hay proyectos destacados para mostrar.</p>";
+            }
+
+            // 2. Renderizar Botón de Donación PayPal
+            if (
+              paypalButtonContainer &&
+              data.redesSociales &&
+              data.redesSociales.donaciones
+            ) {
+              renderizarBotonDonacion(
+                data.redesSociales.donaciones,
+                paypalButtonContainer
+              );
+            } else if (paypalButtonContainer) {
+              paypalButtonContainer.innerHTML =
+                "<p>Opciones de donación no disponibles.</p>";
+            }
+
+            // AÑADIDO: Lógica para actualizar el enlace de Donación del menú
+            if (
+              paypalMenuLink &&
+              data.redesSociales &&
+              data.redesSociales.donaciones
+            ) {
+              const paypalInfo = data.redesSociales.donaciones.find(
+                (d) => d.plataforma && d.plataforma.toLowerCase() === "paypal"
+              );
+              if (paypalInfo && paypalInfo.url) {
+                paypalMenuLink.href = paypalInfo.url;
+              } else {
+                // Ocultar el enlace del menú si no hay URL
+                const parentLi = paypalMenuLink.parentElement;
+                if (parentLi) parentLi.style.display = "none";
+              }
+            } else if (paypalMenuLink) {
+              const parentLi = paypalMenuLink.parentElement;
+              if (parentLi) parentLi.style.display = "none";
+            }
+
+            // 3. Renderizar Tarjetas de Canales de Contacto (Sección "Conéctate")
+            if (
+              contactChannelCardsContainer &&
+              data.redesSociales &&
+              data.redesSociales.contactosDirectos
+            ) {
+              renderizarTarjetasCanalesContacto(
+                data.redesSociales.contactosDirectos,
+                contactChannelCardsContainer
+              );
+            } else if (contactChannelCardsContainer) {
+              contactChannelCardsContainer.innerHTML =
+                "<p>Canales de contacto no disponibles.</p>";
+            }
+
+            // 4. Renderizar Preguntas Frecuentes
+            if (faqContainer && data.preguntasFrecuentes) {
+              renderizarPreguntasFrecuentes(
+                data.preguntasFrecuentes,
+                faqContainer
+              );
+            } else if (faqContainer) {
+              const placeholder = faqContainer.querySelector("p");
+              if (placeholder)
+                placeholder.textContent =
+                  "No hay preguntas frecuentes disponibles.";
+            }
+
+            // 5. Renderizar Información de Contacto (Sección "Soporte y Contacto")
+            if (
+              contactInfoListContainer &&
+              data.redesSociales &&
+              data.redesSociales.contactosDirectos
+            ) {
+              renderizarInformacionContacto(
+                data.redesSociales.contactosDirectos,
+                contactInfoListContainer
+              );
+            } else if (contactInfoListContainer) {
+              contactInfoListContainer.innerHTML =
+                "<p>Información de contacto detallada no disponible.</p>";
+            }
+
+            // 6. Renderizar Footer y FAB
+            if (data.redesSociales) {
+              renderizarFooterYFAB(
+                data.redesSociales,
+                footerContactDirectContainer,
+                footerSocialProfilesContainer,
+                fabWhatsapp
+              );
+            }
+          } catch (error) {
+            console.error(
+              "Error al cargar contenido del index desde JSON:",
+              error
+            );
+            if (projectListContainer)
+              projectListContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
+            if (paypalButtonContainer)
+              paypalButtonContainer.innerHTML = `<p>Error al cargar botón de donación.</p>`;
+            if (paypalMenuLink) {
+              const parentLi = paypalMenuLink.parentElement;
+              if (parentLi) parentLi.style.display = "none";
+            }
+            if (contactChannelCardsContainer)
+              contactChannelCardsContainer.innerHTML = `<p>Error al cargar canales de contacto.</p>`;
+            if (faqContainer) {
+              const placeholder = faqContainer.querySelector("p");
+              if (placeholder)
+                placeholder.textContent = `Error al cargar preguntas frecuentes: ${error.message}`;
+              else
+                faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes: ${error.message}</p>`;
+            }
+            if (contactInfoListContainer)
+              contactInfoListContainer.innerHTML = `<p>Error al cargar información de contacto.</p>`;
+            if (footerContactDirectContainer)
+              footerContactDirectContainer.innerHTML =
+                "<p>Error al cargar contactos del footer.</p>";
+            if (footerSocialProfilesContainer)
+              footerSocialProfilesContainer.innerHTML =
+                "<p>Error al cargar redes del footer.</p>";
+            if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+          }
         }
 
         function renderizarProyectosDestacados(proyectos, container) {
-            container.innerHTML = ''; 
-            const proyectosAMostrar = proyectos.slice(0, 5); 
+          container.innerHTML = "";
+          const proyectosAMostrar = proyectos.slice(0, 5);
 
-            proyectosAMostrar.forEach(proyecto => {
-                const card = document.createElement('article');
-                card.classList.add('project-card');
+          proyectosAMostrar.forEach((proyecto) => {
+            const card = document.createElement("article");
+            card.classList.add("project-card");
 
-                let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
-                if (proyecto.portadaUrl) {
-                    imgHTML = `
-                        <div class="project-img-placeholder">
-                            <img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
-                        </div>`;
-                }
-                
-                let resumen = proyecto.descripcionCompleta || 'Descripción no disponible.';
-                if (resumen.length > 100) { 
-                    resumen = resumen.substring(0, 100) + "...";
-                }
+            let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
+            if (proyecto.portadaUrl) {
+              imgHTML = `
+                    <div class="project-img-placeholder">
+                        <img src="${proyecto.portadaUrl}" alt="${
+                proyecto.altPortada || proyecto.titulo
+              }" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                    </div>`;
+            }
 
-                card.innerHTML = `
-                    ${imgHTML}
-                    <div class="project-details">
-                        <h3 class="project-name">${proyecto.titulo}</h3>
-                        <p class="project-summary">${resumen}</p>
-                        <a href="${proyecto.enlacePagina || '#'}" class="btn btn-details-project">${proyecto.enlaceDetalles || 'Ver detalles'}</a>
-                    </div>
-                `;
-                container.appendChild(card);
-            });
+            let resumen =
+              proyecto.descripcionCompleta || "Descripción no disponible.";
+            if (resumen.length > 100) {
+              resumen = resumen.substring(0, 100) + "...";
+            }
+
+            card.innerHTML = `
+                ${imgHTML}
+                <div class="project-details">
+                    <h3 class="project-name">${proyecto.titulo}</h3>
+                    <p class="project-summary">${resumen}</p>
+                    <a href="${
+                      proyecto.enlacePagina || "#"
+                    }" class="btn btn-details-project">${
+              proyecto.enlaceDetalles || "Ver detalles"
+            }</a>
+                </div>
+            `;
+            container.appendChild(card);
+          });
         }
 
         function renderizarBotonDonacion(donaciones, container) {
-            container.innerHTML = ''; 
-            const paypalInfo = donaciones.find(d => d.plataforma && d.plataforma.toLowerCase() === 'paypal');
-            if (paypalInfo && paypalInfo.url && paypalInfo.textoBoton) {
-                const buttonHTML = `
-                    <a
-                      href="${paypalInfo.url}"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      class="btn-donate-paypal"
-                    >
-                      <i class="${paypalInfo.icono || 'fab fa-paypal'}"></i> ${paypalInfo.textoBoton}
-                    </a>`;
-                container.innerHTML = buttonHTML;
-            } else {
-                container.innerHTML = "<p>Opción de donación no configurada.</p>";
-            }
+          container.innerHTML = "";
+          const paypalInfo = donaciones.find(
+            (d) => d.plataforma && d.plataforma.toLowerCase() === "paypal"
+          );
+          if (paypalInfo && paypalInfo.url && paypalInfo.textoBoton) {
+            const buttonHTML = `
+                <a
+                  href="${paypalInfo.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-donate-paypal"
+                >
+                  <i class="${
+                    paypalInfo.icono || "fab fa-paypal"
+                  }"></i> ${paypalInfo.textoBoton}
+                </a>`;
+            container.innerHTML = buttonHTML;
+          } else {
+            container.innerHTML =
+              "<p>Opción de donación no configurada.</p>";
+          }
         }
-        
+
         function renderizarTarjetasCanalesContacto(contactos, container) {
-            container.innerHTML = ''; 
-            contactos.forEach(contacto => {
-                if (contacto.plataforma && (contacto.plataforma.toLowerCase() === 'whatsapp' || contacto.plataforma.toLowerCase() === 'telegram')) {
-                    if ( (contacto.plataforma.toLowerCase() === 'whatsapp' && !container.querySelector('.whatsapp')) ||
-                         (contacto.plataforma.toLowerCase() === 'telegram' && !container.querySelector('.telegram')) ) {
-                        const card = document.createElement('div');
-                        card.classList.add('contact-channel-card');
-                        card.innerHTML = `
-                            <div class="channel-icon-wrapper">
-                                <span class="channel-icon ${contacto.plataforma.toLowerCase()}-icon">
-                                    <i class="${contacto.icono}"></i>
-                                </span>
-                            </div>
-                            <div class="channel-content">
-                                <h3 class="channel-title">${contacto.tipo || contacto.plataforma}</h3>
-                                <p class="channel-description">
-                                    ${contacto.textoAlternativo || `Conéctate con nosotros vía ${contacto.plataforma}.`}
-                                </p>
-                                <a
-                                  href="${contacto.url}"
-                                  target="_blank"
-                                  class="btn-join ${contacto.plataforma.toLowerCase()}"
-                                >
-                                  Unirse <span class="arrow">&rarr;</span>
-                                </a>
-                            </div>
-                        `;
-                        container.appendChild(card);
-                    }
-                }
-            });
+          container.innerHTML = "";
+          contactos.forEach((contacto) => {
+            if (
+              contacto.plataforma &&
+              (contacto.plataforma.toLowerCase() === "whatsapp" ||
+                contacto.plataforma.toLowerCase() === "telegram")
+            ) {
+              if (
+                (contacto.plataforma.toLowerCase() === "whatsapp" &&
+                  !container.querySelector(".whatsapp")) ||
+                (contacto.plataforma.toLowerCase() === "telegram" &&
+                  !container.querySelector(".telegram"))
+              ) {
+                const card = document.createElement("div");
+                card.classList.add("contact-channel-card");
+                card.innerHTML = `
+                      <div class="channel-icon-wrapper">
+                          <span class="channel-icon ${contacto.plataforma.toLowerCase()}-icon">
+                              <i class="${contacto.icono}"></i>
+                          </span>
+                      </div>
+                      <div class="channel-content">
+                          <h3 class="channel-title">${
+                            contacto.tipo || contacto.plataforma
+                          }</h3>
+                          <p class="channel-description">
+                              ${
+                                contacto.textoAlternativo ||
+                                `Conéctate con nosotros vía ${contacto.plataforma}.`
+                              }
+                          </p>
+                          <a
+                            href="${contacto.url}"
+                            target="_blank"
+                            class="btn-join ${contacto.plataforma.toLowerCase()}"
+                          >
+                            Unirse <span class="arrow">&rarr;</span>
+                          </a>
+                      </div>
+                  `;
+                container.appendChild(card);
+              }
+            }
+          });
         }
 
         function renderizarPreguntasFrecuentes(faqs, container) {
-            const placeholder = container.querySelector('p'); 
-            if(placeholder) placeholder.remove();
-            const subtitle = container.querySelector('.section-subtitle'); 
-            if(subtitle) container.innerHTML = ''; 
-            if(subtitle) container.appendChild(subtitle);
+          const placeholder = container.querySelector("p");
+          if (placeholder) placeholder.remove();
+          const subtitle = container.querySelector(".section-subtitle");
+          if (subtitle) container.innerHTML = "";
+          if (subtitle) container.appendChild(subtitle);
 
+          faqs.forEach((faq) => {
+            const item = document.createElement("div");
+            item.classList.add("faq-item");
+            item.innerHTML = `
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${faq.id}">
+                    <span>${faq.pregunta}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" id="faq-answer-${faq.id}">
+                    <p>${faq.respuesta.replace(/\n/g, "<br>")}</p>
+                </div>
+            `;
+            container.appendChild(item);
 
-            faqs.forEach(faq => {
-                const item = document.createElement('div');
-                item.classList.add('faq-item');
-                item.innerHTML = `
-                    <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${faq.id}">
-                        <span>${faq.pregunta}</span>
-                        <i class="fas fa-chevron-down"></i>
-                    </div>
-                    <div class="faq-answer" id="faq-answer-${faq.id}">
-                        <p>${faq.respuesta.replace(/\n/g, '<br>')}</p>
-                    </div>
-                `;
-                container.appendChild(item);
-
-                const question = item.querySelector(".faq-question");
-                const answer = item.querySelector(".faq-answer");
-                if (question && answer) {
-                    question.addEventListener("click", () => {
-                        item.classList.toggle("active");
-                        const isActive = item.classList.contains("active");
-                        question.setAttribute("aria-expanded", String(isActive));
-                        if (isActive) {
-                            answer.style.maxHeight = answer.scrollHeight + 20 + "px";
-                        } else {
-                            answer.style.maxHeight = "0";
-                        }
-                    });
-                     question.addEventListener("keydown", (event) => {
-                        if (event.key === "Enter" || event.key === " ") {
-                            event.preventDefault();
-                            question.click();
-                        }
-                    });
-                }
-            });
-        }
-        
-        function renderizarInformacionContacto(contactos, listContainer) {
-            listContainer.innerHTML = ''; 
-            const emailContacto = contactos.find(c => c.plataforma && c.plataforma.toLowerCase() === 'email');
-            
-            if (emailContacto && emailContacto.url) {
-                const emailItem = document.createElement('li');
-                emailItem.classList.add('contact-info-item');
-                emailItem.innerHTML = `
-                    <i class="${emailContacto.icono || 'fas fa-envelope'}"></i>
-                    <div>
-                        <span class="info-label">Correo electrónico</span>
-                        <a href="${emailContacto.url}">${emailContacto.url.replace('mailto:', '')}</a>
-                    </div>`;
-                listContainer.appendChild(emailItem);
-            }
-
-            const horarioItem = document.createElement('li');
-            horarioItem.classList.add('contact-info-item');
-            horarioItem.innerHTML = `
-                <i class="fas fa-clock"></i>
-                <div>
-                    <span class="info-label">Horario de soporte</span>
-                    Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
-                </div>`;
-            listContainer.appendChild(horarioItem);
-
-            const discordItem = document.createElement('li');
-            discordItem.classList.add('contact-info-item');
-            discordItem.innerHTML = `
-                <i class="fas fa-headset"></i>
-                <div>
-                    <span class="info-label">Soporte en línea</span>
-                    Disponible en nuestro servidor de Discord
-                </div>`;
-            listContainer.appendChild(discordItem);
-        }
-
-
-        function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
-            if (contactContainer && redesSociales.contactosDirectos) {
-                contactContainer.innerHTML = ''; 
-                redesSociales.contactosDirectos.forEach(contacto => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = contacto.url || '#';
-                    linkElement.target = "_blank";
-                    linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
-                    linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
-                    contactContainer.appendChild(linkElement);
-                });
-            } else if (contactContainer) {
-                contactContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
-            }
-
-            if (socialContainer && redesSociales.perfilesSociales) {
-                socialContainer.innerHTML = ''; 
-                redesSociales.perfilesSociales.forEach(perfil => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = perfil.url || '#';
-                    linkElement.target = "_blank";
-                    linkElement.title = perfil.titulo;
-                    linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
-                    linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
-                    socialContainer.appendChild(linkElement);
-                });
-            } else if (socialContainer) {
-                 socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
-            }
-
-            if (fabElement && redesSociales.contactosDirectos) {
-                const whatsappFabInfo = redesSociales.contactosDirectos.find(
-                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
-                );
-                if (whatsappFabInfo && whatsappFabInfo.url) {
-                    fabElement.href = whatsappFabInfo.url;
+            const question = item.querySelector(".faq-question");
+            const answer = item.querySelector(".faq-answer");
+            if (question && answer) {
+              question.addEventListener("click", () => {
+                item.classList.toggle("active");
+                const isActive = item.classList.contains("active");
+                question.setAttribute("aria-expanded", String(isActive));
+                if (isActive) {
+                  answer.style.maxHeight = answer.scrollHeight + 20 + "px";
                 } else {
-                     fabElement.href = "javascript:void(0);"; 
-                     fabElement.style.cursor = "default"; 
+                  answer.style.maxHeight = "0";
                 }
-            } else if (fabElement) {
-                fabElement.href = "javascript:void(0);"; 
-                fabElement.style.cursor = "default";
+              });
+              question.addEventListener("keydown", (event) => {
+                if (event.key === "Enter" || event.key === " ") {
+                  event.preventDefault();
+                  question.click();
+                }
+              });
             }
+          });
         }
-        
-        function inicializarSliderProyectos() {
-            const projectListContainerSlider = document.getElementById("projectListContainer");
-            const prevBtnSlider = document.querySelector("#proyectos-destacados .prev-btn");
-            const nextBtnSlider = document.querySelector("#proyectos-destacados .next-btn");
 
-            if (projectListContainerSlider && prevBtnSlider && nextBtnSlider) {
-                const getScrollAmount = () => {
-                    const firstCard = projectListContainerSlider.querySelector(".project-card");
-                    if (firstCard) {
-                        const cardStyle = window.getComputedStyle(firstCard);
-                        const cardWidth = firstCard.offsetWidth;
-                        const containerStyle = window.getComputedStyle(projectListContainerSlider);
-                        let gapValue = parseFloat(containerStyle.gap);
-                        if (isNaN(gapValue)) {
-                            gapValue = parseFloat(cardStyle.marginRight) || 0;
-                            if (isNaN(gapValue)) gapValue = 24; 
-                        }
-                        return cardWidth + gapValue;
-                    }
-                    return 320; 
-                };
+        function renderizarInformacionContacto(contactos, listContainer) {
+          listContainer.innerHTML = "";
+          const emailContacto = contactos.find(
+            (c) => c.plataforma && c.plataforma.toLowerCase() === "email"
+          );
 
-                const updateButtonStatesAndCentering = () => {
-                    if (!projectListContainerSlider || !prevBtnSlider || !nextBtnSlider) return;
-                    if (projectListContainerSlider.children.length === 0 || projectListContainerSlider.children[0].tagName === 'P') return;
+          if (emailContacto && emailContacto.url) {
+            const emailItem = document.createElement("li");
+            emailItem.classList.add("contact-info-item");
+            emailItem.innerHTML = `
+                <i class="${emailContacto.icono || "fas fa-envelope"}"></i>
+                <div>
+                    <span class="info-label">Correo electrónico</span>
+                    <a href="${emailContacto.url}">${emailContacto.url.replace(
+              "mailto:",
+              ""
+            )}</a>
+                </div>`;
+            listContainer.appendChild(emailItem);
+          }
 
-                    const scrollLeft = projectListContainerSlider.scrollLeft;
-                    const scrollWidth = projectListContainerSlider.scrollWidth;
-                    const clientWidth = projectListContainerSlider.clientWidth;
-                    const maxScrollLeft = scrollWidth - clientWidth;
-                    const tolerance = 5; 
-                    prevBtnSlider.disabled = scrollLeft <= tolerance;
-                    nextBtnSlider.disabled = scrollLeft >= maxScrollLeft - tolerance;
-                    if (scrollWidth <= clientWidth + tolerance) { 
-                        projectListContainerSlider.classList.add("center-flex-items");
-                    } else {
-                        projectListContainerSlider.classList.remove("center-flex-items");
-                    }
-                };
-                prevBtnSlider.addEventListener("click", () => {
-                    const currentScroll = projectListContainerSlider.scrollLeft;
-                    const scrollAmount = getScrollAmount();
-                    projectListContainerSlider.scrollTo({
-                        left: currentScroll - scrollAmount,
-                        behavior: "smooth",
-                    });
-                });
-                nextBtnSlider.addEventListener("click", () => {
-                    const currentScroll = projectListContainerSlider.scrollLeft;
-                    const scrollAmount = getScrollAmount();
-                    projectListContainerSlider.scrollTo({
-                        left: currentScroll + scrollAmount,
-                        behavior: "smooth",
-                    });
-                });
-                projectListContainerSlider.addEventListener("scroll",updateButtonStatesAndCentering);
-                window.addEventListener("resize", updateButtonStatesAndCentering);
-                
-                const observer = new MutationObserver((mutationsList, observer) => {
-                    for(let mutation of mutationsList) {
-                        if (mutation.type === 'childList' && projectListContainerSlider.querySelector(".project-card")) {
-                            updateButtonStatesAndCentering();
-                            observer.disconnect(); 
-                            break;
-                        }
-                    }
-                });
-                observer.observe(projectListContainerSlider, { childList: true });
+          const horarioItem = document.createElement("li");
+          horarioItem.classList.add("contact-info-item");
+          horarioItem.innerHTML = `
+              <i class="fas fa-clock"></i>
+              <div>
+                  <span class="info-label">Horario de soporte</span>
+                  Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
+              </div>`;
+          listContainer.appendChild(horarioItem);
 
-                 setTimeout(() => {
-                    if (!projectListContainerSlider.querySelector(".project-card")) {
-                        console.warn("Slider cards not found after timeout, slider controls might not be accurate.");
-                    }
-                    updateButtonStatesAndCentering();
-                }, 500);
+          const discordItem = document.createElement("li");
+          discordItem.classList.add("contact-info-item");
+          discordItem.innerHTML = `
+              <i class="fas fa-headset"></i>
+              <div>
+                  <span class="info-label">Soporte en línea</span>
+                  Disponible en nuestro servidor de Discord
+              </div>`;
+          listContainer.appendChild(discordItem);
+        }
+
+        function renderizarFooterYFAB(
+          redesSociales,
+          contactContainer,
+          socialContainer,
+          fabElement
+        ) {
+          if (contactContainer && redesSociales.contactosDirectos) {
+            contactContainer.innerHTML = "";
+            redesSociales.contactosDirectos.forEach((contacto) => {
+              const linkElement = document.createElement("a");
+              linkElement.href = contacto.url || "#";
+              linkElement.target = "_blank";
+              linkElement.setAttribute(
+                "aria-label",
+                contacto.textoAlternativo ||
+                  `Contactar por ${contacto.plataforma}`
+              );
+              linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${
+                contacto.plataforma
+              } ${contacto.tipo ? "(" + contacto.tipo + ")" : ""}`;
+              contactContainer.appendChild(linkElement);
+            });
+          } else if (contactContainer) {
+            contactContainer.innerHTML =
+              "<p>Información de contacto no disponible.</p>";
+          }
+
+          if (socialContainer && redesSociales.perfilesSociales) {
+            socialContainer.innerHTML = "";
+            redesSociales.perfilesSociales.forEach((perfil) => {
+              const linkElement = document.createElement("a");
+              linkElement.href = perfil.url || "#";
+              linkElement.target = "_blank";
+              linkElement.title = perfil.titulo;
+              linkElement.setAttribute(
+                "aria-label",
+                `Visita nuestro perfil de ${perfil.titulo}`
+              );
+              linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+              socialContainer.appendChild(linkElement);
+            });
+          } else if (socialContainer) {
+            socialContainer.innerHTML =
+              "<p>Redes sociales no disponibles.</p>";
+          }
+
+          if (fabElement && redesSociales.contactosDirectos) {
+            const whatsappFabInfo = redesSociales.contactosDirectos.find(
+              (c) =>
+                c.plataforma &&
+                c.plataforma.toLowerCase() === "whatsapp" &&
+                c.tipo === "Contacto Directo"
+            );
+            if (whatsappFabInfo && whatsappFabInfo.url) {
+              fabElement.href = whatsappFabInfo.url;
+            } else {
+              fabElement.href = "javascript:void(0);";
+              fabElement.style.cursor = "default";
             }
+          } else if (fabElement) {
+            fabElement.href = "javascript:void(0);";
+            fabElement.style.cursor = "default";
+          }
+        }
+
+        function inicializarSliderProyectos() {
+          const projectListContainerSlider =
+            document.getElementById("projectListContainer");
+          const prevBtnSlider = document.querySelector(
+            "#proyectos-destacados .prev-btn"
+          );
+          const nextBtnSlider = document.querySelector(
+            "#proyectos-destacados .next-btn"
+          );
+
+          if (projectListContainerSlider && prevBtnSlider && nextBtnSlider) {
+            const getScrollAmount = () => {
+              const firstCard =
+                projectListContainerSlider.querySelector(".project-card");
+              if (firstCard) {
+                const cardStyle = window.getComputedStyle(firstCard);
+                const cardWidth = firstCard.offsetWidth;
+                const containerStyle = window.getComputedStyle(
+                  projectListContainerSlider
+                );
+                let gapValue = parseFloat(containerStyle.gap);
+                if (isNaN(gapValue)) {
+                  gapValue = parseFloat(cardStyle.marginRight) || 0;
+                  if (isNaN(gapValue)) gapValue = 24;
+                }
+                return cardWidth + gapValue;
+              }
+              return 320;
+            };
+
+            const updateButtonStatesAndCentering = () => {
+              if (
+                !projectListContainerSlider ||
+                !prevBtnSlider ||
+                !nextBtnSlider
+              )
+                return;
+              if (
+                projectListContainerSlider.children.length === 0 ||
+                projectListContainerSlider.children[0].tagName === "P"
+              )
+                return;
+
+              const scrollLeft = projectListContainerSlider.scrollLeft;
+              const scrollWidth = projectListContainerSlider.scrollWidth;
+              const clientWidth = projectListContainerSlider.clientWidth;
+              const maxScrollLeft = scrollWidth - clientWidth;
+              const tolerance = 5;
+              prevBtnSlider.disabled = scrollLeft <= tolerance;
+              nextBtnSlider.disabled = scrollLeft >= maxScrollLeft - tolerance;
+              if (scrollWidth <= clientWidth + tolerance) {
+                projectListContainerSlider.classList.add("center-flex-items");
+              } else {
+                projectListContainerSlider.classList.remove(
+                  "center-flex-items"
+                );
+              }
+            };
+            prevBtnSlider.addEventListener("click", () => {
+              const currentScroll = projectListContainerSlider.scrollLeft;
+              const scrollAmount = getScrollAmount();
+              projectListContainerSlider.scrollTo({
+                left: currentScroll - scrollAmount,
+                behavior: "smooth",
+              });
+            });
+            nextBtnSlider.addEventListener("click", () => {
+              const currentScroll = projectListContainerSlider.scrollLeft;
+              const scrollAmount = getScrollAmount();
+              projectListContainerSlider.scrollTo({
+                left: currentScroll + scrollAmount,
+                behavior: "smooth",
+              });
+            });
+            projectListContainerSlider.addEventListener(
+              "scroll",
+              updateButtonStatesAndCentering
+            );
+            window.addEventListener("resize", updateButtonStatesAndCentering);
+
+            const observer = new MutationObserver((mutationsList, observer) => {
+              for (let mutation of mutationsList) {
+                if (
+                  mutation.type === "childList" &&
+                  projectListContainerSlider.querySelector(".project-card")
+                ) {
+                  updateButtonStatesAndCentering();
+                  observer.disconnect();
+                  break;
+                }
+              }
+            });
+            observer.observe(projectListContainerSlider, { childList: true });
+
+            setTimeout(() => {
+              if (
+                !projectListContainerSlider.querySelector(".project-card")
+              ) {
+                console.warn(
+                  "Slider cards not found after timeout, slider controls might not be accurate."
+                );
+              }
+              updateButtonStatesAndCentering();
+            }, 500);
+          }
         }
 
         cargarContenidoIndexDesdeJSON();
-        
+
         const currentYearElement = document.getElementById("currentYear");
         if (currentYearElement) {
           currentYearElement.textContent = new Date().getFullYear();
