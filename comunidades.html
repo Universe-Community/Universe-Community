@@ -556,79 +556,33 @@
                 <i class="fas fa-bars" aria-hidden="true"></i>
             </button>
             <nav class="main-menu" id="mainMenuNav" aria-label="Navegación principal">
-                <ul>
-                    <li class="has-submenu">
-                        <a href="index.html" aria-haspopup="true" aria-expanded="false">
-                            Universe Community
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                        </a>
-                        <ul class="submenu level-2">
-                            <li><a href="index.html">Inicio</a></li>
-                            <li><a href="index.html#proyectos-destacados">Proyectos</a></li>
-                            <li><a href="index.html#donaciones">Donar</a></li>
-                            <li><a href="index.html#comunidad">Contacto</a></li>
-                            <li><a href="index.html#soporte-contacto">Soporte</a></li>
-                        </ul>
-                    </li>
+                <ul>        
+            <li><a href="index.html">Universe Community</a></li>
+
+                    <!-- 2. Proyectos (con submenú HTML estático) -->
                     <li class="has-submenu">
                         <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
                             Proyectos
                             <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
                         </a>
-                        <ul class="submenu level-2">
-                            <li class="has-submenu"> <a href="comunidades-whatsapp.html" aria-haspopup="true" aria-expanded="false">
-                                Comunidades WhatsApp
-                                <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                              </a>
-                              <ul class="submenu level-3">
-                                <li><a href="universo-bl.html">Universo BL</a></li>
-                                <li><a href="universo-multifandom.html">Universo Multifandom</a></li>
-                                <li><a href="universo-rol.html">Universo Rol</a></li>
-                                <li><a href="comunidades-whatsapp.html#admin-info">Une tu Grupo</a></li> 
-                              </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-beta.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Beta
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-beta.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-gamma.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Gamma
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-gamma.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-delta.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Delta
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-delta.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
-                            <li class="has-submenu">
-                                <a href="proyecto-epsilon.html" aria-haspopup="true" aria-expanded="false">
-                                    Proyecto Epsilon
-                                    <span class="submenu-toggle-icon level2-arrow"><i class="fas fa-chevron-right"></i></span>
-                                </a>
-                                <ul class="submenu level-3">
-                                    <li><a href="proyecto-epsilon.html#inicio">Inicio del Proyecto</a></li>
-                                </ul>
-                            </li>
+                        <ul class="submenu level-2" id="projects-submenu-container">
+                            
+                            <li><a href="comunidades.html">Comunidades Universo</a></li>
+                            <li><a href="us.html">Universe Scan</a></li>
+                            <li><a href="nk.html">NK Proyect</a></li>
+                            <li><a href="wabot.html">Universe Bot</a></li>
+                            <li><a href="ua.html">Universe Alliance</a></li>
                         </ul>
                     </li>
-                     <li><a href="avisos.html">Avisos</a></li> 
-                     </ul>
+                   
+                    <!-- 3. Avisos (enlace simple) -->
+                    <li><a href="avisos.html">Avisos</a></li> 
+
+                    <!-- 4. Donación (enlace simple, URL desde JS) -->
+                    <li><a href="#" id="paypalMenuLink" target="_blank" rel="noopener noreferrer">Donación</a></li>
+                </ul>
             </nav>
-        </div>
+          </div>
     </header>
 
     <main>
@@ -947,6 +901,7 @@
         const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
         const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
         const fabWhatsapp = document.getElementById('fabWhatsapp');
+        const paypalMenuLink = document.getElementById('paypalMenuLink');
 
         async function cargarContenidoDesdeJSON() {
             console.log("Intentando cargar datos_web.json para comunidades-whatsapp.html (botón admin, footer, fab)...");
@@ -959,6 +914,18 @@
                 }
                 const data = await response.json();
                 console.log("Datos JSON cargados (comunidades):", data);
+               
+                // Llenar enlace de donación
+                if (paypalMenuLink && data.redesSociales && data.redesSociales.donaciones) {
+                    const paypalInfo = data.redesSociales.donaciones.find(d => d.plataforma && d.plataforma.toLowerCase() === 'paypal');
+                    if (paypalInfo && paypalInfo.url) {
+                        paypalMenuLink.href = paypalInfo.url;
+                    } else {
+                        paypalMenuLink.parentElement.style.display = 'none';
+                    }
+                } else if (paypalMenuLink) {
+                     paypalMenuLink.parentElement.style.display = 'none';
+                }
                 
                 // Configurar botón de recepción para administradores
                 if (btnAdminContactReception && data.Recepciones) {
