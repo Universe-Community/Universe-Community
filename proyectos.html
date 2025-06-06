@@ -52,10 +52,6 @@
             --whatsapp-bg-color: #25D366; 
             --whatsapp-hover-bg-color: #1DAE54; 
             --header-height: 70px;
-
-            /* --- Theme Toggle Button Colors --- */
-            --theme-toggle-icon-color: var(--text-medium);
-            --theme-toggle-bg-hover: var(--submenu-hover-bg);
         }
 
         /* --- Dark Mode Variables --- */
@@ -84,7 +80,6 @@
             --theme-toggle-icon-color: #c5c5c5;
             --theme-toggle-bg-hover: #353558;
         }
-
 
         /* Reset Básico y Estilos Generales */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -159,7 +154,6 @@
         body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
         body.dark-mode .theme-toggle-button .fa-moon { display: none; }
 
-
         /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
         .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; z-index: 1001; padding: 0.25rem; transition: var(--transition-colors); }
         .main-menu { position: relative; }
@@ -177,23 +171,40 @@
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg); 
         }
-
+        
+        /* Estilos para submenú */
         .main-menu ul li a .submenu-toggle-icon { margin-left: 0.5em; font-size: 0.7em; }
         .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
         .main-menu ul li.open > a .submenu-toggle-icon i { transform: rotate(180deg); }
 
         .main-menu ul li.has-submenu .submenu { 
-            display: none; position: absolute; top: 100%; left: 0;
-            background-color: var(--submenu-bg); box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-            border-radius: 0 0 8px 8px; min-width: 230px; z-index: 100;
-            padding: 0.5rem 0; border-top: 1px solid var(--border-color-soft); 
-            opacity: 0; visibility: hidden; transform: translateY(10px); 
+            display: none; 
+            position: absolute; 
+            top: 100%; 
+            left: 0;
+            background-color: var(--submenu-bg); 
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
+            border-radius: 0 0 8px 8px; 
+            min-width: 230px; 
+            /* INICIO: CORRECCIÓN DE ANCHO */
+            width: max-content; 
+            /* FIN: CORRECCIÓN DE ANCHO */
+            z-index: 100;
+            padding: 0.5rem 0; 
+            border-top: 1px solid var(--border-color-soft); 
+            opacity: 0; 
+            visibility: hidden; 
+            transform: translateY(10px); 
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
         }
-        .main-menu ul li.has-submenu:hover > .submenu,
-        .main-menu ul li.has-submenu.open > .submenu { 
-            display: block; opacity: 1; visibility: visible; transform: translateY(0);
+        
+        /* Mostrar submenú en hover en desktop */
+        @media (min-width: 992px) {
+            .main-menu ul li.has-submenu:hover > .submenu {
+                display: block; opacity: 1; visibility: visible; transform: translateY(0);
+            }
         }
+        
         .main-menu .submenu li { width: 100%; margin-left: 0; }
         .main-menu .submenu li a { 
             padding: 0.6rem 1.2rem; font-size: 0.9rem; color: var(--text-dark); 
@@ -204,6 +215,7 @@
             background-color: var(--submenu-hover-bg); color: var(--brand-purple-start);
         }
 
+        /* Botón de Donación */
         .main-menu ul li a.main-cta {
              color: #FFFFFF; background: var(--button-gradient); font-weight: 600;
              box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.2);
@@ -222,7 +234,7 @@
         .gradient-title { background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .block-subtitle { text-align: center; font-size: 1.125rem; color: var(--text-medium); max-width: 800px; margin: 0 auto 3.5rem auto; line-height: 1.8; transition: var(--transition-colors); }
 
-        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
+        /* --- ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
         .announcement-carousel-section { padding-top: 3rem; padding-bottom: 2.5rem; background-color: var(--bg-section-alt); margin-bottom: 2.5rem; transition: var(--transition-colors); }
         .announcement-carousel-section .block-title { color: var(--text-dark); margin-bottom: 2.5rem; }
         .carousel-container { position: relative; width: 100%; max-width: 960px; margin: 0 auto; overflow: hidden; border-radius: 16px; box-shadow: var(--card-shadow-light); cursor: grab; transition: box-shadow 0.3s ease; }
@@ -250,7 +262,7 @@
         .btn-view-all-announcements:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
         .btn-view-all-announcements:hover i { transform: translateX(4px); }
        
-        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
+        /* --- ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
         .projects-page-wrapper { padding-top: 2.5rem; transition: var(--transition-colors); }
         .projects-page-wrapper .block-title { color: var(--text-dark); background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.5rem; }
@@ -316,7 +328,7 @@
             .main-menu ul li.open > .submenu { max-height: 600px; }
             .main-menu .submenu li a { padding-left: 2rem; }
             .main-menu ul li.open > a .submenu-toggle-icon i { transform: rotate(180deg); }
-
+            
             .block-title { font-size: 2rem; }
             .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
             .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;}
@@ -400,7 +412,7 @@
     </header>
 
     <main>
-        <section class="announcement-carousel-section">
+        <section class="announcement-carousel-section" id="announcement-carousel-section">
             <div class="container">
                 <h2 class="block-title"> Anuncios Destacados </h2>
                 <div class="carousel-container" id="announcementsCarousel" aria-roledescription="carousel" aria-label="Anuncios importantes de proyectos">
@@ -409,8 +421,7 @@
                     </div>
                     <button class="carousel-button prev" aria-label="Anuncio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios">
-                        </div>
+                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios"></div>
                 </div>
                 <div class="carousel-view-all-container">
                     <a href="avisos.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
@@ -536,8 +547,20 @@
                 if (window.innerWidth <= 991) {
                     event.preventDefault();
                     const parentLi = link.parentElement;
-                    parentLi.classList.toggle('open');
                     const submenu = parentLi.querySelector('.submenu');
+
+                    // Close other open submenus at the same level
+                    if (!parentLi.classList.contains('open')) {
+                        mainMenuNav.querySelectorAll('li.has-submenu.open').forEach(openLi => {
+                             if(openLi !== parentLi) {
+                                openLi.classList.remove('open');
+                                openLi.querySelector('.submenu').style.maxHeight = null;
+                             }
+                        });
+                    }
+                    
+                    parentLi.classList.toggle('open');
+                    
                     if (parentLi.classList.contains('open')) {
                         submenu.style.maxHeight = submenu.scrollHeight + "px";
                     } else {
@@ -547,9 +570,9 @@
             });
         });
 
-        // --- Close mobile menu when a link is clicked ---
         mainMenuNav.addEventListener('click', (event) => {
-            if (event.target.tagName === 'A' && !event.target.parentElement.classList.contains('has-submenu')) {
+            const link = event.target.closest('a');
+            if (link && !link.parentElement.classList.contains('has-submenu')) {
                  if (mainMenuNav.classList.contains('menu-visible') && navToggleBtn) {
                     navToggleBtn.click();
                  }
@@ -562,17 +585,28 @@
             if (!mainMenu) return;
             const currentPath = window.location.pathname.split('/').pop() || 'index.html';
             mainMenu.querySelectorAll('a').forEach(navLink => {
-                navLink.classList.remove('current-page');
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
+                
                 const linkPath = (linkHref.split('/').pop() || 'index.html').split('#')[0];
+                
+                navLink.classList.remove('current-page');
+                const parentLi = navLink.closest('li.has-submenu');
+                if (parentLi) {
+                    parentLi.querySelector('a').classList.remove('current-page');
+                }
+
                 if (linkPath === currentPath) {
                     navLink.classList.add('current-page');
+                     if (parentLi) {
+                        parentLi.querySelector('a').classList.add('current-page');
+                    }
                 }
             });
         }
        
         // --- Cargar Contenido Dinámico desde JSON ---
+        const announcementsCarouselSection = document.getElementById('announcement-carousel-section');
         const announcementsCarouselContainer = document.getElementById('announcementsCarousel');
         const carouselSlidesContainer = document.getElementById('carouselSlides');
         const carouselDotsContainer = document.getElementById('carouselDotsContainer');
@@ -597,12 +631,12 @@
             });
         }
 
-        function renderizarCarruselAnuncios(anuncios, slidesContainer, dotsContainer) {
-            if (!slidesContainer || !dotsContainer || anuncios.length === 0) {
-                if(announcementsCarouselContainer) announcementsCarouselContainer.style.display = 'none';
+        function renderizarCarruselAnuncios(anuncios, container, dotsContainer) {
+            if (!container || !dotsContainer || !anuncios || anuncios.length === 0) {
+                if(announcementsCarouselSection) announcementsCarouselSection.style.display = 'none';
                 return;
             }
-            slidesContainer.innerHTML = ''; 
+            container.innerHTML = ''; 
             dotsContainer.innerHTML = '';   
             anuncios.forEach((anuncio, index) => {
                 const slide = document.createElement('div');
@@ -614,7 +648,7 @@
                         <h3>${anuncio.titulo}</h3>
                         <p>${anuncio.contenido ? anuncio.contenido.substring(0, 100) + '...' : ''}</p> 
                     </div>`;
-                slidesContainer.appendChild(slide);
+                container.appendChild(slide);
 
                 const dot = document.createElement('button');
                 dot.classList.add('carousel-dot');
@@ -624,7 +658,7 @@
             });
            
             if (anuncios.length > 0) {
-                inicializarLogicaCarruselInterna(announcementsCarouselContainer, slidesContainer, dotsContainer);
+                inicializarLogicaCarruselInterna(announcementsCarouselContainer, container, dotsContainer);
             }
         }
        
@@ -646,24 +680,10 @@
             let isDragging = false, startPosX = 0, currentTranslate = 0, prevTranslate = 0;
             const swipeThreshold = 50;
 
-            function setPositionByIndex() {
-                if (slidesContainer.offsetWidth > 0) { 
-                    currentTranslate = currentIndex * -slidesContainer.offsetWidth;
-                    prevTranslate = currentTranslate;
-                    slidesContainer.style.transition = 'transform 0.5s ease-in-out';
-                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
-                }
-            }
-
-            function updateCarouselState() {
-                setPositionByIndex();
-                slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex));
-                dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex));
-            }
-
-            function goToSlide(index) { currentIndex = (index + slideCount) % slideCount; updateCarouselState(); }
-            function nextSlide() { goToSlide(currentIndex + 1); }
-
+            const setPositionByIndex = () => { if (slidesContainer.offsetWidth > 0) { currentTranslate = currentIndex * -slidesContainer.offsetWidth; prevTranslate = currentTranslate; slidesContainer.style.transition = 'transform 0.5s ease-in-out'; slidesContainer.style.transform = `translateX(${currentTranslate}px)`; } };
+            const updateCarouselState = () => { setPositionByIndex(); slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex)); dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex)); };
+            const goToSlide = (index) => { currentIndex = (index + slideCount) % slideCount; updateCarouselState(); };
+            const nextSlide = () => goToSlide(currentIndex + 1);
             const startInterval = () => { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); };
             const resetInterval = () => { clearInterval(slideInterval); startInterval(); };
             
@@ -671,19 +691,19 @@
             prevButton.addEventListener('click', () => { goToSlide(currentIndex - 1); resetInterval(); });
             dots.forEach(dot => dot.addEventListener('click', e => { goToSlide(parseInt(e.target.dataset.slideTo)); resetInterval(); }));
             
-            function touchStart(event) { isDragging = true; startPosX = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; slidesContainer.style.transition = 'none'; carouselContainer.classList.add('grabbing'); clearInterval(slideInterval); }
-            function touchMove(event) { if (isDragging) { const currentPosition = event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; currentTranslate = prevTranslate + currentPosition - startPosX; slidesContainer.style.transform = `translateX(${currentTranslate}px)`; } }
-            function touchEnd() { if (!isDragging) return; isDragging = false; carouselContainer.classList.remove('grabbing'); const movedBy = currentTranslate - prevTranslate; if (movedBy < -swipeThreshold) goToSlide(currentIndex + 1); else if (movedBy > swipeThreshold) goToSlide(currentIndex - 1); else updateCarouselState(); resetInterval(); }
+            const getPositionX = event => event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
+            const touchStart = event => { isDragging = true; startPosX = getPositionX(event); slidesContainer.style.transition = 'none'; carouselContainer.classList.add('grabbing'); clearInterval(slideInterval); };
+            const touchMove = event => { if (isDragging) { const currentPosition = getPositionX(event); currentTranslate = prevTranslate + currentPosition - startPosX; slidesContainer.style.transform = `translateX(${currentTranslate}px)`; } };
+            const touchEnd = () => { if (!isDragging) return; isDragging = false; carouselContainer.classList.remove('grabbing'); const movedBy = currentTranslate - prevTranslate; if (movedBy < -swipeThreshold) goToSlide(currentIndex + 1); else if (movedBy > swipeThreshold) goToSlide(currentIndex - 1); else setPositionByIndex(); resetInterval(); };
             
             slidesContainer.addEventListener('mousedown', touchStart); slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
-            slidesContainer.addEventListener('mousemove', touchMove); slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
-            slidesContainer.addEventListener('mouseup', touchEnd); slidesContainer.addEventListener('mouseleave', touchEnd); slidesContainer.addEventListener('touchend', touchEnd);
+            document.addEventListener('mousemove', touchMove); document.addEventListener('touchmove', touchMove, { passive: true });
+            document.addEventListener('mouseup', touchEnd); document.addEventListener('touchend', touchEnd);
             
-            window.addEventListener('resize', () => { slidesContainer.style.transition = 'none'; updateCarouselState(); });
+            window.addEventListener('resize', () => { slidesContainer.style.transition = 'none'; setPositionByIndex(); });
             updateCarouselState(); 
             startInterval();
         }
-
 
         function renderizarTarjetasDeProyectos(proyectos, gridContainer) {
             if (!gridContainer || !proyectos) {
@@ -694,12 +714,10 @@
             proyectos.forEach(proyecto => {
                 const card = document.createElement('article');
                 card.classList.add('project-card-detailed');
-               
                 let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
                 if (proyecto.portadaUrl) {
                     imgHTML = `<div class="project-img-placeholder"><img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';"></div>`;
                 }
-
                 card.innerHTML = `
                     ${imgHTML}
                     <div class="project-content">
@@ -717,32 +735,31 @@
 
         function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
              if (!redesSociales) return;
-            
             if (contactContainer && redesSociales.contactosDirectos) {
                 contactContainer.innerHTML = ''; 
                 redesSociales.contactosDirectos.forEach(contacto => {
                     const linkElement = document.createElement('a');
                     linkElement.href = contacto.url || '#';
                     linkElement.target = "_blank";
+                    linkElement.rel = "noopener";
                     linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
                     linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
                     contactContainer.appendChild(linkElement);
                 });
             }
-
             if (socialContainer && redesSociales.perfilesSociales) {
                 socialContainer.innerHTML = ''; 
                 redesSociales.perfilesSociales.forEach(perfil => {
                     const linkElement = document.createElement('a');
                     linkElement.href = perfil.url || '#';
                     linkElement.target = "_blank";
+                    linkElement.rel = "noopener";
                     linkElement.title = perfil.titulo;
                     linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
                     linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
                     socialContainer.appendChild(linkElement);
                 });
             }
-
             if (fabElement && redesSociales.contactosDirectos) {
                 const whatsappFabInfo = redesSociales.contactosDirectos.find(
                     c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
@@ -764,7 +781,7 @@
 
             } catch (error) {
                 console.error('Error al cargar contenido desde JSON:', error);
-                if(announcementsCarouselContainer) announcementsCarouselContainer.style.display = 'none';
+                if(announcementsCarouselSection) announcementsCarouselSection.style.display = 'none';
                 if(projectsGridContainer) projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
                 if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
                 if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
