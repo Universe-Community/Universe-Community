@@ -52,6 +52,11 @@
             --whatsapp-bg-color: #25D366; 
             --whatsapp-hover-bg-color: #1DAE54; 
             --header-height: 70px;
+            --paypal-button-bg: #0070ba;
+
+            /* --- Theme Toggle Button Colors --- */
+            --theme-toggle-icon-color: var(--text-medium);
+            --theme-toggle-bg-hover: var(--submenu-hover-bg);
         }
 
         /* --- Dark Mode Variables --- */
@@ -80,6 +85,7 @@
             --theme-toggle-icon-color: #c5c5c5;
             --theme-toggle-bg-hover: #353558;
         }
+
 
         /* Reset Básico y Estilos Generales */
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -138,12 +144,19 @@
         }
         .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
        
-        /* Theme Toggle Button */
+        /* --- Theme Toggle Button --- */
         .theme-toggle-button {
-            background: none; border: none; color: var(--theme-toggle-icon-color);
-            font-size: 1.25rem; padding: 0.5rem; margin-left: 0.5rem; 
-            cursor: pointer; border-radius: 50%; display: flex;
-            align-items: center; justify-content: center;
+            background: none;
+            border: none;
+            color: var(--theme-toggle-icon-color);
+            font-size: 1.25rem; 
+            padding: 0.5rem;
+            margin-left: 0.5rem; 
+            cursor: pointer;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             transition: var(--transition-colors), transform 0.2s ease;
         }
         .theme-toggle-button:hover {
@@ -154,41 +167,98 @@
         body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
         body.dark-mode .theme-toggle-button .fa-moon { display: none; }
 
-        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN --- */
-        .nav-toggle { display: none; background: none; border: none; font-size: 1.75rem; color: var(--text-dark); cursor: pointer; z-index: 1001; padding: 0.25rem; transition: var(--transition-colors); }
-        .main-menu { position: relative; }
-        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; align-items: center; }
-        .main-menu ul li { position: relative; margin-left: 0.5rem; }
-        .main-menu ul li a {
-            display: flex; align-items: center; text-decoration: none;
-            color: var(--text-medium); font-weight: 500; font-size: 0.9rem; 
-            padding: 0.75rem 0.8rem; border-radius: 6px; 
-            transition: var(--transition-smooth);
-            white-space: nowrap;
+
+        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.75rem; 
+            color: var(--text-dark); 
+            cursor: pointer;
+            z-index: 1001;
+            padding: 0.25rem;
+            transition: var(--transition-colors);
         }
-        .main-menu ul li a:hover,
-        .main-menu ul li a.current-page {
+        .main-menu { position: relative; }
+        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
+        .main-menu ul li { position: relative; margin-left: 0; }
+        .main-menu > ul > li { margin-left: 0.5rem; }
+        .main-menu > ul > li:first-child { margin-left: 0; }
+
+        .main-menu ul li a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--text-medium); 
+            font-weight: 500;
+            font-size: 0.9rem; 
+            padding: 0.75rem 0.8rem; 
+            border-radius: 6px; 
+            transition: var(--transition-colors), background-color 0.2s ease;
+            white-space: nowrap;
+            position: relative; 
+        }
+
+        .main-menu ul li a .submenu-toggle-icon { 
+            margin-left: 0.5em;
+            font-size: 0.7em;
+            display: inline-flex; 
+            align-items: center;
+            padding: 0.3em; 
+            cursor: pointer; 
+        }
+        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
+
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+            transform: rotate(180deg);
+        }
+        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
+            transform: rotate(90deg); 
+        }
+         @media (min-width: 992px) { 
+               .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
+                   transform: rotate(0deg); 
+               }
+        }
+
+        .main-menu a:hover,
+        .main-menu ul li:hover > a,
+        .main-menu ul li.open > a {
             color: var(--brand-purple-start);
             background-color: var(--submenu-hover-bg); 
         }
-        
-        /* Estilos para submenú */
-        .main-menu ul li a .submenu-toggle-icon { margin-left: 0.5em; font-size: 0.7em; }
-        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
-        .main-menu ul li.open > a .submenu-toggle-icon i { transform: rotate(180deg); }
-
-        .main-menu ul li.has-submenu .submenu { 
-            display: none; 
-            position: absolute; 
-            top: 100%; 
+       
+        .main-menu > ul > li > a.current-page {
+            color: #FFFFFF; 
+            background: var(--text-gradient); 
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
+        }
+        body.dark-mode .main-menu > ul > li > a.current-page {
+             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+        }
+        .main-menu > ul > li > a.current-page:hover {
+            color: #FFFFFF;
+            background: var(--button-hover-gradient); 
+            opacity: 0.95;
+        }
+        .main-menu .submenu li a.current-page {
+            color: var(--brand-purple-start);
+            background-color: var(--submenu-hover-bg); 
+            font-weight: 600;
+        }
+       
+        .main-menu .submenu { 
+            display: none;
+            position: absolute;
+            top: 100%;
             left: 0;
             background-color: var(--submenu-bg); 
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
             border-radius: 0 0 8px 8px; 
             min-width: 230px; 
-            /* INICIO: CORRECCIÓN DE ANCHO */
-            width: max-content; 
-            /* FIN: CORRECCIÓN DE ANCHO */
             z-index: 100;
             padding: 0.5rem 0; 
             border-top: 1px solid var(--border-color-soft); 
@@ -197,51 +267,98 @@
             transform: translateY(10px); 
             transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
         }
-        
-        /* Mostrar submenú en hover en desktop */
-        @media (min-width: 992px) {
-            .main-menu ul li.has-submenu:hover > .submenu {
-                display: block; opacity: 1; visibility: visible; transform: translateY(0);
-            }
+        body.dark-mode .main-menu .submenu {
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
         }
-        
+        .main-menu .submenu.level-3 { 
+            top: 0; 
+            left: 100%;
+            border-radius: 0 8px 8px 8px; 
+            margin-top: -0.5rem; 
+        }
+
+        .main-menu ul li.open > .submenu { 
+            display: block;
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
         .main-menu .submenu li { width: 100%; margin-left: 0; }
         .main-menu .submenu li a { 
-            padding: 0.6rem 1.2rem; font-size: 0.9rem; color: var(--text-dark); 
-            border-bottom: 1px solid var(--border-color-soft); border-radius: 0; 
+            padding: 0.6rem 1.2rem;
+            font-size: 0.9rem; 
+            color: var(--text-dark); 
+            border-bottom: 1px solid var(--border-color-soft); 
+            justify-content: space-between; 
+            border-radius: 0; 
         }
         .main-menu .submenu li:last-child a { border-bottom: none; }
         .main-menu .submenu li a:hover { 
-            background-color: var(--submenu-hover-bg); color: var(--brand-purple-start);
-        }
-
-        /* Botón de Donación */
-        .main-menu ul li a.main-cta {
-             color: #FFFFFF; background: var(--button-gradient); font-weight: 600;
-             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.2);
-        }
-        .main-menu ul li a.main-cta:hover {
-             color: #FFFFFF;
-             background: var(--button-hover-gradient);
-             transform: translateY(-2px);
-             box-shadow: 0 4px 12px rgba(var(--brand-purple-start-rgb), 0.3);
+            background-color: var(--submenu-hover-bg); 
+            color: var(--brand-purple-start);
         }
        
         /* Estilos generales para bloques de contenido */
         .content-block { padding: 4.5rem 0; transition: var(--transition-colors); } 
         .content-block.bg-shaded { background-color: var(--bg-section-alt); }
-        .block-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1.25rem; transition: var(--transition-colors); }
-        .gradient-title { background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
-        .block-subtitle { text-align: center; font-size: 1.125rem; color: var(--text-medium); max-width: 800px; margin: 0 auto 3.5rem auto; line-height: 1.8; transition: var(--transition-colors); }
+       
+        .block-title { 
+            text-align: center; 
+            font-size: 2.5rem; 
+            font-weight: 700; 
+            color: var(--text-dark); 
+            margin-bottom: 1.25rem; 
+            transition: var(--transition-colors);
+        }
+        .gradient-title { 
+            background: var(--text-gradient);
+            -webkit-background-clip: text;
+            -moz-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            display: inline-block; 
+        }
 
-        /* --- ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
-        .announcement-carousel-section { padding-top: 3rem; padding-bottom: 2.5rem; background-color: var(--bg-section-alt); margin-bottom: 2.5rem; transition: var(--transition-colors); }
-        .announcement-carousel-section .block-title { color: var(--text-dark); margin-bottom: 2.5rem; }
-        .carousel-container { position: relative; width: 100%; max-width: 960px; margin: 0 auto; overflow: hidden; border-radius: 16px; box-shadow: var(--card-shadow-light); cursor: grab; transition: box-shadow 0.3s ease; }
+        .block-subtitle { 
+            text-align: center; 
+            font-size: 1.125rem; 
+            color: var(--text-medium); 
+            max-width: 800px; 
+            margin: 0 auto 3.5rem auto; 
+            line-height: 1.8;
+            transition: var(--transition-colors);
+        }
+
+        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
+        .announcement-carousel-section {
+            padding-top: 3rem; 
+            padding-bottom: 2.5rem;
+            background-color: var(--bg-section-alt); 
+            margin-bottom: 2.5rem; 
+            transition: var(--transition-colors);
+        }
+        .announcement-carousel-section .block-title { 
+            color: var(--text-dark);
+            margin-bottom: 2.5rem; 
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 960px; 
+            margin: 0 auto;
+            overflow: hidden; 
+            border-radius: 16px; 
+            box-shadow: var(--card-shadow-light);
+            cursor: grab; 
+            transition: box-shadow 0.3s ease;
+        }
         .carousel-slides { display: flex; height: 450px; will-change: transform; }
         .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; user-select: none; }
         .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; pointer-events: none; }
         .carousel-slide .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%); color: #FFFFFF; padding: 2.5rem 2rem 1.5rem; text-align: left; border-radius: 0 0 16px 16px; transform: translateY(100%); opacity: 0; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out; }
+        body.dark-mode .carousel-slide .carousel-caption { /* Caption text is light, background gradient is dark, should be fine */ }
         .carousel-slide.active .carousel-caption { transform: translateY(0); opacity: 1; }
         .carousel-slide .carousel-caption h3 { font-size: 1.75rem; margin-top: 0; margin-bottom: 0.6rem; font-weight: 700; }
         .carousel-slide .carousel-caption p { font-size: 1rem; margin-bottom: 0; opacity: 0.9; }
@@ -262,14 +379,14 @@
         .btn-view-all-announcements:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
         .btn-view-all-announcements:hover i { transform: translateX(4px); }
        
-        /* --- ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
+        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
         .projects-page-wrapper { padding-top: 2.5rem; transition: var(--transition-colors); }
         .projects-page-wrapper .block-title { color: var(--text-dark); background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
         .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.5rem; }
         .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth), var(--transition-colors); }
         .project-card-detailed:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); }
         .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: var(--submenu-hover-bg); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); transition: var(--transition-colors); }
-        .project-card-detailed .project-img-placeholder img { width: 100%; height: 100%; object-fit: cover; }
+        .project-card-detailed .project-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; /* Las imágenes dentro no necesitan radio si el contenedor ya lo tiene */ }
         .project-card-detailed .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
         .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; transition: var(--transition-colors); }
         .project-card-detailed .project-title a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
@@ -316,19 +433,49 @@
             .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
             .header-inner > .main-menu { order: 4; }
 
-            .main-menu { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); max-height: 0; overflow-y: auto; transition: max-height 0.4s ease-in-out, var(--transition-colors); border-top: 1px solid var(--border-color-soft); }
+            .main-menu { 
+                position: absolute; 
+                top: 100%; 
+                left: 0; 
+                right: 0; 
+                background-color: var(--bg-light);
+                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
+                max-height: 0; 
+                overflow-y: auto; 
+                transition: max-height 0.4s ease-in-out, var(--transition-colors); 
+                border-top: 1px solid var(--border-color-soft); 
+            }
             .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
-            .main-menu ul { flex-direction: column; width: 100%; align-items: stretch; }
+            .main-menu ul { flex-direction: column; width: 100%; }
             .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
             .main-menu > ul > li:last-child { border-bottom: none; }
             .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} 
-            .main-menu ul li a.main-cta { justify-content: center; }
+           
+            .main-menu > ul > li > a.current-page { 
+                background: var(--submenu-hover-bg); 
+                color: var(--brand-purple-start); 
+                box-shadow: none;
+            }
+            .main-menu > ul > li > a.current-page:hover {
+                background: var(--submenu-hover-bg); 
+                opacity: 1;
+            }
 
-            .main-menu .submenu { position: static; box-shadow: none; border-radius: 0; min-width: 100%; padding: 0; border-top: none; background-color: var(--submenu-hover-bg); max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out, var(--transition-colors); opacity: 1; visibility: visible; transform: none; }
+            .main-menu .submenu { 
+                position: static; 
+                box-shadow: none; border-radius: 0; min-width: 100%;
+                padding: 0; border-top: none;
+                background-color: var(--submenu-hover-bg); 
+                max-height: 0; overflow: hidden; 
+                transition: max-height 0.3s ease-out, var(--transition-colors); 
+                opacity: 1; visibility: visible; transform: none; 
+            }
             .main-menu ul li.open > .submenu { max-height: 600px; }
-            .main-menu .submenu li a { padding-left: 2rem; }
-            .main-menu ul li.open > a .submenu-toggle-icon i { transform: rotate(180deg); }
-            
+            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
+            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
+            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
+            .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
+           
             .block-title { font-size: 2rem; }
             .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
             .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;}
@@ -389,14 +536,17 @@
             </button>
            
             <nav class="main-menu" id="mainMenuNav" aria-label="Navegación principal">
-                <ul id="main-menu-list">
+                <ul>
+                    <!-- 1. Universe Community (enlace simple) -->
                     <li><a href="index.html">Universe Community</a></li>
+
+                    <!-- 2. Proyectos (con submenú HTML estático) -->
                     <li class="has-submenu">
                         <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
                             Proyectos
                             <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
                         </a>
-                        <ul class="submenu level-2">
+                        <ul class="submenu level-2" id="projects-submenu-container">
                             <li><a href="comunidades.html">Comunidades Universo</a></li>
                             <li><a href="us.html">Universe Scan</a></li>
                             <li><a href="nk.html">NK Proyect</a></li>
@@ -404,15 +554,19 @@
                             <li><a href="ua.html">Universe Alliance</a></li>
                         </ul>
                     </li>
-                    <li><a href="avisos.html">Avisos</a></li>
-                    <!-- Los enlaces de donación se insertarán aquí por JS -->
+                   
+                    <!-- 3. Avisos (enlace simple) -->
+                    <li><a href="avisos.html">Avisos</a></li> 
+
+                    <!-- 4. Donación (enlace simple, URL desde JS) -->
+                    <li><a href="#" id="paypalMenuLink" target="_blank" rel="noopener noreferrer">Donación</a></li>
                 </ul>
             </nav>
           </div>
     </header>
 
     <main>
-        <section class="announcement-carousel-section" id="announcement-carousel-section">
+        <section class="announcement-carousel-section">
             <div class="container">
                 <h2 class="block-title"> Anuncios Destacados </h2>
                 <div class="carousel-container" id="announcementsCarousel" aria-roledescription="carousel" aria-label="Anuncios importantes de proyectos">
@@ -421,7 +575,8 @@
                     </div>
                     <button class="carousel-button prev" aria-label="Anuncio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
                     <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios"></div>
+                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios">
+                        </div>
                 </div>
                 <div class="carousel-view-all-container">
                     <a href="avisos.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
@@ -528,7 +683,7 @@
             });
         }
 
-        // --- Mobile Navigation Menu & Submenu Logic ---
+        // --- Mobile Navigation Menu (Main Toggle) ---
         const navToggleBtn = document.getElementById('navToggleBtn');
         const mainMenuNav = document.getElementById('mainMenuNav');
         const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
@@ -539,126 +694,267 @@
                 navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
                 navIcon.classList.toggle('fa-bars', !isExpanded);
                 navIcon.classList.toggle('fa-times', isExpanded);
-            });
-        }
-        
-        mainMenuNav.querySelectorAll("li.has-submenu > a").forEach(link => {
-            link.addEventListener("click", function (event) {
-                if (window.innerWidth <= 991) {
-                    event.preventDefault();
-                    const parentLi = link.parentElement;
-                    const submenu = parentLi.querySelector('.submenu');
 
-                    // Close other open submenus at the same level
-                    if (!parentLi.classList.contains('open')) {
-                        mainMenuNav.querySelectorAll('li.has-submenu.open').forEach(openLi => {
-                             if(openLi !== parentLi) {
-                                openLi.classList.remove('open');
-                                openLi.querySelector('.submenu').style.maxHeight = null;
-                             }
-                        });
-                    }
-                    
-                    parentLi.classList.toggle('open');
-                    
-                    if (parentLi.classList.contains('open')) {
-                        submenu.style.maxHeight = submenu.scrollHeight + "px";
-                    } else {
-                        submenu.style.maxHeight = null;
-                    }
+                if (!isExpanded) { 
+                    mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                        openSubmenuLi.classList.remove('open');
+                        const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                        if (link) link.setAttribute('aria-expanded', 'false');
+                        const submenu = openSubmenuLi.querySelector('.submenu');
+                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                    });
                 }
             });
-        });
+        }
 
-        mainMenuNav.addEventListener('click', (event) => {
-            const link = event.target.closest('a');
-            if (link && !link.parentElement.classList.contains('has-submenu')) {
-                 if (mainMenuNav.classList.contains('menu-visible') && navToggleBtn) {
-                    navToggleBtn.click();
-                 }
+        // --- Submenu Toggle Logic (Revised) ---
+        function performToggleVisually(listItem, linkElement, submenuElement) {
+            const isOpen = listItem.classList.toggle('open');
+            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+
+            if (window.innerWidth <= 991 && submenuElement) { 
+                if (isOpen) {
+                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
+                } else {
+                    submenuElement.style.maxHeight = null;
+                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
+                        openChild.classList.remove('open');
+                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
+                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
+                        const childSubmenu = openChild.querySelector('.submenu');
+                        if(childSubmenu) childSubmenu.style.maxHeight = null;
+                    });
+                }
             }
-        });
+        }
+
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
+                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
+                const submenu = listItem.querySelector(":scope > .submenu"); 
+
+                if (!link || !submenu) return;
+
+                if (toggleIcon) {
+                    toggleIcon.addEventListener("click", function (event) {
+                        event.preventDefault();  
+                        event.stopPropagation(); 
+                        performToggleVisually(listItem, link, submenu);
+                    });
+                }
+
+                link.addEventListener("click", function (event) {
+                    if (event.target.closest(".submenu-toggle-icon")) {
+                        return; 
+                    }
+
+                    const isMobileView = window.innerWidth <= 991;
+                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
+                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
+                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
+
+
+                    if (isMobileView) {
+                        if (listItem.classList.contains('has-submenu')) {
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
+                        }
+                    } else { // Desktop View
+                        if (hasValidHref) {
+                             if (isLinkToCurrentPagePathOnly) { 
+                                 event.preventDefault(); 
+                                 performToggleVisually(listItem, link, submenu);
+                             }
+                        } else { 
+                            event.preventDefault();
+                            performToggleVisually(listItem, link, submenu);
+                        }
+                    }
+                });
+            });
+        }
+
+
+        // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
+        if (mainMenuNav) {
+            mainMenuNav.querySelectorAll("ul li a").forEach(link => {
+                link.addEventListener('click', (event) => {
+                    const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
+                    const listItem = link.closest('li');
+                    const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
+                   
+                    if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
+                        return;
+                    }
+
+                    if (mainMenuNav.classList.contains('menu-visible')) {
+                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
+                            mainMenuNav.classList.remove('menu-visible');
+                            if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
+                            if (navIcon) {
+                                navIcon.classList.remove('fa-times');
+                                navIcon.classList.add('fa-bars');
+                            }
+                            mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
+                                openSubmenuLi.classList.remove('open');
+                                const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
+                                if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
+                                const submenu = openSubmenuLi.querySelector('.submenu');
+                                if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
+                            });
+                        }
+                    }
+                });
+            });
+        }
 
         // --- Resaltado de Página Actual en el Menú ---
         function updateCurrentPage() { 
-            const mainMenu = document.getElementById('main-menu-list');
-            if (!mainMenu) return;
-            const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-            mainMenu.querySelectorAll('a').forEach(navLink => {
+            if (!mainMenuNav) return;
+            const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
+            const currentUrlHash = window.location.hash;
+
+            mainMenuNav.querySelectorAll('a').forEach(navLink => {
+                navLink.classList.remove('current-page'); 
                 const linkHref = navLink.getAttribute('href');
                 if (!linkHref) return;
-                
-                const linkPath = (linkHref.split('/').pop() || 'index.html').split('#')[0];
-                
-                navLink.classList.remove('current-page');
-                const parentLi = navLink.closest('li.has-submenu');
-                if (parentLi) {
-                    parentLi.querySelector('a').classList.remove('current-page');
-                }
 
-                if (linkPath === currentPath) {
+                const linkUrl = new URL(linkHref, window.location.origin); 
+                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+                const linkHash = linkUrl.hash;
+               
+                let isActive = false;
+
+                if (linkPath === currentUrlPath) {
+                    if (linkHash) { 
+                        if (linkHash === currentUrlHash) isActive = true;
+                    } else { 
+                        if (!currentUrlHash || currentUrlHash === "#") isActive = true; 
+                    }
+                }
+               
+                if (isActive) {
                     navLink.classList.add('current-page');
-                     if (parentLi) {
-                        parentLi.querySelector('a').classList.add('current-page');
+                    let currentElementForParentCheck = navLink;
+                    while (currentElementForParentCheck) {
+                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
+                        if (!parentSubmenuUl) break; 
+                        const parentLi = parentSubmenuUl.parentElement; 
+                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
+                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
+                        if (parentAnchor) {
+                            parentAnchor.classList.add('current-page'); 
+                        } else { break; }
+                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
+                        currentElementForParentCheck = parentLi; 
                     }
                 }
             });
         }
        
+        updateCurrentPage(); 
+        window.addEventListener('hashchange', updateCurrentPage); 
+       
+
         // --- Cargar Contenido Dinámico desde JSON ---
-        const announcementsCarouselSection = document.getElementById('announcement-carousel-section');
         const announcementsCarouselContainer = document.getElementById('announcementsCarousel');
         const carouselSlidesContainer = document.getElementById('carouselSlides');
         const carouselDotsContainer = document.getElementById('carouselDotsContainer');
         const projectsGridContainer = document.getElementById('projectsGrid');
-        const mainMenuList = document.getElementById('main-menu-list');
         const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
         const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
         const fabWhatsapp = document.getElementById('fabWhatsapp');
+        const paypalMenuLink = document.getElementById('paypalMenuLink');
 
-        function renderizarMenuDonaciones(donaciones, container) {
-            if (!container || !donaciones) return;
-            donaciones.forEach(donacion => {
-                const li = document.createElement('li');
-                const link = document.createElement('a');
-                link.href = donacion.url;
-                link.target = "_blank";
-                link.rel = "noopener noreferrer";
-                link.classList.add('main-cta'); 
-                link.innerHTML = `<i class="${donacion.icono}" style="margin-right: 8px;"></i>${donacion.plataforma}`;
-                li.appendChild(link);
-                container.appendChild(li);
-            });
+        async function cargarContenidoDesdeJSON() {
+            console.log("Intentando cargar datos_web.json...");
+            try {
+                const response = await fetch('datos_web.json'); 
+                console.log("Respuesta del fetch:", response);
+
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar datos_web.json`);
+                }
+                const data = await response.json();
+                console.log("Datos JSON cargados:", data);
+               
+                // Llenar enlace de donación
+                if (paypalMenuLink && data.redesSociales && data.redesSociales.donaciones) {
+                    const paypalInfo = data.redesSociales.donaciones.find(d => d.plataforma && d.plataforma.toLowerCase() === 'paypal');
+                    if (paypalInfo && paypalInfo.url) {
+                        paypalMenuLink.href = paypalInfo.url;
+                    } else {
+                        paypalMenuLink.parentElement.style.display = 'none';
+                    }
+                } else if (paypalMenuLink) {
+                     paypalMenuLink.parentElement.style.display = 'none';
+                }
+
+                // 1. Cargar Anuncios para el Carrusel
+                if (announcementsCarouselContainer && data.anuncios) {
+                    renderizarCarruselAnuncios(data.anuncios, carouselSlidesContainer, carouselDotsContainer);
+                } else if (carouselSlidesContainer) {
+                    carouselSlidesContainer.innerHTML = '<p>No hay anuncios para mostrar en el carrusel.</p>';
+                }
+
+                // 2. Cargar Tarjetas de Proyectos
+                if (projectsGridContainer && data.proyectos) {
+                    renderizarTarjetasDeProyectos(data.proyectos, projectsGridContainer);
+                } else if (projectsGridContainer) {
+                    projectsGridContainer.innerHTML = '<p>No hay proyectos para mostrar.</p>';
+                }
+
+                // 3. Cargar Contenido del Footer y FAB
+                if (data.redesSociales) {
+                    renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
+                }
+
+            } catch (error) {
+                console.error('Error al cargar contenido desde JSON:', error);
+                if (carouselSlidesContainer) carouselSlidesContainer.innerHTML = `<p>Error al cargar anuncios del carrusel: ${error.message}.</p>`;
+                if (projectsGridContainer) projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
+                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
+                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
+                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+            }
         }
 
-        function renderizarCarruselAnuncios(anuncios, container, dotsContainer) {
-            if (!container || !dotsContainer || !anuncios || anuncios.length === 0) {
-                if(announcementsCarouselSection) announcementsCarouselSection.style.display = 'none';
-                return;
-            }
-            container.innerHTML = ''; 
+        function renderizarCarruselAnuncios(anuncios, slidesContainer, dotsContainer) {
+            if (!slidesContainer || !dotsContainer) return;
+
+            slidesContainer.innerHTML = ''; 
             dotsContainer.innerHTML = '';   
+
             anuncios.forEach((anuncio, index) => {
                 const slide = document.createElement('div');
                 slide.classList.add('carousel-slide');
                 if (index === 0) slide.classList.add('active');
+                slide.setAttribute('role', 'group');
+                slide.setAttribute('aria-roledescription', 'slide');
+                slide.setAttribute('aria-label', `${index + 1} de ${anuncios.length}`);
+
                 slide.innerHTML = `
                     <img src="${anuncio.flyerUrl || 'https://placehold.co/960x450/cccccc/333333?text=Anuncio'}" alt="${anuncio.altFlyer || anuncio.titulo}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                     <div class="carousel-caption">
                         <h3>${anuncio.titulo}</h3>
-                        <p>${anuncio.contenido ? anuncio.contenido.substring(0, 100) + '...' : ''}</p> 
-                    </div>`;
-                container.appendChild(slide);
+                        <p>${anuncio.contenido ? anuncio.contenido.substring(0, 100) + (anuncio.contenido.length > 100 ? '...' : '') : 'Contenido no disponible.'}</p> 
+                    </div>
+                `;
+                slidesContainer.appendChild(slide);
 
                 const dot = document.createElement('button');
                 dot.classList.add('carousel-dot');
                 if (index === 0) dot.classList.add('active');
+                dot.setAttribute('aria-label', `Ir al anuncio ${index + 1}`);
                 dot.dataset.slideTo = index; 
                 dotsContainer.appendChild(dot);
             });
            
+            // Inicializar la lógica del carrusel DESPUÉS de que los slides y dots se hayan renderizado
             if (anuncios.length > 0) {
-                inicializarLogicaCarruselInterna(announcementsCarouselContainer, container, dotsContainer);
+                inicializarLogicaCarruselInterna(announcementsCarouselContainer, slidesContainer, dotsContainer);
             }
         }
        
@@ -667,57 +963,135 @@
             const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
             const prevButton = carouselContainer.querySelector('.carousel-button.prev');
             const nextButton = carouselContainer.querySelector('.carousel-button.next');
+           
             let currentIndex = 0;
             let slideInterval;
             const slideCount = slides.length;
-            if (slideCount <= 1) {
-                if(prevButton) prevButton.style.display = 'none';
-                if(nextButton) nextButton.style.display = 'none';
-                if(dotsContainer) dotsContainer.style.display = 'none';
-                return;
-            };
 
-            let isDragging = false, startPosX = 0, currentTranslate = 0, prevTranslate = 0;
+            if (slideCount <= 0) return;
+
+            let isDragging = false;
+            let startPosX = 0;
+            let currentTranslate = 0;
+            let prevTranslate = 0;
             const swipeThreshold = 50;
 
-            const setPositionByIndex = () => { if (slidesContainer.offsetWidth > 0) { currentTranslate = currentIndex * -slidesContainer.offsetWidth; prevTranslate = currentTranslate; slidesContainer.style.transition = 'transform 0.5s ease-in-out'; slidesContainer.style.transform = `translateX(${currentTranslate}px)`; } };
-            const updateCarouselState = () => { setPositionByIndex(); slides.forEach((s, i) => s.classList.toggle('active', i === currentIndex)); dots.forEach((d, i) => d.classList.toggle('active', i === currentIndex)); };
-            const goToSlide = (index) => { currentIndex = (index + slideCount) % slideCount; updateCarouselState(); };
-            const nextSlide = () => goToSlide(currentIndex + 1);
-            const startInterval = () => { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); };
-            const resetInterval = () => { clearInterval(slideInterval); startInterval(); };
-            
-            nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
-            prevButton.addEventListener('click', () => { goToSlide(currentIndex - 1); resetInterval(); });
-            dots.forEach(dot => dot.addEventListener('click', e => { goToSlide(parseInt(e.target.dataset.slideTo)); resetInterval(); }));
-            
-            const getPositionX = event => event.type.includes('mouse') ? event.pageX : event.touches[0].clientX;
-            const touchStart = event => { isDragging = true; startPosX = getPositionX(event); slidesContainer.style.transition = 'none'; carouselContainer.classList.add('grabbing'); clearInterval(slideInterval); };
-            const touchMove = event => { if (isDragging) { const currentPosition = getPositionX(event); currentTranslate = prevTranslate + currentPosition - startPosX; slidesContainer.style.transform = `translateX(${currentTranslate}px)`; } };
-            const touchEnd = () => { if (!isDragging) return; isDragging = false; carouselContainer.classList.remove('grabbing'); const movedBy = currentTranslate - prevTranslate; if (movedBy < -swipeThreshold) goToSlide(currentIndex + 1); else if (movedBy > swipeThreshold) goToSlide(currentIndex - 1); else setPositionByIndex(); resetInterval(); };
-            
-            slidesContainer.addEventListener('mousedown', touchStart); slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
-            document.addEventListener('mousemove', touchMove); document.addEventListener('touchmove', touchMove, { passive: true });
-            document.addEventListener('mouseup', touchEnd); document.addEventListener('touchend', touchEnd);
-            
-            window.addEventListener('resize', () => { slidesContainer.style.transition = 'none'; setPositionByIndex(); });
+            function applyTransition() { slidesContainer.style.transition = 'var(--transition-carousel)'; }
+            function removeTransition() { slidesContainer.style.transition = 'none'; }
+
+            function setPositionByIndex() {
+                if (slidesContainer && slidesContainer.offsetWidth > 0) { 
+                    currentTranslate = currentIndex * -slidesContainer.offsetWidth;
+                    prevTranslate = currentTranslate;
+                    applyTransition();
+                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+                }
+            }
+
+            function updateCarouselState() {
+                setPositionByIndex();
+                slides.forEach((slide, index) => {
+                    slide.classList.toggle('active', index === currentIndex); 
+                    slide.setAttribute('aria-hidden', String(index !== currentIndex));
+                    slide.inert = (index !== currentIndex); 
+                });
+                dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === currentIndex);
+                    dot.setAttribute('aria-current', String(index === currentIndex));
+                });
+            }
+
+            function goToSlide(index) { 
+                currentIndex = (index + slideCount) % slideCount; 
+                updateCarouselState(); 
+            }
+            function nextSlide() { goToSlide(currentIndex + 1); }
+            function prevSlide() { goToSlide(currentIndex - 1); }
+
+            if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
+            if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
+           
+            dots.forEach(dot => {
+                dot.addEventListener('click', (e) => {
+                    goToSlide(parseInt(e.target.dataset.slideTo));
+                    resetInterval();
+                });
+            });
+
+            function startInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); }
+            function resetInterval() { clearInterval(slideInterval); startInterval(); }
+           
+            slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
+            slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
+            slidesContainer.addEventListener('touchend', touchEnd);
+            slidesContainer.addEventListener('mousedown', touchStart);
+            slidesContainer.addEventListener('mousemove', touchMove);
+            slidesContainer.addEventListener('mouseup', touchEnd);
+            slidesContainer.addEventListener('mouseleave', touchEnd);
+
+            function touchStart(event) {
+                isDragging = true;
+                startPosX = getPositionX(event);
+                removeTransition(); 
+                carouselContainer.classList.add('grabbing');
+                clearInterval(slideInterval); 
+            }
+
+            function touchMove(event) {
+                if (isDragging) {
+                    const currentPosition = getPositionX(event);
+                    currentTranslate = prevTranslate + currentPosition - startPosX;
+                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+                }
+            }
+
+            function touchEnd() {
+                if (!isDragging) return;
+                isDragging = false;
+                carouselContainer.classList.remove('grabbing');
+                const movedBy = currentTranslate - prevTranslate;
+                applyTransition(); 
+                if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) { currentIndex += 1; }
+                if (movedBy > swipeThreshold && currentIndex > 0) { currentIndex -= 1; }
+                updateCarouselState(); 
+                resetInterval(); 
+            }
+
+            function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
+           
             updateCarouselState(); 
-            startInterval();
+            startInterval(); 
+
+            carouselContainer.addEventListener('mouseenter', () => { if(!isDragging) clearInterval(slideInterval); });
+            carouselContainer.addEventListener('mouseleave', () => { if(!isDragging) startInterval(); });
+            carouselContainer.addEventListener('keydown', (e) => {
+                if (e.key === 'ArrowLeft') { prevSlide(); resetInterval(); } 
+                else if (e.key === 'ArrowRight') { nextSlide(); resetInterval(); }
+            });
+            window.addEventListener('resize', () => {
+                removeTransition(); 
+                updateHeaderHeightAndPadding(); 
+                setPositionByIndex();
+                setTimeout(applyTransition, 50); 
+            });
         }
 
+
         function renderizarTarjetasDeProyectos(proyectos, gridContainer) {
-            if (!gridContainer || !proyectos) {
-                 if(gridContainer) gridContainer.innerHTML = '<p>No hay proyectos para mostrar.</p>';
-                 return;
-            }
+            if (!gridContainer) return;
             gridContainer.innerHTML = ''; 
             proyectos.forEach(proyecto => {
                 const card = document.createElement('article');
                 card.classList.add('project-card-detailed');
+               
                 let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
                 if (proyecto.portadaUrl) {
-                    imgHTML = `<div class="project-img-placeholder"><img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';"></div>`;
+                    imgHTML = `
+                        <div class="project-img-placeholder">
+                            <img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                        </div>`;
                 }
+
                 card.innerHTML = `
                     ${imgHTML}
                     <div class="project-content">
@@ -734,59 +1108,51 @@
         }
 
         function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
-             if (!redesSociales) return;
+            // Contactos Directos del Footer
             if (contactContainer && redesSociales.contactosDirectos) {
                 contactContainer.innerHTML = ''; 
                 redesSociales.contactosDirectos.forEach(contacto => {
                     const linkElement = document.createElement('a');
                     linkElement.href = contacto.url || '#';
                     linkElement.target = "_blank";
-                    linkElement.rel = "noopener";
                     linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
                     linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
                     contactContainer.appendChild(linkElement);
                 });
+            } else if (contactContainer) {
+                contactContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
             }
+
+            // Perfiles Sociales del Footer
             if (socialContainer && redesSociales.perfilesSociales) {
                 socialContainer.innerHTML = ''; 
                 redesSociales.perfilesSociales.forEach(perfil => {
                     const linkElement = document.createElement('a');
                     linkElement.href = perfil.url || '#';
                     linkElement.target = "_blank";
-                    linkElement.rel = "noopener";
                     linkElement.title = perfil.titulo;
                     linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
                     linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
                     socialContainer.appendChild(linkElement);
                 });
+            } else if (socialContainer) {
+                 socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
             }
+
+            // Botón Flotante de WhatsApp (FAB)
             if (fabElement && redesSociales.contactosDirectos) {
                 const whatsappFabInfo = redesSociales.contactosDirectos.find(
                     c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
                 );
-                fabElement.href = whatsappFabInfo ? whatsappFabInfo.url : 'javascript:void(0);';
-            }
-        }
-
-        async function cargarContenidoDesdeJSON() {
-            try {
-                const response = await fetch('datos_web.json'); 
-                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
-                const data = await response.json();
-               
-                renderizarMenuDonaciones(data.redesSociales?.donaciones, mainMenuList);
-                renderizarCarruselAnuncios(data.anuncios, carouselSlidesContainer, carouselDotsContainer);
-                renderizarTarjetasDeProyectos(data.proyectos, projectsGridContainer);
-                renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
-
-            } catch (error) {
-                console.error('Error al cargar contenido desde JSON:', error);
-                if(announcementsCarouselSection) announcementsCarouselSection.style.display = 'none';
-                if(projectsGridContainer) projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
-                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
-                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
-            } finally {
-                updateCurrentPage(); 
+                if (whatsappFabInfo && whatsappFabInfo.url) {
+                    fabElement.href = whatsappFabInfo.url;
+                } else {
+                       fabElement.href = "javascript:void(0);"; 
+                       fabElement.style.cursor = "default"; 
+                }
+            } else if (fabElement) {
+                fabElement.href = "javascript:void(0);"; 
+                fabElement.style.cursor = "default";
             }
         }
 
