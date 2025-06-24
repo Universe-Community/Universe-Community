@@ -164,7 +164,7 @@
       "id": "recepcion_general_whatsapp",
       "plataforma": "WhatsApp",
       "descripcion": "Grupo de recepción general.",
-      "enlaceUrl": "http:",
+      "enlaceUrl": "https://chat.whatsapp.com/JvWKGZtWnuE4FrWRMTeaef",
       "icono": "fab fa-whatsapp",
       "textoBoton": "Solicitar Unión de Grupo (WhatsApp)"
     }
@@ -188,7 +188,7 @@
       {
         "plataforma": "Email",
         "tipo": "Contacto General",
-        "url": "mailto:universecommunity.uc@gmail.com",
+        "url": "mailto:contacto@universecommunity.site",
         "icono": "fas fa-envelope",
         "textoAlternativo": "Enviar correo electrónico a Universe Community"
       }
