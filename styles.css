@@ -131,8 +131,12 @@
         -moz-osx-font-smoothing: grayscale;
         transition: var(--transition-colors);
       }
-      .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; }
-
+      .container {Add commentMore actions
+        width: 90%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+                 }
       /* Header */
       .site-header {
         background-color: var(--bg-light);
