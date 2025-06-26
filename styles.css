@@ -119,31 +119,19 @@
       }
 
       /* Reset Básico y Estilos Generales */
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-      }
-      body {
+      **, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { font-size: 16px; scroll-behavior: smooth; }
+        body {
         font-family: var(--font-primary);
         background-color: var(--bg-light);
         color: var(--text-dark);
         line-height: 1.7;
         overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
         transition: var(--transition-colors);
       }
-      .container {
-        width: 90%;
-        max-width: 1100px;
-        margin-left: auto;
-        margin-right: auto;
-      }
+      .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; }
 
       /* Header */
       .site-header {
@@ -152,6 +140,8 @@
         box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
         position: sticky;
         top: 0;
+        left: 0;
+        width: 100%;
         z-index: 1000;
         transition: var(--transition-colors);
       }
@@ -1024,6 +1014,27 @@
         text-decoration: underline;
       }
 
+
+        /* --- ESTILOS PARA LA PÁGINA DE ANUNCIOS --- */
+        .announcements-page-wrapper { padding-top: 2.5rem; }
+        .announcements-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
+        .announcement-card { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); padding: 2rem; transition: var(--transition-smooth), var(--transition-colors); border-left: 6px solid var(--brand-purple-start); display: flex; flex-direction: column; }
+        .announcement-card:hover { transform: translateY(-6px); box-shadow: var(--card-hover-shadow); }
+        .announcement-flyer { width: 100%; max-height: 350px; overflow: hidden; border-radius: 10px; margin-bottom: 1.5rem; display: flex; justify-content: center; align-items: center; background-color: var(--submenu-hover-bg); }
+        .announcement-flyer img { width: 100%; height: auto; max-height: 100%; object-fit: cover; border-radius: 10px; }
+        .announcement-flyer .flyer-placeholder-text { color: var(--text-subtle); font-style: italic; }
+        .announcement-card .announcement-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 1rem; border-bottom: 1px solid var(--border-color-soft); padding-bottom: 1rem; flex-wrap: wrap; }
+        .announcement-card .announcement-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin: 0; margin-right: 1rem; flex-grow: 1; }
+        .announcement-card .announcement-date { font-size: 0.9rem; color: var(--text-subtle); font-weight: 500; white-space: nowrap; margin-top: 0.25rem; }
+        .announcement-card .announcement-content { flex-grow: 1; }
+        .announcement-card .announcement-content p { font-size: 1rem; color: var(--text-medium); line-height: 1.75; margin-bottom: 1.25rem; }
+        .announcement-card .announcement-content p:last-child { margin-bottom: 0; }
+        .announcement-card .announcement-footer { margin-top: 1.5rem; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; }
+        .announcement-card .announcement-link { color: var(--brand-blue-end); text-decoration: none; font-weight: 600; font-size: 0.95rem; transition: color 0.2s ease; }
+        .announcement-card .announcement-link:hover { text-decoration: underline; color: var(--brand-purple-start); }
+        .announcement-card .announcement-tag { display: inline-block; background-color: rgba(var(--brand-blue-end-rgb), 0.1); color: var(--brand-blue-end); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; font-weight: 500; }
+        body.dark-mode .announcement-card .announcement-tag { background-color: rgba(var(--brand-blue-end-rgb), 0.2); }
+       
       /* FAB */
       .floating-action-button {
         position: fixed;
@@ -1048,8 +1059,8 @@
         transform: scale(1.03);
       }
 
-      /* Footer (Styles from proyectos.html) */
-      .site-footer-detailed {
+      /* Footer Detallado */
+     .site-footer-detailed {
         background-color: var(--footer-bg-dark);
         color: var(--footer-text-secondary-light);
         padding: 5rem 0 2rem 0;
