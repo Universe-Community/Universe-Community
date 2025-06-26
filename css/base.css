@@ -1,1 +1,143 @@
+/* Variables de color, fuentes, sombras y transiciones globales (Light Mode) */
+:root {
+  --brand-purple-start: #6a11cb;
+  --brand-blue-end: #2575fc;
 
+  --text-gradient: linear-gradient(
+    105deg,
+    var(--brand-purple-start),
+    var(--brand-blue-end)
+  );
+  --button-gradient: linear-gradient(
+    135deg, /* Ángulo cambiado */
+    var(--brand-purple-start),
+    var(--brand-blue-end)
+  );
+  --button-hover-gradient: linear-gradient(
+    135deg, /* Ángulo cambiado y colores oscurecidos */
+    #5a0fb3,
+    #1e62d0
+  );
+  --paypal-button-bg: #0070ba;
+  --paypal-button-hover-bg: #005ea6;
+
+  --text-dark: #212529;
+  --text-medium: #5f6773;
+  --text-light: #ffffff;
+  --text-subtle: #8a92a5;
+
+  --bg-light: #ffffff;
+  --bg-light-rgb: 255, 255, 255;
+  --bg-section-alt: #f8f9fa;
+  --submenu-bg: #fdfdfd;
+  --submenu-hover-bg: #f0f0f0;
+
+  --border-color-soft: #eaeaea;
+  --input-border-color: #ced4da;
+  --input-focus-border-color: var(--brand-purple-start);
+  --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06);
+  --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
+
+  --font-primary: "Poppins", sans-serif;
+
+  --mv-skewed-gradient-start: rgba(106, 17, 203, 0.08);
+  --mv-skewed-gradient-end: rgba(37, 117, 252, 0.08);
+  --mv-card-shadow-final: 0 12px 36px rgba(30, 30, 60, 0.06);
+  --mv-card-border-radius-final: 24px;
+  --mv-skewed-bg-border-radius-final: 28px;
+  --mv-title-font-size-final: 1.6rem;
+  --mv-description-font-size-final: 1rem;
+
+  --details-link-blue: #007bff;
+
+  /* Variables específicas para el footer (mantienen la consistencia global) */
+  --footer-bg-dark: #121224;
+  --footer-text-primary-light: #e8eaf6;
+  --footer-text-secondary-light: #a0a8c0;
+  --footer-heading-color: var(--text-light);
+  --footer-link-hover-color: var(--brand-blue-end);
+  --footer-icon-color: #a0a8c0;
+  --footer-icon-hover-color: var(--text-light);
+
+  /* Variables de color para redes sociales (globales) */
+  --social-facebook-color: #1877f2;
+  --social-twitter-color: #1da1f2;
+  --social-instagram-color: #e4405f;
+  --social-discord-color: #5865f2;
+  --social-youtube-color: #ff0000;
+  --social-linkedin-color: #0a66c2;
+
+  /* Variables de color para WhatsApp y Telegram (globales) */
+  --whatsapp-bg-color: #25d366;
+  --whatsapp-hover-bg-color: #1dae54;
+  --telegram-bg-color: #0088cc;
+  --telegram-hover-bg-color: #007ab8;
+
+  /* Variables para transiciones y alturas (globales) */
+  --transition-smooth: all 0.3s ease-in-out;
+  --transition-colors: background-color 0.3s ease, color 0.3s ease,
+    border-color 0.3s ease;
+  --header-height: 70px;
+
+  --brand-purple-start-rgb: 106, 17, 203;
+  --brand-blue-end-rgb: 37, 117, 252;
+
+  /* Variables para el botón de cambio de tema (globales) */
+  --theme-toggle-icon-color: var(--text-medium);
+  --theme-toggle-bg-hover: var(--submenu-hover-bg);
+}
+
+/* Modos Oscuro (Variables globales del Dark Mode) */
+body.dark-mode {
+  --text-dark: #e0e0e0;
+  --text-medium: #b0b0b0;
+  --text-light: #121212;
+  --text-subtle: #7a7a7a;
+
+  --bg-light: #1a1a2e;
+  --bg-light-rgb: 26, 26, 46;
+  --bg-section-alt: #23233c;
+  --submenu-bg: #2c2c48;
+  --submenu-hover-bg: #353558;
+
+  --border-color-soft: #3a3a5a;
+  --input-border-color: #4a4a6a;
+  --input-focus-border-color: var(--brand-blue-end);
+  --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
+  --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+
+  /* Footer en modo oscuro */
+  --footer-bg-dark: #0e0e1c;
+  --footer-text-primary-light: #d0d0e0;
+  --footer-text-secondary-light: #9090b0;
+
+  --mv-skewed-gradient-start: rgba(106, 17, 203, 0.12);
+  --mv-skewed-gradient-end: rgba(37, 117, 252, 0.12);
+  --mv-card-shadow-final: 0 12px 36px rgba(0, 0, 0, 0.2);
+
+  --details-link-blue: #36a2ff;
+
+  --theme-toggle-icon-color: #c5c5c5;
+  --theme-toggle-bg-hover: #353558;
+}
+
+/* Reset Básico y Estilos Generales del cuerpo y html */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+}
+body {
+  font-family: var(--font-primary);
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  transition: var(--transition-colors);
+}
