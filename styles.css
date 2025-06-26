@@ -1430,3 +1430,45 @@
           font-size: 0.85rem;
         }
       }
+/* Ajustes Responsivos */Add commentMore actions
+        @media (max-width: 991px) {
+            .container { width: 95%; } 
+            .nav-toggle { display: flex; align-items: center; justify-content: center; } 
+            .theme-toggle-button { margin-right: 0.5rem; }
+            .header-inner > .logo-link { flex-shrink: 0; }
+            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
+            .header-inner > .main-menu { order: 4; }
+
+            .main-menu { position: absolute; top: 100%; left: 0; right: 0; background-color: var(--bg-light); box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); max-height: 0; overflow-y: auto; transition: max-height 0.4s ease-in-out, var(--transition-colors); border-top: 1px solid var(--border-color-soft); }
+            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
+            .main-menu ul { flex-direction: column; width: 100%; align-items: stretch; }
+            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
+            .main-menu > ul > li:last-child { border-bottom: none; }
+            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: flex-start; border-radius: 0; }
+            .main-menu ul li a.main-cta { justify-content: center; }
+           
+            .block-title { font-size: 2rem; }
+            .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
+            .announcements-grid { grid-template-columns: 1fr; }
+            .announcement-card .announcement-title { font-size: 1.3rem; }
+        }
+
+        @media (max-width: 767px) {
+            .block-title { font-size: 1.75rem; }
+            .block-subtitle { font-size: 1rem; }
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); } 
+            .footer-social-icons { justify-content: center; }
+            .footer-direct-contact a { justify-content: center; }
+            .announcement-card .announcement-header { flex-direction: column; align-items: flex-start; }
+            .announcement-card .announcement-date { margin-left: 0; margin-top: 0.5rem; }
+            .announcement-flyer { max-height: 250px; }
+        }
+         @media (max-width: 480px) {
+            .block-title { font-size: 1.5rem; } 
+            .block-subtitle { font-size: 0.95rem; }
+            .announcement-card { padding: 1.5rem; }
+            .announcement-card .announcement-title { font-size: 1.15rem; }
+            .announcement-card .announcement-content p { font-size: 0.9rem; }
+            .announcement-flyer { max-height: 200px; }
+         }
