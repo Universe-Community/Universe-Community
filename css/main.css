@@ -1,1 +1,11 @@
+/* 1. Estilos Base: Resets, tipografía global, estilos de cuerpo. */
+@import url("base.css");
 
+/* 2. Estilos de Layout: Header, Footer y contenedores principales de las secciones. */
+@import url("layout.css");
+
+/* 3. Estilos de Componentes: Botones, tarjetas, formularios, navegación, íconos sociales. */
+@import url("components.css");
+
+/* 4. Estilos de Páginas: Si una página tiene algo MUY único que no encaja en componentes o layout. */
+@import url("pages.css");
