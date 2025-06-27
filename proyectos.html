@@ -1,1169 +1,2017 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universe Community - Proyectos</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
-        :root {
-            /* --- Light Mode (Default) --- */
-            --brand-purple-start: #6A11CB; 
-            --brand-blue-end: #2575FC;    
-           
-            --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
-            --button-gradient: linear-gradient(135deg, var(--brand-purple-start), var(--brand-blue-end));
-            --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
+      :root {
+        /* --- Light Mode (Default) --- */
+        --brand-purple-start: #6a11cb;
+        --brand-blue-end: #2575fc;
 
-            --text-dark: #212529;
-            --text-medium: #5f6773;
-            --text-light: #FFFFFF;
-            --text-subtle: #8a92a5;
+        --text-gradient: linear-gradient(
+          105deg,
+          var(--brand-purple-start),
+          var(--brand-blue-end)
+        );
+        --button-gradient: linear-gradient(
+          135deg,
+          var(--brand-purple-start),
+          var(--brand-blue-end)
+        );
+        --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
 
-            --bg-light: #FFFFFF;
-            --bg-light-rgb: 255, 255, 255;
-            --bg-section-alt: #f8f9fa; 
-            --submenu-bg: #fdfdfd; 
-            --submenu-hover-bg: #f0f0f0; 
-           
-            --border-color-soft: #eaeaea; 
-            --input-border-color: #CED4DA;
-            --input-focus-border-color: var(--brand-purple-start); 
-            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06); 
-            --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
-           
-            --font-primary: 'Poppins', sans-serif;
-           
-            --footer-bg-dark: #121224; 
-            --footer-text-primary-light: #E8EAF6;
-            --footer-text-secondary-light: #A0A8C0;
-            --footer-heading-color: var(--text-light);
-            --footer-link-hover-color: var(--brand-blue-end);
-            --footer-icon-color: #A0A8C0;
-            --footer-icon-hover-color: var(--text-light);
+        --text-dark: #212529;
+        --text-medium: #5f6773;
+        --text-light: #ffffff;
+        --text-subtle: #8a92a5;
 
-            --transition-smooth: all 0.3s ease-in-out;
-            --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
-            --transition-carousel: transform 0.5s ease-in-out; 
+        --bg-light: #ffffff;
+        --bg-light-rgb: 255, 255, 255;
+        --bg-section-alt: #f8f9fa;
+        --submenu-bg: #fdfdfd;
+        --submenu-hover-bg: #f0f0f0;
 
-            --brand-purple-start-rgb: 106, 17, 203;
-            --brand-blue-end-rgb: 37, 117, 252;
-            --whatsapp-bg-color: #25D366; 
-            --whatsapp-hover-bg-color: #1DAE54; 
-            --header-height: 70px;
-            --paypal-button-bg: #0070ba;
+        --border-color-soft: #eaeaea;
+        --input-border-color: #ced4da;
+        --input-focus-border-color: var(--brand-purple-start);
+        --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06);
+        --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
 
-            /* --- Theme Toggle Button Colors --- */
-            --theme-toggle-icon-color: var(--text-medium);
-            --theme-toggle-bg-hover: var(--submenu-hover-bg);
+        --font-primary: "Poppins", sans-serif;
+
+        --footer-bg-dark: #121224;
+        --footer-text-primary-light: #e8eaf6;
+        --footer-text-secondary-light: #a0a8c0;
+        --footer-heading-color: var(--text-light);
+        --footer-link-hover-color: var(--brand-blue-end);
+        --footer-icon-color: #a0a8c0;
+        --footer-icon-hover-color: var(--text-light);
+
+        --transition-smooth: all 0.3s ease-in-out;
+        --transition-colors: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
+        --transition-carousel: transform 0.5s ease-in-out;
+
+        --brand-purple-start-rgb: 106, 17, 203;
+        --brand-blue-end-rgb: 37, 117, 252;
+        --whatsapp-bg-color: #25d366;
+        --whatsapp-hover-bg-color: #1dae54;
+        --header-height: 70px;
+        --paypal-button-bg: #0070ba;
+
+        /* --- Theme Toggle Button Colors --- */
+        --theme-toggle-icon-color: var(--text-medium);
+        --theme-toggle-bg-hover: var(--submenu-hover-bg);
+      }
+
+      /* --- Dark Mode Variables --- */
+      body.dark-mode {
+        --text-dark: #e0e0e0;
+        --text-medium: #b0b0b0;
+        --text-light: #121212;
+        --text-subtle: #7a7a7a;
+
+        --bg-light: #1a1a2e;
+        --bg-light-rgb: 26, 26, 46;
+        --bg-section-alt: #23233c;
+        --submenu-bg: #2c2c48;
+        --submenu-hover-bg: #353558;
+
+        --border-color-soft: #3a3a5a;
+        --input-border-color: #4a4a6a;
+        --input-focus-border-color: var(--brand-blue-end);
+        --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
+        --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+
+        --footer-bg-dark: #0e0e1c;
+        --footer-text-primary-light: #d0d0e0;
+        --footer-text-secondary-light: #9090b0;
+
+        --theme-toggle-icon-color: #c5c5c5;
+        --theme-toggle-bg-hover: #353558;
+      }
+
+      /* Reset Básico y Estilos Generales */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.75;
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        transition: var(--transition-colors);
+      }
+      .container {
+        width: 90%;
+        max-width: 1100px;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 0 15px;
+      }
+
+      /* Header Fijo */
+      .site-header {
+        background-color: var(--bg-light);
+        padding: 1rem 0;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        z-index: 1000;
+        transition: var(--transition-colors);
+      }
+      body.dark-mode .site-header {
+        box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05);
+      }
+
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .logo-icon-box {
+        width: 38px;
+        height: 38px;
+        background: var(--button-gradient);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.625rem;
+      }
+      .logo-link:hover .logo-icon-box {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3);
+      }
+      .logo-abbr {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.3rem;
+      }
+      .logo-full-text {
+        font-size: 1.1875rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        transition: color 0.2s ease;
+      }
+      .logo-link:hover .logo-full-text {
+        color: var(--brand-purple-start);
+      }
+
+      /* --- Theme Toggle Button --- */
+      .theme-toggle-button {
+        background: none;
+        border: none;
+        color: var(--theme-toggle-icon-color);
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        margin-left: 0.5rem;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-colors), transform 0.2s ease;
+      }
+      .theme-toggle-button:hover {
+        background-color: var(--theme-toggle-bg-hover);
+        transform: scale(1.1);
+      }
+      .theme-toggle-button .fa-sun {
+        display: none;
+      }
+      body.dark-mode .theme-toggle-button .fa-sun {
+        display: inline-block;
+      }
+      body.dark-mode .theme-toggle-button .fa-moon {
+        display: none;
+      }
+
+      /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+      .nav-toggle {
+        display: none;
+        background: none;
+        border: none;
+        font-size: 1.75rem;
+        color: var(--text-dark);
+        cursor: pointer;
+        z-index: 1001;
+        padding: 0.25rem;
+        transition: var(--transition-colors);
+      }
+      .main-menu {
+        position: relative;
+      }
+      .main-menu ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+      }
+      .main-menu ul li {
+        position: relative;
+        margin-left: 0;
+      }
+      .main-menu > ul > li {
+        margin-left: 0.5rem;
+      }
+      .main-menu > ul > li:first-child {
+        margin-left: 0;
+      }
+
+      .main-menu ul li a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--text-medium);
+        font-weight: 500;
+        font-size: 0.9rem;
+        padding: 0.75rem 0.8rem;
+        border-radius: 6px;
+        transition: var(--transition-colors), background-color 0.2s ease;
+        white-space: nowrap;
+        position: relative;
+      }
+
+      .main-menu ul li a .submenu-toggle-icon {
+        margin-left: 0.5em;
+        font-size: 0.7em;
+        display: inline-flex;
+        align-items: center;
+        padding: 0.3em;
+        cursor: pointer;
+      }
+      .main-menu ul li a .submenu-toggle-icon i {
+        transition: transform 0.3s ease;
+      }
+
+      .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
+      .main-menu
+        ul
+        li.open
+        > a
+        .submenu-toggle-icon
+        i.fa-chevron-right.level2-arrow {
+        transform: rotate(180deg);
+      }
+      .main-menu
+        ul
+        li.open
+        > a
+        .submenu-toggle-icon
+        i.fa-chevron-right.level2-arrow {
+        transform: rotate(90deg);
+      }
+      @media (min-width: 992px) {
+        .main-menu
+          ul
+          li.has-submenu
+          li.open
+          > a
+          .submenu-toggle-icon
+          i.fa-chevron-right.level2-arrow {
+          transform: rotate(0deg);
         }
+      }
 
-        /* --- Dark Mode Variables --- */
-        body.dark-mode {
-            --text-dark: #e0e0e0;
-            --text-medium: #b0b0b0;
-            --text-light: #121212; 
-            --text-subtle: #7a7a7a;
+      .main-menu a:hover,
+      .main-menu ul li:hover > a,
+      .main-menu ul li.open > a {
+        color: var(--brand-purple-start);
+        background-color: var(--submenu-hover-bg);
+      }
 
-            --bg-light: #1a1a2e;
-            --bg-light-rgb: 26, 26, 46;
-            --bg-section-alt: #23233c;
-            --submenu-bg: #2c2c48; 
-            --submenu-hover-bg: #353558; 
-           
-            --border-color-soft: #3a3a5a; 
-            --input-border-color: #4a4a6a;
-            --input-focus-border-color: var(--brand-blue-end);
-            --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
-            --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
+      .main-menu > ul > li > a.current-page {
+        color: #ffffff;
+        background: var(--text-gradient);
+        font-weight: 600;
+        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
+      }
+      body.dark-mode .main-menu > ul > li > a.current-page {
+        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+      }
+      .main-menu > ul > li > a.current-page:hover {
+        color: #ffffff;
+        background: var(--button-hover-gradient);
+        opacity: 0.95;
+      }
+      .main-menu .submenu li a.current-page {
+        color: var(--brand-purple-start);
+        background-color: var(--submenu-hover-bg);
+        font-weight: 600;
+      }
 
-            --footer-bg-dark: #0e0e1c;
-            --footer-text-primary-light: #d0d0e0;
-            --footer-text-secondary-light: #9090b0;
-           
-            --theme-toggle-icon-color: #c5c5c5;
-            --theme-toggle-bg-hover: #353558;
-        }
+      .main-menu .submenu {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background-color: var(--submenu-bg);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        border-radius: 0 0 8px 8px;
+        min-width: 230px;
+        z-index: 100;
+        padding: 0.5rem 0;
+        border-top: 1px solid var(--border-color-soft);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease,
+          var(--transition-colors);
+      }
+      body.dark-mode .main-menu .submenu {
+        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
+      }
+      .main-menu .submenu.level-3 {
+        top: 0;
+        left: 100%;
+        border-radius: 0 8px 8px 8px;
+        margin-top: -0.5rem;
+      }
 
+      .main-menu ul li.open > .submenu {
+        display: block;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+      }
 
-        /* Reset Básico y Estilos Generales */
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-        html { font-size: 16px; scroll-behavior: smooth; }
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--bg-light);
-            color: var(--text-dark);
-            line-height: 1.75; 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-            transition: var(--transition-colors); 
-        }
-        .container { width: 90%; max-width: 1100px; margin-left: auto; margin-right: auto; padding: 0 15px; }
+      .main-menu .submenu li {
+        width: 100%;
+        margin-left: 0;
+      }
+      .main-menu .submenu li a {
+        padding: 0.6rem 1.2rem;
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        border-bottom: 1px solid var(--border-color-soft);
+        justify-content: space-between;
+        border-radius: 0;
+      }
+      .main-menu .submenu li:last-child a {
+        border-bottom: none;
+      }
+      .main-menu .submenu li a:hover {
+        background-color: var(--submenu-hover-bg);
+        color: var(--brand-purple-start);
+      }
 
-        /* Header Fijo */
-        .site-header {
-            background-color: var(--bg-light); 
-            padding: 1rem 0;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05); 
-            position: fixed; 
-            top: 0;
-            left: 0;
-            width: 100%;
-            z-index: 1000;
-            transition: var(--transition-colors);
-        }
-        body.dark-mode .site-header {
-             box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05); 
-        }
+      /* Estilos generales para bloques de contenido */
+      .content-block {
+        padding: 4.5rem 0;
+        transition: var(--transition-colors);
+      }
+      .content-block.bg-shaded {
+        background-color: var(--bg-section-alt);
+      }
 
-        .header-inner { display: flex; justify-content: space-between; align-items: center; }
-        .logo-link { display: flex; align-items: center; text-decoration: none; }
-        .logo-icon-box { 
-            width: 38px;
-            height: 38px;
-            background: var(--button-gradient);
-            border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-right: 0.625rem;
-        }
-        .logo-link:hover .logo-icon-box { transform: scale(1.05); box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3); }
-        .logo-abbr { 
-            color: #FFFFFF;
-            font-weight: 700;
-            font-size: 1.3rem;
-        }
-        .logo-full-text { 
-            font-size: 1.1875rem;
-            font-weight: 600;
-            color: var(--text-dark);
-            transition: color 0.2s ease;
-        }
-        .logo-link:hover .logo-full-text { color: var(--brand-purple-start); }
-       
-        /* --- Theme Toggle Button --- */
-        .theme-toggle-button {
-            background: none;
-            border: none;
-            color: var(--theme-toggle-icon-color);
-            font-size: 1.25rem; 
-            padding: 0.5rem;
-            margin-left: 0.5rem; 
-            cursor: pointer;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition-colors), transform 0.2s ease;
-        }
-        .theme-toggle-button:hover {
-            background-color: var(--theme-toggle-bg-hover);
-            transform: scale(1.1);
-        }
-        .theme-toggle-button .fa-sun { display: none; } 
-        body.dark-mode .theme-toggle-button .fa-sun { display: inline-block; }
-        body.dark-mode .theme-toggle-button .fa-moon { display: none; }
+      .block-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1.25rem;
+        transition: var(--transition-colors);
+      }
+      .gradient-title {
+        background: var(--text-gradient);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
 
+      .block-subtitle {
+        text-align: center;
+        font-size: 1.125rem;
+        color: var(--text-medium);
+        max-width: 800px;
+        margin: 0 auto 3.5rem auto;
+        line-height: 1.8;
+        transition: var(--transition-colors);
+      }
 
-        /* --- ESTILOS DEL MENÚ DE NAVEGACIÓN MULTINIVEL --- */
+      /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
+      .announcement-carousel-section {
+        padding-top: 3rem;
+        padding-bottom: 2.5rem;
+        background-color: var(--bg-section-alt);
+        margin-bottom: 2.5rem;
+        transition: var(--transition-colors);
+      }
+      .announcement-carousel-section .block-title {
+        color: var(--text-dark);
+        margin-bottom: 2.5rem;
+      }
+
+      .carousel-container {
+        position: relative;
+        width: 100%;
+        max-width: 960px;
+        margin: 0 auto;
+        overflow: hidden;
+        border-radius: 16px;
+        box-shadow: var(--card-shadow-light);
+        cursor: grab;
+        transition: box-shadow 0.3s ease;
+      }
+      .carousel-slides {
+        display: flex;
+        height: 450px;
+        will-change: transform;
+      }
+      .carousel-slide {
+        min-width: 100%;
+        box-sizing: border-box;
+        position: relative;
+        user-select: none;
+      }
+      .carousel-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        display: block;
+        border-radius: 16px;
+        pointer-events: none;
+      }
+      .carousel-slide .carousel-caption {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(
+          to top,
+          rgba(0, 0, 0, 0.85) 0%,
+          rgba(0, 0, 0, 0.7) 40%,
+          rgba(0, 0, 0, 0) 100%
+        );
+        color: #ffffff;
+        padding: 2.5rem 2rem 1.5rem;
+        text-align: left;
+        border-radius: 0 0 16px 16px;
+        transform: translateY(100%);
+        opacity: 0;
+        transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1),
+          opacity 0.5s ease-out;
+      }
+      body.dark-mode .carousel-slide .carousel-caption {
+        /* Caption text is light, background gradient is dark, should be fine */
+      }
+      .carousel-slide.active .carousel-caption {
+        transform: translateY(0);
+        opacity: 1;
+      }
+      .carousel-slide .carousel-caption h3 {
+        font-size: 1.75rem;
+        margin-top: 0;
+        margin-bottom: 0.6rem;
+        font-weight: 700;
+      }
+      .carousel-slide .carousel-caption p {
+        font-size: 1rem;
+        margin-bottom: 0;
+        opacity: 0.9;
+      }
+      .carousel-button {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(var(--bg-light-rgb), 0.25);
+        color: var(--text-dark);
+        border: 1px solid rgba(var(--text-dark-rgb, 0, 0, 0), 0.15);
+        backdrop-filter: blur(6px);
+        padding: 0.6rem;
+        font-size: 1.75rem;
+        cursor: pointer;
+        z-index: 10;
+        border-radius: 50%;
+        width: 52px;
+        height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: var(--transition-smooth);
+      }
+      body.dark-mode .carousel-button {
+        background-color: rgba(var(--bg-light-rgb), 0.15);
+        color: var(--text-dark);
+        border: 1px solid rgba(var(--text-dark-rgb, 255, 255, 255), 0.2);
+      }
+      .carousel-button:hover {
+        background-color: rgba(var(--bg-light-rgb), 0.4);
+        transform: translateY(-50%) scale(1.1);
+        box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 0, 0, 0), 0.1);
+      }
+      body.dark-mode .carousel-button:hover {
+        box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 255, 255, 255), 0.1);
+      }
+      .carousel-button.prev {
+        left: 1.5rem;
+      }
+      .carousel-button.next {
+        right: 1.5rem;
+      }
+      .carousel-dots {
+        text-align: center;
+        padding-top: 1.25rem;
+      }
+      .carousel-dot {
+        display: inline-block;
+        width: 10px;
+        height: 10px;
+        background-color: #c0c8e0;
+        border-radius: 50%;
+        margin: 0 7px;
+        cursor: pointer;
+        transition: var(--transition-smooth);
+        border: none;
+        padding: 0;
+      }
+      body.dark-mode .carousel-dot {
+        background-color: #5a5a7a;
+      }
+      .carousel-dot:hover {
+        background-color: var(--brand-blue-end);
+        transform: scale(1.2);
+      }
+      .carousel-dot.active {
+        background-color: var(--brand-purple-start);
+        transform: scale(1.3);
+        width: 25px;
+        border-radius: 5px;
+      }
+      .carousel-view-all-container {
+        text-align: center;
+        margin-top: 1.75rem;
+      }
+      .btn-view-all-announcements {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.9rem 2rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: #ffffff;
+        background: var(--button-gradient);
+        border: none;
+        border-radius: 30px;
+        text-decoration: none;
+        transition: var(--transition-smooth);
+        box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2);
+      }
+      .btn-view-all-announcements i {
+        margin-left: 0.6rem;
+        transition: transform 0.2s ease-out;
+      }
+      .btn-view-all-announcements:hover {
+        background: var(--button-hover-gradient);
+        box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3);
+        transform: translateY(-2px);
+      }
+      .btn-view-all-announcements:hover i {
+        transform: translateX(4px);
+      }
+
+      /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
+      .projects-page-wrapper {
+        padding-top: 2.5rem;
+        transition: var(--transition-colors);
+      }
+      .projects-page-wrapper .block-title {
+        color: var(--text-dark);
+        background: var(--text-gradient);
+        -webkit-background-clip: text;
+        -moz-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        display: inline-block;
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(330px, 1fr));
+        gap: 2.5rem;
+      }
+      .project-card-detailed {
+        background-color: var(--bg-light);
+        border-radius: 16px;
+        box-shadow: var(--card-shadow-light);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-smooth), var(--transition-colors);
+      }
+      .project-card-detailed:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--card-hover-shadow);
+      }
+      .project-card-detailed .project-img-placeholder {
+        width: 100%;
+        height: 240px;
+        background-color: var(--submenu-hover-bg);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--text-subtle);
+        font-size: 1rem;
+        font-style: italic;
+        border-bottom: 1px solid var(--border-color-soft);
+        transition: var(--transition-colors);
+      }
+      .project-card-detailed .project-img-placeholder img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 0; /* Las imágenes dentro no necesitan radio si el contenedor ya lo tiene */
+      }
+      .project-card-detailed .project-content {
+        padding: 2rem;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+      }
+      .project-card-detailed .project-title {
+        font-size: 1.6rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.6rem;
+        transition: var(--transition-colors);
+      }
+      .project-card-detailed .project-title a {
+        text-decoration: none;
+        color: inherit;
+        transition: color 0.2s ease;
+      }
+      .project-card-detailed .project-title a:hover {
+        color: var(--brand-purple-start);
+      }
+      .project-card-detailed .project-category {
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--brand-blue-end);
+        text-transform: uppercase;
+        letter-spacing: 0.75px;
+        margin-bottom: 1.25rem;
+        display: table;
+        margin-left: auto;
+        margin-right: auto;
+        background-color: rgba(var(--brand-blue-end-rgb), 0.1);
+        padding: 0.35rem 0.85rem;
+        border-radius: 20px;
+      }
+      body.dark-mode .project-card-detailed .project-category {
+        background-color: rgba(var(--brand-blue-end-rgb), 0.2);
+      }
+      .project-card-detailed .project-description-full {
+        font-size: 0.975rem;
+        color: var(--text-medium);
+        line-height: 1.8;
+        margin-bottom: 1.75rem;
+        flex-grow: 1;
+        transition: var(--transition-colors);
+      }
+      .project-card-detailed .btn-view-project-page {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 1.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: #ffffff;
+        background: var(--button-gradient);
+        border: none;
+        border-radius: 30px;
+        text-decoration: none;
+        text-align: center;
+        transition: var(--transition-smooth);
+        align-self: flex-start;
+        box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2);
+      }
+      .project-card-detailed .btn-view-project-page i {
+        margin-left: 0.5rem;
+        transition: transform 0.2s ease-out;
+      }
+      .project-card-detailed .btn-view-project-page:hover {
+        background: var(--button-hover-gradient);
+        box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3);
+        transform: translateY(-2px);
+      }
+      .project-card-detailed .btn-view-project-page:hover i {
+        transform: translateX(3px);
+      }
+
+      /* Botón Flotante de Acción (FAB) */
+      .floating-action-button {
+        position: fixed;
+        width: 56px;
+        height: 56px;
+        bottom: 1.75rem;
+        right: 1.75rem;
+        background-color: var(--whatsapp-bg-color);
+        color: #ffffff;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        z-index: 999;
+        text-decoration: none;
+        font-size: 1.75rem;
+        transition: var(--transition-smooth);
+      }
+      .floating-action-button:hover {
+        background-color: var(--whatsapp-hover-bg-color);
+        transform: scale(1.08) rotate(5deg);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+      }
+
+      /* Footer Detallado */
+      .site-footer-detailed {
+        background-color: var(--footer-bg-dark);
+        color: var(--footer-text-secondary-light);
+        padding: 5rem 0 2rem 0;
+        margin-top: 5rem;
+        border-top: 4px solid var(--brand-purple-start);
+        transition: var(--transition-colors);
+      }
+      .footer-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        align-items: flex-start;
+        gap: 3rem;
+        margin-bottom: 3.5rem;
+      }
+      .footer-column .footer-logo-link {
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        margin-bottom: 1.5rem;
+      }
+      .footer-column .footer-logo-icon-box {
+        width: 42px;
+        height: 42px;
+        background: var(--button-gradient);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.75rem;
+      }
+      .footer-column .footer-logo-abbr {
+        color: #ffffff;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+      .footer-column .footer-logo-full-text {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--footer-text-primary-light);
+      }
+      .footer-column .footer-description {
+        font-size: 0.95rem;
+        line-height: 1.8;
+        margin-bottom: 1.75rem;
+      }
+      .footer-column .footer-heading {
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: var(--footer-heading-color);
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+      }
+      .footer-column .footer-heading::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 40px;
+        height: 3px;
+        background: var(--brand-blue-end);
+      }
+      .footer-social-icons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        margin-bottom: 1.75rem;
+      }
+      .footer-social-icons a {
+        color: var(--footer-icon-color);
+        font-size: 1.25rem;
+        transition: var(--transition-smooth);
+        width: 40px;
+        height: 40px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 1px solid var(--footer-icon-color);
+        border-radius: 50%;
+      }
+      .footer-social-icons a:hover {
+        color: #ffffff;
+        background-color: var(--brand-blue-end);
+        border-color: var(--brand-blue-end);
+        transform: translateY(-3px) scale(1.05);
+      }
+      .footer-direct-contact {
+      }
+      .footer-direct-contact a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--footer-text-secondary-light);
+        font-size: 0.975rem;
+        margin-bottom: 0.75rem;
+        transition: color 0.2s ease;
+        padding: 0.3rem 0;
+      }
+      .footer-direct-contact a i {
+        margin-right: 0.75rem;
+        font-size: 1.2rem;
+        width: 20px;
+        text-align: center;
+      }
+      .footer-direct-contact a:hover {
+        color: var(--footer-link-hover-color);
+      }
+      .footer-bottom-bar {
+        text-align: center;
+        padding-top: 2.5rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        margin-top: 2rem;
+      }
+      body.dark-mode .footer-bottom-bar {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+      .footer-bottom-bar p {
+        margin: 0;
+        font-size: 0.925rem;
+        color: var(--footer-text-secondary-light);
+      }
+
+      /* Ajustes Responsivos */
+      @media (max-width: 991px) {
+        .container {
+          width: 95%;
+        }
         .nav-toggle {
-            display: none;
-            background: none;
-            border: none;
-            font-size: 1.75rem; 
-            color: var(--text-dark); 
-            cursor: pointer;
-            z-index: 1001;
-            padding: 0.25rem;
-            transition: var(--transition-colors);
+          display: flex;
+          align-items: center;
+          justify-content: center;
         }
-        .main-menu { position: relative; }
-        .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; }
-        .main-menu ul li { position: relative; margin-left: 0; }
-        .main-menu > ul > li { margin-left: 0.5rem; }
-        .main-menu > ul > li:first-child { margin-left: 0; }
+        .theme-toggle-button {
+          margin-right: 0.5rem;
+        }
+        .header-inner > .logo-link {
+          flex-shrink: 0;
+        }
+        .header-inner > .nav-toggle,
+        .header-inner > .theme-toggle-button {
+          order: 3;
+        }
+        .header-inner > .main-menu {
+          order: 4;
+        }
 
+        .main-menu {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          background-color: var(--bg-light);
+          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
+          max-height: 0;
+          overflow-y: auto;
+          transition: max-height 0.4s ease-in-out, var(--transition-colors);
+          border-top: 1px solid var(--border-color-soft);
+        }
+        .main-menu.menu-visible {
+          max-height: calc(100vh - var(--header-height));
+        }
+        .main-menu ul {
+          flex-direction: column;
+          width: 100%;
+        }
+        .main-menu > ul > li {
+          margin-left: 0;
+          border-bottom: 1px solid var(--border-color-soft);
+        }
+        .main-menu > ul > li:last-child {
+          border-bottom: none;
+        }
         .main-menu ul li a {
-            display: flex;
-            align-items: center;
-            text-decoration: none;
-            color: var(--text-medium); 
-            font-weight: 500;
-            font-size: 0.9rem; 
-            padding: 0.75rem 0.8rem; 
-            border-radius: 6px; 
-            transition: var(--transition-colors), background-color 0.2s ease;
-            white-space: nowrap;
-            position: relative; 
+          padding: 1rem 1.25rem;
+          justify-content: space-between;
+          border-radius: 0;
         }
 
-        .main-menu ul li a .submenu-toggle-icon { 
-            margin-left: 0.5em;
-            font-size: 0.7em;
-            display: inline-flex; 
-            align-items: center;
-            padding: 0.3em; 
-            cursor: pointer; 
-        }
-        .main-menu ul li a .submenu-toggle-icon i { transition: transform 0.3s ease; }
-
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
-            transform: rotate(180deg);
-        }
-        .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow { 
-            transform: rotate(90deg); 
-        }
-         @media (min-width: 992px) { 
-               .main-menu ul li.has-submenu li.open > a .submenu-toggle-icon i.fa-chevron-right.level2-arrow {
-                   transform: rotate(0deg); 
-               }
-        }
-
-        .main-menu a:hover,
-        .main-menu ul li:hover > a,
-        .main-menu ul li.open > a {
-            color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg); 
-        }
-       
         .main-menu > ul > li > a.current-page {
-            color: #FFFFFF; 
-            background: var(--text-gradient); 
-            font-weight: 600;
-            box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
-        }
-        body.dark-mode .main-menu > ul > li > a.current-page {
-             box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
+          background: var(--submenu-hover-bg);
+          color: var(--brand-purple-start);
+          box-shadow: none;
         }
         .main-menu > ul > li > a.current-page:hover {
-            color: #FFFFFF;
-            background: var(--button-hover-gradient); 
-            opacity: 0.95;
-        }
-        .main-menu .submenu li a.current-page {
-            color: var(--brand-purple-start);
-            background-color: var(--submenu-hover-bg); 
-            font-weight: 600;
-        }
-       
-        .main-menu .submenu { 
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background-color: var(--submenu-bg); 
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); 
-            border-radius: 0 0 8px 8px; 
-            min-width: 230px; 
-            z-index: 100;
-            padding: 0.5rem 0; 
-            border-top: 1px solid var(--border-color-soft); 
-            opacity: 0; 
-            visibility: hidden; 
-            transform: translateY(10px); 
-            transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease, var(--transition-colors);
-        }
-        body.dark-mode .main-menu .submenu {
-            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
-        }
-        .main-menu .submenu.level-3 { 
-            top: 0; 
-            left: 100%;
-            border-radius: 0 8px 8px 8px; 
-            margin-top: -0.5rem; 
+          background: var(--submenu-hover-bg);
+          opacity: 1;
         }
 
-        .main-menu ul li.open > .submenu { 
-            display: block;
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
+        .main-menu .submenu {
+          position: static;
+          box-shadow: none;
+          border-radius: 0;
+          min-width: 100%;
+          padding: 0;
+          border-top: none;
+          background-color: var(--submenu-hover-bg);
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.3s ease-out, var(--transition-colors);
+          opacity: 1;
+          visibility: visible;
+          transform: none;
+        }
+        .main-menu ul li.open > .submenu {
+          max-height: 600px;
+        }
+        .main-menu .submenu.level-3 {
+          margin-top: 0;
+          padding-left: 1rem;
+          background-color: var(--bg-section-alt);
+        }
+        body.dark-mode .main-menu .submenu.level-3 {
+          background-color: #202038;
+        }
+        .main-menu .submenu li a {
+          padding: 0.75rem 1.5rem;
+          padding-left: 2rem;
+        }
+        .main-menu .submenu.level-3 li a {
+          padding-left: 3rem;
         }
 
-        .main-menu .submenu li { width: 100%; margin-left: 0; }
-        .main-menu .submenu li a { 
-            padding: 0.6rem 1.2rem;
-            font-size: 0.9rem; 
-            color: var(--text-dark); 
-            border-bottom: 1px solid var(--border-color-soft); 
-            justify-content: space-between; 
-            border-radius: 0; 
+        .block-title {
+          font-size: 2rem;
         }
-        .main-menu .submenu li:last-child a { border-bottom: none; }
-        .main-menu .submenu li a:hover { 
-            background-color: var(--submenu-hover-bg); 
-            color: var(--brand-purple-start);
+        .block-subtitle {
+          font-size: 1.05rem;
+          margin-bottom: 2.5rem;
         }
-       
-        /* Estilos generales para bloques de contenido */
-        .content-block { padding: 4.5rem 0; transition: var(--transition-colors); } 
-        .content-block.bg-shaded { background-color: var(--bg-section-alt); }
-       
-        .block-title { 
-            text-align: center; 
-            font-size: 2.5rem; 
-            font-weight: 700; 
-            color: var(--text-dark); 
-            margin-bottom: 1.25rem; 
-            transition: var(--transition-colors);
+        .projects-grid {
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
         }
-        .gradient-title { 
-            background: var(--text-gradient);
-            -webkit-background-clip: text;
-            -moz-background-clip: text;
-            background-clip: text;
-            color: transparent;
-            display: inline-block; 
+        .project-card-detailed .project-content {
+          padding: 1.75rem;
+        }
+        .project-card-detailed .project-title {
+          font-size: 1.4rem;
+        }
+        .project-card-detailed .project-description-full {
+          font-size: 0.95rem;
         }
 
-        .block-subtitle { 
-            text-align: center; 
-            font-size: 1.125rem; 
-            color: var(--text-medium); 
-            max-width: 800px; 
-            margin: 0 auto 3.5rem auto; 
-            line-height: 1.8;
-            transition: var(--transition-colors);
+        .carousel-slides {
+          height: 350px;
+        }
+        .carousel-slide .carousel-caption {
+          padding: 2rem 1.5rem 1rem;
+        }
+        .carousel-slide .carousel-caption h3 {
+          font-size: 1.5rem;
+        }
+        .carousel-slide .carousel-caption p {
+          font-size: 0.9rem;
+        }
+        .carousel-button {
+          width: 44px;
+          height: 44px;
+          font-size: 1.5rem;
+        }
+        .carousel-button.prev {
+          left: 1rem;
+        }
+        .carousel-button.next {
+          right: 1rem;
+        }
+      }
+
+      @media (max-width: 767px) {
+        .block-title {
+          font-size: 1.75rem;
+        }
+        .block-subtitle {
+          font-size: 1rem;
+        }
+        .projects-grid {
+          grid-template-columns: 1fr;
+          gap: 1.5rem;
+        }
+        .footer-grid {
+          grid-template-columns: 1fr;
+          text-align: center;
+        }
+        .footer-column .footer-heading::after {
+          left: 50%;
+          transform: translateX(-50%);
+        }
+        .footer-social-icons {
+          justify-content: center;
+        }
+        .footer-direct-contact a {
+          justify-content: center;
         }
 
-        /* --- INICIO: ESTILOS DEL CARRUSEL DE ANUNCIOS --- */
-        .announcement-carousel-section {
-            padding-top: 3rem; 
-            padding-bottom: 2.5rem;
-            background-color: var(--bg-section-alt); 
-            margin-bottom: 2.5rem; 
-            transition: var(--transition-colors);
+        .carousel-slides {
+          height: 300px;
         }
-        .announcement-carousel-section .block-title { 
-            color: var(--text-dark);
-            margin-bottom: 2.5rem; 
+        .carousel-slide .carousel-caption h3 {
+          font-size: 1.25rem;
         }
-
-        .carousel-container {
-            position: relative;
-            width: 100%;
-            max-width: 960px; 
-            margin: 0 auto;
-            overflow: hidden; 
-            border-radius: 16px; 
-            box-shadow: var(--card-shadow-light);
-            cursor: grab; 
-            transition: box-shadow 0.3s ease;
+        .carousel-slide .carousel-caption p {
+          font-size: 0.85rem;
         }
-        .carousel-slides { display: flex; height: 450px; will-change: transform; }
-        .carousel-slide { min-width: 100%; box-sizing: border-box; position: relative; user-select: none; }
-        .carousel-slide img { width: 100%; height: 100%; object-fit: cover; display: block; border-radius: 16px; pointer-events: none; }
-        .carousel-slide .carousel-caption { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.7) 40%, rgba(0,0,0,0) 100%); color: #FFFFFF; padding: 2.5rem 2rem 1.5rem; text-align: left; border-radius: 0 0 16px 16px; transform: translateY(100%); opacity: 0; transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.5s ease-out; }
-        body.dark-mode .carousel-slide .carousel-caption { /* Caption text is light, background gradient is dark, should be fine */ }
-        .carousel-slide.active .carousel-caption { transform: translateY(0); opacity: 1; }
-        .carousel-slide .carousel-caption h3 { font-size: 1.75rem; margin-top: 0; margin-bottom: 0.6rem; font-weight: 700; }
-        .carousel-slide .carousel-caption p { font-size: 1rem; margin-bottom: 0; opacity: 0.9; }
-        .carousel-button { position: absolute; top: 50%; transform: translateY(-50%); background-color: rgba(var(--bg-light-rgb), 0.25); color: var(--text-dark); border: 1px solid rgba(var(--text-dark-rgb, 0,0,0), 0.15); backdrop-filter: blur(6px); padding: 0.6rem; font-size: 1.75rem; cursor: pointer; z-index: 10; border-radius: 50%; width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; transition: var(--transition-smooth); }
-        body.dark-mode .carousel-button { background-color: rgba(var(--bg-light-rgb), 0.15); color: var(--text-dark); border: 1px solid rgba(var(--text-dark-rgb, 255,255,255), 0.2); }
-        .carousel-button:hover { background-color: rgba(var(--bg-light-rgb), 0.4); transform: translateY(-50%) scale(1.1); box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 0,0,0),0.1); }
-        body.dark-mode .carousel-button:hover { box-shadow: 0 0 15px rgba(var(--text-dark-rgb, 255,255,255),0.1); }
-        .carousel-button.prev { left: 1.5rem; }
-        .carousel-button.next { right: 1.5rem; }
-        .carousel-dots { text-align: center; padding-top: 1.25rem; }
-        .carousel-dot { display: inline-block; width: 10px; height: 10px; background-color: #c0c8e0; border-radius: 50%; margin: 0 7px; cursor: pointer; transition: var(--transition-smooth); border: none; padding: 0; }
-        body.dark-mode .carousel-dot { background-color: #5a5a7a; }
-        .carousel-dot:hover { background-color: var(--brand-blue-end); transform: scale(1.2); }
-        .carousel-dot.active { background-color: var(--brand-purple-start); transform: scale(1.3); width: 25px; border-radius: 5px; }
-        .carousel-view-all-container { text-align: center; margin-top: 1.75rem; }
-        .btn-view-all-announcements { display: inline-flex; align-items: center; justify-content: center; padding: 0.9rem 2rem; font-size: 1rem; font-weight: 600; color: #FFFFFF; background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; transition: var(--transition-smooth); box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
-        .btn-view-all-announcements i { margin-left: 0.6rem; transition: transform 0.2s ease-out; }
-        .btn-view-all-announcements:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
-        .btn-view-all-announcements:hover i { transform: translateX(4px); }
-       
-        /* --- INICIO: ESTILOS PARA LA PÁGINA DE PROYECTOS --- */
-        .projects-page-wrapper { padding-top: 2.5rem; transition: var(--transition-colors); }
-        .projects-page-wrapper .block-title { color: var(--text-dark); background: var(--text-gradient); -webkit-background-clip: text; -moz-background-clip: text; background-clip: text; color: transparent; display: inline-block; }
-        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(330px, 1fr)); gap: 2.5rem; }
-        .project-card-detailed { background-color: var(--bg-light); border-radius: 16px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth), var(--transition-colors); }
-        .project-card-detailed:hover { transform: translateY(-8px); box-shadow: var(--card-hover-shadow); }
-        .project-card-detailed .project-img-placeholder { width: 100%; height: 240px; background-color: var(--submenu-hover-bg); display: flex; align-items: center; justify-content: center; color: var(--text-subtle); font-size: 1rem; font-style: italic; border-bottom: 1px solid var(--border-color-soft); transition: var(--transition-colors); }
-        .project-card-detailed .project-img-placeholder img { width: 100%; height: 100%; object-fit: cover; border-radius: 0; /* Las imágenes dentro no necesitan radio si el contenedor ya lo tiene */ }
-        .project-card-detailed .project-content { padding: 2rem; flex-grow: 1; display: flex; flex-direction: column; }
-        .project-card-detailed .project-title { font-size: 1.6rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.6rem; transition: var(--transition-colors); }
-        .project-card-detailed .project-title a { text-decoration: none; color: inherit; transition: color 0.2s ease; }
-        .project-card-detailed .project-title a:hover { color: var(--brand-purple-start); }
-        .project-card-detailed .project-category { font-size: 0.85rem; font-weight: 600; color: var(--brand-blue-end); text-transform: uppercase; letter-spacing: 0.75px; margin-bottom: 1.25rem; display: table; margin-left: auto; margin-right: auto; background-color: rgba(var(--brand-blue-end-rgb), 0.1); padding: 0.35rem 0.85rem; border-radius: 20px; }
-        body.dark-mode .project-card-detailed .project-category { background-color: rgba(var(--brand-blue-end-rgb), 0.2); }
-        .project-card-detailed .project-description-full { font-size: 0.975rem; color: var(--text-medium); line-height: 1.8; margin-bottom: 1.75rem; flex-grow: 1; transition: var(--transition-colors); }
-        .project-card-detailed .btn-view-project-page { display: inline-flex; align-items: center; justify-content: center; padding: 0.8rem 1.75rem; font-size: 0.95rem; font-weight: 600; color: #FFFFFF; background: var(--button-gradient); border: none; border-radius: 30px; text-decoration: none; text-align: center; transition: var(--transition-smooth); align-self: flex-start; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
-        .project-card-detailed .btn-view-project-page i { margin-left: 0.5rem; transition: transform 0.2s ease-out; }
-        .project-card-detailed .btn-view-project-page:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-2px); }
-        .project-card-detailed .btn-view-project-page:hover i { transform: translateX(3px); }
-       
-        /* Botón Flotante de Acción (FAB) */
-        .floating-action-button { position: fixed; width: 56px; height: 56px; bottom: 1.75rem; right: 1.75rem; background-color: var(--whatsapp-bg-color); color: #FFFFFF; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 5px 15px rgba(0,0,0,0.2); z-index: 999; text-decoration: none; font-size: 1.75rem; transition: var(--transition-smooth); }
-        .floating-action-button:hover { background-color: var(--whatsapp-hover-bg-color); transform: scale(1.08) rotate(5deg); box-shadow: 0 8px 20px rgba(0,0,0,0.25); }
-
-        /* Footer Detallado */
-        .site-footer-detailed { background-color: var(--footer-bg-dark); color: var(--footer-text-secondary-light); padding: 5rem 0 2rem 0; margin-top: 5rem; border-top: 4px solid var(--brand-purple-start); transition: var(--transition-colors); }
-        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); align-items: flex-start; gap: 3rem; margin-bottom: 3.5rem; }
-        .footer-column .footer-logo-link { display: inline-flex; align-items: center; text-decoration: none; margin-bottom: 1.5rem; }
-        .footer-column .footer-logo-icon-box { width: 42px; height: 42px; background: var(--button-gradient); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-right: 0.75rem; }
-        .footer-column .footer-logo-abbr { color: #FFFFFF; font-weight: 700; font-size: 1.4rem; }
-        .footer-column .footer-logo-full-text { font-size: 1.2rem; font-weight: 600; color: var(--footer-text-primary-light); }
-        .footer-column .footer-description { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.75rem; }
-        .footer-column .footer-heading { font-size: 1.3rem; font-weight: 700; color: var(--footer-heading-color); margin-bottom: 1.5rem; position: relative; padding-bottom: 0.5rem; }
-        .footer-column .footer-heading::after { content: ''; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; background: var(--brand-blue-end); }
-        .footer-social-icons { display: flex; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.75rem; } 
-        .footer-social-icons a { color: var(--footer-icon-color); font-size: 1.25rem; transition: var(--transition-smooth); width: 40px; height: 40px; display: inline-flex; align-items: center; justify-content: center; border: 1px solid var(--footer-icon-color); border-radius: 50%; }
-        .footer-social-icons a:hover { color: #FFFFFF; background-color: var(--brand-blue-end); border-color: var(--brand-blue-end); transform: translateY(-3px) scale(1.05); }
-        .footer-direct-contact { }
-        .footer-direct-contact a { display: flex; align-items: center; text-decoration: none; color: var(--footer-text-secondary-light); font-size: 0.975rem; margin-bottom: 0.75rem; transition: color 0.2s ease; padding: 0.3rem 0; }
-        .footer-direct-contact a i { margin-right: 0.75rem; font-size: 1.2rem; width: 20px; text-align: center;}
-        .footer-direct-contact a:hover { color: var(--footer-link-hover-color); }
-        .footer-bottom-bar { text-align: center; padding-top: 2.5rem; border-top: 1px solid rgba(255,255,255,0.1); margin-top: 2rem; }
-        body.dark-mode .footer-bottom-bar { border-top: 1px solid rgba(255,255,255,0.08); }
-        .footer-bottom-bar p { margin: 0; font-size: 0.925rem; color: var(--footer-text-secondary-light); }
-
-        /* Ajustes Responsivos */
-        @media (max-width: 991px) {
-            .container { width: 95%; } 
-            .nav-toggle { display: flex; align-items: center; justify-content: center; } 
-            .theme-toggle-button { margin-right: 0.5rem; }
-            .header-inner > .logo-link { flex-shrink: 0; }
-            .header-inner > .nav-toggle, .header-inner > .theme-toggle-button { order: 3; }
-            .header-inner > .main-menu { order: 4; }
-
-            .main-menu { 
-                position: absolute; 
-                top: 100%; 
-                left: 0; 
-                right: 0; 
-                background-color: var(--bg-light);
-                box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1); 
-                max-height: 0; 
-                overflow-y: auto; 
-                transition: max-height 0.4s ease-in-out, var(--transition-colors); 
-                border-top: 1px solid var(--border-color-soft); 
-            }
-            .main-menu.menu-visible { max-height: calc(100vh - var(--header-height)); } 
-            .main-menu ul { flex-direction: column; width: 100%; }
-            .main-menu > ul > li { margin-left: 0; border-bottom: 1px solid var(--border-color-soft); } 
-            .main-menu > ul > li:last-child { border-bottom: none; }
-            .main-menu ul li a { padding: 1rem 1.25rem; justify-content: space-between; border-radius: 0;} 
-           
-            .main-menu > ul > li > a.current-page { 
-                background: var(--submenu-hover-bg); 
-                color: var(--brand-purple-start); 
-                box-shadow: none;
-            }
-            .main-menu > ul > li > a.current-page:hover {
-                background: var(--submenu-hover-bg); 
-                opacity: 1;
-            }
-
-            .main-menu .submenu { 
-                position: static; 
-                box-shadow: none; border-radius: 0; min-width: 100%;
-                padding: 0; border-top: none;
-                background-color: var(--submenu-hover-bg); 
-                max-height: 0; overflow: hidden; 
-                transition: max-height 0.3s ease-out, var(--transition-colors); 
-                opacity: 1; visibility: visible; transform: none; 
-            }
-            .main-menu ul li.open > .submenu { max-height: 600px; }
-            .main-menu .submenu.level-3 { margin-top: 0; padding-left: 1rem; background-color: var(--bg-section-alt); } 
-            body.dark-mode .main-menu .submenu.level-3 { background-color: #202038; }
-            .main-menu .submenu li a { padding: 0.75rem 1.5rem; padding-left: 2rem; } 
-            .main-menu .submenu.level-3 li a { padding-left: 3rem; } 
-           
-            .block-title { font-size: 2rem; }
-            .block-subtitle { font-size: 1.05rem; margin-bottom: 2.5rem;}
-            .projects-grid { grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;}
-            .project-card-detailed .project-content { padding: 1.75rem; }
-            .project-card-detailed .project-title { font-size: 1.4rem; }
-            .project-card-detailed .project-description-full { font-size: 0.95rem; }
-
-            .carousel-slides { height: 350px; }
-            .carousel-slide .carousel-caption { padding: 2rem 1.5rem 1rem; }
-            .carousel-slide .carousel-caption h3 { font-size: 1.5rem; }
-            .carousel-slide .carousel-caption p { font-size: 0.9rem; }
-            .carousel-button { width: 44px; height: 44px; font-size: 1.5rem;}
-            .carousel-button.prev { left: 1rem; }
-            .carousel-button.next { right: 1rem; }
+      }
+      @media (max-width: 480px) {
+        .block-title {
+          font-size: 1.5rem;
         }
-
-        @media (max-width: 767px) {
-            .block-title { font-size: 1.75rem; }
-            .block-subtitle { font-size: 1rem; }
-            .projects-grid { grid-template-columns: 1fr; gap: 1.5rem;} 
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .footer-column .footer-heading::after { left: 50%; transform: translateX(-50%); } 
-            .footer-social-icons { justify-content: center; }
-            .footer-direct-contact a { justify-content: center; }
-
-            .carousel-slides { height: 300px; }
-            .carousel-slide .carousel-caption h3 { font-size: 1.25rem; }
-            .carousel-slide .carousel-caption p { font-size: 0.85rem; }
+        .block-subtitle {
+          font-size: 0.95rem;
         }
-         @media (max-width: 480px) {
-            .block-title { font-size: 1.5rem; } 
-            .block-subtitle { font-size: 0.95rem; }
-            .carousel-slides { height: 280px; }
-            .carousel-slide .carousel-caption { padding: 1.5rem 1rem 0.75rem; }
-            .carousel-slide .carousel-caption h3 { font-size: 1.1rem; }
-            .carousel-slide .carousel-caption p { font-size: 0.8rem; }
-            .project-card-detailed .project-img-placeholder { height: 200px; }
-            .project-card-detailed .project-content { padding: 1.5rem; }
-            .project-card-detailed .project-title { font-size: 1.3rem; }
-            .btn-view-all-announcements { padding: 0.8rem 1.5rem; font-size: 0.95rem; }
+        .carousel-slides {
+          height: 280px;
         }
+        .carousel-slide .carousel-caption {
+          padding: 1.5rem 1rem 0.75rem;
+        }
+        .carousel-slide .carousel-caption h3 {
+          font-size: 1.1rem;
+        }
+        .carousel-slide .carousel-caption p {
+          font-size: 0.8rem;
+        }
+        .project-card-detailed .project-img-placeholder {
+          height: 200px;
+        }
+        .project-card-detailed .project-content {
+          padding: 1.5rem;
+        }
+        .project-card-detailed .project-title {
+          font-size: 1.3rem;
+        }
+        .btn-view-all-announcements {
+          padding: 0.8rem 1.5rem;
+          font-size: 0.95rem;
+        }
+      }
     </style>
-</head>
-<body>
-
+  </head>
+  <body>
     <header class="site-header" id="siteHeader">
-        <div class="container header-inner">
-            <a href="index.html" class="logo-link" aria-label="Universe Community Home">
-                <div class="logo-icon-box"><span class="logo-abbr">UC</span></div>
-                <span class="logo-full-text">Universe Community</span>
-            </a>
-            <button class="theme-toggle-button" id="themeToggleBtn" aria-label="Cambiar tema" title="Cambiar tema">
-                <i class="fas fa-moon" aria-hidden="true"></i>
-                <i class="fas fa-sun" aria-hidden="true"></i>
-            </button>
-            <button class="nav-toggle" id="navToggleBtn" aria-label="Abrir menú de navegación" aria-expanded="false" aria-controls="mainMenuNav">
-                <i class="fas fa-bars" aria-hidden="true"></i>
-            </button>
-           
-            <nav class="main-menu" id="mainMenuNav" aria-label="Navegación principal">
-                <ul>
-                    <!-- 1. Universe Community (enlace simple) -->
-                    <li><a href="index.html">Universe Community</a></li>
+      <div class="container header-inner">
+        <a
+          href="index.html"
+          class="logo-link"
+          aria-label="Universe Community Home"
+        >
+          <div class="logo-icon-box"><span class="logo-abbr">UC</span></div>
+          <span class="logo-full-text">Universe Community</span>
+        </a>
+        <button
+          class="theme-toggle-button"
+          id="themeToggleBtn"
+          aria-label="Cambiar tema"
+          title="Cambiar tema"
+        >
+          <i class="fas fa-moon" aria-hidden="true"></i>
+          <i class="fas fa-sun" aria-hidden="true"></i>
+        </button>
+        <button
+          class="nav-toggle"
+          id="navToggleBtn"
+          aria-label="Abrir menú de navegación"
+          aria-expanded="false"
+          aria-controls="mainMenuNav"
+        >
+          <i class="fas fa-bars" aria-hidden="true"></i>
+        </button>
 
-                    <!-- 2. Proyectos (con submenú HTML estático) -->
-                    <li class="has-submenu">
-                        <a href="proyectos.html" aria-haspopup="true" aria-expanded="false">
-                            Proyectos
-                            <span class="submenu-toggle-icon"><i class="fas fa-chevron-down"></i></span>
-                        </a>
-                        <ul class="submenu level-2" id="projects-submenu-container">
-                            <li><a href="comunidades.html">Comunidades Universo</a></li>
-                            <li><a href="us.html">Universe Scan</a></li>
-                            <li><a href="nk.html">NK Proyect</a></li>
-                            <li><a href="wabot.html">Universe Bot</a></li>
-                            <li><a href="ua.html">Universe Alliance</a></li>
-                        </ul>
-                    </li>
-                   
-                    <!-- 3. Avisos (enlace simple) -->
-                    <li><a href="avisos.html">Avisos</a></li> 
+        <nav
+          class="main-menu"
+          id="mainMenuNav"
+          aria-label="Navegación principal"
+        >
+          <ul>
+            <!-- 1. Universe Community (enlace simple) -->
+            <li><a href="index.html">Universe Community</a></li>
 
-                    <!-- 4. Donación (enlace simple, URL desde JS) -->
-                    <li><a href="#" id="paypalMenuLink" target="_blank" rel="noopener noreferrer">Donación</a></li>
-                </ul>
-            </nav>
-          </div>
+            <!-- 2. Proyectos (con submenú HTML estático) -->
+            <li class="has-submenu">
+              <a
+                href="proyectos.html"
+                aria-haspopup="true"
+                aria-expanded="false"
+              >
+                Proyectos
+                <span class="submenu-toggle-icon"
+                  ><i class="fas fa-chevron-down"></i
+                ></span>
+              </a>
+              <ul class="submenu level-2" id="projects-submenu-container">
+                <li><a href="comunidades.html">Comunidades Universo</a></li>
+                <li><a href="us.html">Universe Scan</a></li>
+                <li><a href="nk.html">NK Proyect</a></li>
+                <li><a href="wabot.html">Universe Bot</a></li>
+                <li><a href="ua.html">Universe Alliance</a></li>
+              </ul>
+            </li>
+
+            <!-- 3. Avisos (enlace simple) -->
+            <li><a href="avisos.html">Avisos</a></li>
+
+            <!-- 4. Donación (enlace simple, URL desde JS) -->
+            <li>
+              <a
+                href="#"
+                id="paypalMenuLink"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Donación</a
+              >
+            </li>
+          </ul>
+        </nav>
+      </div>
     </header>
 
     <main>
-        <section class="announcement-carousel-section">
-            <div class="container">
-                <h2 class="block-title"> Anuncios Destacados </h2>
-                <div class="carousel-container" id="announcementsCarousel" aria-roledescription="carousel" aria-label="Anuncios importantes de proyectos">
-                    <div class="carousel-slides" id="carouselSlides">
-                        <p>Cargando carrusel...</p>
-                    </div>
-                    <button class="carousel-button prev" aria-label="Anuncio anterior"><i class="fas fa-chevron-left" aria-hidden="true"></i></button>
-                    <button class="carousel-button next" aria-label="Siguiente anuncio"><i class="fas fa-chevron-right" aria-hidden="true"></i></button>
-                    <div class="carousel-dots" id="carouselDotsContainer" aria-label="Navegación de anuncios">
-                        </div>
-                </div>
-                <div class="carousel-view-all-container">
-                    <a href="avisos.html" class="btn-view-all-announcements">Ver Todos los Anuncios <i class="fas fa-arrow-right"></i></a>
-                </div>
+      <section class="announcement-carousel-section">
+        <div class="container">
+          <h2 class="block-title">Anuncios Destacados</h2>
+          <div
+            class="carousel-container"
+            id="announcementsCarousel"
+            aria-roledescription="carousel"
+            aria-label="Anuncios importantes de proyectos"
+          >
+            <div class="carousel-slides" id="carouselSlides">
+              <p>Cargando carrusel...</p>
             </div>
-        </section>
-        <section class="content-block projects-page-wrapper" id="todos-los-proyectos">
-            <div class="container">
-                <h1 class="block-title">
-                    <span class="gradient-title">Explora Nuestros Proyectos</span>
-                </h1>
-                <p class="block-subtitle">
-                    Descubre la diversidad de iniciativas que nuestra comunidad está impulsando con pasión. Desde desarrollos tecnológicos pioneros hasta proyectos sociales y creativos de gran impacto, cada uno es una puerta abierta para aprender, colaborar y co-crear un futuro mejor.
-                </p>
+            <button class="carousel-button prev" aria-label="Anuncio anterior">
+              <i class="fas fa-chevron-left" aria-hidden="true"></i>
+            </button>
+            <button class="carousel-button next" aria-label="Siguiente anuncio">
+              <i class="fas fa-chevron-right" aria-hidden="true"></i>
+            </button>
+            <div
+              class="carousel-dots"
+              id="carouselDotsContainer"
+              aria-label="Navegación de anuncios"
+            ></div>
+          </div>
+          <div class="carousel-view-all-container">
+            <a href="avisos.html" class="btn-view-all-announcements"
+              >Ver Todos los Anuncios <i class="fas fa-arrow-right"></i
+            ></a>
+          </div>
+        </div>
+      </section>
+      <section
+        class="content-block projects-page-wrapper"
+        id="todos-los-proyectos"
+      >
+        <div class="container">
+          <h1 class="block-title">
+            <span class="gradient-title">Explora Nuestros Proyectos</span>
+          </h1>
+          <p class="block-subtitle">
+            Descubre la diversidad de iniciativas que nuestra comunidad está
+            impulsando con pasión. Desde desarrollos tecnológicos pioneros hasta
+            proyectos sociales y creativos de gran impacto, cada uno es una
+            puerta abierta para aprender, colaborar y co-crear un futuro mejor.
+          </p>
 
-                <div class="projects-grid" id="projectsGrid">
-                    <p>Cargando proyectos...</p> 
-                </div>
-            </div>
-        </section>
+          <div class="projects-grid" id="projectsGrid">
+            <p>Cargando proyectos...</p>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <a href="#" id="fabWhatsapp" target="_blank" class="floating-action-button" title="Contactar por WhatsApp" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    <a
+      href="#"
+      id="fabWhatsapp"
+      target="_blank"
+      class="floating-action-button"
+      title="Contactar por WhatsApp"
+      aria-label="Contactar por WhatsApp"
+    >
+      <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <footer class="site-footer-detailed">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-column footer-column-brand">
-                    <a href="index.html" class="footer-logo-link" aria-label="Universe Community Home">
-                        <div class="footer-logo-icon-box"><span class="footer-logo-abbr">UC</span></div>
-                        <span class="footer-logo-full-text">Universe Community</span>
-                    </a>
-                    <p class="footer-description">
-                        Una comunidad global dedicada a crear, innovar y conectar personas a través de proyectos colaborativos que transforman ideas en realidad.
-                    </p>
-                </div>
-                 <div class="footer-column footer-column-contact">
-                    <h4 class="footer-heading">Contacto Directo</h4>
-                     <div class="footer-direct-contact" id="footerContactDirectContainer">
-                        <p>Cargando contactos...</p>
-                    </div>
-                </div>
-                <div class="footer-column footer-column-social">
-                    <h4 class="footer-heading">Síguenos</h4>
-                    <div class="footer-social-icons" id="footerSocialProfilesContainer">
-                        <p>Cargando redes...</p>
-                    </div>
-                </div>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-column footer-column-brand">
+            <a
+              href="index.html"
+              class="footer-logo-link"
+              aria-label="Universe Community Home"
+            >
+              <div class="footer-logo-icon-box">
+                <span class="footer-logo-abbr">UC</span>
+              </div>
+              <span class="footer-logo-full-text">Universe Community</span>
+            </a>
+            <p class="footer-description">
+              Una comunidad global dedicada a crear, innovar y conectar personas
+              a través de proyectos colaborativos que transforman ideas en
+              realidad.
+            </p>
+          </div>
+          <div class="footer-column footer-column-contact">
+            <h4 class="footer-heading">Contacto Directo</h4>
+            <div
+              class="footer-direct-contact"
+              id="footerContactDirectContainer"
+            >
+              <p>Cargando contactos...</p>
             </div>
-            <div class="footer-bottom-bar">
-                <p>&copy; <span id="currentYear"></span> Universe Community. Todos los derechos reservados. Diseñado con <i class="fas fa-heart" style="color: #e25555;"></i>.</p>
+          </div>
+          <div class="footer-column footer-column-social">
+            <h4 class="footer-heading">Síguenos</h4>
+            <div class="footer-social-icons" id="footerSocialProfilesContainer">
+              <p>Cargando redes...</p>
             </div>
+          </div>
         </div>
+        <div class="footer-bottom-bar">
+          <p>
+            &copy; <span id="currentYear"></span> Universe Community. Todos los
+            derechos reservados. Diseñado con
+            <i class="fas fa-heart" style="color: #e25555"></i>.
+          </p>
+        </div>
+      </div>
     </footer>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const siteHeader = document.getElementById('siteHeader');
+      document.addEventListener("DOMContentLoaded", () => {
+        const siteHeader = document.getElementById("siteHeader");
         let headerHeight = 0;
 
         function updateHeaderHeightAndPadding() {
-            if (siteHeader) {
-                headerHeight = siteHeader.offsetHeight;
-                document.body.style.paddingTop = `${headerHeight}px`;
-                document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
-            }
+          if (siteHeader) {
+            headerHeight = siteHeader.offsetHeight;
+            document.body.style.paddingTop = `${headerHeight}px`;
+            document.documentElement.style.setProperty(
+              "--header-height",
+              `${headerHeight}px`
+            );
+          }
         }
-       
+
         updateHeaderHeightAndPadding();
-        window.addEventListener('resize', updateHeaderHeightAndPadding);
+        window.addEventListener("resize", updateHeaderHeightAndPadding);
 
         // --- Theme Toggle Logic ---
-        const themeToggleBtn = document.getElementById('themeToggleBtn');
-        const currentTheme = localStorage.getItem('theme');
+        const themeToggleBtn = document.getElementById("themeToggleBtn");
+        const currentTheme = localStorage.getItem("theme");
 
         function applyTheme(theme) {
-            if (theme === 'dark') {
-                document.body.classList.add('dark-mode');
-            } else {
-                document.body.classList.remove('dark-mode');
-            }
+          if (theme === "dark") {
+            document.body.classList.add("dark-mode");
+          } else {
+            document.body.classList.remove("dark-mode");
+          }
         }
 
         if (currentTheme) {
-            applyTheme(currentTheme);
-        } else { 
-            const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-            if (prefersDark) {
-                applyTheme('dark');
-                localStorage.setItem('theme', 'dark'); 
-            }
+          applyTheme(currentTheme);
+        } else {
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (prefersDark) {
+            applyTheme("dark");
+            localStorage.setItem("theme", "dark");
+          }
         }
 
         if (themeToggleBtn) {
-            themeToggleBtn.addEventListener('click', () => {
-                document.body.classList.toggle('dark-mode');
-                let theme = 'light';
-                if (document.body.classList.contains('dark-mode')) {
-                    theme = 'dark';
-                }
-                localStorage.setItem('theme', theme);
-            });
+          themeToggleBtn.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+              theme = "dark";
+            }
+            localStorage.setItem("theme", theme);
+          });
         }
 
         // --- Mobile Navigation Menu (Main Toggle) ---
-        const navToggleBtn = document.getElementById('navToggleBtn');
-        const mainMenuNav = document.getElementById('mainMenuNav');
-        const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
+        const navToggleBtn = document.getElementById("navToggleBtn");
+        const mainMenuNav = document.getElementById("mainMenuNav");
+        const navIcon = navToggleBtn ? navToggleBtn.querySelector("i") : null;
 
         if (navToggleBtn && mainMenuNav && navIcon) {
-            navToggleBtn.addEventListener('click', () => {
-                const isExpanded = mainMenuNav.classList.toggle('menu-visible');
-                navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
-                navIcon.classList.toggle('fa-bars', !isExpanded);
-                navIcon.classList.toggle('fa-times', isExpanded);
+          navToggleBtn.addEventListener("click", () => {
+            const isExpanded = mainMenuNav.classList.toggle("menu-visible");
+            navToggleBtn.setAttribute("aria-expanded", String(isExpanded));
+            navIcon.classList.toggle("fa-bars", !isExpanded);
+            navIcon.classList.toggle("fa-times", isExpanded);
 
-                if (!isExpanded) { 
-                    mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                        openSubmenuLi.classList.remove('open');
-                        const link = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                        if (link) link.setAttribute('aria-expanded', 'false');
-                        const submenu = openSubmenuLi.querySelector('.submenu');
-                        if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
-                    });
-                }
-            });
+            if (!isExpanded) {
+              mainMenuNav
+                .querySelectorAll(".has-submenu.open")
+                .forEach((openSubmenuLi) => {
+                  openSubmenuLi.classList.remove("open");
+                  const link = openSubmenuLi.querySelector(
+                    'a[aria-haspopup="true"]'
+                  );
+                  if (link) link.setAttribute("aria-expanded", "false");
+                  const submenu = openSubmenuLi.querySelector(".submenu");
+                  if (submenu && window.innerWidth <= 991)
+                    submenu.style.maxHeight = null;
+                });
+            }
+          });
         }
 
         // --- Submenu Toggle Logic (Revised) ---
         function performToggleVisually(listItem, linkElement, submenuElement) {
-            const isOpen = listItem.classList.toggle('open');
-            if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+          const isOpen = listItem.classList.toggle("open");
+          if (linkElement)
+            linkElement.setAttribute("aria-expanded", String(isOpen));
 
-            if (window.innerWidth <= 991 && submenuElement) { 
-                if (isOpen) {
-                    submenuElement.style.maxHeight = submenuElement.scrollHeight + "px";
-                } else {
-                    submenuElement.style.maxHeight = null;
-                    submenuElement.querySelectorAll('.has-submenu.open').forEach(openChild => {
-                        openChild.classList.remove('open');
-                        const childLink = openChild.querySelector('a[aria-haspopup="true"]');
-                        if(childLink) childLink.setAttribute('aria-expanded', 'false');
-                        const childSubmenu = openChild.querySelector('.submenu');
-                        if(childSubmenu) childSubmenu.style.maxHeight = null;
-                    });
-                }
+          if (window.innerWidth <= 991 && submenuElement) {
+            if (isOpen) {
+              submenuElement.style.maxHeight =
+                submenuElement.scrollHeight + "px";
+            } else {
+              submenuElement.style.maxHeight = null;
+              submenuElement
+                .querySelectorAll(".has-submenu.open")
+                .forEach((openChild) => {
+                  openChild.classList.remove("open");
+                  const childLink = openChild.querySelector(
+                    'a[aria-haspopup="true"]'
+                  );
+                  if (childLink)
+                    childLink.setAttribute("aria-expanded", "false");
+                  const childSubmenu = openChild.querySelector(".submenu");
+                  if (childSubmenu) childSubmenu.style.maxHeight = null;
+                });
             }
+          }
         }
 
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
-                const link = listItem.querySelector(":scope > a[aria-haspopup='true']"); 
-                const toggleIcon = listItem.querySelector(":scope > a > .submenu-toggle-icon"); 
-                const submenu = listItem.querySelector(":scope > .submenu"); 
+          mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+            const link = listItem.querySelector(
+              ":scope > a[aria-haspopup='true']"
+            );
+            const toggleIcon = listItem.querySelector(
+              ":scope > a > .submenu-toggle-icon"
+            );
+            const submenu = listItem.querySelector(":scope > .submenu");
 
-                if (!link || !submenu) return;
+            if (!link || !submenu) return;
 
-                if (toggleIcon) {
-                    toggleIcon.addEventListener("click", function (event) {
-                        event.preventDefault();  
-                        event.stopPropagation(); 
-                        performToggleVisually(listItem, link, submenu);
-                    });
+            if (toggleIcon) {
+              toggleIcon.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                performToggleVisually(listItem, link, submenu);
+              });
+            }
+
+            link.addEventListener("click", function (event) {
+              if (event.target.closest(".submenu-toggle-icon")) {
+                return;
+              }
+
+              const isMobileView = window.innerWidth <= 991;
+              const hasValidHref =
+                link.getAttribute("href") &&
+                link.getAttribute("href") !== "#" &&
+                link.getAttribute("href") !== "";
+              const linkPathOnly = (
+                link.pathname.split("/").pop() || "index.html"
+              ).split("#")[0];
+              const currentPathOnly = (
+                window.location.pathname.split("/").pop() || "index.html"
+              ).split("#")[0];
+              const isLinkToCurrentPagePathOnly =
+                linkPathOnly === currentPathOnly && !link.hash;
+
+              if (isMobileView) {
+                if (listItem.classList.contains("has-submenu")) {
+                  event.preventDefault();
+                  performToggleVisually(listItem, link, submenu);
                 }
-
-                link.addEventListener("click", function (event) {
-                    if (event.target.closest(".submenu-toggle-icon")) {
-                        return; 
-                    }
-
-                    const isMobileView = window.innerWidth <= 991;
-                    const hasValidHref = link.getAttribute("href") && link.getAttribute("href") !== "#" && link.getAttribute("href") !== "";
-                    const linkPathOnly = (link.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const currentPathOnly = (window.location.pathname.split('/').pop() || 'index.html').split('#')[0];
-                    const isLinkToCurrentPagePathOnly = linkPathOnly === currentPathOnly && !link.hash;
-
-
-                    if (isMobileView) {
-                        if (listItem.classList.contains('has-submenu')) {
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    } else { // Desktop View
-                        if (hasValidHref) {
-                             if (isLinkToCurrentPagePathOnly) { 
-                                 event.preventDefault(); 
-                                 performToggleVisually(listItem, link, submenu);
-                             }
-                        } else { 
-                            event.preventDefault();
-                            performToggleVisually(listItem, link, submenu);
-                        }
-                    }
-                });
+              } else {
+                // Desktop View
+                if (hasValidHref) {
+                  if (isLinkToCurrentPagePathOnly) {
+                    event.preventDefault();
+                    performToggleVisually(listItem, link, submenu);
+                  }
+                } else {
+                  event.preventDefault();
+                  performToggleVisually(listItem, link, submenu);
+                }
+              }
             });
+          });
         }
-
 
         // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
         if (mainMenuNav) {
-            mainMenuNav.querySelectorAll("ul li a").forEach(link => {
-                link.addEventListener('click', (event) => {
-                    const isSubmenuToggleIcon = event.target.closest(".submenu-toggle-icon");
-                    const listItem = link.closest('li');
-                    const isParentLinkThatTogglesOnMobile = listItem && listItem.classList.contains('has-submenu') && window.innerWidth <= 991;
-                   
-                    if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
-                        return;
-                    }
+          mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
+            link.addEventListener("click", (event) => {
+              const isSubmenuToggleIcon = event.target.closest(
+                ".submenu-toggle-icon"
+              );
+              const listItem = link.closest("li");
+              const isParentLinkThatTogglesOnMobile =
+                listItem &&
+                listItem.classList.contains("has-submenu") &&
+                window.innerWidth <= 991;
 
-                    if (mainMenuNav.classList.contains('menu-visible')) {
-                        if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
-                            mainMenuNav.classList.remove('menu-visible');
-                            if (navToggleBtn) navToggleBtn.setAttribute('aria-expanded', 'false');
-                            if (navIcon) {
-                                navIcon.classList.remove('fa-times');
-                                navIcon.classList.add('fa-bars');
-                            }
-                            mainMenuNav.querySelectorAll('.has-submenu.open').forEach(openSubmenuLi => {
-                                openSubmenuLi.classList.remove('open');
-                                const parentLink = openSubmenuLi.querySelector('a[aria-haspopup="true"]');
-                                if (parentLink) parentLink.setAttribute('aria-expanded', 'false');
-                                const submenu = openSubmenuLi.querySelector('.submenu');
-                                if (submenu && window.innerWidth <= 991) submenu.style.maxHeight = null;
-                            });
-                        }
-                    }
-                });
+              if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
+                return;
+              }
+
+              if (mainMenuNav.classList.contains("menu-visible")) {
+                if (
+                  link.getAttribute("href") &&
+                  link.getAttribute("href") !== "#"
+                ) {
+                  mainMenuNav.classList.remove("menu-visible");
+                  if (navToggleBtn)
+                    navToggleBtn.setAttribute("aria-expanded", "false");
+                  if (navIcon) {
+                    navIcon.classList.remove("fa-times");
+                    navIcon.classList.add("fa-bars");
+                  }
+                  mainMenuNav
+                    .querySelectorAll(".has-submenu.open")
+                    .forEach((openSubmenuLi) => {
+                      openSubmenuLi.classList.remove("open");
+                      const parentLink = openSubmenuLi.querySelector(
+                        'a[aria-haspopup="true"]'
+                      );
+                      if (parentLink)
+                        parentLink.setAttribute("aria-expanded", "false");
+                      const submenu = openSubmenuLi.querySelector(".submenu");
+                      if (submenu && window.innerWidth <= 991)
+                        submenu.style.maxHeight = null;
+                    });
+                }
+              }
             });
+          });
         }
 
         // --- Resaltado de Página Actual en el Menú ---
-        function updateCurrentPage() { 
-            if (!mainMenuNav) return;
-            const currentUrlPath = window.location.pathname.split('/').pop() || 'index.html';
-            const currentUrlHash = window.location.hash;
+        function updateCurrentPage() {
+          if (!mainMenuNav) return;
+          const currentUrlPath =
+            window.location.pathname.split("/").pop() || "index.html";
+          const currentUrlHash = window.location.hash;
 
-            mainMenuNav.querySelectorAll('a').forEach(navLink => {
-                navLink.classList.remove('current-page'); 
-                const linkHref = navLink.getAttribute('href');
-                if (!linkHref) return;
+          mainMenuNav.querySelectorAll("a").forEach((navLink) => {
+            navLink.classList.remove("current-page");
+            const linkHref = navLink.getAttribute("href");
+            if (!linkHref) return;
 
-                const linkUrl = new URL(linkHref, window.location.origin); 
-                const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
-                const linkHash = linkUrl.hash;
-               
-                let isActive = false;
+            const linkUrl = new URL(linkHref, window.location.origin);
+            const linkPath = linkUrl.pathname.split("/").pop() || "index.html";
+            const linkHash = linkUrl.hash;
 
-                if (linkPath === currentUrlPath) {
-                    if (linkHash) { 
-                        if (linkHash === currentUrlHash) isActive = true;
-                    } else { 
-                        if (!currentUrlHash || currentUrlHash === "#") isActive = true; 
-                    }
+            let isActive = false;
+
+            if (linkPath === currentUrlPath) {
+              if (linkHash) {
+                if (linkHash === currentUrlHash) isActive = true;
+              } else {
+                if (!currentUrlHash || currentUrlHash === "#") isActive = true;
+              }
+            }
+
+            if (isActive) {
+              navLink.classList.add("current-page");
+              let currentElementForParentCheck = navLink;
+              while (currentElementForParentCheck) {
+                const parentSubmenuUl =
+                  currentElementForParentCheck.closest("ul.submenu");
+                if (!parentSubmenuUl) break;
+                const parentLi = parentSubmenuUl.parentElement;
+                if (!parentLi || !parentLi.classList.contains("has-submenu"))
+                  break;
+                const parentAnchor = parentLi.querySelector(
+                  ':scope > a[aria-haspopup="true"]'
+                );
+                if (parentAnchor) {
+                  parentAnchor.classList.add("current-page");
+                } else {
+                  break;
                 }
-               
-                if (isActive) {
-                    navLink.classList.add('current-page');
-                    let currentElementForParentCheck = navLink;
-                    while (currentElementForParentCheck) {
-                        const parentSubmenuUl = currentElementForParentCheck.closest('ul.submenu');
-                        if (!parentSubmenuUl) break; 
-                        const parentLi = parentSubmenuUl.parentElement; 
-                        if (!parentLi || !parentLi.classList.contains('has-submenu')) break;
-                        const parentAnchor = parentLi.querySelector(':scope > a[aria-haspopup="true"]'); 
-                        if (parentAnchor) {
-                            parentAnchor.classList.add('current-page'); 
-                        } else { break; }
-                        if (parentLi.parentElement === mainMenuNav.querySelector('ul')) { break; }
-                        currentElementForParentCheck = parentLi; 
-                    }
+                if (
+                  parentLi.parentElement === mainMenuNav.querySelector("ul")
+                ) {
+                  break;
                 }
-            });
+                currentElementForParentCheck = parentLi;
+              }
+            }
+          });
         }
-       
-        updateCurrentPage(); 
-        window.addEventListener('hashchange', updateCurrentPage); 
-       
+
+        updateCurrentPage();
+        window.addEventListener("hashchange", updateCurrentPage);
 
         // --- Cargar Contenido Dinámico desde JSON ---
-        const announcementsCarouselContainer = document.getElementById('announcementsCarousel');
-        const carouselSlidesContainer = document.getElementById('carouselSlides');
-        const carouselDotsContainer = document.getElementById('carouselDotsContainer');
-        const projectsGridContainer = document.getElementById('projectsGrid');
-        const footerContactDirectContainer = document.getElementById('footerContactDirectContainer');
-        const footerSocialProfilesContainer = document.getElementById('footerSocialProfilesContainer');
-        const fabWhatsapp = document.getElementById('fabWhatsapp');
-        const paypalMenuLink = document.getElementById('paypalMenuLink');
+        const announcementsCarouselContainer = document.getElementById(
+          "announcementsCarousel"
+        );
+        const carouselSlidesContainer =
+          document.getElementById("carouselSlides");
+        const carouselDotsContainer = document.getElementById(
+          "carouselDotsContainer"
+        );
+        const projectsGridContainer = document.getElementById("projectsGrid");
+        const footerContactDirectContainer = document.getElementById(
+          "footerContactDirectContainer"
+        );
+        const footerSocialProfilesContainer = document.getElementById(
+          "footerSocialProfilesContainer"
+        );
+        const fabWhatsapp = document.getElementById("fabWhatsapp");
+        const paypalMenuLink = document.getElementById("paypalMenuLink");
 
         async function cargarContenidoDesdeJSON() {
-            console.log("Intentando cargar datos_web.json...");
-            try {
-                const response = await fetch('datos_web.json'); 
-                console.log("Respuesta del fetch:", response);
+          console.log("Intentando cargar datos_web.json...");
+          try {
+            const response = await fetch("datos_web.json");
+            console.log("Respuesta del fetch:", response);
 
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status} al intentar cargar datos_web.json`);
-                }
-                const data = await response.json();
-                console.log("Datos JSON cargados:", data);
-               
-                // Llenar enlace de donación
-                if (paypalMenuLink && data.redesSociales && data.redesSociales.donaciones) {
-                    const paypalInfo = data.redesSociales.donaciones.find(d => d.plataforma && d.plataforma.toLowerCase() === 'paypal');
-                    if (paypalInfo && paypalInfo.url) {
-                        paypalMenuLink.href = paypalInfo.url;
-                    } else {
-                        paypalMenuLink.parentElement.style.display = 'none';
-                    }
-                } else if (paypalMenuLink) {
-                     paypalMenuLink.parentElement.style.display = 'none';
-                }
-
-                // 1. Cargar Anuncios para el Carrusel
-                if (announcementsCarouselContainer && data.anuncios) {
-                    renderizarCarruselAnuncios(data.anuncios, carouselSlidesContainer, carouselDotsContainer);
-                } else if (carouselSlidesContainer) {
-                    carouselSlidesContainer.innerHTML = '<p>No hay anuncios para mostrar en el carrusel.</p>';
-                }
-
-                // 2. Cargar Tarjetas de Proyectos
-                if (projectsGridContainer && data.proyectos) {
-                    renderizarTarjetasDeProyectos(data.proyectos, projectsGridContainer);
-                } else if (projectsGridContainer) {
-                    projectsGridContainer.innerHTML = '<p>No hay proyectos para mostrar.</p>';
-                }
-
-                // 3. Cargar Contenido del Footer y FAB
-                if (data.redesSociales) {
-                    renderizarFooterYFAB(data.redesSociales, footerContactDirectContainer, footerSocialProfilesContainer, fabWhatsapp);
-                }
-
-            } catch (error) {
-                console.error('Error al cargar contenido desde JSON:', error);
-                if (carouselSlidesContainer) carouselSlidesContainer.innerHTML = `<p>Error al cargar anuncios del carrusel: ${error.message}.</p>`;
-                if (projectsGridContainer) projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
-                if (footerContactDirectContainer) footerContactDirectContainer.innerHTML = '<p>Error al cargar contactos.</p>';
-                if (footerSocialProfilesContainer) footerSocialProfilesContainer.innerHTML = '<p>Error al cargar redes.</p>';
-                if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+            if (!response.ok) {
+              throw new Error(
+                `HTTP error! status: ${response.status} al intentar cargar datos_web.json`
+              );
             }
+            const data = await response.json();
+            console.log("Datos JSON cargados:", data);
+
+            // Llenar enlace de donación
+            if (
+              paypalMenuLink &&
+              data.redesSociales &&
+              data.redesSociales.donaciones
+            ) {
+              const paypalInfo = data.redesSociales.donaciones.find(
+                (d) => d.plataforma && d.plataforma.toLowerCase() === "paypal"
+              );
+              if (paypalInfo && paypalInfo.url) {
+                paypalMenuLink.href = paypalInfo.url;
+              } else {
+                paypalMenuLink.parentElement.style.display = "none";
+              }
+            } else if (paypalMenuLink) {
+              paypalMenuLink.parentElement.style.display = "none";
+            }
+
+            // 1. Cargar Anuncios para el Carrusel
+            if (announcementsCarouselContainer && data.anuncios) {
+              renderizarCarruselAnuncios(
+                data.anuncios,
+                carouselSlidesContainer,
+                carouselDotsContainer
+              );
+            } else if (carouselSlidesContainer) {
+              carouselSlidesContainer.innerHTML =
+                "<p>No hay anuncios para mostrar en el carrusel.</p>";
+            }
+
+            // 2. Cargar Tarjetas de Proyectos
+            if (projectsGridContainer && data.proyectos) {
+              renderizarTarjetasDeProyectos(
+                data.proyectos,
+                projectsGridContainer
+              );
+            } else if (projectsGridContainer) {
+              projectsGridContainer.innerHTML =
+                "<p>No hay proyectos para mostrar.</p>";
+            }
+
+            // 3. Cargar Contenido del Footer y FAB
+            if (data.redesSociales) {
+              renderizarFooterYFAB(
+                data.redesSociales,
+                footerContactDirectContainer,
+                footerSocialProfilesContainer,
+                fabWhatsapp
+              );
+            }
+          } catch (error) {
+            console.error("Error al cargar contenido desde JSON:", error);
+            if (carouselSlidesContainer)
+              carouselSlidesContainer.innerHTML = `<p>Error al cargar anuncios del carrusel: ${error.message}.</p>`;
+            if (projectsGridContainer)
+              projectsGridContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}.</p>`;
+            if (footerContactDirectContainer)
+              footerContactDirectContainer.innerHTML =
+                "<p>Error al cargar contactos.</p>";
+            if (footerSocialProfilesContainer)
+              footerSocialProfilesContainer.innerHTML =
+                "<p>Error al cargar redes.</p>";
+            if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+          }
         }
 
-        function renderizarCarruselAnuncios(anuncios, slidesContainer, dotsContainer) {
-            if (!slidesContainer || !dotsContainer) return;
+        function renderizarCarruselAnuncios(
+          anuncios,
+          slidesContainer,
+          dotsContainer
+        ) {
+          if (!slidesContainer || !dotsContainer) return;
 
-            slidesContainer.innerHTML = ''; 
-            dotsContainer.innerHTML = '';   
+          slidesContainer.innerHTML = "";
+          dotsContainer.innerHTML = "";
 
-            anuncios.forEach((anuncio, index) => {
-                const slide = document.createElement('div');
-                slide.classList.add('carousel-slide');
-                if (index === 0) slide.classList.add('active');
-                slide.setAttribute('role', 'group');
-                slide.setAttribute('aria-roledescription', 'slide');
-                slide.setAttribute('aria-label', `${index + 1} de ${anuncios.length}`);
+          anuncios.forEach((anuncio, index) => {
+            const slide = document.createElement("div");
+            slide.classList.add("carousel-slide");
+            if (index === 0) slide.classList.add("active");
+            slide.setAttribute("role", "group");
+            slide.setAttribute("aria-roledescription", "slide");
+            slide.setAttribute(
+              "aria-label",
+              `${index + 1} de ${anuncios.length}`
+            );
 
-                slide.innerHTML = `
-                    <img src="${anuncio.flyerUrl || 'https://placehold.co/960x450/cccccc/333333?text=Anuncio'}" alt="${anuncio.altFlyer || anuncio.titulo}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
+            slide.innerHTML = `
+                    <img src="${
+                      anuncio.flyerUrl ||
+                      "https://placehold.co/960x450/cccccc/333333?text=Anuncio"
+                    }" alt="${
+              anuncio.altFlyer || anuncio.titulo
+            }" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/960x450/cccccc/333333?text=Imagen+no+disponible';">
                     <div class="carousel-caption">
                         <h3>${anuncio.titulo}</h3>
-                        <p>${anuncio.contenido ? anuncio.contenido.substring(0, 100) + (anuncio.contenido.length > 100 ? '...' : '') : 'Contenido no disponible.'}</p> 
+                        <p>${
+                          anuncio.contenido
+                            ? anuncio.contenido.substring(0, 100) +
+                              (anuncio.contenido.length > 100 ? "..." : "")
+                            : "Contenido no disponible."
+                        }</p> 
                     </div>
                 `;
-                slidesContainer.appendChild(slide);
+            slidesContainer.appendChild(slide);
 
-                const dot = document.createElement('button');
-                dot.classList.add('carousel-dot');
-                if (index === 0) dot.classList.add('active');
-                dot.setAttribute('aria-label', `Ir al anuncio ${index + 1}`);
-                dot.dataset.slideTo = index; 
-                dotsContainer.appendChild(dot);
-            });
-           
-            // Inicializar la lógica del carrusel DESPUÉS de que los slides y dots se hayan renderizado
-            if (anuncios.length > 0) {
-                inicializarLogicaCarruselInterna(announcementsCarouselContainer, slidesContainer, dotsContainer);
-            }
-        }
-       
-        function inicializarLogicaCarruselInterna(carouselContainer, slidesContainer, dotsContainer) {
-            const slides = Array.from(slidesContainer.querySelectorAll('.carousel-slide'));
-            const dots = Array.from(dotsContainer.querySelectorAll('.carousel-dot'));
-            const prevButton = carouselContainer.querySelector('.carousel-button.prev');
-            const nextButton = carouselContainer.querySelector('.carousel-button.next');
-           
-            let currentIndex = 0;
-            let slideInterval;
-            const slideCount = slides.length;
+            const dot = document.createElement("button");
+            dot.classList.add("carousel-dot");
+            if (index === 0) dot.classList.add("active");
+            dot.setAttribute("aria-label", `Ir al anuncio ${index + 1}`);
+            dot.dataset.slideTo = index;
+            dotsContainer.appendChild(dot);
+          });
 
-            if (slideCount <= 0) return;
-
-            let isDragging = false;
-            let startPosX = 0;
-            let currentTranslate = 0;
-            let prevTranslate = 0;
-            const swipeThreshold = 50;
-
-            function applyTransition() { slidesContainer.style.transition = 'var(--transition-carousel)'; }
-            function removeTransition() { slidesContainer.style.transition = 'none'; }
-
-            function setPositionByIndex() {
-                if (slidesContainer && slidesContainer.offsetWidth > 0) { 
-                    currentTranslate = currentIndex * -slidesContainer.offsetWidth;
-                    prevTranslate = currentTranslate;
-                    applyTransition();
-                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
-                }
-            }
-
-            function updateCarouselState() {
-                setPositionByIndex();
-                slides.forEach((slide, index) => {
-                    slide.classList.toggle('active', index === currentIndex); 
-                    slide.setAttribute('aria-hidden', String(index !== currentIndex));
-                    slide.inert = (index !== currentIndex); 
-                });
-                dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === currentIndex);
-                    dot.setAttribute('aria-current', String(index === currentIndex));
-                });
-            }
-
-            function goToSlide(index) { 
-                currentIndex = (index + slideCount) % slideCount; 
-                updateCarouselState(); 
-            }
-            function nextSlide() { goToSlide(currentIndex + 1); }
-            function prevSlide() { goToSlide(currentIndex - 1); }
-
-            if (nextButton) nextButton.addEventListener('click', () => { nextSlide(); resetInterval(); });
-            if (prevButton) prevButton.addEventListener('click', () => { prevSlide(); resetInterval(); });
-           
-            dots.forEach(dot => {
-                dot.addEventListener('click', (e) => {
-                    goToSlide(parseInt(e.target.dataset.slideTo));
-                    resetInterval();
-                });
-            });
-
-            function startInterval() { clearInterval(slideInterval); slideInterval = setInterval(nextSlide, 6000); }
-            function resetInterval() { clearInterval(slideInterval); startInterval(); }
-           
-            slidesContainer.addEventListener('touchstart', touchStart, { passive: true });
-            slidesContainer.addEventListener('touchmove', touchMove, { passive: true });
-            slidesContainer.addEventListener('touchend', touchEnd);
-            slidesContainer.addEventListener('mousedown', touchStart);
-            slidesContainer.addEventListener('mousemove', touchMove);
-            slidesContainer.addEventListener('mouseup', touchEnd);
-            slidesContainer.addEventListener('mouseleave', touchEnd);
-
-            function touchStart(event) {
-                isDragging = true;
-                startPosX = getPositionX(event);
-                removeTransition(); 
-                carouselContainer.classList.add('grabbing');
-                clearInterval(slideInterval); 
-            }
-
-            function touchMove(event) {
-                if (isDragging) {
-                    const currentPosition = getPositionX(event);
-                    currentTranslate = prevTranslate + currentPosition - startPosX;
-                    slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
-                }
-            }
-
-            function touchEnd() {
-                if (!isDragging) return;
-                isDragging = false;
-                carouselContainer.classList.remove('grabbing');
-                const movedBy = currentTranslate - prevTranslate;
-                applyTransition(); 
-                if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) { currentIndex += 1; }
-                if (movedBy > swipeThreshold && currentIndex > 0) { currentIndex -= 1; }
-                updateCarouselState(); 
-                resetInterval(); 
-            }
-
-            function getPositionX(event) { return event.type.includes('mouse') ? event.pageX : event.touches[0].clientX; }
-           
-            updateCarouselState(); 
-            startInterval(); 
-
-            carouselContainer.addEventListener('mouseenter', () => { if(!isDragging) clearInterval(slideInterval); });
-            carouselContainer.addEventListener('mouseleave', () => { if(!isDragging) startInterval(); });
-            carouselContainer.addEventListener('keydown', (e) => {
-                if (e.key === 'ArrowLeft') { prevSlide(); resetInterval(); } 
-                else if (e.key === 'ArrowRight') { nextSlide(); resetInterval(); }
-            });
-            window.addEventListener('resize', () => {
-                removeTransition(); 
-                updateHeaderHeightAndPadding(); 
-                setPositionByIndex();
-                setTimeout(applyTransition, 50); 
-            });
+          // Inicializar la lógica del carrusel DESPUÉS de que los slides y dots se hayan renderizado
+          if (anuncios.length > 0) {
+            inicializarLogicaCarruselInterna(
+              announcementsCarouselContainer,
+              slidesContainer,
+              dotsContainer
+            );
+          }
         }
 
+        function inicializarLogicaCarruselInterna(
+          carouselContainer,
+          slidesContainer,
+          dotsContainer
+        ) {
+          const slides = Array.from(
+            slidesContainer.querySelectorAll(".carousel-slide")
+          );
+          const dots = Array.from(
+            dotsContainer.querySelectorAll(".carousel-dot")
+          );
+          const prevButton = carouselContainer.querySelector(
+            ".carousel-button.prev"
+          );
+          const nextButton = carouselContainer.querySelector(
+            ".carousel-button.next"
+          );
+
+          let currentIndex = 0;
+          let slideInterval;
+          const slideCount = slides.length;
+
+          if (slideCount <= 0) return;
+
+          let isDragging = false;
+          let startPosX = 0;
+          let currentTranslate = 0;
+          let prevTranslate = 0;
+          const swipeThreshold = 50;
+
+          function applyTransition() {
+            slidesContainer.style.transition = "var(--transition-carousel)";
+          }
+          function removeTransition() {
+            slidesContainer.style.transition = "none";
+          }
+
+          function setPositionByIndex() {
+            if (slidesContainer && slidesContainer.offsetWidth > 0) {
+              currentTranslate = currentIndex * -slidesContainer.offsetWidth;
+              prevTranslate = currentTranslate;
+              applyTransition();
+              slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+            }
+          }
+
+          function updateCarouselState() {
+            setPositionByIndex();
+            slides.forEach((slide, index) => {
+              slide.classList.toggle("active", index === currentIndex);
+              slide.setAttribute("aria-hidden", String(index !== currentIndex));
+              slide.inert = index !== currentIndex;
+            });
+            dots.forEach((dot, index) => {
+              dot.classList.toggle("active", index === currentIndex);
+              dot.setAttribute("aria-current", String(index === currentIndex));
+            });
+          }
+
+          function goToSlide(index) {
+            currentIndex = (index + slideCount) % slideCount;
+            updateCarouselState();
+          }
+          function nextSlide() {
+            goToSlide(currentIndex + 1);
+          }
+          function prevSlide() {
+            goToSlide(currentIndex - 1);
+          }
+
+          if (nextButton)
+            nextButton.addEventListener("click", () => {
+              nextSlide();
+              resetInterval();
+            });
+          if (prevButton)
+            prevButton.addEventListener("click", () => {
+              prevSlide();
+              resetInterval();
+            });
+
+          dots.forEach((dot) => {
+            dot.addEventListener("click", (e) => {
+              goToSlide(parseInt(e.target.dataset.slideTo));
+              resetInterval();
+            });
+          });
+
+          function startInterval() {
+            clearInterval(slideInterval);
+            slideInterval = setInterval(nextSlide, 6000);
+          }
+          function resetInterval() {
+            clearInterval(slideInterval);
+            startInterval();
+          }
+
+          slidesContainer.addEventListener("touchstart", touchStart, {
+            passive: true,
+          });
+          slidesContainer.addEventListener("touchmove", touchMove, {
+            passive: true,
+          });
+          slidesContainer.addEventListener("touchend", touchEnd);
+          slidesContainer.addEventListener("mousedown", touchStart);
+          slidesContainer.addEventListener("mousemove", touchMove);
+          slidesContainer.addEventListener("mouseup", touchEnd);
+          slidesContainer.addEventListener("mouseleave", touchEnd);
+
+          function touchStart(event) {
+            isDragging = true;
+            startPosX = getPositionX(event);
+            removeTransition();
+            carouselContainer.classList.add("grabbing");
+            clearInterval(slideInterval);
+          }
+
+          function touchMove(event) {
+            if (isDragging) {
+              const currentPosition = getPositionX(event);
+              currentTranslate = prevTranslate + currentPosition - startPosX;
+              slidesContainer.style.transform = `translateX(${currentTranslate}px)`;
+            }
+          }
+
+          function touchEnd() {
+            if (!isDragging) return;
+            isDragging = false;
+            carouselContainer.classList.remove("grabbing");
+            const movedBy = currentTranslate - prevTranslate;
+            applyTransition();
+            if (movedBy < -swipeThreshold && currentIndex < slideCount - 1) {
+              currentIndex += 1;
+            }
+            if (movedBy > swipeThreshold && currentIndex > 0) {
+              currentIndex -= 1;
+            }
+            updateCarouselState();
+            resetInterval();
+          }
+
+          function getPositionX(event) {
+            return event.type.includes("mouse")
+              ? event.pageX
+              : event.touches[0].clientX;
+          }
+
+          updateCarouselState();
+          startInterval();
+
+          carouselContainer.addEventListener("mouseenter", () => {
+            if (!isDragging) clearInterval(slideInterval);
+          });
+          carouselContainer.addEventListener("mouseleave", () => {
+            if (!isDragging) startInterval();
+          });
+          carouselContainer.addEventListener("keydown", (e) => {
+            if (e.key === "ArrowLeft") {
+              prevSlide();
+              resetInterval();
+            } else if (e.key === "ArrowRight") {
+              nextSlide();
+              resetInterval();
+            }
+          });
+          window.addEventListener("resize", () => {
+            removeTransition();
+            updateHeaderHeightAndPadding();
+            setPositionByIndex();
+            setTimeout(applyTransition, 50);
+          });
+        }
 
         function renderizarTarjetasDeProyectos(proyectos, gridContainer) {
-            if (!gridContainer) return;
-            gridContainer.innerHTML = ''; 
-            proyectos.forEach(proyecto => {
-                const card = document.createElement('article');
-                card.classList.add('project-card-detailed');
-               
-                let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
-                if (proyecto.portadaUrl) {
-                    imgHTML = `
-                        <div class="project-img-placeholder">
-                            <img src="${proyecto.portadaUrl}" alt="${proyecto.altPortada || proyecto.titulo}" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
-                        </div>`;
-                }
+          if (!gridContainer) return;
+          gridContainer.innerHTML = "";
+          proyectos.forEach((proyecto) => {
+            const card = document.createElement("article");
+            card.classList.add("project-card-detailed");
 
-                card.innerHTML = `
+            let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
+            if (proyecto.portadaUrl) {
+              imgHTML = `
+                        <div class="project-img-placeholder">
+                            <img src="${proyecto.portadaUrl}" alt="${
+                proyecto.altPortada || proyecto.titulo
+              }" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                        </div>`;
+            }
+
+            card.innerHTML = `
                     ${imgHTML}
                     <div class="project-content">
-                        <p class="project-category">${proyecto.categoria || 'Categoría'}</p>
-                        <h3 class="project-title"><a href="${proyecto.enlacePagina || '#'}">${proyecto.titulo}</a></h3>
+                        <p class="project-category">${
+                          proyecto.categoria || "Categoría"
+                        }</p>
+                        <h3 class="project-title"><a href="${
+                          proyecto.enlacePagina || "#"
+                        }">${proyecto.titulo}</a></h3>
                         <p class="project-description-full">
-                            ${proyecto.descripcionCompleta || 'Descripción no disponible.'}
+                            ${
+                              proyecto.descripcionCompleta ||
+                              "Descripción no disponible."
+                            }
                         </p>
-                        <a href="${proyecto.enlacePagina || '#'}" class="btn-view-project-page">${proyecto.enlaceDetalles || 'Ver detalles'} <i class="fas fa-arrow-right"></i></a>
+                        <a href="${
+                          proyecto.enlacePagina || "#"
+                        }" class="btn-view-project-page">${
+              proyecto.enlaceDetalles || "Ver detalles"
+            } <i class="fas fa-arrow-right"></i></a>
                     </div>
                 `;
-                gridContainer.appendChild(card);
-            });
+            gridContainer.appendChild(card);
+          });
         }
 
-        function renderizarFooterYFAB(redesSociales, contactContainer, socialContainer, fabElement) {
-            // Contactos Directos del Footer
-            if (contactContainer && redesSociales.contactosDirectos) {
-                contactContainer.innerHTML = ''; 
-                redesSociales.contactosDirectos.forEach(contacto => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = contacto.url || '#';
-                    linkElement.target = "_blank";
-                    linkElement.setAttribute('aria-label', contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`);
-                    linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${contacto.plataforma} ${contacto.tipo ? '('+contacto.tipo+')' : ''}`;
-                    contactContainer.appendChild(linkElement);
-                });
-            } else if (contactContainer) {
-                contactContainer.innerHTML = '<p>Información de contacto no disponible.</p>';
-            }
+        function renderizarFooterYFAB(
+          redesSociales,
+          contactContainer,
+          socialContainer,
+          fabElement
+        ) {
+          // Contactos Directos del Footer
+          if (contactContainer && redesSociales.contactosDirectos) {
+            contactContainer.innerHTML = "";
+            redesSociales.contactosDirectos.forEach((contacto) => {
+              const linkElement = document.createElement("a");
+              linkElement.href = contacto.url || "#";
+              linkElement.target = "_blank";
+              linkElement.setAttribute(
+                "aria-label",
+                contacto.textoAlternativo ||
+                  `Contactar por ${contacto.plataforma}`
+              );
+              linkElement.innerHTML = `<i class="${
+                contacto.icono
+              }" aria-hidden="true"></i> ${contacto.plataforma} ${
+                contacto.tipo ? "(" + contacto.tipo + ")" : ""
+              }`;
+              contactContainer.appendChild(linkElement);
+            });
+          } else if (contactContainer) {
+            contactContainer.innerHTML =
+              "<p>Información de contacto no disponible.</p>";
+          }
 
-            // Perfiles Sociales del Footer
-            if (socialContainer && redesSociales.perfilesSociales) {
-                socialContainer.innerHTML = ''; 
-                redesSociales.perfilesSociales.forEach(perfil => {
-                    const linkElement = document.createElement('a');
-                    linkElement.href = perfil.url || '#';
-                    linkElement.target = "_blank";
-                    linkElement.title = perfil.titulo;
-                    linkElement.setAttribute('aria-label', `Visita nuestro perfil de ${perfil.titulo}`);
-                    linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
-                    socialContainer.appendChild(linkElement);
-                });
-            } else if (socialContainer) {
-                 socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
-            }
+          // Perfiles Sociales del Footer
+          if (socialContainer && redesSociales.perfilesSociales) {
+            socialContainer.innerHTML = "";
+            redesSociales.perfilesSociales.forEach((perfil) => {
+              const linkElement = document.createElement("a");
+              linkElement.href = perfil.url || "#";
+              linkElement.target = "_blank";
+              linkElement.title = perfil.titulo;
+              linkElement.setAttribute(
+                "aria-label",
+                `Visita nuestro perfil de ${perfil.titulo}`
+              );
+              linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+              socialContainer.appendChild(linkElement);
+            });
+          } else if (socialContainer) {
+            socialContainer.innerHTML = "<p>Redes sociales no disponibles.</p>";
+          }
 
-            // Botón Flotante de WhatsApp (FAB)
-            if (fabElement && redesSociales.contactosDirectos) {
-                const whatsappFabInfo = redesSociales.contactosDirectos.find(
-                    c => c.plataforma && c.plataforma.toLowerCase() === 'whatsapp' && c.tipo === 'Contacto Directo'
-                );
-                if (whatsappFabInfo && whatsappFabInfo.url) {
-                    fabElement.href = whatsappFabInfo.url;
-                } else {
-                       fabElement.href = "javascript:void(0);"; 
-                       fabElement.style.cursor = "default"; 
-                }
-            } else if (fabElement) {
-                fabElement.href = "javascript:void(0);"; 
-                fabElement.style.cursor = "default";
+          // Botón Flotante de WhatsApp (FAB)
+          if (fabElement && redesSociales.contactosDirectos) {
+            const whatsappFabInfo = redesSociales.contactosDirectos.find(
+              (c) =>
+                c.plataforma &&
+                c.plataforma.toLowerCase() === "whatsapp" &&
+                c.tipo === "Contacto Directo"
+            );
+            if (whatsappFabInfo && whatsappFabInfo.url) {
+              fabElement.href = whatsappFabInfo.url;
+            } else {
+              fabElement.href = "javascript:void(0);";
+              fabElement.style.cursor = "default";
             }
+          } else if (fabElement) {
+            fabElement.href = "javascript:void(0);";
+            fabElement.style.cursor = "default";
+          }
         }
 
         cargarContenidoDesdeJSON();
 
-        const currentYearElement = document.getElementById('currentYear');
+        const currentYearElement = document.getElementById("currentYear");
         if (currentYearElement) {
-            currentYearElement.textContent = new Date().getFullYear();
+          currentYearElement.textContent = new Date().getFullYear();
         }
-    });
+      });
     </script>
-
-</body>
+  </body>
 </html>

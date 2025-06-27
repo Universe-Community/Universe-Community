@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universe Community</title>
-    <link rel="icon" type="image/png" href="file/Flyer Salon de uñas Peluqueria Moderno Rosa_20250626_123045_0000.png">
+    <link
+      rel="icon"
+      type="image/png"
+      href="file/Flyer Salon de uñas Peluqueria Moderno Rosa_20250626_123045_0000.png"
+    />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -310,10 +314,7 @@
           </div>
           <div class="footer-column footer-column-social">
             <h4 class="footer-heading">Síguenos</h4>
-            <div
-              class="footer-social-icons"
-              id="footerSocialProfilesContainer"
-            >
+            <div class="footer-social-icons" id="footerSocialProfilesContainer">
               <p>Cargando redes...</p>
             </div>
           </div>
@@ -439,73 +440,72 @@
         }
 
         if (mainMenuNav) {
-          mainMenuNav
-            .querySelectorAll("li.has-submenu")
-            .forEach((listItem) => {
-              const link = listItem.querySelector(
-                ":scope > a[aria-haspopup='true']"
-              );
-              const toggleIcon = listItem.querySelector(
-                ":scope > a > .submenu-toggle-icon"
-              );
-              const submenu = listItem.querySelector(":scope > .submenu");
+          mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+            const link = listItem.querySelector(
+              ":scope > a[aria-haspopup='true']"
+            );
+            const toggleIcon = listItem.querySelector(
+              ":scope > a > .submenu-toggle-icon"
+            );
+            const submenu = listItem.querySelector(":scope > .submenu");
 
-              if (!link || !submenu) return;
+            if (!link || !submenu) return;
 
-              if (toggleIcon) {
-                toggleIcon.addEventListener("click", function (event) {
-                  event.preventDefault();
-                  event.stopPropagation();
-                  performToggleVisually(listItem, link, submenu);
-                });
+            if (toggleIcon) {
+              toggleIcon.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
+                performToggleVisually(listItem, link, submenu);
+              });
+            }
+
+            link.addEventListener("click", function (event) {
+              if (event.target.closest(".submenu-toggle-icon")) {
+                return;
               }
 
-              link.addEventListener("click", function (event) {
-                if (event.target.closest(".submenu-toggle-icon")) {
-                  return;
+              const isMobileView = window.innerWidth <= 991;
+              const hasValidHref =
+                link.getAttribute("href") &&
+                link.getAttribute("href") !== "#" &&
+                link.getAttribute("href") !== "";
+              const linkPathOnly = (
+                link.pathname.split("/").pop() || "index.html"
+              ).split("#")[0];
+              const currentPathOnly = (
+                window.location.pathname.split("/").pop() || "index.html"
+              ).split("#")[0];
+              const isLinkToCurrentPagePathOnly =
+                linkPathOnly === currentPathOnly && !link.hash;
+
+              if (isMobileView) {
+                if (listItem.classList.contains("has-submenu")) {
+                  event.preventDefault();
+                  performToggleVisually(listItem, link, submenu);
                 }
-
-                const isMobileView = window.innerWidth <= 991;
-                const hasValidHref =
-                  link.getAttribute("href") &&
-                  link.getAttribute("href") !== "#" &&
-                  link.getAttribute("href") !== "";
-                const linkPathOnly = (
-                  link.pathname.split("/").pop() || "index.html"
-                ).split("#")[0];
-                const currentPathOnly = (
-                  window.location.pathname.split("/").pop() || "index.html"
-                ).split("#")[0];
-                const isLinkToCurrentPagePathOnly =
-                  linkPathOnly === currentPathOnly && !link.hash;
-
-                if (isMobileView) {
-                  if (listItem.classList.contains("has-submenu")) {
+              } else {
+                // Desktop View
+                if (hasValidHref) {
+                  if (isLinkToCurrentPagePathOnly) {
                     event.preventDefault();
                     performToggleVisually(listItem, link, submenu);
                   }
                 } else {
-                  // Desktop View
-                  if (hasValidHref) {
-                    if (isLinkToCurrentPagePathOnly) {
-                      event.preventDefault();
-                      performToggleVisually(listItem, link, submenu);
-                    }
-                  } else {
-                    event.preventDefault();
-                    performToggleVisually(listItem, link, submenu);
-                  }
+                  event.preventDefault();
+                  performToggleVisually(listItem, link, submenu);
                 }
-              });
+              }
             });
+          });
         }
 
         // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
         if (mainMenuNav) {
           mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
             link.addEventListener("click", (event) => {
-              const isSubmenuToggleIcon =
-                event.target.closest(".submenu-toggle-icon");
+              const isSubmenuToggleIcon = event.target.closest(
+                ".submenu-toggle-icon"
+              );
               const listItem = link.closest("li");
               const isParentLinkThatTogglesOnMobile =
                 listItem &&
@@ -669,8 +669,9 @@
         }
 
         // --- Cargar Contenido Dinámico desde JSON para Index ---
-        const projectListContainer =
-          document.getElementById("projectListContainer");
+        const projectListContainer = document.getElementById(
+          "projectListContainer"
+        );
         const paypalButtonContainer = document.getElementById(
           "paypalButtonContainer"
         );
@@ -688,14 +689,12 @@
           "footerSocialProfilesContainer"
         );
         const fabWhatsapp = document.getElementById("fabWhatsapp");
-        
+
         // AÑADIDO: Referencia al enlace de donación del menú
         const paypalMenuLink = document.getElementById("paypalMenuLink");
 
         async function cargarContenidoIndexDesdeJSON() {
-          console.log(
-            "Intentando cargar datos_web.json para index.html..."
-          );
+          console.log("Intentando cargar datos_web.json para index.html...");
           try {
             const response = await fetch("datos_web.json");
             console.log("Respuesta del fetch (index):", response);
@@ -894,14 +893,13 @@
                   rel="noopener noreferrer"
                   class="btn-donate-paypal"
                 >
-                  <i class="${
-                    paypalInfo.icono || "fab fa-paypal"
-                  }"></i> ${paypalInfo.textoBoton}
+                  <i class="${paypalInfo.icono || "fab fa-paypal"}"></i> ${
+              paypalInfo.textoBoton
+            }
                 </a>`;
             container.innerHTML = buttonHTML;
           } else {
-            container.innerHTML =
-              "<p>Opción de donación no configurada.</p>";
+            container.innerHTML = "<p>Opción de donación no configurada.</p>";
           }
         }
 
@@ -963,7 +961,9 @@
             const item = document.createElement("div");
             item.classList.add("faq-item");
             item.innerHTML = `
-                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${faq.id}">
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${
+                  faq.id
+                }">
                     <span>${faq.pregunta}</span>
                     <i class="fas fa-chevron-down"></i>
                 </div>
@@ -1055,9 +1055,11 @@
                 contacto.textoAlternativo ||
                   `Contactar por ${contacto.plataforma}`
               );
-              linkElement.innerHTML = `<i class="${contacto.icono}" aria-hidden="true"></i> ${
-                contacto.plataforma
-              } ${contacto.tipo ? "(" + contacto.tipo + ")" : ""}`;
+              linkElement.innerHTML = `<i class="${
+                contacto.icono
+              }" aria-hidden="true"></i> ${contacto.plataforma} ${
+                contacto.tipo ? "(" + contacto.tipo + ")" : ""
+              }`;
               contactContainer.appendChild(linkElement);
             });
           } else if (contactContainer) {
@@ -1080,8 +1082,7 @@
               socialContainer.appendChild(linkElement);
             });
           } else if (socialContainer) {
-            socialContainer.innerHTML =
-              "<p>Redes sociales no disponibles.</p>";
+            socialContainer.innerHTML = "<p>Redes sociales no disponibles.</p>";
           }
 
           if (fabElement && redesSociales.contactosDirectos) {
@@ -1104,8 +1105,9 @@
         }
 
         function inicializarSliderProyectos() {
-          const projectListContainerSlider =
-            document.getElementById("projectListContainer");
+          const projectListContainerSlider = document.getElementById(
+            "projectListContainer"
+          );
           const prevBtnSlider = document.querySelector(
             "#proyectos-destacados .prev-btn"
           );
@@ -1198,9 +1200,7 @@
             observer.observe(projectListContainerSlider, { childList: true });
 
             setTimeout(() => {
-              if (
-                !projectListContainerSlider.querySelector(".project-card")
-              ) {
+              if (!projectListContainerSlider.querySelector(".project-card")) {
                 console.warn(
                   "Slider cards not found after timeout, slider controls might not be accurate."
                 );
