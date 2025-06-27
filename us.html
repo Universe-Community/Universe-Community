@@ -1,29 +1,46 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+  <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universe Scan - Traducciones Profesionales de Manga y Manhwa</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+      xintegrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
     <style>
       :root {
         /* --- Paleta de Universe Scan (Light Mode) --- */
-        --brand-purple-start: #CB6CE6; /* Morado */
-        --brand-blue-end: #50C0FF;    /* Azul Cielo */
-        --brand-pink: #F469DB;        /* Rosa */
-        --brand-coral: #EE8880;       /* Coral */
+        --brand-purple-start: #cb6ce6; /* Morado */
+        --brand-blue-end: #50c0ff; /* Azul Cielo */
+        --brand-pink: #f469db; /* Rosa */
+        --brand-coral: #ee8880; /* Coral */
 
-        --text-gradient: linear-gradient(105deg, var(--brand-purple-start), var(--brand-blue-end));
-        --button-gradient: linear-gradient(135deg, var(--brand-purple-start), var(--brand-blue-end));
+        --text-gradient: linear-gradient(
+          105deg,
+          var(--brand-purple-start),
+          var(--brand-blue-end)
+        );
+        --button-gradient: linear-gradient(
+          135deg,
+          var(--brand-purple-start),
+          var(--brand-blue-end)
+        );
         --button-hover-gradient: linear-gradient(135deg, #b752d2, #3db1e6);
-        
+
         --text-dark: #212529;
         --text-medium: #5f6773;
-        --text-light: #ffffff; 
+        --text-light: #ffffff;
         --text-subtle: #8a92a5;
 
-        --bg-light: #F9F9FC;
+        --bg-light: #f9f9fc;
         --bg-light-rgb: 249, 249, 252;
         --bg-white: #ffffff;
         --bg-section-alt: #ffffff;
@@ -36,9 +53,10 @@
         --card-hover-shadow: 0px 8px 28px rgba(0, 0, 0, 0.08);
 
         --font-primary: "Poppins", sans-serif;
-        
+
         --transition-smooth: all 0.3s ease-in-out;
-        --transition-colors: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+        --transition-colors: background-color 0.3s ease, color 0.3s ease,
+          border-color 0.3s ease;
         --header-height: 70px; /* Esta altura será actualizada dinámicamente por JS */
 
         --brand-purple-start-rgb: 203, 108, 230;
@@ -60,128 +78,238 @@
         --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
         --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
       }
-      
-      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-      html { font-size: 16px; scroll-behavior: smooth; }
-      body { font-family: var(--font-primary); background-color: var(--bg-light); color: var(--text-dark); line-height: 1.7; overflow-x: hidden; transition: var(--transition-colors); }
-      .container { width: 90%; max-width: 1200px; margin-left: auto; margin-right: auto; }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        font-size: 16px;
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: var(--font-primary);
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        line-height: 1.7;
+        overflow-x: hidden;
+        transition: var(--transition-colors);
+      }
+      .container {
+        width: 90%;
+        max-width: 1200px;
+        margin-left: auto;
+        margin-right: auto;
+      }
 
       /* Estilos Generales */
-      .btn { padding: 0.8rem 2.2rem; font-size: 0.95rem; font-weight: 600; border-radius: 50px; text-decoration: none; display: inline-block; transition: all 0.25s ease-in-out; border: 1.5px solid transparent; text-align: center; }
-      .btn-primary { background: var(--button-gradient); color: #ffffff; box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2); }
-      .btn-primary:hover { background: var(--button-hover-gradient); box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3); transform: translateY(-3px); }
-      .btn-secondary { background-color: var(--bg-white); color: var(--brand-purple-start); border: 1.5px solid var(--border-color-medium); box-shadow: var(--card-shadow-light); }
-      .btn-secondary:hover { background-color: var(--bg-light); border-color: var(--brand-purple-start); transform: translateY(-3px); }
-      .block-title { text-align: center; font-size: 2.5rem; font-weight: 700; color: var(--text-dark); margin-bottom: 1rem; }
-      .block-subtitle { text-align: center; font-size: 1.1rem; color: var(--text-medium); max-width: 700px; margin: 0 auto 3.5rem auto; }
-      
-      /* Encabezado */
-      .site-header { 
-        background-color: rgba(var(--bg-light-rgb), 0.8); 
-        backdrop-filter: saturate(180%) blur(15px); 
-        -webkit-backdrop-filter: saturate(180%) blur(15px); 
-        padding: 1rem 0; 
-        border-bottom: 1px solid var(--border-color-soft); 
-        position: sticky; 
-        top: 0; 
-        z-index: 1000; 
-        transition: var(--transition-colors), background-color 0.3s ease, border-color 0.3s ease; 
+      .btn {
+        padding: 0.8rem 2.2rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        border-radius: 50px;
+        text-decoration: none;
+        display: inline-block;
+        transition: all 0.25s ease-in-out;
+        border: 1.5px solid transparent;
+        text-align: center;
       }
-      .header-inner { display: flex; justify-content: space-between; align-items: center; }
-      .logo-link { display: flex; align-items: center; text-decoration: none; }
-      .logo-icon-box { 
-        width: 40px; 
-        height: 40px; 
-        background: var(--text-gradient); 
-        border-radius: 10px; 
-        display: flex; 
-        align-items: center; 
-        justify-content: center; 
-        margin-right: 0.75rem; 
-        color: #fff; 
-        font-weight: 700; 
-        font-size: 1.4rem; 
+      .btn-primary {
+        background: var(--button-gradient);
+        color: #ffffff;
+        box-shadow: 0 4px 15px rgba(var(--brand-purple-start-rgb), 0.2);
       }
-      .logo-full-text { 
-        font-size: 1.25rem; 
-        font-weight: 600; 
-        color: var(--text-dark); 
+      .btn-primary:hover {
+        background: var(--button-hover-gradient);
+        box-shadow: 0 6px 20px rgba(var(--brand-purple-start-rgb), 0.3);
+        transform: translateY(-3px);
       }
-      body.dark-mode .logo-full-text {
-        color: var(--text-dark); 
+      .btn-secondary {
+        background-color: var(--bg-white);
+        color: var(--brand-purple-start);
+        border: 1.5px solid var(--border-color-medium);
+        box-shadow: var(--card-shadow-light);
+      }
+      .btn-secondary:hover {
+        background-color: var(--bg-light);
+        border-color: var(--brand-purple-start);
+        transform: translateY(-3px);
+      }
+      .block-title {
+        text-align: center;
+        font-size: 2.5rem;
+        font-weight: 700;
+        color: var(--text-dark);
+        margin-bottom: 1rem;
+      }
+      .block-subtitle {
+        text-align: center;
+        font-size: 1.1rem;
+        color: var(--text-medium);
+        max-width: 700px;
+        margin: 0 auto 3.5rem auto;
       }
 
-      .nav-controls { display: flex; align-items: center; gap: 0.5rem; }
-      
-      /* Estilos del Menú Principal para Escritorio */
-      .main-menu ul { list-style: none; display: flex; margin: 0; padding: 0; gap: 0.5rem; }
-      .main-menu ul li a { 
-        display: block; 
-        text-decoration: none; 
-        color: var(--text-medium); 
-        font-weight: 500; 
-        font-size: 0.95rem; 
-        padding: 0.6rem 1rem; 
-        border-radius: 8px; 
-        transition: all 0.2s ease; 
+      /* Encabezado */
+      .site-header {
+        background-color: rgba(var(--bg-light-rgb), 0.8);
+        backdrop-filter: saturate(180%) blur(15px);
+        -webkit-backdrop-filter: saturate(180%) blur(15px);
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--border-color-soft);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        transition: var(--transition-colors), background-color 0.3s ease,
+          border-color 0.3s ease;
       }
-      .main-menu ul li a:hover, .main-menu ul li a.current-page { 
-        color: var(--text-dark); 
-        background-color: rgba(var(--brand-purple-start-rgb), 0.08); 
+      .header-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .logo-link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+      }
+      .logo-icon-box {
+        width: 40px;
+        height: 40px;
+        background: var(--text-gradient);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 0.75rem;
+        color: #fff;
+        font-weight: 700;
+        font-size: 1.4rem;
+      }
+      .logo-full-text {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      body.dark-mode .logo-full-text {
+        color: var(--text-dark);
+      }
+
+      .nav-controls {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      /* Estilos del Menú Principal para Escritorio */
+      .main-menu ul {
+        list-style: none;
+        display: flex;
+        margin: 0;
+        padding: 0;
+        gap: 0.5rem;
+      }
+      .main-menu ul li a {
+        display: block;
+        text-decoration: none;
+        color: var(--text-medium);
+        font-weight: 500;
+        font-size: 0.95rem;
+        padding: 0.6rem 1rem;
+        border-radius: 8px;
+        transition: all 0.2s ease;
+      }
+      .main-menu ul li a:hover,
+      .main-menu ul li a.current-page {
+        color: var(--text-dark);
+        background-color: rgba(var(--brand-purple-start-rgb), 0.08);
       }
 
       body.dark-mode .main-menu ul li a {
-        color: var(--text-medium); 
+        color: var(--text-medium);
       }
-      body.dark-mode .main-menu ul li a:hover, 
+      body.dark-mode .main-menu ul li a:hover,
       body.dark-mode .main-menu ul li a.current-page {
-        color: var(--text-dark); 
+        color: var(--text-dark);
         background-color: rgba(var(--brand-purple-start-rgb), 0.2);
       }
 
-      .theme-toggle-button { 
-        background: none; 
-        border: none; 
-        color: var(--text-medium); 
-        font-size: 1.25rem; 
-        padding: 0.5rem; 
-        cursor: pointer; 
-        border-radius: 50%; 
-        display: flex; 
-        transition: all 0.2s ease; 
+      .theme-toggle-button {
+        background: none;
+        border: none;
+        color: var(--text-medium);
+        font-size: 1.25rem;
+        padding: 0.5rem;
+        cursor: pointer;
+        border-radius: 50%;
+        display: flex;
+        transition: all 0.2s ease;
       }
-      .theme-toggle-button:hover { 
-        color: var(--text-dark); 
-        background-color: rgba(var(--brand-purple-start-rgb), 0.08); 
+      .theme-toggle-button:hover {
+        color: var(--text-dark);
+        background-color: rgba(var(--brand-purple-start-rgb), 0.08);
       }
-      .nav-toggle-btn { 
+      .nav-toggle-btn {
         display: none; /* Oculto en escritorio */
       }
 
       /* Sección Hero */
-      .hero { padding: 6rem 0; text-align: center; }
-      .hero-main-title { font-size: 3.5rem; font-weight: 800; color: var(--text-dark); line-height: 1.2; margin-bottom: 1.5rem; }
-      .hero-main-title .highlight-text { background: var(--text-gradient); -webkit-background-clip: text; background-clip: text; color: transparent; }
-      .hero-sub-title { font-size: 1.2rem; color: var(--text-medium); margin-bottom: 2.5rem; max-width: 700px; margin-left: auto; margin-right: auto; }
-      .hero-button-group { display: flex; justify-content: center; gap: 1rem; }
+      .hero {
+        padding: 6rem 0;
+        text-align: center;
+      }
+      .hero-main-title {
+        font-size: 3.5rem;
+        font-weight: 800;
+        color: var(--text-dark);
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+      }
+      .hero-main-title .highlight-text {
+        background: var(--text-gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+      }
+      .hero-sub-title {
+        font-size: 1.2rem;
+        color: var(--text-medium);
+        margin-bottom: 2.5rem;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .hero-button-group {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+      }
 
       /* Sección Últimos Lanzamientos */
-      .latest-releases { padding: 5rem 0; background-color: var(--bg-white); }
-      .latest-releases .block-subtitle { margin-bottom: 2.5rem; } 
+      .latest-releases {
+        padding: 5rem 0;
+        background-color: var(--bg-white);
+      }
+      .latest-releases .block-subtitle {
+        margin-bottom: 2.5rem;
+      }
 
       /* Estilos Generales del Carrusel */
       .carousel-container {
         position: relative;
-        padding: 1rem 0; 
+        padding: 1rem 0;
       }
 
       .carousel-track {
         display: flex;
-        overflow-x: auto; 
-        scroll-snap-type: x mandatory; 
-        -webkit-overflow-scrolling: touch; 
-        gap: 1.5rem; 
-        padding-bottom: 1rem; 
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        gap: 1.5rem;
+        padding-bottom: 1rem;
       }
 
       .carousel-track::-webkit-scrollbar {
@@ -200,16 +328,16 @@
 
       /* MODIFICADO: Ancho de las tarjetas en el carrusel para escritorio */
       .carousel-track .release-card,
-      .carousel-track .notice-card { 
-        flex: 0 0 auto; 
+      .carousel-track .notice-card {
+        flex: 0 0 auto;
         width: 300px; /* Ancho incrementado para un aspecto más profesional */
         scroll-snap-align: start;
-        box-shadow: var(--card-shadow-light); 
+        box-shadow: var(--card-shadow-light);
       }
       .latest-releases .release-card {
-        margin-bottom: 0; 
+        margin-bottom: 0;
       }
-      
+
       /* MODIFICADO: Estilos específicos de la Tarjeta de Lanzamiento para contenido completo */
       .release-card img {
         height: 280px; /* Altura de imagen aumentada para una tarjeta más alta */
@@ -219,22 +347,22 @@
       .release-info {
         padding: 1rem;
         min-height: 100px; /* Altura mínima ajustada para acomodar títulos largos */
-        display: flex; 
+        display: flex;
         flex-direction: column;
-        justify-content: space-between; 
+        justify-content: space-between;
       }
       .release-title {
-        font-size: 1.1rem; 
-        font-weight: 600; 
-        color: var(--text-dark); 
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text-dark);
         margin-bottom: 0.25rem;
         white-space: normal; /* Permite que el texto se ajuste en varias líneas */
         overflow: visible; /* Asegura que el texto no esté oculto */
         text-overflow: clip; /* Asegura que el texto no se elipsee */
       }
       .release-chapter {
-        font-size: 0.9rem; 
-        color: var(--text-medium); 
+        font-size: 0.9rem;
+        color: var(--text-medium);
         margin-top: auto; /* Empuja el número de capítulo a la parte inferior del contenedor flex */
       }
 
@@ -267,81 +395,300 @@
         box-shadow: 0 6px 15px rgba(var(--brand-purple-start-rgb), 0.3);
       }
 
-
       /* Sección Proyectos */
-      .projects-section { padding: 5rem 0; }
-      .filters-container { display: flex; flex-wrap: wrap; gap: 1rem; align-items: center; margin-bottom: 2.5rem; background-color: var(--bg-white); padding: 1.5rem; border-radius: 12px; box-shadow: var(--card-shadow-light); }
-      .search-box { flex-grow: 1; position: relative; min-width: 200px; } 
-      .search-box i { position: absolute; left: 15px; top: 50%; transform: translateY(-50%); color: var(--text-subtle); }
-      .search-box input { width: 100%; padding: 0.8rem 1rem 0.8rem 2.5rem; border: 1px solid var(--border-color-medium); border-radius: 8px; background-color: var(--bg-light); color: var(--text-dark); transition: var(--transition-smooth); }
-      .search-box input:focus { border-color: var(--brand-purple-start); box-shadow: 0 0 0 3px rgba(var(--brand-purple-start-rgb), 0.2); outline: none; }
-      .filter-group { display: flex; flex-wrap: wrap; gap: 0.5rem; } 
-      .filter-btn { background-color: var(--bg-light); color: var(--text-medium); border: 1px solid var(--border-color-soft); padding: 0.6rem 1.25rem; border-radius: 8px; font-weight: 500; cursor: pointer; transition: all 0.2s ease; }
-      .filter-btn:hover { border-color: var(--brand-purple-start); color: var(--brand-purple-start); }
-      .filter-btn.active { background: var(--button-gradient); color: white; border-color: var(--brand-purple-start); } 
-      .projects-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.8rem; }
-      .project-card { cursor: pointer; background-color: var(--bg-white); border-radius: 12px; box-shadow: var(--card-shadow-light); overflow: hidden; display: flex; flex-direction: column; transition: var(--transition-smooth); position: relative; }
-      .project-card:hover { transform: translateY(-5px); box-shadow: var(--card-hover-shadow); }
-      .project-card-image { width: 100%; height: 380px; object-fit: cover; }
-      .project-card-content { padding: 1.25rem; flex-grow: 1; }
-      .project-card-title { font-size: 1.2rem; font-weight: 600; color: var(--text-dark); margin-bottom: 0.5rem; }
-      .project-card-type { font-size: 0.8rem; font-weight: 500; color: #fff; background-color: var(--brand-coral); padding: 0.2rem 0.6rem; border-radius: 5px; display: inline-block; margin-bottom: 0.75rem; }
-      .project-card-synopsis { font-size: 0.9rem; color: var(--text-medium); line-height: 1.6; }
-      .project-card-status { position: absolute; top: 12px; right: 12px; background-color: rgba(0,0,0,0.6); color: white; padding: 0.3rem 0.7rem; font-size: 0.75rem; font-weight: 600; border-radius: 5px; text-transform: uppercase; }
-      .project-card-status.emision { background-color: var(--brand-purple-start); }
-      .project-card-status.finalizado { background-color: var(--brand-pink); }
-      
-      /* Modal de Proyecto */
-      .modal-overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.7); backdrop-filter: blur(5px); z-index: 1001; display: none; align-items: center; justify-content: center; padding: 1rem; animation: fadeIn 0.3s ease; }
-      .modal-content { background-color: var(--bg-white); border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.2); max-width: 900px; width: 100%; max-height: 90vh; display: flex; flex-direction: column; position: relative; } 
-      .modal-header { padding: 1.5rem; border-bottom: 1px solid var(--border-color-soft); display: flex; justify-content: space-between; align-items: center; }
-      .modal-title { font-size: 1.5rem; font-weight: 600; color: var(--text-dark); }
-      .modal-close { background: none; border: none; font-size: 1.5rem; color: var(--text-subtle); cursor: pointer; transition: color 0.2s ease; }
-      .modal-close:hover { color: var(--brand-coral); }
-      .modal-body { overflow-y: auto; padding: 1.5rem; display: grid; grid-template-columns: 250px 1fr; gap: 2rem; }
-      .modal-cover img { width: 100%; border-radius: 10px; }
-      .modal-info h3 { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
-      .modal-info p { color: var(--text-medium); margin-bottom: 1.5rem; line-height: 1.8; }
-      .modal-details-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
-      .modal-detail-item strong { display: block; font-size: 0.9rem; color: var(--text-dark); margin-bottom: 0.2rem; }
-      .modal-detail-item span { font-size: 0.85rem; color: var(--text-medium); }
-
-      .modal-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.5rem; }
-      .tag { background-color: var(--bg-light); color: var(--text-medium); padding: 0.3rem 0.8rem; border-radius: 20px; font-size: 0.8rem; border: 1px solid var(--border-color-soft); }
-      .chapter-list-section h3 { margin-bottom: 0.75rem; font-size: 1.1rem; color: var(--text-dark); }
-      .chapter-list { max-height: 250px; overflow-y: auto; border: 1px solid var(--border-color-soft); border-radius: 8px; background-color: var(--bg-light); } 
-      .chapter-item { display: flex; justify-content: space-between; align-items: center; padding: 0.8rem 1rem; border-bottom: 1px solid var(--border-color-soft); }
-      .chapter-item:last-child { border-bottom: none; }
-      .chapter-item span { font-weight: 500; color: var(--text-dark); }
-      .chapter-item a { 
-          background: var(--button-gradient); 
-          color: #fff; 
-          text-decoration: none; 
-          padding: 0.4rem 1rem; 
-          border-radius: 6px; 
-          font-size: 0.85rem; 
-          transition: var(--transition-smooth); 
-          display: inline-flex;
-          align-items: center;
-          gap: 0.5rem;
+      .projects-section {
+        padding: 5rem 0;
       }
-      .chapter-item a:hover { 
-          background: var(--button-hover-gradient); 
-          transform: translateY(-2px); 
-          box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.2);
+      .filters-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1rem;
+        align-items: center;
+        margin-bottom: 2.5rem;
+        background-color: var(--bg-white);
+        padding: 1.5rem;
+        border-radius: 12px;
+        box-shadow: var(--card-shadow-light);
+      }
+      .search-box {
+        flex-grow: 1;
+        position: relative;
+        min-width: 200px;
+      }
+      .search-box i {
+        position: absolute;
+        left: 15px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: var(--text-subtle);
+      }
+      .search-box input {
+        width: 100%;
+        padding: 0.8rem 1rem 0.8rem 2.5rem;
+        border: 1px solid var(--border-color-medium);
+        border-radius: 8px;
+        background-color: var(--bg-light);
+        color: var(--text-dark);
+        transition: var(--transition-smooth);
+      }
+      .search-box input:focus {
+        border-color: var(--brand-purple-start);
+        box-shadow: 0 0 0 3px rgba(var(--brand-purple-start-rgb), 0.2);
+        outline: none;
+      }
+      .filter-group {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+      .filter-btn {
+        background-color: var(--bg-light);
+        color: var(--text-medium);
+        border: 1px solid var(--border-color-soft);
+        padding: 0.6rem 1.25rem;
+        border-radius: 8px;
+        font-weight: 500;
+        cursor: pointer;
+        transition: all 0.2s ease;
+      }
+      .filter-btn:hover {
+        border-color: var(--brand-purple-start);
+        color: var(--brand-purple-start);
+      }
+      .filter-btn.active {
+        background: var(--button-gradient);
+        color: white;
+        border-color: var(--brand-purple-start);
+      }
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 1.8rem;
+      }
+      .project-card {
+        cursor: pointer;
+        background-color: var(--bg-white);
+        border-radius: 12px;
+        box-shadow: var(--card-shadow-light);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: var(--transition-smooth);
+        position: relative;
+      }
+      .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: var(--card-hover-shadow);
+      }
+      .project-card-image {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+      }
+      .project-card-content {
+        padding: 1.25rem;
+        flex-grow: 1;
+      }
+      .project-card-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: var(--text-dark);
+        margin-bottom: 0.5rem;
+      }
+      .project-card-type {
+        font-size: 0.8rem;
+        font-weight: 500;
+        color: #fff;
+        background-color: var(--brand-coral);
+        padding: 0.2rem 0.6rem;
+        border-radius: 5px;
+        display: inline-block;
+        margin-bottom: 0.75rem;
+      }
+      .project-card-synopsis {
+        font-size: 0.9rem;
+        color: var(--text-medium);
+        line-height: 1.6;
+      }
+      .project-card-status {
+        position: absolute;
+        top: 12px;
+        right: 12px;
+        background-color: rgba(0, 0, 0, 0.6);
+        color: white;
+        padding: 0.3rem 0.7rem;
+        font-size: 0.75rem;
+        font-weight: 600;
+        border-radius: 5px;
+        text-transform: uppercase;
+      }
+      .project-card-status.emision {
+        background-color: var(--brand-purple-start);
+      }
+      .project-card-status.finalizado {
+        background-color: var(--brand-pink);
+      }
+
+      /* Modal de Proyecto */
+      .modal-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.7);
+        backdrop-filter: blur(5px);
+        z-index: 1001;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        padding: 1rem;
+        animation: fadeIn 0.3s ease;
+      }
+      .modal-content {
+        background-color: var(--bg-white);
+        border-radius: 16px;
+        box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+        max-width: 900px;
+        width: 100%;
+        max-height: 90vh;
+        display: flex;
+        flex-direction: column;
+        position: relative;
+      }
+      .modal-header {
+        padding: 1.5rem;
+        border-bottom: 1px solid var(--border-color-soft);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      .modal-title {
+        font-size: 1.5rem;
+        font-weight: 600;
+        color: var(--text-dark);
+      }
+      .modal-close {
+        background: none;
+        border: none;
+        font-size: 1.5rem;
+        color: var(--text-subtle);
+        cursor: pointer;
+        transition: color 0.2s ease;
+      }
+      .modal-close:hover {
+        color: var(--brand-coral);
+      }
+      .modal-body {
+        overflow-y: auto;
+        padding: 1.5rem;
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 2rem;
+      }
+      .modal-cover img {
+        width: 100%;
+        border-radius: 10px;
+      }
+      .modal-info h3 {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .modal-info p {
+        color: var(--text-medium);
+        margin-bottom: 1.5rem;
+        line-height: 1.8;
+      }
+      .modal-details-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+      }
+      .modal-detail-item strong {
+        display: block;
+        font-size: 0.9rem;
+        color: var(--text-dark);
+        margin-bottom: 0.2rem;
+      }
+      .modal-detail-item span {
+        font-size: 0.85rem;
+        color: var(--text-medium);
+      }
+
+      .modal-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+        margin-bottom: 1.5rem;
+      }
+      .tag {
+        background-color: var(--bg-light);
+        color: var(--text-medium);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        border: 1px solid var(--border-color-soft);
+      }
+      .chapter-list-section h3 {
+        margin-bottom: 0.75rem;
+        font-size: 1.1rem;
+        color: var(--text-dark);
+      }
+      .chapter-list {
+        max-height: 250px;
+        overflow-y: auto;
+        border: 1px solid var(--border-color-soft);
+        border-radius: 8px;
+        background-color: var(--bg-light);
+      }
+      .chapter-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid var(--border-color-soft);
+      }
+      .chapter-item:last-child {
+        border-bottom: none;
+      }
+      .chapter-item span {
+        font-weight: 500;
+        color: var(--text-dark);
+      }
+      .chapter-item a {
+        background: var(--button-gradient);
+        color: #fff;
+        text-decoration: none;
+        padding: 0.4rem 1rem;
+        border-radius: 6px;
+        font-size: 0.85rem;
+        transition: var(--transition-smooth);
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+      }
+      .chapter-item a:hover {
+        background: var(--button-hover-gradient);
+        transform: translateY(-2px);
+        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.2);
       }
       .chapter-item .chapter-links {
-          display: flex;
-          gap: 0.5rem;
+        display: flex;
+        gap: 0.5rem;
       }
 
       /* Sección Avisos */
-      .avisos-section { padding: 5rem 0; background-color: var(--bg-section-alt); }
+      .avisos-section {
+        padding: 5rem 0;
+        background-color: var(--bg-section-alt);
+      }
       .notice-card {
         background-color: var(--bg-white);
         border-radius: 12px;
         padding: 1.5rem;
-        min-height: 150px; 
+        min-height: 150px;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
@@ -363,7 +710,7 @@
         font-size: 0.95rem;
         color: var(--text-medium);
         margin-bottom: 1rem;
-        flex-grow: 1; 
+        flex-grow: 1;
       }
       .notice-date {
         font-size: 0.85rem;
@@ -371,9 +718,9 @@
       }
 
       /* Sección Donación */
-      .donacion-section { 
-        padding: 5rem 0; 
-        background-color: var(--bg-light); 
+      .donacion-section {
+        padding: 5rem 0;
+        background-color: var(--bg-light);
         text-align: center;
         display: flex;
         flex-direction: column;
@@ -381,739 +728,1245 @@
         justify-content: center;
       }
       .donacion-section .block-title {
-          margin-bottom: 1.5rem;
+        margin-bottom: 1.5rem;
       }
       .donacion-section .block-subtitle {
-          margin-bottom: 3rem;
+        margin-bottom: 3rem;
       }
       .donate-button {
-          padding: 1.2rem 3rem;
-          font-size: 1.2rem;
-          font-weight: 700;
-          background: linear-gradient(45deg, #FF6F61, #DE4313); /* Degradado cálido y atractivo */
-          color: white;
-          border: none;
-          border-radius: 10px;
-          cursor: pointer;
-          box-shadow: 0 8px 20px rgba(255, 111, 97, 0.4);
-          transition: all 0.3s ease;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.75rem;
-          text-decoration: none;
+        padding: 1.2rem 3rem;
+        font-size: 1.2rem;
+        font-weight: 700;
+        background: linear-gradient(
+          45deg,
+          #ff6f61,
+          #de4313
+        ); /* Degradado cálido y atractivo */
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        box-shadow: 0 8px 20px rgba(255, 111, 97, 0.4);
+        transition: all 0.3s ease;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.75rem;
+        text-decoration: none;
       }
       .donate-button:hover {
-          transform: translateY(-5px) scale(1.02);
-          box-shadow: 0 12px 25px rgba(255, 111, 97, 0.6);
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: 0 12px 25px rgba(255, 111, 97, 0.6);
       }
       .donate-button i {
-          font-size: 1.5rem;
+        font-size: 1.5rem;
       }
-
 
       /* Sección Reclutamiento */
-      .recruitment-section { padding: 5rem 0; background-color: var(--bg-white); }
-      .recruitment-container { display: grid; grid-template-columns: 1fr 1.5fr; gap: 3rem; align-items: center; }
-      .recruitment-info h3 { font-size: 2rem; font-weight: 700; line-height: 1.3; margin-bottom: 1rem; }
-      .recruitment-info p { color: var(--text-medium); margin-bottom: 2rem; }
-      .roles-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
-      .role-card { background-color: var(--bg-light); border: 1px solid var(--border-color-soft); padding: 2rem; border-radius: 12px; transition: var(--transition-smooth); }
-      .role-card:hover { transform: translateY(-5px) scale(1.02); box-shadow: var(--card-hover-shadow); border-color: var(--brand-purple-start); }
-      .role-icon { font-size: 2rem; margin-bottom: 1rem; color: var(--brand-purple-start); }
-      .role-title { font-size: 1.2rem; font-weight: 600; margin-bottom: 1rem; }
-      .role-list { list-style-type: none; padding: 0; font-size: 0.9rem; color: var(--text-medium); }
-      .role-list li { margin-bottom: 0.5rem; display: flex; align-items: flex-start; }
-      .role-list i { color: var(--brand-pink); margin-right: 0.75rem; margin-top: 5px; font-size: 0.8rem; }
-      
+      .recruitment-section {
+        padding: 5rem 0;
+        background-color: var(--bg-white);
+      }
+      .recruitment-container {
+        display: grid;
+        grid-template-columns: 1fr 1.5fr;
+        gap: 3rem;
+        align-items: center;
+      }
+      .recruitment-info h3 {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.3;
+        margin-bottom: 1rem;
+      }
+      .recruitment-info p {
+        color: var(--text-medium);
+        margin-bottom: 2rem;
+      }
+      .roles-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+      }
+      .role-card {
+        background-color: var(--bg-light);
+        border: 1px solid var(--border-color-soft);
+        padding: 2rem;
+        border-radius: 12px;
+        transition: var(--transition-smooth);
+      }
+      .role-card:hover {
+        transform: translateY(-5px) scale(1.02);
+        box-shadow: var(--card-hover-shadow);
+        border-color: var(--brand-purple-start);
+      }
+      .role-icon {
+        font-size: 2rem;
+        margin-bottom: 1rem;
+        color: var(--brand-purple-start);
+      }
+      .role-title {
+        font-size: 1.2rem;
+        font-weight: 600;
+        margin-bottom: 1rem;
+      }
+      .role-list {
+        list-style-type: none;
+        padding: 0;
+        font-size: 0.9rem;
+        color: var(--text-medium);
+      }
+      .role-list li {
+        margin-bottom: 0.5rem;
+        display: flex;
+        align-items: flex-start;
+      }
+      .role-list i {
+        color: var(--brand-pink);
+        margin-right: 0.75rem;
+        margin-top: 5px;
+        font-size: 0.8rem;
+      }
+
       /* Sección FAQ */
-      .faq-section { padding: 5rem 0; }
-      .faq-container { max-width: 800px; margin: auto; }
-      .faq-item { background-color: var(--bg-white); border-radius: 10px; margin-bottom: 1rem; box-shadow: var(--card-shadow-light); overflow: hidden; border: 1px solid var(--border-color-soft); }
-      .faq-question { font-weight: 600; cursor: pointer; display: flex; justify-content: space-between; align-items: center; color: var(--text-dark); padding: 1.25rem; }
-      .faq-question i { transition: transform 0.3s ease; }
-      .faq-item.active .faq-question i { transform: rotate(180deg); color: var(--brand-purple-start); }
-      .faq-answer { max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out; }
-      .faq-answer p { padding: 0 1.25rem 1.25rem; color: var(--text-medium); border-top: 1px solid var(--border-color-soft); margin: 0; padding-top: 1.25rem; }
+      .faq-section {
+        padding: 5rem 0;
+      }
+      .faq-container {
+        max-width: 800px;
+        margin: auto;
+      }
+      .faq-item {
+        background-color: var(--bg-white);
+        border-radius: 10px;
+        margin-bottom: 1rem;
+        box-shadow: var(--card-shadow-light);
+        overflow: hidden;
+        border: 1px solid var(--border-color-soft);
+      }
+      .faq-question {
+        font-weight: 600;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        color: var(--text-dark);
+        padding: 1.25rem;
+      }
+      .faq-question i {
+        transition: transform 0.3s ease;
+      }
+      .faq-item.active .faq-question i {
+        transform: rotate(180deg);
+        color: var(--brand-purple-start);
+      }
+      .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease-out;
+      }
+      .faq-answer p {
+        padding: 0 1.25rem 1.25rem;
+        color: var(--text-medium);
+        border-top: 1px solid var(--border-color-soft);
+        margin: 0;
+        padding-top: 1.25rem;
+      }
 
       /* Pie de Página */
-      .site-footer { background-color: #1a1a2e; color: var(--text-medium); padding: 4rem 0 2rem 0; }
-      .footer-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2rem; }
-      .footer-column.about p { font-size: 0.9rem; margin-bottom: 1rem; }
-      .footer-socials { display: flex; gap: 1rem; }
-      .social-icon-link { color: var(--text-medium); font-size: 1.4rem; transition: color 0.2s ease, transform 0.2s ease; }
-      .social-icon-link:hover { color: var(--brand-blue-end); transform: scale(1.1); }
-      
+      .site-footer {
+        background-color: #1a1a2e;
+        color: var(--text-medium);
+        padding: 4rem 0 2rem 0;
+      }
+      .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 2rem;
+      }
+      .footer-column.about p {
+        font-size: 0.9rem;
+        margin-bottom: 1rem;
+      }
+      .footer-socials {
+        display: flex;
+        gap: 1rem;
+      }
+      .social-icon-link {
+        color: var(--text-medium);
+        font-size: 1.4rem;
+        transition: color 0.2s ease, transform 0.2s ease;
+      }
+      .social-icon-link:hover {
+        color: var(--brand-blue-end);
+        transform: scale(1.1);
+      }
+
       /* Asegura que los encabezados del pie de página siempre sean blancos */
-      .footer-heading { 
-          font-size: 1.1rem; 
-          font-weight: 600; 
-          color: #ffffff; 
-          margin-bottom: 1rem; 
-      } 
-      .footer-links { list-style: none; padding: 0; }
-      .footer-links li { margin-bottom: 0.6rem; }
+      .footer-heading {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #ffffff;
+        margin-bottom: 1rem;
+      }
+      .footer-links {
+        list-style: none;
+        padding: 0;
+      }
+      .footer-links li {
+        margin-bottom: 0.6rem;
+      }
       /* Asegura que los enlaces del pie de página siempre sean blancos */
-      .footer-links a { 
-          color: #ffffff; 
-          text-decoration: none; 
-          transition: color 0.2s ease; 
-          font-size: 0.95rem; 
+      .footer-links a {
+        color: #ffffff;
+        text-decoration: none;
+        transition: color 0.2s ease;
+        font-size: 0.95rem;
       }
-      .footer-links a:hover { 
-          color: var(--brand-blue-end); 
+      .footer-links a:hover {
+        color: var(--brand-blue-end);
       }
-      .footer-bottom { 
-        border-top: 1px solid #2c2c48; 
-        margin-top: 3rem; 
-        padding-top: 2rem; 
-        text-align: center; 
-        font-size: 0.9rem; 
-        color: #ffffff; 
+      .footer-bottom {
+        border-top: 1px solid #2c2c48;
+        margin-top: 3rem;
+        padding-top: 2rem;
+        text-align: center;
+        font-size: 0.9rem;
+        color: #ffffff;
       }
-      
+
       /* Adaptabilidad */
-      @media (max-width: 991px) { 
-        .recruitment-container { grid-template-columns: 1fr; }
-        .modal-body { grid-template-columns: 1fr; }
-        .modal-cover { text-align: center; max-width: 250px; margin: 0 auto; }
+      @media (max-width: 991px) {
+        .recruitment-container {
+          grid-template-columns: 1fr;
+        }
+        .modal-body {
+          grid-template-columns: 1fr;
+        }
+        .modal-cover {
+          text-align: center;
+          max-width: 250px;
+          margin: 0 auto;
+        }
 
         /* Estilos del Contenedor del Menú Móvil */
-        .main-menu { 
-            position: fixed; 
-            top: 0; 
-            right: -100%; 
-            width: 100%; 
-            max-width: 320px; 
-            height: 100vh; 
-            background: linear-gradient(135deg, #4A00E0, #8E2DE2); /* Degradado como la captura de pantalla */
-            box-shadow: -5px 0 15px rgba(0,0,0,0.3); 
-            transition: right 0.35s ease-in-out; 
-            flex-direction: column; 
-            padding-top: 0; 
-            z-index: 999; 
-            display: flex; 
+        .main-menu {
+          position: fixed;
+          top: 0;
+          right: -100%;
+          width: 100%;
+          max-width: 320px;
+          height: 100vh;
+          background: linear-gradient(
+            135deg,
+            #4a00e0,
+            #8e2de2
+          ); /* Degradado como la captura de pantalla */
+          box-shadow: -5px 0 15px rgba(0, 0, 0, 0.3);
+          transition: right 0.35s ease-in-out;
+          flex-direction: column;
+          padding-top: 0;
+          z-index: 999;
+          display: flex;
         }
-        .main-menu.menu-visible { 
-            right: 0; 
+        .main-menu.menu-visible {
+          right: 0;
         }
 
         /* Encabezado del Menú Móvil (nuevo elemento) */
         .mobile-menu-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.5rem;
-            background-color: rgba(0,0,0,0.2); 
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            color: #ffffff;
-            position: sticky;
-            top: 0;
-            width: 100%;
-            z-index: 1000; 
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 1rem 1.5rem;
+          background-color: rgba(0, 0, 0, 0.2);
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          color: #ffffff;
+          position: sticky;
+          top: 0;
+          width: 100%;
+          z-index: 1000;
         }
         .mobile-menu-header .logo-link {
-            text-decoration: none;
-            color: #ffffff;
-            display: flex;
-            align-items: center;
+          text-decoration: none;
+          color: #ffffff;
+          display: flex;
+          align-items: center;
         }
         .mobile-menu-header .logo-icon-box {
-            background: none; 
-            border: 1px solid #ffffff; 
-            color: #ffffff;
-            margin-right: 0.5rem;
+          background: none;
+          border: 1px solid #ffffff;
+          color: #ffffff;
+          margin-right: 0.5rem;
         }
         .mobile-menu-header .logo-full-text {
-            color: #ffffff; 
-            font-size: 1.25rem;
+          color: #ffffff;
+          font-size: 1.25rem;
         }
         .mobile-menu-header .menu-header-controls {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
         }
         .mobile-menu-header .theme-toggle-button,
         .mobile-menu-header .nav-toggle-btn {
-            display: block; 
-            color: #ffffff; 
+          display: block;
+          color: #ffffff;
         }
         .mobile-menu-header .theme-toggle-button {
-             font-size: 1.5rem; 
+          font-size: 1.5rem;
         }
         .mobile-menu-header .nav-toggle-btn {
-            font-size: 1.8rem; 
+          font-size: 1.8rem;
         }
 
-
         /* Estilos de la Lista del Menú Móvil */
-        .main-menu > ul { 
-            flex-direction: column; 
-            gap: 0; 
-            width: 100%;
-            padding: 1rem 0; 
-            overflow-y: auto; 
-            flex-grow: 1; 
+        .main-menu > ul {
+          flex-direction: column;
+          gap: 0;
+          width: 100%;
+          padding: 1rem 0;
+          overflow-y: auto;
+          flex-grow: 1;
         }
         /* Elemento de menú de nivel superior que actúa como encabezado/acordeón */
         .main-menu > ul > li.menu-section-header {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-            position: relative; 
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+          position: relative;
         }
         .main-menu > ul > li.menu-section-header > .menu-header-link {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1.2rem 1.5rem;
-            color: #ffffff; 
-            font-size: 1.1rem;
-            font-weight: 600; 
-            cursor: pointer;
-            text-decoration: none; 
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 1.2rem 1.5rem;
+          color: #ffffff;
+          font-size: 1.1rem;
+          font-weight: 600;
+          cursor: pointer;
+          text-decoration: none;
         }
         .main-menu > ul > li.menu-section-header > .menu-header-link .fas {
-            transition: transform 0.3s ease;
+          transition: transform 0.3s ease;
         }
         .main-menu > ul > li.menu-section-header.open > .menu-header-link .fas {
-            transform: rotate(180deg);
+          transform: rotate(180deg);
         }
 
         /* Submenú para el elemento acordeón */
         .main-menu ul .submenu {
-            list-style: none;
-            padding: 0;
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
+          list-style: none;
+          padding: 0;
+          max-height: 0;
+          overflow: hidden;
+          transition: max-height 0.4s ease-out;
         }
         .main-menu ul .submenu li {
-            border-bottom: none; 
+          border-bottom: none;
         }
         .main-menu ul .submenu li a {
-            padding: 0.8rem 1.5rem 0.8rem 2.5rem; 
-            color: #ffffff; 
-            font-size: 1rem; 
-            background-color: transparent; 
+          padding: 0.8rem 1.5rem 0.8rem 2.5rem;
+          color: #ffffff;
+          font-size: 1rem;
+          background-color: transparent;
         }
         .main-menu ul .submenu li a:hover,
         .main-menu ul .submenu li a.current-page {
-            background-color: rgba(255,255,255,0.1); 
-            color: #ffffff;
-        }
-        
-        /* Elementos de menú normales de nivel superior (Inicio, FAQ, Reclutamiento) */
-        .main-menu > ul > li:not(.menu-section-header) {
-            border-bottom: 1px solid rgba(255,255,255,0.1);
-        }
-        .main-menu > ul > li:not(.menu-section-header) a {
-            padding: 1.2rem 1.5rem; 
-            color: #ffffff; 
-            font-size: 1.1rem;
-        }
-        .main-menu > ul > li:last-child {
-            border-bottom: none; 
+          background-color: rgba(255, 255, 255, 0.1);
+          color: #ffffff;
         }
 
+        /* Elementos de menú normales de nivel superior (Inicio, FAQ, Reclutamiento) */
+        .main-menu > ul > li:not(.menu-section-header) {
+          border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .main-menu > ul > li:not(.menu-section-header) a {
+          padding: 1.2rem 1.5rem;
+          color: #ffffff;
+          font-size: 1.1rem;
+        }
+        .main-menu > ul > li:last-child {
+          border-bottom: none;
+        }
 
         /* Ajusta el botón de alternar la navegación del encabezado principal para móvil */
         .header-inner .nav-toggle-btn {
-            display: block; 
-            color: var(--text-dark); 
+          display: block;
+          color: var(--text-dark);
         }
         body.dark-mode .header-inner .nav-toggle-btn {
-            color: var(--text-dark); 
+          color: var(--text-dark);
         }
 
         /* Ajusta el ancho del elemento del carrusel para pantallas más pequeñas */
         .carousel-track .release-card,
         .carousel-track .notice-card {
-            width: 85%; 
+          width: 85%;
         }
       }
       @media (max-width: 768px) {
-        .hero-main-title { font-size: 2.5rem; }
-        .hero-button-group { flex-direction: column; align-items: center; }
-        .filters-container { flex-direction: column; align-items: stretch; }
-        .roles-grid { grid-template-columns: 1fr; }
-        .recruitment-container { grid-template-columns: 1fr; } 
+        .hero-main-title {
+          font-size: 2.5rem;
+        }
+        .hero-button-group {
+          flex-direction: column;
+          align-items: center;
+        }
+        .filters-container {
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .roles-grid {
+          grid-template-columns: 1fr;
+        }
+        .recruitment-container {
+          grid-template-columns: 1fr;
+        }
 
         .carousel-track .release-card,
         .carousel-track .notice-card {
-            width: 90%; 
+          width: 90%;
         }
       }
       @media (max-width: 480px) {
-          .modal-body { padding: 1rem; gap: 1rem; }
-          .modal-header { padding: 1rem; }
-          .modal-title { font-size: 1.3rem; }
-          .btn { padding: 0.7rem 1.8rem; font-size: 0.9rem; }
-          .block-title { font-size: 2rem; }
-          .block-subtitle { font-size: 1rem; }
+        .modal-body {
+          padding: 1rem;
+          gap: 1rem;
+        }
+        .modal-header {
+          padding: 1rem;
+        }
+        .modal-title {
+          font-size: 1.3rem;
+        }
+        .btn {
+          padding: 0.7rem 1.8rem;
+          font-size: 0.9rem;
+        }
+        .block-title {
+          font-size: 2rem;
+        }
+        .block-subtitle {
+          font-size: 1rem;
+        }
       }
 
       /* Animaciones */
-      @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
     </style>
-</head>
-<body class="light-mode">
-
+  </head>
+  <body class="light-mode">
     <header class="site-header" id="header">
-        <div class="container">
-            <div class="header-inner">
+      <div class="container">
+        <div class="header-inner">
+          <a href="#inicio" class="logo-link">
+            <div class="logo-icon-box">US</div>
+            <span class="logo-full-text">Universe Scan</span>
+          </a>
+          <div class="nav-controls">
+            <nav class="main-menu" id="mainMenuNav">
+              <!-- Encabezado del Menú Móvil -->
+              <div class="mobile-menu-header">
                 <a href="#inicio" class="logo-link">
-                    <div class="logo-icon-box">US</div>
-                    <span class="logo-full-text">Universe Scan</span>
+                  <div class="logo-icon-box">US</div>
+                  <span class="logo-full-text">Universe Scan</span>
                 </a>
-                <div class="nav-controls">
-                    <nav class="main-menu" id="mainMenuNav"> 
-                        <!-- Encabezado del Menú Móvil -->
-                        <div class="mobile-menu-header">
-                            <a href="#inicio" class="logo-link">
-                                <div class="logo-icon-box">US</div>
-                                <span class="logo-full-text">Universe Scan</span>
-                            </a>
-                            <div class="menu-header-controls">
-                                <button class="theme-toggle-button" id="themeToggleBtnMobile" aria-label="Cambiar tema"> 
-                                    <i class="fas fa-moon"></i><i class="fas fa-sun" style="display:none;"></i>
-                                </button>
-                                <button class="nav-toggle-btn" id="mobileMenuCloseBtn" aria-label="Cerrar menú"> 
-                                    <i class="fas fa-times"></i> 
-                                </button>
-                            </div>
-                        </div>
-                        <ul>
-                            <li><a href="#inicio" class="current-page">Inicio</a></li> 
-                            <!-- Elemento de Menú "Universe Scan" con Submenú -->
-                            <li class="menu-section-header" id="universeCommunityToggle">
-                                <a href="#" class="menu-header-link" aria-haspopup="true" aria-expanded="false">
-                                    Universe Scan <i class="fas fa-chevron-down"></i>
-                                </a>
-                                <ul class="submenu">
-                                    <li><a href="#proyectos">Proyectos</a></li>
-                                    <li><a href="#avisos">Avisos</a></li> 
-                                    <li><a href="#donacion">Donación</a></li> 
-                                </ul>
-                            </li>
-                            <li><a href="#reclutamiento">Reclutamiento</a></li>
-                            <li><a href="#faq">FAQ</a></li>
-                        </ul>
-                    </nav>
-                    <!-- Botón de Cambio de Tema para Escritorio -->
-                    <button class="theme-toggle-button" id="themeToggleBtnDesktop" aria-label="Cambiar tema"> 
-                        <i class="fas fa-moon"></i><i class="fas fa-sun" style="display:none;"></i>
-                    </button>
-                    <!-- Botón Principal del Encabezado para Abrir Menú Móvil -->
-                    <button class="nav-toggle-btn" id="navToggleBtn" aria-label="Abrir menú"> 
-                        <i class="fas fa-bars"></i>
-                    </button>
+                <div class="menu-header-controls">
+                  <button
+                    class="theme-toggle-button"
+                    id="themeToggleBtnMobile"
+                    aria-label="Cambiar tema"
+                  >
+                    <i class="fas fa-moon"></i
+                    ><i class="fas fa-sun" style="display: none"></i>
+                  </button>
+                  <button
+                    class="nav-toggle-btn"
+                    id="mobileMenuCloseBtn"
+                    aria-label="Cerrar menú"
+                  >
+                    <i class="fas fa-times"></i>
+                  </button>
                 </div>
-            </div>
+              </div>
+              <ul>
+                <li><a href="#inicio" class="current-page">Inicio</a></li>
+                <!-- Elemento de Menú "Universe Scan" con Submenú -->
+                <li class="menu-section-header" id="universeCommunityToggle">
+                  <a
+                    href="#"
+                    class="menu-header-link"
+                    aria-haspopup="true"
+                    aria-expanded="false"
+                  >
+                    Universe Scan <i class="fas fa-chevron-down"></i>
+                  </a>
+                  <ul class="submenu">
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#avisos">Avisos</a></li>
+                    <li><a href="#donacion">Donación</a></li>
+                  </ul>
+                </li>
+                <li><a href="#reclutamiento">Reclutamiento</a></li>
+                <li><a href="#faq">FAQ</a></li>
+              </ul>
+            </nav>
+            <!-- Botón de Cambio de Tema para Escritorio -->
+            <button
+              class="theme-toggle-button"
+              id="themeToggleBtnDesktop"
+              aria-label="Cambiar tema"
+            >
+              <i class="fas fa-moon"></i
+              ><i class="fas fa-sun" style="display: none"></i>
+            </button>
+            <!-- Botón Principal del Encabezado para Abrir Menú Móvil -->
+            <button
+              class="nav-toggle-btn"
+              id="navToggleBtn"
+              aria-label="Abrir menú"
+            >
+              <i class="fas fa-bars"></i>
+            </button>
+          </div>
         </div>
+      </div>
     </header>
 
     <main>
-        <!-- Sección Hero -->
-        <section class="hero" id="inicio">
-            <div class="container">
-                <h1 class="hero-main-title">
-                    Traduciendo Universos,
-                    <span class="highlight-text">Una Página a la Vez</span>
-                </h1>
-                <p class="hero-sub-title">
-                    Somos un scan de fans para fans, apasionados por traer los mejores mangas, manhwas y manhuas al español con la máxima calidad y fidelidad.
-                </p>
-                <div class="hero-button-group">
-                    <a href="#proyectos" class="btn btn-primary">Explorar Proyectos</a>
-                    <a href="https://t.me/universescanteam" target="_blank" rel="noopener noreferrer" class="btn btn-secondary"><i class="fab fa-telegram-plane"></i> Únete a la Comunidad</a>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Sección Últimos Lanzamientos - Ahora un Carrusel -->
-        <section class="latest-releases">
-            <div class="container">
-                <h2 class="block-title">Últimos Lanzamientos</h2>
-                <p class="block-subtitle">Mantente al día con los capítulos más recientes de tus series favoritas.</p>
-                <div class="carousel-container">
-                    <div class="carousel-track" id="latest-releases-carousel-track">
-                        <!-- Los lanzamientos se insertarán aquí dinámicamente -->
-                    </div>
-                    <div class="carousel-navigation">
-                        <button class="carousel-nav-btn prev" id="latest-prev-btn" aria-label="Anterior lanzamiento"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-nav-btn next" id="latest-next-btn" aria-label="Siguiente lanzamiento"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
-            </div>
-        </section>
+      <!-- Sección Hero -->
+      <section class="hero" id="inicio">
+        <div class="container">
+          <h1 class="hero-main-title">
+            Traduciendo Universos,
+            <span class="highlight-text">Una Página a la Vez</span>
+          </h1>
+          <p class="hero-sub-title">
+            Somos un scan de fans para fans, apasionados por traer los mejores
+            mangas, manhwas y manhuas al español con la máxima calidad y
+            fidelidad.
+          </p>
+          <div class="hero-button-group">
+            <a href="#proyectos" class="btn btn-primary">Explorar Proyectos</a>
+            <a
+              href="https://t.me/universescanteam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-secondary"
+              ><i class="fab fa-telegram-plane"></i> Únete a la Comunidad</a
+            >
+          </div>
+        </div>
+      </section>
 
-        <!-- Sección de Proyectos -->
-        <section id="proyectos" class="projects-section">
-            <div class="container">
-                <h2 class="block-title">Catálogo de Proyectos</h2>
-                <p class="block-subtitle">Navega, busca y filtra en nuestra creciente biblioteca. Encuentra tu próxima lectura favorita.</p>
-                
-                <div class="filters-container">
-                    <div class="search-box">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="search-input" placeholder="Buscar por nombre, género o staff...">
-                    </div>
-                    <div class="filter-group" id="status-filters">
-                        <button class="filter-btn active" data-filter="all" data-group="status">Todos los Estados</button>
-                        <button class="filter-btn" data-filter="En Emisión" data-group="status">En Emisión</button>
-                        <button class="filter-btn" data-filter="Finalizado" data-group="status">Finalizados</button>
-                    </div>
-                     <div class="filter-group" id="type-filters">
-                        <button class="filter-btn active" data-filter="all" data-group="type">Todos los Tipos</button>
-                        <button class="filter-btn" data-filter="Manhwa" data-group="type">Manhwa</button>
-                        <button class="filter-btn" data-filter="Manhua" data-group="type">Manhua</button>
-                        <button class="filter-btn" data-filter="Manga" data-group="type">Manga</button>
-                    </div>
-                </div>
+      <!-- Sección Últimos Lanzamientos - Ahora un Carrusel -->
+      <section class="latest-releases">
+        <div class="container">
+          <h2 class="block-title">Últimos Lanzamientos</h2>
+          <p class="block-subtitle">
+            Mantente al día con los capítulos más recientes de tus series
+            favoritas.
+          </p>
+          <div class="carousel-container">
+            <div class="carousel-track" id="latest-releases-carousel-track">
+              <!-- Los lanzamientos se insertarán aquí dinámicamente -->
+            </div>
+            <div class="carousel-navigation">
+              <button
+                class="carousel-nav-btn prev"
+                id="latest-prev-btn"
+                aria-label="Anterior lanzamiento"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="carousel-nav-btn next"
+                id="latest-next-btn"
+                aria-label="Siguiente lanzamiento"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Los proyectos se insertarán aquí dinámicamente -->
-                </div>
-            </div>
-        </section>
+      <!-- Sección de Proyectos -->
+      <section id="proyectos" class="projects-section">
+        <div class="container">
+          <h2 class="block-title">Catálogo de Proyectos</h2>
+          <p class="block-subtitle">
+            Navega, busca y filtra en nuestra creciente biblioteca. Encuentra tu
+            próxima lectura favorita.
+          </p>
 
-        <!-- Sección Avisos - Ahora un Carrusel -->
-        <section id="avisos" class="avisos-section">
-            <div class="container">
-                <h2 class="block-title">Avisos Importantes</h2>
-                <p class="block-subtitle">Mantente al tanto de las últimas noticias y comunicados de Universe Scan.</p>
-                <div class="carousel-container">
-                    <div class="carousel-track" id="avisos-carousel-track">
-                        <!-- Los avisos se insertarán aquí dinámicamente -->
-                    </div>
-                    <div class="carousel-navigation">
-                        <button class="carousel-nav-btn prev" id="avisos-prev-btn" aria-label="Aviso anterior"><i class="fas fa-chevron-left"></i></button>
-                        <button class="carousel-nav-btn next" id="avisos-next-btn" aria-label="Siguiente aviso"><i class="fas fa-chevron-right"></i></button>
-                    </div>
-                </div>
+          <div class="filters-container">
+            <div class="search-box">
+              <i class="fas fa-search"></i>
+              <input
+                type="text"
+                id="search-input"
+                placeholder="Buscar por nombre, género o staff..."
+              />
             </div>
-        </section>
+            <div class="filter-group" id="status-filters">
+              <button
+                class="filter-btn active"
+                data-filter="all"
+                data-group="status"
+              >
+                Todos los Estados
+              </button>
+              <button
+                class="filter-btn"
+                data-filter="En Emisión"
+                data-group="status"
+              >
+                En Emisión
+              </button>
+              <button
+                class="filter-btn"
+                data-filter="Finalizado"
+                data-group="status"
+              >
+                Finalizados
+              </button>
+            </div>
+            <div class="filter-group" id="type-filters">
+              <button
+                class="filter-btn active"
+                data-filter="all"
+                data-group="type"
+              >
+                Todos los Tipos
+              </button>
+              <button class="filter-btn" data-filter="Manhwa" data-group="type">
+                Manhwa
+              </button>
+              <button class="filter-btn" data-filter="Manhua" data-group="type">
+                Manhua
+              </button>
+              <button class="filter-btn" data-filter="Manga" data-group="type">
+                Manga
+              </button>
+            </div>
+          </div>
 
-        <!-- Sección Donación - Ahora con un Botón de Donar -->
-        <section id="donacion" class="donacion-section">
-            <div class="container">
-                <h2 class="block-title">Apoya a Universe Scan</h2>
-                <p class="block-subtitle">Tu apoyo nos ayuda a seguir trayendo las mejores historias y a mantener la calidad de nuestras traducciones. ¡Cada pequeña contribución cuenta!</p>
-                <a href="https://www.paypal.com/paypalme/universescan" target="_blank" rel="noopener noreferrer" class="donate-button">
-                    <i class="fas fa-heart"></i> Donar Ahora
-                </a>
-            </div>
-        </section>
+          <div class="projects-grid" id="projects-grid">
+            <!-- Los proyectos se insertarán aquí dinámicamente -->
+          </div>
+        </div>
+      </section>
 
-        <!-- Sección de Reclutamiento -->
-        <section id="reclutamiento" class="recruitment-section">
-            <div class="container recruitment-container">
-                <div class="recruitment-info">
-                    <h3>Forma Parte de Nuestro Universo</h3>
-                    <p>La pasión es nuestro motor. Si amas las historias tanto como nosotros y quieres contribuir a la comunidad, ¡te estamos buscando! No necesitas ser un experto, solo tener ganas de aprender y trabajar en equipo.</p>
-                    <a href="https://t.me/universescanteam" target="_blank" rel="noopener noreferrer" class="btn btn-primary"><i class="fas fa-paper-plane"></i> Aplicar en Telegram</a>
-                </div>
-                <div class="roles-grid">
-                    <div class="role-card">
-                        <div class="role-icon"><i class="fas fa-language"></i></div>
-                        <h4 class="role-title">Traductor</h4>
-                        <ul class="role-list">
-                            <li><i class="fas fa-check-circle"></i> <strong>Requisito:</strong> Nivel intermedio/avanzado de Inglés, Coreano o Japonés.</li>
-                            <li><i class="fas fa-star"></i> <strong>Beneficio:</strong> Acceso anticipado a capítulos.</li>
-                        </ul>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-icon"><i class="fas fa-magic-wand-sparkles"></i></div>
-                        <h4 class="role-title">Cleaner / Redrawer</h4>
-                         <ul class="role-list">
-                            <li><i class="fas fa-check-circle"></i> <strong>Requisito:</strong> Manejo básico de Photoshop.</li>
-                            <li><i class="fas fa-star"></i> <strong>Beneficio:</strong> Formación y recursos.</li>
-                        </ul>
-                    </div>
-                    <div class="role-card">
-                        <div class="role-icon"><i class="fas fa-font"></i></div>
-                        <h4 class="role-title">Typesetter</h4>
-                        <ul class="role-list">
-                            <li><i class="fas fa-check-circle"></i> <strong>Requisito:</strong> Buena ortografía y atención al detalle.</li>
-                            <li><i class="fas fa-star"></i> <strong>Beneficio:</strong> Aprende sobre diseño editorial.</li>
-                        </ul>
-                    </div>
-                     <div class="role-card">
-                        <div class="role-icon"><i class="fas fa-check-double"></i></div>
-                        <h4 class="role-title">Corrector</h4>
-                         <ul class="role-list">
-                            <li><i class="fas fa-check-circle"></i> <strong>Requisito:</strong> Excelente ortografía y gramática.</li>
-                            <li><i class="fas fa-star"></i> <strong>Beneficio:</strong> Eres el sello de calidad final.</li>
-                        </ul>
-                    </div>
-                </div>
+      <!-- Sección Avisos - Ahora un Carrusel -->
+      <section id="avisos" class="avisos-section">
+        <div class="container">
+          <h2 class="block-title">Avisos Importantes</h2>
+          <p class="block-subtitle">
+            Mantente al tanto de las últimas noticias y comunicados de Universe
+            Scan.
+          </p>
+          <div class="carousel-container">
+            <div class="carousel-track" id="avisos-carousel-track">
+              <!-- Los avisos se insertarán aquí dinámicamente -->
             </div>
-        </section>
-        
-        <!-- Sección de Preguntas Frecuentes -->
-        <section id="faq" class="faq-section">
-            <div class="container">
-                <h2 class="block-title">Preguntas Frecuentes</h2>
-                <p class="block-subtitle">Resolvemos tus dudas más comunes. Si no encuentras tu respuesta, contáctanos en nuestro Telegram.</p>
-                <div class="faq-container" id="faq-container">
-                    <!-- Los elementos FAQ se insertarán aquí -->
-                </div>
+            <div class="carousel-navigation">
+              <button
+                class="carousel-nav-btn prev"
+                id="avisos-prev-btn"
+                aria-label="Aviso anterior"
+              >
+                <i class="fas fa-chevron-left"></i>
+              </button>
+              <button
+                class="carousel-nav-btn next"
+                id="avisos-next-btn"
+                aria-label="Siguiente aviso"
+              >
+                <i class="fas fa-chevron-right"></i>
+              </button>
             </div>
-        </section>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección Donación - Ahora con un Botón de Donar -->
+      <section id="donacion" class="donacion-section">
+        <div class="container">
+          <h2 class="block-title">Apoya a Universe Scan</h2>
+          <p class="block-subtitle">
+            Tu apoyo nos ayuda a seguir trayendo las mejores historias y a
+            mantener la calidad de nuestras traducciones. ¡Cada pequeña
+            contribución cuenta!
+          </p>
+          <a
+            href="https://www.paypal.com/paypalme/universescan"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="donate-button"
+          >
+            <i class="fas fa-heart"></i> Donar Ahora
+          </a>
+        </div>
+      </section>
+
+      <!-- Sección de Reclutamiento -->
+      <section id="reclutamiento" class="recruitment-section">
+        <div class="container recruitment-container">
+          <div class="recruitment-info">
+            <h3>Forma Parte de Nuestro Universo</h3>
+            <p>
+              La pasión es nuestro motor. Si amas las historias tanto como
+              nosotros y quieres contribuir a la comunidad, ¡te estamos
+              buscando! No necesitas ser un experto, solo tener ganas de
+              aprender y trabajar en equipo.
+            </p>
+            <a
+              href="https://t.me/universescanteam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn btn-primary"
+              ><i class="fas fa-paper-plane"></i> Aplicar en Telegram</a
+            >
+          </div>
+          <div class="roles-grid">
+            <div class="role-card">
+              <div class="role-icon"><i class="fas fa-language"></i></div>
+              <h4 class="role-title">Traductor</h4>
+              <ul class="role-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Requisito:</strong> Nivel intermedio/avanzado de
+                  Inglés, Coreano o Japonés.
+                </li>
+                <li>
+                  <i class="fas fa-star"></i> <strong>Beneficio:</strong> Acceso
+                  anticipado a capítulos.
+                </li>
+              </ul>
+            </div>
+            <div class="role-card">
+              <div class="role-icon">
+                <i class="fas fa-magic-wand-sparkles"></i>
+              </div>
+              <h4 class="role-title">Cleaner / Redrawer</h4>
+              <ul class="role-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Requisito:</strong> Manejo básico de Photoshop.
+                </li>
+                <li>
+                  <i class="fas fa-star"></i>
+                  <strong>Beneficio:</strong> Formación y recursos.
+                </li>
+              </ul>
+            </div>
+            <div class="role-card">
+              <div class="role-icon"><i class="fas fa-font"></i></div>
+              <h4 class="role-title">Typesetter</h4>
+              <ul class="role-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Requisito:</strong> Buena ortografía y atención al
+                  detalle.
+                </li>
+                <li>
+                  <i class="fas fa-star"></i>
+                  <strong>Beneficio:</strong> Aprende sobre diseño editorial.
+                </li>
+              </ul>
+            </div>
+            <div class="role-card">
+              <div class="role-icon"><i class="fas fa-check-double"></i></div>
+              <h4 class="role-title">Corrector</h4>
+              <ul class="role-list">
+                <li>
+                  <i class="fas fa-check-circle"></i>
+                  <strong>Requisito:</strong> Excelente ortografía y gramática.
+                </li>
+                <li>
+                  <i class="fas fa-star"></i> <strong>Beneficio:</strong> Eres
+                  el sello de calidad final.
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Sección de Preguntas Frecuentes -->
+      <section id="faq" class="faq-section">
+        <div class="container">
+          <h2 class="block-title">Preguntas Frecuentes</h2>
+          <p class="block-subtitle">
+            Resolvemos tus dudas más comunes. Si no encuentras tu respuesta,
+            contáctanos en nuestro Telegram.
+          </p>
+          <div class="faq-container" id="faq-container">
+            <!-- Los elementos FAQ se insertarán aquí -->
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="site-footer">
-        <div class="container footer-container">
-            <div class="footer-column about">
-                <a href="#inicio" class="logo-link" style="margin-bottom: 1rem;">
-                    <div class="logo-icon-box">US</div>
-                    <span class="logo-full-text" style="color: #fff;">Universe Scan</span>
-                </a>
-                <p>Un scan de fans para fans, comprometidos con la calidad y la comunidad. Todo el material aquí presentado es para fines de difusión y entretenimiento.</p>
-                <div class="footer-socials">
-                    <a href="https://t.me/universescanteam" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="Telegram"><i class="fab fa-telegram-plane"></i></a>
-                    <a href="https://tmofans.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" aria-label="TuMangaOnline"><i class="fas fa-book-open"></i></a>
-                </div>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-heading">Navegación</h4>
-                <ul class="footer-links">
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#proyectos">Proyectos</a></li>
-                    <li><a href="#reclutamiento">Reclutamiento</a></li>
-                    <li><a href="#faq">FAQ</a></li>
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-heading">Proyectos Populares</h4>
-                <ul class="footer-links" id="popular-projects-footer">
-                    <!-- Los enlaces se insertarán aquí dinámicamente -->
-                </ul>
-            </div>
-            <div class="footer-column">
-                <h4 class="footer-heading">Legal</h4>
-                <ul class="footer-links">
-                    <li><a href="#">Aviso de Contenido</a></li>
-                    <li><a href="#">Apoya a los Autores</a></li>
-                </ul>
-            </div>
+      <div class="container footer-container">
+        <div class="footer-column about">
+          <a href="#inicio" class="logo-link" style="margin-bottom: 1rem">
+            <div class="logo-icon-box">US</div>
+            <span class="logo-full-text" style="color: #fff"
+              >Universe Scan</span
+            >
+          </a>
+          <p>
+            Un scan de fans para fans, comprometidos con la calidad y la
+            comunidad. Todo el material aquí presentado es para fines de
+            difusión y entretenimiento.
+          </p>
+          <div class="footer-socials">
+            <a
+              href="https://t.me/universescanteam"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-link"
+              aria-label="Telegram"
+              ><i class="fab fa-telegram-plane"></i
+            ></a>
+            <a
+              href="https://tmofans.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-icon-link"
+              aria-label="TuMangaOnline"
+              ><i class="fas fa-book-open"></i
+            ></a>
+          </div>
         </div>
-        <div class="container footer-bottom">
-            &copy; 2024 Universe Scan. No somos dueños de ninguna de las obras presentadas.
+        <div class="footer-column">
+          <h4 class="footer-heading">Navegación</h4>
+          <ul class="footer-links">
+            <li><a href="#inicio">Inicio</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#reclutamiento">Reclutamiento</a></li>
+            <li><a href="#faq">FAQ</a></li>
+          </ul>
         </div>
+        <div class="footer-column">
+          <h4 class="footer-heading">Proyectos Populares</h4>
+          <ul class="footer-links" id="popular-projects-footer">
+            <!-- Los enlaces se insertarán aquí dinámicamente -->
+          </ul>
+        </div>
+        <div class="footer-column">
+          <h4 class="footer-heading">Legal</h4>
+          <ul class="footer-links">
+            <li><a href="#">Aviso de Contenido</a></li>
+            <li><a href="#">Apoya a los Autores</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        &copy; 2024 Universe Scan. No somos dueños de ninguna de las obras
+        presentadas.
+      </div>
     </footer>
-    
+
     <!-- Modal de Detalles del Proyecto -->
     <div class="modal-overlay" id="project-modal">
-        <div class="modal-content" id="modal-content">
-            <!-- El contenido del modal se insertará dinámicamente -->
-        </div>
+      <div class="modal-content" id="modal-content">
+        <!-- El contenido del modal se insertará dinámicamente -->
+      </div>
     </div>
 
     <script>
-    document.addEventListener('DOMContentLoaded', function () {
+      document.addEventListener("DOMContentLoaded", function () {
         // --- Simulación de Base de Datos ---
         const db = {
-            projects: [
+          projects: [
+            {
+              id: 1,
+              title: "El Regreso del Mago de Clase 8",
+              coverImage:
+                "https://placehold.co/400x600/50C0FF/FFFFFF?text=Mago+Clase+8",
+              synopsis:
+                "Tras ser traicionado por su camarada más cercano y asesinado, el mago más poderoso de la historia regresa 20 años al pasado. Ahora, armado con el conocimiento del futuro, se prepara para una venganza meticulosa y para evitar la catástrofe que se avecina.",
+              status: "En Emisión",
+              type: "Manhwa",
+              genres: ["Acción", "Fantasía", "Regresión", "Venganza", "Magia"],
+              staff: {
+                translator: "Aria",
+                cleaner: "Jin",
+                typesetter: "Ken",
+                corrector: "Elena",
+              },
+              chapters: [
                 {
-                    id: 1,
-                    title: "El Regreso del Mago de Clase 8",
-                    coverImage: "https://placehold.co/400x600/50C0FF/FFFFFF?text=Mago+Clase+8",
-                    synopsis: "Tras ser traicionado por su camarada más cercano y asesinado, el mago más poderoso de la historia regresa 20 años al pasado. Ahora, armado con el conocimiento del futuro, se prepara para una venganza meticulosa y para evitar la catástrofe que se avecina.",
-                    status: "En Emisión",
-                    type: "Manhwa",
-                    genres: ["Acción", "Fantasía", "Regresión", "Venganza", "Magia"],
-                    staff: { translator: "Aria", cleaner: "Jin", typesetter: "Ken", corrector: "Elena" },
-                    chapters: [
-                        { num: 15, tmoLink: "https://tmofans.com/chapter/12345/15", telegramLink: "https://t.me/universescanteam/chapter15" }, 
-                        { num: 14, tmoLink: "https://tmofans.com/chapter/12345/14", telegramLink: "https://t.me/universescanteam/chapter14" }, 
-                        { num: 13, tmoLink: "https://tmofans.com/chapter/12345/13", telegramLink: "https://t.me/universescanteam/chapter13" }
-                    ]
+                  num: 15,
+                  tmoLink: "https://tmofans.com/chapter/12345/15",
+                  telegramLink: "https://t.me/universescanteam/chapter15",
                 },
                 {
-                    id: 2,
-                    title: "Leyenda del Miríada de Dragones",
-                    coverImage: "https://placehold.co/400x600/CB6CE6/FFFFFF?text=Dragones",
-                    synopsis: "En un mundo de artes marciales, Nie Li es uno de los más grandes espiritistas demoníacos. Sin embargo, pierde la vida durante una batalla. Su alma renace en su yo de 13 años. ¿Podrá cambiar su destino y el de sus seres queridos?",
-                    status: "En Emisión",
-                    type: "Manhua",
-                    genres: ["Artes Marciales", "Aventura", "Reencarnación", "Cultivo"],
-                    staff: { translator: "Sora", cleaner: "Leo", typesetter: "Mika" },
-                    chapters: [
-                        { num: 350, tmoLink: "https://tmofans.com/chapter/67890/350", telegramLink: "https://t.me/universescanteam/chapter350" }, 
-                        { num: 349, tmoLink: "https://tmofans.com/chapter/67890/349", telegramLink: "https://t.me/universescanteam/chapter349" }, 
-                        { num: 348, tmoLink: "https://tmofans.com/chapter/67890/348", telegramLink: "https://t.me/universescanteam/chapter348" }
-                    ]
+                  num: 14,
+                  tmoLink: "https://tmofans.com/chapter/12345/14",
+                  telegramLink: "https://t.me/universescanteam/chapter14",
                 },
                 {
-                    id: 3,
-                    title: "La Sombra del Monarca",
-                    coverImage: "https://placehold.co/400x600/EE8880/FFFFFF?text=Monarca",
-                    synopsis: "Conocido como el cazador más débil de toda la humanidad, la contribución de Sung Jinwoo a las incursiones se limita a intentar que no lo maten. Un día, se encuentra con una doble mazmorra que cambiará su vida para siempre.",
-                    status: "Finalizado",
-                    type: "Manhwa",
-                    genres: ["Acción", "Fantasía", "Sistema", "Aventura", "Dungeons"],
-                    staff: { translator: "Yuki", cleaner: "Ryu", typesetter: "Hana", corrector: "Diego" },
-                    chapters: [
-                        { num: 179, tmoLink: "https://tmofans.com/chapter/11223/179", telegramLink: "https://t.me/universescanteam/chapter179" }, 
-                        { num: 178, tmoLink: "https://tmofans.com/chapter/11223/178", telegramLink: "https://t.me/universescanteam/chapter178" }
-                    ]
+                  num: 13,
+                  tmoLink: "https://tmofans.com/chapter/12345/13",
+                  telegramLink: "https://t.me/universescanteam/chapter13",
+                },
+              ],
+            },
+            {
+              id: 2,
+              title: "Leyenda del Miríada de Dragones",
+              coverImage:
+                "https://placehold.co/400x600/CB6CE6/FFFFFF?text=Dragones",
+              synopsis:
+                "En un mundo de artes marciales, Nie Li es uno de los más grandes espiritistas demoníacos. Sin embargo, pierde la vida durante una batalla. Su alma renace en su yo de 13 años. ¿Podrá cambiar su destino y el de sus seres queridos?",
+              status: "En Emisión",
+              type: "Manhua",
+              genres: [
+                "Artes Marciales",
+                "Aventura",
+                "Reencarnación",
+                "Cultivo",
+              ],
+              staff: { translator: "Sora", cleaner: "Leo", typesetter: "Mika" },
+              chapters: [
+                {
+                  num: 350,
+                  tmoLink: "https://tmofans.com/chapter/67890/350",
+                  telegramLink: "https://t.me/universescanteam/chapter350",
                 },
                 {
-                    id: 4,
-                    title: "My Hero Academia",
-                    coverImage: "https://placehold.co/400x600/8888EE/FFFFFF?text=MHA",
-                    synopsis: "Izuku Midoriya, un chico sin poderes en un mundo donde son la norma, sueña con ser un héroe. Su vida cambia al conocer a su ídolo, All Might, quien le otorga sus poderes y lo inscribe en una academia para héroes.",
-                    status: "En Emisión",
-                    type: "Manga",
-                    genres: ["Superhéroes", "Acción", "Escolar", "Poderes"],
-                    staff: { translator: "Sora", cleaner: "Jin", typesetter: "Ken" },
-                    chapters: [
-                        { num: 420, tmoLink: "https://tmofans.com/chapter/44556/420", telegramLink: "https://t.me/universescanteam/chapter420" }, 
-                        { num: 419, tmoLink: "https://tmofans.com/chapter/44556/419", telegramLink: "https://t.me/universescanteam/chapter419" }, 
-                        { num: 418, tmoLink: "https://tmofans.com/chapter/44556/418", telegramLink: "https://t.me/universescanteam/chapter418" }
-                    ]
+                  num: 349,
+                  tmoLink: "https://tmofans.com/chapter/67890/349",
+                  telegramLink: "https://t.me/universescanteam/chapter349",
                 },
                 {
-                    id: 5,
-                    title: "Omniscient Reader's Viewpoint",
-                    coverImage: "https://placehold.co/400x600/F469DB/FFFFFF?text=Lector",
-                    synopsis: "Kim Dokja es un empleado normal cuya única afición es leer su novela web favorita. Cuando, de repente, el mundo se convierte en la novela que él leía, Dokja es la única persona que sabe cómo acabará el mundo.",
-                    status: "En Emisión",
-                    type: "Manhwa",
-                    genres: ["Apocalíptico", "Acción", "Fantasía", "Transmigración"],
-                    staff: { translator: "Aria", cleaner: "Leo", typesetter: "Hana" },
-                    chapters: [
-                        { num: 120, tmoLink: "https://tmofans.com/chapter/77889/120", telegramLink: "https://t.me/universescanteam/chapter120" }, 
-                        { num: 119, tmoLink: "https://tmofans.com/chapter/77889/119", telegramLink: "https://t.me/universescanteam/chapter119" }
-                    ]
+                  num: 348,
+                  tmoLink: "https://tmofans.com/chapter/67890/348",
+                  telegramLink: "https://t.me/universescanteam/chapter348",
+                },
+              ],
+            },
+            {
+              id: 3,
+              title: "La Sombra del Monarca",
+              coverImage:
+                "https://placehold.co/400x600/EE8880/FFFFFF?text=Monarca",
+              synopsis:
+                "Conocido como el cazador más débil de toda la humanidad, la contribución de Sung Jinwoo a las incursiones se limita a intentar que no lo maten. Un día, se encuentra con una doble mazmorra que cambiará su vida para siempre.",
+              status: "Finalizado",
+              type: "Manhwa",
+              genres: ["Acción", "Fantasía", "Sistema", "Aventura", "Dungeons"],
+              staff: {
+                translator: "Yuki",
+                cleaner: "Ryu",
+                typesetter: "Hana",
+                corrector: "Diego",
+              },
+              chapters: [
+                {
+                  num: 179,
+                  tmoLink: "https://tmofans.com/chapter/11223/179",
+                  telegramLink: "https://t.me/universescanteam/chapter179",
                 },
                 {
-                    id: 6,
-                    title: "El Villano Quiere Vivir",
-                    coverImage: "https://placehold.co/400x600/6A5ACD/FFFFFF?text=Villano",
-                    synopsis: "Un hombre se reencarna como un villano menor en la novela que acababa de leer. Para sobrevivir en este mundo cruel, debe usar su conocimiento de la trama y sus habilidades para cambiar su destino y el de los que lo rodean.",
-                    status: "En Emisión",
-                    type: "Manhwa",
-                    genres: ["Fantasía", "Isekai", "Reencarnación", "Acción", "Romance"],
-                    staff: { translator: "Leo", cleaner: "Jin", typesetter: "Mika", corrector: "Sara" },
-                    chapters: [
-                        { num: 85, tmoLink: "https://tmofans.com/chapter/99887/85", telegramLink: "https://t.me/universescanteam/chapter85" },
-                        { num: 84, tmoLink: "https://tmofans.com/chapter/99887/84", telegramLink: "https://t.me/universescanteam/chapter84" }
-                    ]
+                  num: 178,
+                  tmoLink: "https://tmofans.com/chapter/11223/178",
+                  telegramLink: "https://t.me/universescanteam/chapter178",
+                },
+              ],
+            },
+            {
+              id: 4,
+              title: "My Hero Academia",
+              coverImage: "https://placehold.co/400x600/8888EE/FFFFFF?text=MHA",
+              synopsis:
+                "Izuku Midoriya, un chico sin poderes en un mundo donde son la norma, sueña con ser un héroe. Su vida cambia al conocer a su ídolo, All Might, quien le otorga sus poderes y lo inscribe en una academia para héroes.",
+              status: "En Emisión",
+              type: "Manga",
+              genres: ["Superhéroes", "Acción", "Escolar", "Poderes"],
+              staff: { translator: "Sora", cleaner: "Jin", typesetter: "Ken" },
+              chapters: [
+                {
+                  num: 420,
+                  tmoLink: "https://tmofans.com/chapter/44556/420",
+                  telegramLink: "https://t.me/universescanteam/chapter420",
                 },
                 {
-                    id: 7,
-                    title: "El Gran Mago de la Torre",
-                    coverImage: "https://placehold.co/400x600/FFA07A/FFFFFF?text=Torre",
-                    synopsis: "Un joven huérfano con un talento oculto para la magia es aceptado en la prestigiosa Torre de Magia. Allí, descubre conspiraciones y secretos ancestrales mientras lucha por convertirse en el mago más grande de su era.",
-                    status: "En Emisión",
-                    type: "Manhwa",
-                    genres: ["Fantasía", "Aventura", "Magia", "Crecimiento"],
-                    staff: { translator: "Elena", cleaner: "Hana", typesetter: "Yuki" },
-                    chapters: [
-                        { num: 50, tmoLink: "https://tmofans.com/chapter/11122/50", telegramLink: "https://t.me/universescanteam/chapter50" },
-                        { num: 49, tmoLink: "https://tmofans.com/chapter/11122/49", telegramLink: "https://t.me/universescanteam/chapter49" }
-                    ]
+                  num: 419,
+                  tmoLink: "https://tmofans.com/chapter/44556/419",
+                  telegramLink: "https://t.me/universescanteam/chapter419",
                 },
                 {
-                    id: 8,
-                    title: "Solo Leveling",
-                    coverImage: "https://placehold.co/400x600/FFD700/000000?text=Solo+Leveling",
-                    synopsis: "Diez años después de la aparición de las 'Puertas' que conectan el mundo real con el mundo de los monstruos, el cazador más débil, Sung Jinwoo, recibe un misterioso 'Sistema' que le permite subir de nivel como en un videojuego.",
-                    status: "Finalizado",
-                    type: "Manhwa",
-                    genres: ["Acción", "Fantasía", "Sistema", "Mazmorras", "Poderes"],
-                    staff: { translator: "Yuki", cleaner: "Jin", typesetter: "Leo", corrector: "Aria" },
-                    chapters: [
-                        { num: 179, tmoLink: "https://tmofans.com/chapter/12121/179", telegramLink: "https://t.me/universescanteam/chapter179" },
-                        { num: 178, tmoLink: "https://tmofans.com/chapter/12121/178", telegramLink: "https://t.me/universescanteam/chapter178" }
-                    ]
-                }
-            ],
-            faqs: [
-                { q: "¿Puedo resubir sus proyectos a otras plataformas?", a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde TMO, ya que es nuestra plataforma principal para la difusión, o únete a nuestro canal de Telegram para actualizaciones y descargas directas." },
-                { q: "¿Cómo puedo unirme al scan?", a: "¡Nos encanta que estés interesado! Puedes unirte a nuestro equipo aplicando a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles y los requisitos." },
-                { q: "¿Con qué frecuencia publican capítulos?", a: "La frecuencia de publicación depende de varios factores, como la disponibilidad del staff, la dificultad del proyecto y el estado de la serie original. Nos esforzamos por mantener un ritmo constante y de alta calidad." },
-                { q: "¿Puedo sugerir un proyecto para traducir?", a: "¡Claro que sí! Nos encantan las sugerencias. Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda, la disponibilidad del material y el interés de nuestro equipo." },
-                { q: "¿Dónde puedo encontrar todos sus proyectos?", a: "Todos nuestros proyectos están disponibles en nuestra página de TuMangaOnline (TMO). También anunciamos cada nuevo capítulo y proyecto en nuestro canal de Telegram. ¡Asegúrate de seguirnos en ambos!" }
-            ],
-            notices: [
-                { id: 1, title: "Mantenimiento Programado", content: "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM (UTC-5). Agradecemos su comprensión.", date: "25/06/2024" },
-                { id: 2, title: "¡Nuevo Proyecto Anunciado!", content: "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos para el primer capítulo!", date: "20/06/2024" },
-                { id: 3, title: "Reclutamiento Abierto", content: "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.", date: "15/06/2024" },
-                { id: 4, title: "Actualización de Discord", content: "Hemos actualizado nuestro servidor de Discord con nuevos canales y roles. ¡Únete para más interacciones!", date: "10/06/2024" },
-                { id: 5, title: "Felices Fiestas Patrias", content: "¡El equipo de Universe Scan les desea unas felices fiestas patrias a toda nuestra comunidad!", date: "28/07/2024" }
-            ]
+                  num: 418,
+                  tmoLink: "https://tmofans.com/chapter/44556/418",
+                  telegramLink: "https://t.me/universescanteam/chapter418",
+                },
+              ],
+            },
+            {
+              id: 5,
+              title: "Omniscient Reader's Viewpoint",
+              coverImage:
+                "https://placehold.co/400x600/F469DB/FFFFFF?text=Lector",
+              synopsis:
+                "Kim Dokja es un empleado normal cuya única afición es leer su novela web favorita. Cuando, de repente, el mundo se convierte en la novela que él leía, Dokja es la única persona que sabe cómo acabará el mundo.",
+              status: "En Emisión",
+              type: "Manhwa",
+              genres: ["Apocalíptico", "Acción", "Fantasía", "Transmigración"],
+              staff: { translator: "Aria", cleaner: "Leo", typesetter: "Hana" },
+              chapters: [
+                {
+                  num: 120,
+                  tmoLink: "https://tmofans.com/chapter/77889/120",
+                  telegramLink: "https://t.me/universescanteam/chapter120",
+                },
+                {
+                  num: 119,
+                  tmoLink: "https://tmofans.com/chapter/77889/119",
+                  telegramLink: "https://t.me/universescanteam/chapter119",
+                },
+              ],
+            },
+            {
+              id: 6,
+              title: "El Villano Quiere Vivir",
+              coverImage:
+                "https://placehold.co/400x600/6A5ACD/FFFFFF?text=Villano",
+              synopsis:
+                "Un hombre se reencarna como un villano menor en la novela que acababa de leer. Para sobrevivir en este mundo cruel, debe usar su conocimiento de la trama y sus habilidades para cambiar su destino y el de los que lo rodean.",
+              status: "En Emisión",
+              type: "Manhwa",
+              genres: [
+                "Fantasía",
+                "Isekai",
+                "Reencarnación",
+                "Acción",
+                "Romance",
+              ],
+              staff: {
+                translator: "Leo",
+                cleaner: "Jin",
+                typesetter: "Mika",
+                corrector: "Sara",
+              },
+              chapters: [
+                {
+                  num: 85,
+                  tmoLink: "https://tmofans.com/chapter/99887/85",
+                  telegramLink: "https://t.me/universescanteam/chapter85",
+                },
+                {
+                  num: 84,
+                  tmoLink: "https://tmofans.com/chapter/99887/84",
+                  telegramLink: "https://t.me/universescanteam/chapter84",
+                },
+              ],
+            },
+            {
+              id: 7,
+              title: "El Gran Mago de la Torre",
+              coverImage:
+                "https://placehold.co/400x600/FFA07A/FFFFFF?text=Torre",
+              synopsis:
+                "Un joven huérfano con un talento oculto para la magia es aceptado en la prestigiosa Torre de Magia. Allí, descubre conspiraciones y secretos ancestrales mientras lucha por convertirse en el mago más grande de su era.",
+              status: "En Emisión",
+              type: "Manhwa",
+              genres: ["Fantasía", "Aventura", "Magia", "Crecimiento"],
+              staff: {
+                translator: "Elena",
+                cleaner: "Hana",
+                typesetter: "Yuki",
+              },
+              chapters: [
+                {
+                  num: 50,
+                  tmoLink: "https://tmofans.com/chapter/11122/50",
+                  telegramLink: "https://t.me/universescanteam/chapter50",
+                },
+                {
+                  num: 49,
+                  tmoLink: "https://tmofans.com/chapter/11122/49",
+                  telegramLink: "https://t.me/universescanteam/chapter49",
+                },
+              ],
+            },
+            {
+              id: 8,
+              title: "Solo Leveling",
+              coverImage:
+                "https://placehold.co/400x600/FFD700/000000?text=Solo+Leveling",
+              synopsis:
+                "Diez años después de la aparición de las 'Puertas' que conectan el mundo real con el mundo de los monstruos, el cazador más débil, Sung Jinwoo, recibe un misterioso 'Sistema' que le permite subir de nivel como en un videojuego.",
+              status: "Finalizado",
+              type: "Manhwa",
+              genres: ["Acción", "Fantasía", "Sistema", "Mazmorras", "Poderes"],
+              staff: {
+                translator: "Yuki",
+                cleaner: "Jin",
+                typesetter: "Leo",
+                corrector: "Aria",
+              },
+              chapters: [
+                {
+                  num: 179,
+                  tmoLink: "https://tmofans.com/chapter/12121/179",
+                  telegramLink: "https://t.me/universescanteam/chapter179",
+                },
+                {
+                  num: 178,
+                  tmoLink: "https://tmofans.com/chapter/12121/178",
+                  telegramLink: "https://t.me/universescanteam/chapter178",
+                },
+              ],
+            },
+          ],
+          faqs: [
+            {
+              q: "¿Puedo resubir sus proyectos a otras plataformas?",
+              a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde TMO, ya que es nuestra plataforma principal para la difusión, o únete a nuestro canal de Telegram para actualizaciones y descargas directas.",
+            },
+            {
+              q: "¿Cómo puedo unirme al scan?",
+              a: "¡Nos encanta que estés interesado! Puedes unirte a nuestro equipo aplicando a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles y los requisitos.",
+            },
+            {
+              q: "¿Con qué frecuencia publican capítulos?",
+              a: "La frecuencia de publicación depende de varios factores, como la disponibilidad del staff, la dificultad del proyecto y el estado de la serie original. Nos esforzamos por mantener un ritmo constante y de alta calidad.",
+            },
+            {
+              q: "¿Puedo sugerir un proyecto para traducir?",
+              a: "¡Claro que sí! Nos encantan las sugerencias. Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda, la disponibilidad del material y el interés de nuestro equipo.",
+            },
+            {
+              q: "¿Dónde puedo encontrar todos sus proyectos?",
+              a: "Todos nuestros proyectos están disponibles en nuestra página de TuMangaOnline (TMO). También anunciamos cada nuevo capítulo y proyecto en nuestro canal de Telegram. ¡Asegúrate de seguirnos en ambos!",
+            },
+          ],
+          notices: [
+            {
+              id: 1,
+              title: "Mantenimiento Programado",
+              content:
+                "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM (UTC-5). Agradecemos su comprensión.",
+              date: "25/06/2024",
+            },
+            {
+              id: 2,
+              title: "¡Nuevo Proyecto Anunciado!",
+              content:
+                "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos para el primer capítulo!",
+              date: "20/06/2024",
+            },
+            {
+              id: 3,
+              title: "Reclutamiento Abierto",
+              content:
+                "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.",
+              date: "15/06/2024",
+            },
+            {
+              id: 4,
+              title: "Actualización de Discord",
+              content:
+                "Hemos actualizado nuestro servidor de Discord con nuevos canales y roles. ¡Únete para más interacciones!",
+              date: "10/06/2024",
+            },
+            {
+              id: 5,
+              title: "Felices Fiestas Patrias",
+              content:
+                "¡El equipo de Universe Scan les desea unas felices fiestas patrias a toda nuestra comunidad!",
+              date: "28/07/2024",
+            },
+          ],
         };
 
         // --- Lógica de Cambio de Tema ---
         // IDs separados para los botones de cambio de tema de escritorio y móvil
-        const themeToggleBtnDesktop = document.getElementById("themeToggleBtnDesktop");
-        const themeToggleBtnMobile = document.getElementById("themeToggleBtnMobile");
+        const themeToggleBtnDesktop = document.getElementById(
+          "themeToggleBtnDesktop"
+        );
+        const themeToggleBtnMobile = document.getElementById(
+          "themeToggleBtnMobile"
+        );
         const currentTheme = localStorage.getItem("theme");
 
         function applyTheme(theme) {
-            const allThemeToggleButtons = [themeToggleBtnDesktop, themeToggleBtnMobile].filter(Boolean); // Obtener ambos, filtrar nulos si alguno no existe
+          const allThemeToggleButtons = [
+            themeToggleBtnDesktop,
+            themeToggleBtnMobile,
+          ].filter(Boolean); // Obtener ambos, filtrar nulos si alguno no existe
 
-            allThemeToggleButtons.forEach(btn => {
-                const sunIcon = btn.querySelector('.fa-sun');
-                const moonIcon = btn.querySelector('.fa-moon');
+          allThemeToggleButtons.forEach((btn) => {
+            const sunIcon = btn.querySelector(".fa-sun");
+            const moonIcon = btn.querySelector(".fa-moon");
 
-                if (theme === "dark") {
-                    document.body.classList.add("dark-mode");
-                    if (sunIcon) sunIcon.style.display = 'inline-block';
-                    if (moonIcon) moonIcon.style.display = 'none';
-                } else {
-                    document.body.classList.remove("dark-mode");
-                    if (sunIcon) sunIcon.style.display = 'none';
-                    if (moonIcon) moonIcon.style.display = 'inline-block';
-                }
-            });
+            if (theme === "dark") {
+              document.body.classList.add("dark-mode");
+              if (sunIcon) sunIcon.style.display = "inline-block";
+              if (moonIcon) moonIcon.style.display = "none";
+            } else {
+              document.body.classList.remove("dark-mode");
+              if (sunIcon) sunIcon.style.display = "none";
+              if (moonIcon) moonIcon.style.display = "inline-block";
+            }
+          });
         }
 
         if (currentTheme) {
-            applyTheme(currentTheme);
+          applyTheme(currentTheme);
         } else {
-            const prefersDark =
-                window.matchMedia &&
-                window.matchMedia("(prefers-color-scheme: dark)").matches;
-            if (prefersDark) {
-                applyTheme("dark");
-                localStorage.setItem("theme", "dark");
-            } else {
-                applyTheme("light"); 
-            }
+          const prefersDark =
+            window.matchMedia &&
+            window.matchMedia("(prefers-color-scheme: dark)").matches;
+          if (prefersDark) {
+            applyTheme("dark");
+            localStorage.setItem("theme", "dark");
+          } else {
+            applyTheme("light");
+          }
         }
 
         // Añadir listener de eventos al botón de cambio de tema de escritorio
         if (themeToggleBtnDesktop) {
-            themeToggleBtnDesktop.addEventListener("click", () => {
-                document.body.classList.toggle("dark-mode");
-                let theme = "light";
-                if (document.body.classList.contains("dark-mode")) {
-                    theme = "dark";
-                }
-                localStorage.setItem("theme", theme);
-                applyTheme(theme); // Actualizar todos los botones de cambio de tema
-            });
+          themeToggleBtnDesktop.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+              theme = "dark";
+            }
+            localStorage.setItem("theme", theme);
+            applyTheme(theme); // Actualizar todos los botones de cambio de tema
+          });
         }
         // Añadir listener de eventos al botón de cambio de tema móvil
         if (themeToggleBtnMobile) {
-            themeToggleBtnMobile.addEventListener("click", () => {
-                document.body.classList.toggle("dark-mode");
-                let theme = "light";
-                if (document.body.classList.contains("dark-mode")) {
-                    theme = "dark";
-                }
-                localStorage.setItem("theme", theme);
-                applyTheme(theme); // Actualizar todos los botones de cambio de tema
-            });
+          themeToggleBtnMobile.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
+            let theme = "light";
+            if (document.body.classList.contains("dark-mode")) {
+              theme = "dark";
+            }
+            localStorage.setItem("theme", theme);
+            applyTheme(theme); // Actualizar todos los botones de cambio de tema
+          });
         }
 
-
         // --- Menú de Navegación Móvil (Toggle Principal) ---
-        const navToggleBtn = document.getElementById("navToggleBtn"); 
-        const mainMenuNav = document.getElementById("mainMenuNav"); 
-        const mobileMenuCloseBtn = document.getElementById("mobileMenuCloseBtn"); 
+        const navToggleBtn = document.getElementById("navToggleBtn");
+        const mainMenuNav = document.getElementById("mainMenuNav");
+        const mobileMenuCloseBtn =
+          document.getElementById("mobileMenuCloseBtn");
 
         const siteHeader = document.querySelector(".site-header");
         let headerHeight = siteHeader ? siteHeader.offsetHeight : 70;
@@ -1131,7 +1984,7 @@
         window.addEventListener("resize", updateHeaderHeightForMenu);
 
         if (navToggleBtn && mainMenuNav) {
-          const navIcon = navToggleBtn.querySelector("i"); 
+          const navIcon = navToggleBtn.querySelector("i");
 
           navToggleBtn.addEventListener("click", () => {
             const isExpanded = mainMenuNav.classList.toggle("menu-visible");
@@ -1143,67 +1996,78 @@
           });
 
           if (mobileMenuCloseBtn) {
-              mobileMenuCloseBtn.addEventListener('click', () => {
-                  mainMenuNav.classList.remove('menu-visible');
-                  navToggleBtn.setAttribute("aria-expanded", "false"); 
-                  const navIcon = navToggleBtn.querySelector('i'); 
-                  if (navIcon) {
-                      navIcon.classList.remove('fa-times');
-                      navIcon.classList.add('fa-bars');
-                  }
-              });
+            mobileMenuCloseBtn.addEventListener("click", () => {
+              mainMenuNav.classList.remove("menu-visible");
+              navToggleBtn.setAttribute("aria-expanded", "false");
+              const navIcon = navToggleBtn.querySelector("i");
+              if (navIcon) {
+                navIcon.classList.remove("fa-times");
+                navIcon.classList.add("fa-bars");
+              }
+            });
           }
         }
 
         // --- Lógica de Alternancia del Submenú (acordeón Universe Scan) ---
-        const universeCommunityToggle = document.getElementById('universeCommunityToggle');
+        const universeCommunityToggle = document.getElementById(
+          "universeCommunityToggle"
+        );
         if (universeCommunityToggle) {
-            const menuHeaderLink = universeCommunityToggle.querySelector('.menu-header-link');
-            const submenu = universeCommunityToggle.querySelector('.submenu');
+          const menuHeaderLink =
+            universeCommunityToggle.querySelector(".menu-header-link");
+          const submenu = universeCommunityToggle.querySelector(".submenu");
 
-            if (menuHeaderLink && submenu) {
-                menuHeaderLink.addEventListener('click', function(event) {
-                    event.preventDefault(); 
-                    event.stopPropagation(); 
+          if (menuHeaderLink && submenu) {
+            menuHeaderLink.addEventListener("click", function (event) {
+              event.preventDefault();
+              event.stopPropagation();
 
-                    const isOpen = universeCommunityToggle.classList.toggle('open');
-                    menuHeaderLink.setAttribute('aria-expanded', String(isOpen));
+              const isOpen = universeCommunityToggle.classList.toggle("open");
+              menuHeaderLink.setAttribute("aria-expanded", String(isOpen));
 
-                    if (isOpen) {
-                        submenu.style.maxHeight = submenu.scrollHeight + 'px';
-                    } else {
-                        submenu.style.maxHeight = null;
-                    }
-                });
-            }
+              if (isOpen) {
+                submenu.style.maxHeight = submenu.scrollHeight + "px";
+              } else {
+                submenu.style.maxHeight = null;
+              }
+            });
+          }
         }
-
 
         // --- Cerrar el menú móvil cuando se hace clic en un enlace de navegación directo (no en un submenú) ---
         if (mainMenuNav) {
           mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
             link.addEventListener("click", (event) => {
-              const isMenuHeaderLink = event.target.closest('.menu-section-header'); 
-              
-              if (!isMenuHeaderLink && link.getAttribute("href") && link.getAttribute("href") !== "#") {
-                  mainMenuNav.classList.remove("menu-visible");
-                  if (navToggleBtn) {
-                      navToggleBtn.setAttribute("aria-expanded", "false");
-                      const navIcon = navToggleBtn.querySelector("i");
-                      if (navIcon) {
-                          navIcon.classList.remove('fa-times'); 
-                          navIcon.classList.add('fa-bars');
-                      }
+              const isMenuHeaderLink = event.target.closest(
+                ".menu-section-header"
+              );
+
+              if (
+                !isMenuHeaderLink &&
+                link.getAttribute("href") &&
+                link.getAttribute("href") !== "#"
+              ) {
+                mainMenuNav.classList.remove("menu-visible");
+                if (navToggleBtn) {
+                  navToggleBtn.setAttribute("aria-expanded", "false");
+                  const navIcon = navToggleBtn.querySelector("i");
+                  if (navIcon) {
+                    navIcon.classList.remove("fa-times");
+                    navIcon.classList.add("fa-bars");
                   }
-                  mainMenuNav
-                    .querySelectorAll(".menu-section-header.open")
-                    .forEach((openSectionHeader) => {
-                      openSectionHeader.classList.remove("open");
-                      const openSubmenu = openSectionHeader.querySelector(".submenu");
-                      if (openSubmenu) openSubmenu.style.maxHeight = null;
-                      const openHeaderLink = openSectionHeader.querySelector('.menu-header-link');
-                      if (openHeaderLink) openHeaderLink.setAttribute('aria-expanded', 'false');
-                    });
+                }
+                mainMenuNav
+                  .querySelectorAll(".menu-section-header.open")
+                  .forEach((openSectionHeader) => {
+                    openSectionHeader.classList.remove("open");
+                    const openSubmenu =
+                      openSectionHeader.querySelector(".submenu");
+                    if (openSubmenu) openSubmenu.style.maxHeight = null;
+                    const openHeaderLink =
+                      openSectionHeader.querySelector(".menu-header-link");
+                    if (openHeaderLink)
+                      openHeaderLink.setAttribute("aria-expanded", "false");
+                  });
               }
             });
           });
@@ -1215,7 +2079,7 @@
           ? mainMenuNav.querySelectorAll("nav ul li a")
           : [];
         const homeLink = mainMenuNav
-          ? mainMenuNav.querySelector("a[href='#inicio']") 
+          ? mainMenuNav.querySelector("a[href='#inicio']")
           : null;
 
         function navHighlighter() {
@@ -1223,7 +2087,7 @@
 
           let scrollY = window.pageYOffset;
           let currentActiveSectionId = null;
-          const offset = headerHeight + 60; 
+          const offset = headerHeight + 60;
 
           sections.forEach((current) => {
             if (!current) return;
@@ -1252,75 +2116,79 @@
           }
 
           if (!anActiveLinkIsSetByScroll && homeLink) {
-              if (scrollY === 0) {
-                 homeLink.classList.add("current-page");
-              }
+            if (scrollY === 0) {
+              homeLink.classList.add("current-page");
+            }
           }
         }
 
         if (sections.length > 0 && allNavLinks.length > 0) {
           window.addEventListener("scroll", navHighlighter);
           window.addEventListener("hashchange", navHighlighter);
-          navHighlighter(); 
+          navHighlighter();
         }
-
 
         // --- Funciones de Utilidad (escapeRegExp) ---
         function escapeRegExp(string) {
-            return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'); 
+          return string.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
         }
 
         // --- Ayudante de Lógica del Carrusel ---
         function setupCarousel(trackId, prevBtnId, nextBtnId) {
-            const track = document.getElementById(trackId);
-            const prevBtn = document.getElementById(prevBtnId);
-            const nextBtn = document.getElementById(nextBtnId);
+          const track = document.getElementById(trackId);
+          const prevBtn = document.getElementById(prevBtnId);
+          const nextBtn = document.getElementById(nextBtnId);
 
-            if (!track || !prevBtn || !nextBtn) {
-                console.warn(`Elementos del carrusel no encontrados para trackId: ${trackId}`);
-                return;
+          if (!track || !prevBtn || !nextBtn) {
+            console.warn(
+              `Elementos del carrusel no encontrados para trackId: ${trackId}`
+            );
+            return;
+          }
+
+          // Función para desplazar por un elemento
+          function scrollCarousel(direction) {
+            if (!track.firstElementChild) return; // No hay elementos para desplazar
+
+            // Obtener el ancho calculado del elemento y el espacio entre ellos
+            const itemWidth = track.firstElementChild.offsetWidth;
+            const gap = parseFloat(getComputedStyle(track).gap);
+            const scrollAmount = itemWidth + gap;
+
+            if (direction === "next") {
+              track.scrollBy({ left: scrollAmount, behavior: "smooth" });
+            } else {
+              track.scrollBy({ left: -scrollAmount, behavior: "smooth" });
             }
+          }
 
-            // Función para desplazar por un elemento
-            function scrollCarousel(direction) {
-                if (!track.firstElementChild) return; // No hay elementos para desplazar
-
-                // Obtener el ancho calculado del elemento y el espacio entre ellos
-                const itemWidth = track.firstElementChild.offsetWidth;
-                const gap = parseFloat(getComputedStyle(track).gap);
-                const scrollAmount = itemWidth + gap;
-
-                if (direction === 'next') {
-                    track.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-                } else {
-                    track.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
-                }
-            }
-
-            prevBtn.addEventListener('click', () => scrollCarousel('prev'));
-            nextBtn.addEventListener('click', () => scrollCarousel('next'));
+          prevBtn.addEventListener("click", () => scrollCarousel("prev"));
+          nextBtn.addEventListener("click", () => scrollCarousel("next"));
         }
 
         // --- Renderizado de Últimos Lanzamientos (Ahora Carrusel) ---
-        const latestReleasesCarouselTrack = document.getElementById('latest-releases-carousel-track');
+        const latestReleasesCarouselTrack = document.getElementById(
+          "latest-releases-carousel-track"
+        );
         function displayLatestReleases() {
-            latestReleasesCarouselTrack.innerHTML = ''; 
-            const latestProjects = db.projects
-                .filter(p => p.chapters && p.chapters.length > 0)
-                .map(p => ({
-                    ...p,
-                    latestChapterNum: Math.max(...p.chapters.map(c => c.num))
-                }))
-                .sort((a, b) => b.latestChapterNum - a.latestChapterNum) 
-                .slice(0, 8); 
+          latestReleasesCarouselTrack.innerHTML = "";
+          const latestProjects = db.projects
+            .filter((p) => p.chapters && p.chapters.length > 0)
+            .map((p) => ({
+              ...p,
+              latestChapterNum: Math.max(...p.chapters.map((c) => c.num)),
+            }))
+            .sort((a, b) => b.latestChapterNum - a.latestChapterNum)
+            .slice(0, 8);
 
-            if (latestProjects.length === 0) {
-                latestReleasesCarouselTrack.innerHTML = '<p class="text-medium text-center" style="width: 100%;">No hay lanzamientos recientes disponibles en este momento.</p>';
-                return;
-            }
+          if (latestProjects.length === 0) {
+            latestReleasesCarouselTrack.innerHTML =
+              '<p class="text-medium text-center" style="width: 100%;">No hay lanzamientos recientes disponibles en este momento.</p>';
+            return;
+          }
 
-            latestProjects.forEach(project => {
-                const card = `
+          latestProjects.forEach((project) => {
+            const card = `
                     <a href="#" class="release-card" data-project-id="${project.id}">
                         <img src="${project.coverImage}" alt="${project.title} Cover" onerror="this.onerror=null;this.src='https://placehold.co/400x600/CCCCCC/333333?text=No+Image';" />
                         <div class="release-info">
@@ -1329,158 +2197,210 @@
                         </div>
                     </a>
                 `;
-                latestReleasesCarouselTrack.innerHTML += card;
-            });
+            latestReleasesCarouselTrack.innerHTML += card;
+          });
 
-            latestReleasesCarouselTrack.querySelectorAll('.release-card').forEach(card => {
-                card.addEventListener('click', function (e) {
-                    e.preventDefault();
-                    const projectId = parseInt(this.dataset.projectId);
-                    openProjectModal(projectId);
-                });
+          latestReleasesCarouselTrack
+            .querySelectorAll(".release-card")
+            .forEach((card) => {
+              card.addEventListener("click", function (e) {
+                e.preventDefault();
+                const projectId = parseInt(this.dataset.projectId);
+                openProjectModal(projectId);
+              });
             });
         }
 
         // --- Renderizado de Avisos (Carrusel) ---
-        const avisosCarouselTrack = document.getElementById('avisos-carousel-track');
+        const avisosCarouselTrack = document.getElementById(
+          "avisos-carousel-track"
+        );
         function displayNotices() {
-            avisosCarouselTrack.innerHTML = '';
-            if (db.notices.length === 0) {
-                avisosCarouselTrack.innerHTML = '<p class="text-medium text-center" style="width: 100%;">No hay avisos disponibles en este momento.</p>';
-                return;
-            }
+          avisosCarouselTrack.innerHTML = "";
+          if (db.notices.length === 0) {
+            avisosCarouselTrack.innerHTML =
+              '<p class="text-medium text-center" style="width: 100%;">No hay avisos disponibles en este momento.</p>';
+            return;
+          }
 
-            db.notices.forEach(notice => {
-                const noticeCard = `
+          db.notices.forEach((notice) => {
+            const noticeCard = `
                     <div class="notice-card">
                         <h4>${notice.title}</h4>
                         <p>${notice.content}</p>
                         <span class="notice-date">${notice.date}</span>
                     </div>
                 `;
-                avisosCarouselTrack.innerHTML += noticeCard;
-            });
+            avisosCarouselTrack.innerHTML += noticeCard;
+          });
         }
 
         // --- Renderizado y Filtrado de Proyectos (Grid) ---
-        const projectsGrid = document.getElementById('projects-grid');
-        const searchInput = document.getElementById('search-input');
-        const statusFilters = document.getElementById('status-filters');
-        const typeFilters = document.getElementById('type-filters');
-        let currentStatusFilter = 'all';
-        let currentTypeFilter = 'all';
-        let currentSearchQuery = '';
+        const projectsGrid = document.getElementById("projects-grid");
+        const searchInput = document.getElementById("search-input");
+        const statusFilters = document.getElementById("status-filters");
+        const typeFilters = document.getElementById("type-filters");
+        let currentStatusFilter = "all";
+        let currentTypeFilter = "all";
+        let currentSearchQuery = "";
 
         function displayProjects() {
-            projectsGrid.innerHTML = ''; 
-            let filteredProjects = db.projects;
+          projectsGrid.innerHTML = "";
+          let filteredProjects = db.projects;
 
-            if (currentStatusFilter !== 'all') {
-                filteredProjects = filteredProjects.filter(project => 
-                    project.status === currentStatusFilter
-                );
-            }
+          if (currentStatusFilter !== "all") {
+            filteredProjects = filteredProjects.filter(
+              (project) => project.status === currentStatusFilter
+            );
+          }
 
-            if (currentTypeFilter !== 'all') {
-                filteredProjects = filteredProjects.filter(project => 
-                    project.type === currentTypeFilter
-                );
-            }
+          if (currentTypeFilter !== "all") {
+            filteredProjects = filteredProjects.filter(
+              (project) => project.type === currentTypeFilter
+            );
+          }
 
-            if (currentSearchQuery) {
-                const query = escapeRegExp(currentSearchQuery.toLowerCase());
-                filteredProjects = filteredProjects.filter(project => {
-                    const titleMatch = project.title.toLowerCase().includes(query);
-                    const synopsisMatch = project.synopsis.toLowerCase().includes(query);
-                    const genresMatch = project.genres.some(genre => genre.toLowerCase().includes(query));
-                    const staffMatch = Object.values(project.staff || {}).some(name => name.toLowerCase().includes(query));
-                    return titleMatch || synopsisMatch || genresMatch || staffMatch;
-                });
-            }
+          if (currentSearchQuery) {
+            const query = escapeRegExp(currentSearchQuery.toLowerCase());
+            filteredProjects = filteredProjects.filter((project) => {
+              const titleMatch = project.title.toLowerCase().includes(query);
+              const synopsisMatch = project.synopsis
+                .toLowerCase()
+                .includes(query);
+              const genresMatch = project.genres.some((genre) =>
+                genre.toLowerCase().includes(query)
+              );
+              const staffMatch = Object.values(project.staff || {}).some(
+                (name) => name.toLowerCase().includes(query)
+              );
+              return titleMatch || synopsisMatch || genresMatch || staffMatch;
+            });
+          }
 
-            if (filteredProjects.length === 0) {
-                projectsGrid.innerHTML = '<p class="block-subtitle">No se encontraron proyectos que coincidan con tu búsqueda y filtros.</p>';
-                return;
-            }
+          if (filteredProjects.length === 0) {
+            projectsGrid.innerHTML =
+              '<p class="block-subtitle">No se encontraron proyectos que coincidan con tu búsqueda y filtros.</p>';
+            return;
+          }
 
-            filteredProjects.forEach(project => {
-                const statusClass = project.status === 'En Emisión' ? 'emision' : 'finalizado';
-                const card = `
+          filteredProjects.forEach((project) => {
+            const statusClass =
+              project.status === "En Emisión" ? "emision" : "finalizado";
+            const card = `
                     <div class="project-card" data-project-id="${project.id}">
-                        <img src="${project.coverImage}" alt="${project.title} Cover" class="project-card-image" onerror="this.onerror=null;this.src='https://placehold.co/400x600/CCCCCC/333333?text=No+Image';" />
-                        <span class="project-card-status ${statusClass}">${project.status}</span>
+                        <img src="${project.coverImage}" alt="${
+              project.title
+            } Cover" class="project-card-image" onerror="this.onerror=null;this.src='https://placehold.co/400x600/CCCCCC/333333?text=No+Image';" />
+                        <span class="project-card-status ${statusClass}">${
+              project.status
+            }</span>
                         <div class="project-card-content">
-                            <span class="project-card-type">${project.type}</span>
+                            <span class="project-card-type">${
+                              project.type
+                            }</span>
                             <h3 class="project-card-title">${project.title}</h3>
-                            <p class="project-card-synopsis">${project.synopsis.substring(0, 120)}...</p>
+                            <p class="project-card-synopsis">${project.synopsis.substring(
+                              0,
+                              120
+                            )}...</p>
                         </div>
                     </div>
                 `;
-                projectsGrid.innerHTML += card;
-            });
+            projectsGrid.innerHTML += card;
+          });
 
-            projectsGrid.querySelectorAll('.project-card').forEach(card => {
-                card.addEventListener('click', function () {
-                    const projectId = parseInt(this.dataset.projectId);
-                    openProjectModal(projectId);
-                });
+          projectsGrid.querySelectorAll(".project-card").forEach((card) => {
+            card.addEventListener("click", function () {
+              const projectId = parseInt(this.dataset.projectId);
+              openProjectModal(projectId);
             });
+          });
         }
 
         // --- Manejo de Filtros ---
-        statusFilters.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                statusFilters.querySelector('.filter-btn.active').classList.remove('active');
-                this.classList.add('active');
-                currentStatusFilter = this.dataset.filter;
-                displayProjects();
-            });
+        statusFilters.querySelectorAll(".filter-btn").forEach((button) => {
+          button.addEventListener("click", function () {
+            statusFilters
+              .querySelector(".filter-btn.active")
+              .classList.remove("active");
+            this.classList.add("active");
+            currentStatusFilter = this.dataset.filter;
+            displayProjects();
+          });
         });
 
-        typeFilters.querySelectorAll('.filter-btn').forEach(button => {
-            button.addEventListener('click', function () {
-                typeFilters.querySelector('.filter-btn.active').classList.remove('active');
-                this.classList.add('active');
-                currentTypeFilter = this.dataset.filter;
-                displayProjects();
-            });
+        typeFilters.querySelectorAll(".filter-btn").forEach((button) => {
+          button.addEventListener("click", function () {
+            typeFilters
+              .querySelector(".filter-btn.active")
+              .classList.remove("active");
+            this.classList.add("active");
+            currentTypeFilter = this.dataset.filter;
+            displayProjects();
+          });
         });
 
         // --- Manejo de Búsqueda ---
-        searchInput.addEventListener('input', function () {
-            currentSearchQuery = this.value.trim();
-            displayProjects();
+        searchInput.addEventListener("input", function () {
+          currentSearchQuery = this.value.trim();
+          displayProjects();
         });
 
         // --- Modal de Detalles del Proyecto ---
-        const projectModal = document.getElementById('project-modal');
-        const modalContent = document.getElementById('modal-content');
+        const projectModal = document.getElementById("project-modal");
+        const modalContent = document.getElementById("modal-content");
 
         function openProjectModal(projectId) {
-            const project = db.projects.find(p => p.id === projectId);
-            if (!project) return;
+          const project = db.projects.find((p) => p.id === projectId);
+          if (!project) return;
 
-            const genresHtml = project.genres.map(genre => `<span class="tag">${genre}</span>`).join('');
+          const genresHtml = project.genres
+            .map((genre) => `<span class="tag">${genre}</span>`)
+            .join("");
 
-            const staffDetails = `
-                <div class="modal-detail-item"><strong>Traductor:</strong> <span>${project.staff.translator || 'N/A'}</span></div>
-                <div class="modal-detail-item"><strong>Cleaner:</strong> <span>${project.staff.cleaner || 'N/A'}</span></div>
-                <div class="modal-detail-item"><strong>Typesetter:</strong> <span>${project.staff.typesetter || 'N/A'}</span></div>
-                ${project.staff.corrector ? `<div class="modal-detail-item"><strong>Corrector:</strong> <span>${project.staff.corrector}</span></div>` : ''}
+          const staffDetails = `
+                <div class="modal-detail-item"><strong>Traductor:</strong> <span>${
+                  project.staff.translator || "N/A"
+                }</span></div>
+                <div class="modal-detail-item"><strong>Cleaner:</strong> <span>${
+                  project.staff.cleaner || "N/A"
+                }</span></div>
+                <div class="modal-detail-item"><strong>Typesetter:</strong> <span>${
+                  project.staff.typesetter || "N/A"
+                }</span></div>
+                ${
+                  project.staff.corrector
+                    ? `<div class="modal-detail-item"><strong>Corrector:</strong> <span>${project.staff.corrector}</span></div>`
+                    : ""
+                }
             `;
 
-            const sortedChapters = project.chapters.slice().sort((a, b) => b.num - a.num);
-            const chaptersHtml = sortedChapters.map(chapter => `
+          const sortedChapters = project.chapters
+            .slice()
+            .sort((a, b) => b.num - a.num);
+          const chaptersHtml = sortedChapters
+            .map(
+              (chapter) => `
                 <div class="chapter-item">
                     <span>Capítulo ${chapter.num}</span>
                     <div class="chapter-links">
-                        ${chapter.tmoLink ? `<a href="${chapter.tmoLink}" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> TMO</a>` : ''}
-                        ${chapter.telegramLink ? `<a href="${chapter.telegramLink}" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> Telegram</a>` : ''}
+                        ${
+                          chapter.tmoLink
+                            ? `<a href="${chapter.tmoLink}" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> TMO</a>`
+                            : ""
+                        }
+                        ${
+                          chapter.telegramLink
+                            ? `<a href="${chapter.telegramLink}" target="_blank" rel="noopener noreferrer"><i class="fab fa-telegram-plane"></i> Telegram</a>`
+                            : ""
+                        }
                     </div>
                 </div>
-            `).join('');
+            `
+            )
+            .join("");
 
-            modalContent.innerHTML = `
+          modalContent.innerHTML = `
                 <div class="modal-header">
                     <h2 class="modal-title">${project.title}</h2>
                     <button class="modal-close" aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
@@ -1507,26 +2427,28 @@
                     </div>
                 </div>
             `;
-            projectModal.style.display = 'flex'; // Mostrar modal
+          projectModal.style.display = "flex"; // Mostrar modal
 
-            document.querySelector('.modal-close').addEventListener('click', closeProjectModal);
-            projectModal.addEventListener('click', function(e) {
-                if (e.target === projectModal) { 
-                    closeProjectModal();
-                }
-            });
+          document
+            .querySelector(".modal-close")
+            .addEventListener("click", closeProjectModal);
+          projectModal.addEventListener("click", function (e) {
+            if (e.target === projectModal) {
+              closeProjectModal();
+            }
+          });
         }
 
         function closeProjectModal() {
-            projectModal.style.display = 'none'; 
+          projectModal.style.display = "none";
         }
 
         // --- Renderizado de FAQ ---
-        const faqContainer = document.getElementById('faq-container');
+        const faqContainer = document.getElementById("faq-container");
         function displayFAQs() {
-            faqContainer.innerHTML = '';
-            db.faqs.forEach((faq, index) => {
-                const faqItem = `
+          faqContainer.innerHTML = "";
+          db.faqs.forEach((faq, index) => {
+            const faqItem = `
                     <div class="faq-item">
                         <div class="faq-question">
                             ${faq.q} <i class="fas fa-chevron-down"></i>
@@ -1536,55 +2458,65 @@
                         </div>
                     </div>
                 `;
-                faqContainer.innerHTML += faqItem;
+            faqContainer.innerHTML += faqItem;
+          });
+
+          faqContainer.querySelectorAll(".faq-question").forEach((question) => {
+            question.addEventListener("click", function () {
+              const parentItem = this.closest(".faq-item");
+              const answer = parentItem.querySelector(".faq-answer");
+
+              parentItem.classList.toggle("active");
+
+              if (parentItem.classList.contains("active")) {
+                answer.style.maxHeight = answer.scrollHeight + "px";
+              } else {
+                answer.style.maxHeight = null;
+              }
             });
-
-            faqContainer.querySelectorAll('.faq-question').forEach(question => {
-                question.addEventListener('click', function () {
-                    const parentItem = this.closest('.faq-item');
-                    const answer = parentItem.querySelector('.faq-answer');
-
-                    parentItem.classList.toggle('active');
-
-                    if (parentItem.classList.contains('active')) {
-                        answer.style.maxHeight = answer.scrollHeight + "px";
-                    } else {
-                        answer.style.maxHeight = null;
-                    }
-                });
-            });
+          });
         }
 
         // --- Proyectos Populares en el Pie de Página ---
-        const popularProjectsFooter = document.getElementById('popular-projects-footer');
+        const popularProjectsFooter = document.getElementById(
+          "popular-projects-footer"
+        );
         function populatePopularProjectsFooter() {
-            popularProjectsFooter.innerHTML = '';
-            const popularProjects = db.projects.slice(0, 5); 
-            popularProjects.forEach(project => {
-                const listItem = `<li><a href="#" data-project-id="${project.id}">${project.title}</a></li>`;
-                popularProjectsFooter.innerHTML += listItem;
-            });
+          popularProjectsFooter.innerHTML = "";
+          const popularProjects = db.projects.slice(0, 5);
+          popularProjects.forEach((project) => {
+            const listItem = `<li><a href="#" data-project-id="${project.id}">${project.title}</a></li>`;
+            popularProjectsFooter.innerHTML += listItem;
+          });
 
-            popularProjectsFooter.querySelectorAll('a').forEach(link => {
-                link.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = parseInt(this.dataset.projectId);
-                    openProjectModal(projectId);
-                });
+          popularProjectsFooter.querySelectorAll("a").forEach((link) => {
+            link.addEventListener("click", function (e) {
+              e.preventDefault();
+              const projectId = parseInt(this.dataset.projectId);
+              openProjectModal(projectId);
             });
+          });
         }
-        
+
         // --- Inicialización al Cargar la Página ---
         displayLatestReleases();
-        displayProjects(); 
+        displayProjects();
         displayFAQs();
         populatePopularProjectsFooter();
-        displayNotices(); 
+        displayNotices();
 
         // Configurar carruseles
-        setupCarousel('latest-releases-carousel-track', 'latest-prev-btn', 'latest-next-btn');
-        setupCarousel('avisos-carousel-track', 'avisos-prev-btn', 'avisos-next-btn');
-    });
+        setupCarousel(
+          "latest-releases-carousel-track",
+          "latest-prev-btn",
+          "latest-next-btn"
+        );
+        setupCarousel(
+          "avisos-carousel-track",
+          "avisos-prev-btn",
+          "avisos-next-btn"
+        );
+      });
     </script>
-</body>
+  </body>
 </html>
