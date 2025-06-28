@@ -46,19 +46,14 @@
         >
           <i class="fas fa-bars" aria-hidden="true"></i>
         </button>
-        <nav
-          class="main-menu"
-          id="mainMenuNav"
-          aria-label="Navegación principal"
-        >
-          <!-- El UL se llena dinámicamente, incluyendo los enlaces de donación -->
-          <ul id="main-menu-list">
-            <li><a href="index.html">Universe Community</a></li>
-            <li><a href="proyectos.html">Proyectos</a></li>
-            <li><a href="avisos.html">Avisos</a></li>
-            <!-- Los enlaces de donación se insertarán aquí por JS -->
-          </ul>
-        </nav>
+        <nav class="main-menu" id="main-menu"></nav>
+        <script>
+          fetch('components/menu.html')
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById('main-menu').innerHTML = data;
+            });
+        </script>
       </div>
     </header>
 

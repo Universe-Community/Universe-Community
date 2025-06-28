@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NKProyect - Quiénes Somos</title>
+    <link rel="stylesheet" href="asset/css/nk.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
@@ -15,952 +16,6 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <style>
-      :root {
-        /* --- Light Mode (Default) --- */
-        --brand-purple-start: #6a11cb;
-        --brand-blue-end: #2575fc;
-
-        --text-gradient: linear-gradient(
-          105deg,
-          var(--brand-purple-start),
-          var(--brand-blue-end)
-        );
-        --button-gradient: linear-gradient(
-          135deg,
-          var(--brand-purple-start),
-          var(--brand-blue-end)
-        );
-        --button-hover-gradient: linear-gradient(135deg, #5a0fb3, #1e62d0);
-
-        --text-dark: #212529;
-        --text-medium: #5f6773;
-        --text-light: #ffffff;
-        --text-subtle: #8a92a5;
-
-        --bg-light: #ffffff;
-        --bg-light-rgb: 255, 255, 255;
-        --bg-section-alt: #f8f9fa;
-        --submenu-bg: #fdfdfd;
-        --submenu-hover-bg: #f0f0f0;
-
-        --border-color-soft: #eaeaea;
-        --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.06);
-        --card-hover-shadow: 0px 12px 32px rgba(37, 44, 99, 0.1);
-
-        --font-primary: "Poppins", sans-serif;
-
-        --footer-bg-dark: #121224;
-        --footer-text-primary-light: #e8eaf6;
-        --footer-text-secondary-light: #a0a8c0;
-        --footer-heading-color: var(--text-light);
-        --footer-link-hover-color: var(--brand-blue-end);
-        --footer-icon-color: #a0a8c0;
-        --footer-icon-hover-color: var(--text-light);
-
-        --transition-smooth: all 0.3s ease-in-out;
-        --transition-colors: background-color 0.3s ease, color 0.3s ease,
-          border-color 0.3s ease;
-        --header-height: 70px;
-
-        --brand-purple-start-rgb: 106, 17, 203;
-        --brand-blue-end-rgb: 37, 117, 252;
-        --whatsapp-bg-color: #25d366;
-        --whatsapp-hover-bg-color: #1dae54;
-
-        /* --- Theme Toggle Button Colors --- */
-        --theme-toggle-icon-color: var(--text-medium);
-        --theme-toggle-bg-hover: var(--submenu-hover-bg);
-      }
-
-      body.dark-mode {
-        --text-dark: #e0e0e0;
-        --text-medium: #b0b0b0;
-        --text-light: #121212;
-        --text-subtle: #7a7a7a;
-
-        --bg-light: #1a1a2e;
-        --bg-light-rgb: 26, 26, 46;
-        --bg-section-alt: #23233c;
-        --submenu-bg: #2c2c48;
-        --submenu-hover-bg: #353558;
-
-        --border-color-soft: #3a3a5a;
-        --card-shadow-light: 0px 6px 24px rgba(0, 0, 0, 0.25);
-        --card-hover-shadow: 0px 12px 32px rgba(0, 0, 0, 0.35);
-
-        --footer-bg-dark: #0e0e1c;
-        --footer-text-primary-light: #d0d0e0;
-        --footer-text-secondary-light: #9090b0;
-
-        --theme-toggle-icon-color: #c5c5c5;
-        --theme-toggle-bg-hover: #353558;
-      }
-
-      *,
-      *::before,
-      *::after {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-      html {
-        font-size: 16px;
-        scroll-behavior: smooth;
-      }
-      body {
-        font-family: var(--font-primary);
-        background-color: var(--bg-light);
-        color: var(--text-dark);
-        line-height: 1.75;
-        overflow-x: hidden;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-        transition: var(--transition-colors);
-        padding-top: var(--header-height);
-      }
-      .container {
-        width: 90%;
-        max-width: 1200px;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 0 15px;
-      }
-
-      /* Header Fijo */
-      .site-header {
-        background-color: var(--bg-light);
-        padding: 1rem 0;
-        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        z-index: 1000;
-        transition: var(--transition-colors);
-      }
-      body.dark-mode .site-header {
-        box-shadow: 0 1px 3px rgba(255, 255, 255, 0.05);
-      }
-
-      .header-inner {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-      .logo-link {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-      }
-      .logo-icon-box {
-        width: 38px;
-        height: 38px;
-        background: var(
-          --button-gradient
-        ); /* Usando el gradiente de Universe Community para el icono */
-        border-radius: 8px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 0.625rem;
-      }
-      .logo-link:hover .logo-icon-box {
-        transform: scale(1.05);
-        box-shadow: 0 4px 10px rgba(var(--brand-purple-start-rgb), 0.3);
-      }
-      .logo-abbr {
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 1.3rem;
-      }
-      .logo-full-text {
-        font-size: 1.1875rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        transition: color 0.2s ease;
-      }
-      .logo-link:hover .logo-full-text {
-        color: var(--brand-purple-start);
-      }
-
-      .theme-toggle-button {
-        background: none;
-        border: none;
-        color: var(--theme-toggle-icon-color);
-        font-size: 1.25rem;
-        padding: 0.5rem;
-        margin-left: 0.5rem;
-        cursor: pointer;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        transition: var(--transition-colors), transform 0.2s ease;
-      }
-      .theme-toggle-button:hover {
-        background-color: var(--theme-toggle-bg-hover);
-        transform: scale(1.1);
-      }
-      .theme-toggle-button .fa-sun {
-        display: none;
-      }
-      body.dark-mode .theme-toggle-button .fa-sun {
-        display: inline-block;
-      }
-      body.dark-mode .theme-toggle-button .fa-moon {
-        display: none;
-      }
-
-      .nav-toggle {
-        display: none;
-        background: none;
-        border: none;
-        font-size: 1.75rem;
-        color: var(--text-dark);
-        cursor: pointer;
-        z-index: 1001;
-        padding: 0.25rem;
-        transition: var(--transition-colors);
-      }
-      .main-menu {
-        position: relative;
-      }
-      .main-menu ul {
-        list-style: none;
-        display: flex;
-        margin: 0;
-        padding: 0;
-      }
-      .main-menu ul li {
-        position: relative;
-        margin-left: 0;
-      }
-      .main-menu > ul > li {
-        margin-left: 0.5rem;
-      }
-      .main-menu > ul > li:first-child {
-        margin-left: 0;
-      }
-      .main-menu ul li a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--text-medium);
-        font-weight: 500;
-        font-size: 0.9rem;
-        padding: 0.75rem 0.8rem;
-        border-radius: 6px;
-        transition: var(--transition-colors), background-color 0.2s ease;
-        white-space: nowrap;
-        position: relative;
-      }
-      .main-menu ul li a .submenu-toggle-icon {
-        margin-left: 0.5em;
-        font-size: 0.7em;
-        display: inline-flex;
-        align-items: center;
-        padding: 0.3em;
-        cursor: pointer;
-      }
-      .main-menu ul li a .submenu-toggle-icon i {
-        transition: transform 0.3s ease;
-      }
-      .main-menu ul li.open > a .submenu-toggle-icon i.fa-chevron-down,
-      .main-menu
-        ul
-        li.open
-        > a
-        .submenu-toggle-icon
-        i.fa-chevron-right.level2-arrow {
-        transform: rotate(180deg);
-      }
-      .main-menu
-        ul
-        li.open
-        > a
-        .submenu-toggle-icon
-        i.fa-chevron-right.level2-arrow {
-        transform: rotate(90deg);
-      }
-      @media (min-width: 992px) {
-        .main-menu
-          ul
-          li.has-submenu
-          li.open
-          > a
-          .submenu-toggle-icon
-          i.fa-chevron-right.level2-arrow {
-          transform: rotate(0deg);
-        }
-      }
-      .main-menu a:hover,
-      .main-menu ul li:hover > a,
-      .main-menu ul li.open > a {
-        color: var(--brand-purple-start);
-        background-color: var(--submenu-hover-bg);
-      }
-      .main-menu > ul > li > a.current-page {
-        color: #ffffff;
-        background: var(--text-gradient);
-        font-weight: 600;
-        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.3);
-      }
-      body.dark-mode .main-menu > ul > li > a.current-page {
-        box-shadow: 0 2px 8px rgba(var(--brand-purple-start-rgb), 0.4);
-      }
-      .main-menu > ul > li > a.current-page:hover {
-        color: #ffffff;
-        background: var(--button-hover-gradient);
-        opacity: 0.95;
-      }
-      .main-menu .submenu li a.current-page {
-        color: var(--brand-purple-start);
-        background-color: var(--submenu-hover-bg);
-        font-weight: 600;
-      }
-      .main-menu .submenu {
-        display: none;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        background-color: var(--submenu-bg);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        border-radius: 0 0 8px 8px;
-        min-width: 230px;
-        z-index: 100;
-        padding: 0.5rem 0;
-        border-top: 1px solid var(--border-color-soft);
-        opacity: 0;
-        visibility: hidden;
-        transform: translateY(10px);
-        transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s ease,
-          var(--transition-colors);
-      }
-      body.dark-mode .main-menu .submenu {
-        box-shadow: 0 4px 12px rgba(255, 255, 255, 0.08);
-      }
-      .main-menu .submenu.level-3 {
-        top: 0;
-        left: 100%;
-        border-radius: 0 8px 8px 8px;
-        margin-top: -0.5rem;
-      }
-      .main-menu ul li.open > .submenu {
-        display: block;
-        opacity: 1;
-        visibility: visible;
-        transform: translateY(0);
-      }
-      .main-menu .submenu li {
-        width: 100%;
-        margin-left: 0;
-      }
-      .main-menu .submenu li a {
-        padding: 0.6rem 1.2rem;
-        font-size: 0.9rem;
-        color: var(--text-dark);
-        border-bottom: 1px solid var(--border-color-soft);
-        justify-content: space-between;
-        border-radius: 0;
-      }
-      .main-menu .submenu li:last-child a {
-        border-bottom: none;
-      }
-      .main-menu .submenu li a:hover {
-        background-color: var(--submenu-hover-bg);
-        color: var(--brand-purple-start);
-      }
-
-      .content-block {
-        padding: 2.5rem 0;
-      }
-      .page-title-section {
-        padding: 3rem 0 2rem;
-        text-align: center;
-        background: var(--text-gradient);
-        color: var(--text-light);
-        margin-bottom: 2.5rem;
-      }
-      .page-title-section h1 {
-        font-size: 2.8rem;
-        font-weight: 800;
-        margin-bottom: 0.25rem;
-        color: var(--text-light);
-        text-transform: uppercase;
-        letter-spacing: 1px;
-      }
-      .page-title-section .page-subtitle {
-        font-size: 1.1rem;
-        font-weight: 500;
-        opacity: 0.9;
-        letter-spacing: 0.5px;
-        color: var(--text-light);
-      }
-
-      .about-us-layout {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2.5rem;
-      }
-      @media (min-width: 992px) {
-        .about-us-layout {
-          grid-template-columns: 280px 1fr;
-        }
-      }
-
-      .about-us-sidebar .sidebar-widget {
-        background-color: var(--bg-section-alt);
-        padding: 1.5rem;
-        border-radius: 10px;
-        margin-bottom: 1.5rem;
-        box-shadow: var(--card-shadow-light);
-      }
-      .about-us-sidebar .widget-title {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--text-dark);
-        margin-bottom: 1rem;
-        padding-bottom: 0.5rem;
-        border-bottom: 1px solid var(--border-color-soft);
-      }
-      .about-us-sidebar .internal-nav ul {
-        list-style: none;
-        padding: 0;
-      }
-      .about-us-sidebar .internal-nav li a {
-        display: block;
-        padding: 0.6rem 0;
-        color: var(--text-medium);
-        text-decoration: none;
-        font-weight: 500;
-        font-size: 0.95rem;
-        border-bottom: 1px dashed var(--border-color-soft);
-        transition: color 0.2s ease, padding-left 0.2s ease;
-      }
-      .about-us-sidebar .internal-nav li:last-child a {
-        border-bottom: none;
-      }
-      .about-us-sidebar .internal-nav li a:hover,
-      .about-us-sidebar .internal-nav li a.active-section {
-        color: var(--brand-purple-start);
-        padding-left: 0.5rem;
-      }
-      .about-us-sidebar .more-info-widget p {
-        font-size: 0.9rem;
-        color: var(--text-medium);
-        margin-bottom: 0.75rem;
-      }
-      .about-us-sidebar .more-info-widget .contact-email {
-        font-weight: 500;
-        color: var(--brand-blue-end);
-        text-decoration: none;
-      }
-      .about-us-sidebar .more-info-widget .contact-email:hover {
-        text-decoration: underline;
-      }
-      .about-us-sidebar .btn-sidebar {
-        display: block;
-        width: 100%;
-        text-align: center;
-        padding: 0.75rem 1rem;
-        margin-top: 1rem;
-        font-size: 0.9rem;
-        font-weight: 600;
-        color: var(--text-light);
-        background: var(--button-gradient);
-        border: none;
-        border-radius: 20px;
-        text-decoration: none;
-        transition: var(--transition-smooth);
-      }
-      .about-us-sidebar .btn-sidebar:hover {
-        background: var(--button-hover-gradient);
-        transform: translateY(-2px);
-      }
-      .about-us-sidebar .btn-sidebar i {
-        margin-right: 0.5rem;
-      }
-
-      .about-us-main-content .content-card {
-        background-color: var(--bg-light);
-        padding: 2.5rem;
-        border-radius: 12px;
-        box-shadow: var(--card-shadow-light);
-        margin-bottom: 2.5rem;
-        transition: var(--transition-colors), box-shadow 0.3s ease;
-      }
-      .about-us-main-content .content-card:hover {
-        box-shadow: var(--card-hover-shadow);
-      }
-      .about-us-main-content .section-heading {
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--text-dark);
-        margin-bottom: 1.5rem;
-        padding-bottom: 0.75rem;
-        border-bottom: 3px solid var(--brand-purple-start);
-        display: inline-block;
-        transition: var(--transition-colors), border-color 0.3s ease;
-      }
-      body.dark-mode .about-us-main-content .section-heading {
-        border-bottom-color: var(--brand-blue-end);
-      }
-      .about-us-main-content p {
-        font-size: 1.05rem;
-        color: var(--text-medium);
-        line-height: 1.8;
-        margin-bottom: 1.5rem;
-        transition: var(--transition-colors);
-      }
-      .about-us-main-content p:last-child {
-        margin-bottom: 0;
-      }
-
-      .values-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.75rem;
-        margin-top: 1rem;
-      }
-      .value-item {
-        background-color: var(--bg-section-alt);
-        padding: 1.75rem;
-        border-radius: 10px;
-        text-align: left;
-        transition: var(--transition-colors), transform 0.2s ease,
-          box-shadow 0.2s ease;
-        display: flex;
-        align-items: flex-start;
-        gap: 1rem;
-      }
-      .value-item:hover {
-        transform: translateY(-5px);
-        box-shadow: var(--card-hover-shadow);
-      }
-      .value-item .value-icon {
-        font-size: 1.8rem;
-        color: var(--brand-blue-end);
-        margin-top: 0.1em;
-        flex-shrink: 0;
-      }
-      body.dark-mode .value-item .value-icon {
-        color: var(--brand-purple-start);
-      }
-      .value-item div {
-        flex-grow: 1;
-      }
-      .value-item strong {
-        font-weight: 600;
-        font-size: 1.1rem;
-        color: var(--text-dark);
-        display: block;
-        margin-bottom: 0.3rem;
-      }
-      .value-item span {
-        font-size: 0.9rem;
-        color: var(--text-medium);
-        line-height: 1.6;
-      }
-
-      .collaborator-card {
-        background-color: var(--bg-section-alt);
-        border-radius: 12px;
-        padding: 1.5rem;
-        display: flex;
-        align-items: center;
-        gap: 1.5rem;
-        margin-bottom: 1.5rem;
-        box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-      }
-      body.dark-mode .collaborator-card {
-        background-color: var(--submenu-hover-bg);
-        box-shadow: 0 2px 10px rgba(255, 255, 255, 0.05);
-      }
-      .collaborator-card img {
-        width: 80px;
-        height: 80px;
-        border-radius: 50%;
-        object-fit: cover;
-        border: 3px solid var(--brand-blue-end);
-      }
-      .collaborator-info h4 {
-        font-size: 1.25rem;
-        color: var(--text-dark);
-        margin-bottom: 0.25rem;
-      }
-      .collaborator-info p {
-        font-size: 0.9rem;
-        color: var(--text-medium);
-        margin-bottom: 0.5rem;
-      }
-      .collaborator-socials a {
-        color: var(--text-subtle);
-        margin-right: 0.75rem;
-        font-size: 1.1rem;
-        transition: color 0.2s ease;
-      }
-      .collaborator-socials a:hover {
-        color: var(--brand-purple-start);
-      }
-      body.dark-mode .collaborator-socials a:hover {
-        color: var(--brand-blue-end);
-      }
-
-      .faq-container {
-        /* Reutilizando estilos de index.html */
-      }
-      .faq-item {
-        border-bottom: 1px solid var(--border-color-soft);
-        padding: 0.875rem 0;
-        transition: border-color 0.3s ease;
-      }
-      .faq-item:last-child {
-        border-bottom: none;
-        padding-bottom: 0;
-      }
-      .faq-item:first-child {
-        padding-top: 0;
-      }
-      .faq-question {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        font-weight: 500;
-        color: var(--text-dark);
-        cursor: pointer;
-        font-size: 0.9375rem;
-        padding: 0.5rem 0;
-        transition: var(--transition-colors);
-      }
-      .faq-question i.fa-chevron-down {
-        color: var(--text-medium);
-        transition: transform 0.3s ease, color 0.3s ease;
-        font-size: 0.8em;
-      }
-      .faq-item.active .faq-question i.fa-chevron-down {
-        transform: rotate(180deg);
-      }
-      .faq-answer {
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.35s ease-out, padding-top 0.35s ease-out,
-          margin-top 0.35s ease-out, var(--transition-colors);
-        color: var(--text-medium);
-        font-size: 0.875rem;
-        line-height: 1.6;
-      }
-      .faq-item.active .faq-answer {
-        padding-top: 0.75rem;
-        margin-top: 0.25rem;
-      }
-
-      .floating-action-button {
-        position: fixed;
-        width: 56px;
-        height: 56px;
-        bottom: 1.75rem;
-        right: 1.75rem;
-        background-color: var(--whatsapp-bg-color);
-        color: #ffffff;
-        border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-        z-index: 999;
-        text-decoration: none;
-        font-size: 1.75rem;
-        transition: var(--transition-smooth);
-      }
-      .floating-action-button:hover {
-        background-color: var(--whatsapp-hover-bg-color);
-        transform: scale(1.08) rotate(5deg);
-        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
-      }
-
-      .site-footer-detailed {
-        background-color: var(--footer-bg-dark);
-        color: var(--footer-text-secondary-light);
-        padding: 5rem 0 2rem 0;
-        margin-top: 5rem;
-        border-top: 4px solid var(--brand-purple-start);
-        transition: var(--transition-colors);
-      }
-      .footer-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        align-items: flex-start;
-        gap: 3rem;
-        margin-bottom: 3.5rem;
-      }
-      .footer-column .footer-logo-link {
-        display: inline-flex;
-        align-items: center;
-        text-decoration: none;
-        margin-bottom: 1.5rem;
-      }
-      .footer-column .footer-logo-icon-box {
-        width: 42px;
-        height: 42px;
-        background: var(--button-gradient);
-        border-radius: 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        margin-right: 0.75rem;
-      }
-      .footer-column .footer-logo-abbr {
-        color: #ffffff;
-        font-weight: 700;
-        font-size: 1.4rem;
-      }
-      .footer-column .footer-logo-full-text {
-        font-size: 1.2rem;
-        font-weight: 600;
-        color: var(--footer-text-primary-light);
-      }
-      .footer-column .footer-description {
-        font-size: 0.95rem;
-        line-height: 1.8;
-        margin-bottom: 1.75rem;
-      }
-      .footer-column .footer-heading {
-        font-size: 1.3rem;
-        font-weight: 700;
-        color: var(--footer-heading-color);
-        margin-bottom: 1.5rem;
-        position: relative;
-        padding-bottom: 0.5rem;
-      }
-      .footer-column .footer-heading::after {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 40px;
-        height: 3px;
-        background: var(--brand-blue-end);
-      }
-      .footer-social-icons {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 1rem;
-        margin-bottom: 1.75rem;
-      }
-      .footer-social-icons a {
-        color: var(--footer-icon-color);
-        font-size: 1.25rem;
-        transition: var(--transition-smooth);
-        width: 40px;
-        height: 40px;
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 1px solid var(--footer-icon-color);
-        border-radius: 50%;
-      }
-      .footer-social-icons a:hover {
-        color: #ffffff;
-        background-color: var(--brand-blue-end);
-        border-color: var(--brand-blue-end);
-        transform: translateY(-3px) scale(1.05);
-      }
-      .footer-direct-contact {
-      }
-      .footer-direct-contact a {
-        display: flex;
-        align-items: center;
-        text-decoration: none;
-        color: var(--footer-text-secondary-light);
-        font-size: 0.975rem;
-        margin-bottom: 0.75rem;
-        transition: color 0.2s ease;
-        padding: 0.3rem 0;
-      }
-      .footer-direct-contact a i {
-        margin-right: 0.75rem;
-        font-size: 1.2rem;
-        width: 20px;
-        text-align: center;
-      }
-      .footer-direct-contact a:hover {
-        color: var(--footer-link-hover-color);
-      }
-      .footer-bottom-bar {
-        text-align: center;
-        padding-top: 2.5rem;
-        border-top: 1px solid rgba(255, 255, 255, 0.1);
-        margin-top: 2rem;
-      }
-      body.dark-mode .footer-bottom-bar {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
-      }
-      .footer-bottom-bar p {
-        margin: 0;
-        font-size: 0.925rem;
-        color: var(--footer-text-secondary-light);
-      }
-
-      @media (max-width: 991px) {
-        .container {
-          width: 95%;
-        }
-        .nav-toggle {
-          display: flex;
-          align-items: center;
-          justify-content: center;
-        }
-        .theme-toggle-button {
-          margin-right: 0.5rem;
-        }
-        .header-inner > .logo-link {
-          flex-shrink: 0;
-        }
-        .header-inner > .nav-toggle,
-        .header-inner > .theme-toggle-button {
-          order: 3;
-        }
-        .header-inner > .main-menu {
-          order: 4;
-        }
-        .main-menu {
-          position: absolute;
-          top: 100%;
-          left: 0;
-          right: 0;
-          background-color: var(--bg-light);
-          box-shadow: 0 3px 8px rgba(0, 0, 0, 0.1);
-          max-height: 0;
-          overflow-y: auto;
-          transition: max-height 0.4s ease-in-out, var(--transition-colors);
-          border-top: 1px solid var(--border-color-soft);
-        }
-        .main-menu.menu-visible {
-          max-height: calc(100vh - var(--header-height));
-        }
-        .main-menu ul {
-          flex-direction: column;
-          width: 100%;
-        }
-        .main-menu > ul > li {
-          margin-left: 0;
-          border-bottom: 1px solid var(--border-color-soft);
-        }
-        .main-menu > ul > li:last-child {
-          border-bottom: none;
-        }
-        .main-menu ul li a {
-          padding: 1rem 1.25rem;
-          justify-content: space-between;
-          border-radius: 0;
-        }
-        .main-menu > ul > li > a.current-page {
-          background: var(--submenu-hover-bg);
-          color: var(--brand-purple-start);
-          box-shadow: none;
-        }
-        .main-menu > ul > li > a.current-page:hover {
-          background: var(--submenu-hover-bg);
-          opacity: 1;
-        }
-        .main-menu .submenu {
-          position: static;
-          box-shadow: none;
-          border-radius: 0;
-          min-width: 100%;
-          padding: 0;
-          border-top: none;
-          background-color: var(--submenu-hover-bg);
-          max-height: 0;
-          overflow: hidden;
-          transition: max-height 0.3s ease-out, var(--transition-colors);
-          opacity: 1;
-          visibility: visible;
-          transform: none;
-        }
-        .main-menu ul li.open > .submenu {
-          max-height: 600px;
-        }
-        .main-menu .submenu.level-3 {
-          margin-top: 0;
-          padding-left: 1rem;
-          background-color: var(--bg-section-alt);
-        }
-        body.dark-mode .main-menu .submenu.level-3 {
-          background-color: #202038;
-        }
-        .main-menu .submenu li a {
-          padding: 0.75rem 1.5rem;
-          padding-left: 2rem;
-        }
-        .main-menu .submenu.level-3 li a {
-          padding-left: 3rem;
-        }
-
-        .page-title-section h1 {
-          font-size: 2.2rem;
-        }
-        .page-title-section .page-subtitle {
-          font-size: 1rem;
-        }
-        .about-us-section .section-heading {
-          font-size: 1.6rem;
-        }
-        .about-us-layout {
-          grid-template-columns: 1fr;
-        }
-        .about-us-sidebar {
-          margin-bottom: 2rem;
-        }
-      }
-
-      @media (max-width: 767px) {
-        .page-title-section h1 {
-          font-size: 1.8rem;
-        }
-        .page-title-section .page-subtitle {
-          font-size: 0.95rem;
-        }
-        .about-us-main-content .content-card {
-          padding: 2rem 1.5rem;
-        }
-        .about-us-main-content .section-heading {
-          font-size: 1.4rem;
-        }
-        .values-grid {
-          grid-template-columns: 1fr;
-        }
-        .footer-grid {
-          grid-template-columns: 1fr;
-          text-align: center;
-        }
-        .footer-column .footer-heading::after {
-          left: 50%;
-          transform: translateX(-50%);
-        }
-        .footer-social-icons {
-          justify-content: center;
-        }
-        .footer-direct-contact a {
-          justify-content: center;
-        }
-      }
-      @media (max-width: 480px) {
-        .page-title-section h1 {
-          font-size: 1.6rem;
-        }
-        .page-title-section .page-subtitle {
-          font-size: 0.9rem;
-        }
-        .about-us-main-content .content-card {
-          padding: 1.5rem;
-        }
-        .about-us-main-content .section-heading {
-          font-size: 1.3rem;
-        }
-      }
-    </style>
   </head>
   <body>
     <header class="site-header" id="siteHeader">
@@ -1430,8 +485,8 @@
     </footer>
 
     <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        const siteHeader = document.getElementById("siteHeader");
+      document.addEventListener('DOMContentLoaded', () => {
+        const siteHeader = document.getElementById('siteHeader');
         let headerHeight = 0;
 
         function updateHeaderHeightAndPadding() {
@@ -1439,24 +494,24 @@
             headerHeight = siteHeader.offsetHeight;
             document.body.style.paddingTop = `${headerHeight}px`;
             document.documentElement.style.setProperty(
-              "--header-height",
+              '--header-height',
               `${headerHeight}px`
             );
           }
         }
 
         updateHeaderHeightAndPadding();
-        window.addEventListener("resize", updateHeaderHeightAndPadding);
+        window.addEventListener('resize', updateHeaderHeightAndPadding);
 
         // --- Theme Toggle Logic ---
-        const themeToggleBtn = document.getElementById("themeToggleBtn");
-        const currentTheme = localStorage.getItem("theme");
+        const themeToggleBtn = document.getElementById('themeToggleBtn');
+        const currentTheme = localStorage.getItem('theme');
 
         function applyTheme(theme) {
-          if (theme === "dark") {
-            document.body.classList.add("dark-mode");
+          if (theme === 'dark') {
+            document.body.classList.add('dark-mode');
           } else {
-            document.body.classList.remove("dark-mode");
+            document.body.classList.remove('dark-mode');
           }
         }
 
@@ -1465,46 +520,46 @@
         } else {
           const prefersDark =
             window.matchMedia &&
-            window.matchMedia("(prefers-color-scheme: dark)").matches;
+            window.matchMedia('(prefers-color-scheme: dark)').matches;
           if (prefersDark) {
-            applyTheme("dark");
-            localStorage.setItem("theme", "dark");
+            applyTheme('dark');
+            localStorage.setItem('theme', 'dark');
           }
         }
 
         if (themeToggleBtn) {
-          themeToggleBtn.addEventListener("click", () => {
-            document.body.classList.toggle("dark-mode");
-            let theme = "light";
-            if (document.body.classList.contains("dark-mode")) {
-              theme = "dark";
+          themeToggleBtn.addEventListener('click', () => {
+            document.body.classList.toggle('dark-mode');
+            let theme = 'light';
+            if (document.body.classList.contains('dark-mode')) {
+              theme = 'dark';
             }
-            localStorage.setItem("theme", theme);
+            localStorage.setItem('theme', theme);
           });
         }
 
         // --- Mobile Navigation Menu (Main Toggle) ---
-        const navToggleBtn = document.getElementById("navToggleBtn");
-        const mainMenuNav = document.getElementById("mainMenuNav");
-        const navIcon = navToggleBtn ? navToggleBtn.querySelector("i") : null;
+        const navToggleBtn = document.getElementById('navToggleBtn');
+        const mainMenuNav = document.getElementById('mainMenuNav');
+        const navIcon = navToggleBtn ? navToggleBtn.querySelector('i') : null;
 
         if (navToggleBtn && mainMenuNav && navIcon) {
-          navToggleBtn.addEventListener("click", () => {
-            const isExpanded = mainMenuNav.classList.toggle("menu-visible");
-            navToggleBtn.setAttribute("aria-expanded", String(isExpanded));
-            navIcon.classList.toggle("fa-bars", !isExpanded);
-            navIcon.classList.toggle("fa-times", isExpanded);
+          navToggleBtn.addEventListener('click', () => {
+            const isExpanded = mainMenuNav.classList.toggle('menu-visible');
+            navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
+            navIcon.classList.toggle('fa-bars', !isExpanded);
+            navIcon.classList.toggle('fa-times', isExpanded);
 
             if (!isExpanded) {
               mainMenuNav
-                .querySelectorAll(".has-submenu.open")
+                .querySelectorAll('.has-submenu.open')
                 .forEach((openSubmenuLi) => {
-                  openSubmenuLi.classList.remove("open");
+                  openSubmenuLi.classList.remove('open');
                   const link = openSubmenuLi.querySelector(
                     'a[aria-haspopup="true"]'
                   );
-                  if (link) link.setAttribute("aria-expanded", "false");
-                  const submenu = openSubmenuLi.querySelector(".submenu");
+                  if (link) link.setAttribute('aria-expanded', 'false');
+                  const submenu = openSubmenuLi.querySelector('.submenu');
                   if (submenu && window.innerWidth <= 991)
                     submenu.style.maxHeight = null;
                 });
@@ -1514,26 +569,26 @@
 
         // --- Submenu Toggle Logic (Revised) ---
         function performToggleVisually(listItem, linkElement, submenuElement) {
-          const isOpen = listItem.classList.toggle("open");
+          const isOpen = listItem.classList.toggle('open');
           if (linkElement)
-            linkElement.setAttribute("aria-expanded", String(isOpen));
+            linkElement.setAttribute('aria-expanded', String(isOpen));
 
           if (window.innerWidth <= 991 && submenuElement) {
             if (isOpen) {
               submenuElement.style.maxHeight =
-                submenuElement.scrollHeight + "px";
+                submenuElement.scrollHeight + 'px';
             } else {
               submenuElement.style.maxHeight = null;
               submenuElement
-                .querySelectorAll(".has-submenu.open")
+                .querySelectorAll('.has-submenu.open')
                 .forEach((openChild) => {
-                  openChild.classList.remove("open");
+                  openChild.classList.remove('open');
                   const childLink = openChild.querySelector(
                     'a[aria-haspopup="true"]'
                   );
                   if (childLink)
-                    childLink.setAttribute("aria-expanded", "false");
-                  const childSubmenu = openChild.querySelector(".submenu");
+                    childLink.setAttribute('aria-expanded', 'false');
+                  const childSubmenu = openChild.querySelector('.submenu');
                   if (childSubmenu) childSubmenu.style.maxHeight = null;
                 });
             }
@@ -1541,46 +596,46 @@
         }
 
         if (mainMenuNav) {
-          mainMenuNav.querySelectorAll("li.has-submenu").forEach((listItem) => {
+          mainMenuNav.querySelectorAll('li.has-submenu').forEach((listItem) => {
             const link = listItem.querySelector(
               ":scope > a[aria-haspopup='true']"
             );
             const toggleIcon = listItem.querySelector(
-              ":scope > a > .submenu-toggle-icon"
+              ':scope > a > .submenu-toggle-icon'
             );
-            const submenu = listItem.querySelector(":scope > .submenu");
+            const submenu = listItem.querySelector(':scope > .submenu');
 
             if (!link || !submenu) return;
 
             if (toggleIcon) {
-              toggleIcon.addEventListener("click", function (event) {
+              toggleIcon.addEventListener('click', function (event) {
                 event.preventDefault();
                 event.stopPropagation();
                 performToggleVisually(listItem, link, submenu);
               });
             }
 
-            link.addEventListener("click", function (event) {
-              if (event.target.closest(".submenu-toggle-icon")) {
+            link.addEventListener('click', function (event) {
+              if (event.target.closest('.submenu-toggle-icon')) {
                 return;
               }
 
               const isMobileView = window.innerWidth <= 991;
               const hasValidHref =
-                link.getAttribute("href") &&
-                link.getAttribute("href") !== "#" &&
-                link.getAttribute("href") !== "";
+                link.getAttribute('href') &&
+                link.getAttribute('href') !== '#' &&
+                link.getAttribute('href') !== '';
               const linkPathOnly = (
-                link.pathname.split("/").pop() || "index.html"
-              ).split("#")[0];
+                link.pathname.split('/').pop() || 'index.html'
+              ).split('#')[0];
               const currentPathOnly = (
-                window.location.pathname.split("/").pop() || "index.html"
-              ).split("#")[0];
+                window.location.pathname.split('/').pop() || 'index.html'
+              ).split('#')[0];
               const isLinkToCurrentPagePathOnly =
                 linkPathOnly === currentPathOnly && !link.hash;
 
               if (isMobileView) {
-                if (listItem.classList.contains("has-submenu")) {
+                if (listItem.classList.contains('has-submenu')) {
                   event.preventDefault();
                   performToggleVisually(listItem, link, submenu);
                 }
@@ -1602,43 +657,43 @@
 
         // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
         if (mainMenuNav) {
-          mainMenuNav.querySelectorAll("ul li a").forEach((link) => {
-            link.addEventListener("click", (event) => {
+          mainMenuNav.querySelectorAll('ul li a').forEach((link) => {
+            link.addEventListener('click', (event) => {
               const isSubmenuToggleIcon = event.target.closest(
-                ".submenu-toggle-icon"
+                '.submenu-toggle-icon'
               );
-              const listItem = link.closest("li");
+              const listItem = link.closest('li');
               const isParentLinkThatTogglesOnMobile =
                 listItem &&
-                listItem.classList.contains("has-submenu") &&
+                listItem.classList.contains('has-submenu') &&
                 window.innerWidth <= 991;
 
               if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
                 return;
               }
 
-              if (mainMenuNav.classList.contains("menu-visible")) {
+              if (mainMenuNav.classList.contains('menu-visible')) {
                 if (
-                  link.getAttribute("href") &&
-                  link.getAttribute("href") !== "#"
+                  link.getAttribute('href') &&
+                  link.getAttribute('href') !== '#'
                 ) {
-                  mainMenuNav.classList.remove("menu-visible");
+                  mainMenuNav.classList.remove('menu-visible');
                   if (navToggleBtn)
-                    navToggleBtn.setAttribute("aria-expanded", "false");
+                    navToggleBtn.setAttribute('aria-expanded', 'false');
                   if (navIcon) {
-                    navIcon.classList.remove("fa-times");
-                    navIcon.classList.add("fa-bars");
+                    navIcon.classList.remove('fa-times');
+                    navIcon.classList.add('fa-bars');
                   }
                   mainMenuNav
-                    .querySelectorAll(".has-submenu.open")
+                    .querySelectorAll('.has-submenu.open')
                     .forEach((openSubmenuLi) => {
-                      openSubmenuLi.classList.remove("open");
+                      openSubmenuLi.classList.remove('open');
                       const parentLink = openSubmenuLi.querySelector(
                         'a[aria-haspopup="true"]'
                       );
                       if (parentLink)
-                        parentLink.setAttribute("aria-expanded", "false");
-                      const submenu = openSubmenuLi.querySelector(".submenu");
+                        parentLink.setAttribute('aria-expanded', 'false');
+                      const submenu = openSubmenuLi.querySelector('.submenu');
                       if (submenu && window.innerWidth <= 991)
                         submenu.style.maxHeight = null;
                     });
@@ -1652,16 +707,16 @@
         function updateCurrentPage() {
           if (!mainMenuNav) return;
           const currentUrlPath =
-            window.location.pathname.split("/").pop() || "index.html";
+            window.location.pathname.split('/').pop() || 'index.html';
           const currentUrlHash = window.location.hash;
 
-          mainMenuNav.querySelectorAll("a").forEach((navLink) => {
-            navLink.classList.remove("current-page");
-            const linkHref = navLink.getAttribute("href");
+          mainMenuNav.querySelectorAll('a').forEach((navLink) => {
+            navLink.classList.remove('current-page');
+            const linkHref = navLink.getAttribute('href');
             if (!linkHref) return;
 
             const linkUrl = new URL(linkHref, window.location.origin);
-            const linkPath = linkUrl.pathname.split("/").pop() || "index.html";
+            const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
             const linkHash = linkUrl.hash;
 
             let isActive = false;
@@ -1670,30 +725,30 @@
               if (linkHash) {
                 if (linkHash === currentUrlHash) isActive = true;
               } else {
-                if (!currentUrlHash || currentUrlHash === "#") isActive = true;
+                if (!currentUrlHash || currentUrlHash === '#') isActive = true;
               }
             }
 
             if (isActive) {
-              navLink.classList.add("current-page");
+              navLink.classList.add('current-page');
               let currentElementForParentCheck = navLink;
               while (currentElementForParentCheck) {
                 const parentSubmenuUl =
-                  currentElementForParentCheck.closest("ul.submenu");
+                  currentElementForParentCheck.closest('ul.submenu');
                 if (!parentSubmenuUl) break;
                 const parentLi = parentSubmenuUl.parentElement;
-                if (!parentLi || !parentLi.classList.contains("has-submenu"))
+                if (!parentLi || !parentLi.classList.contains('has-submenu'))
                   break;
                 const parentAnchor = parentLi.querySelector(
                   ':scope > a[aria-haspopup="true"]'
                 );
                 if (parentAnchor) {
-                  parentAnchor.classList.add("current-page");
+                  parentAnchor.classList.add('current-page');
                 } else {
                   break;
                 }
                 if (
-                  parentLi.parentElement === mainMenuNav.querySelector("ul")
+                  parentLi.parentElement === mainMenuNav.querySelector('ul')
                 ) {
                   break;
                 }
@@ -1704,28 +759,28 @@
         }
 
         updateCurrentPage();
-        window.addEventListener("hashchange", updateCurrentPage);
+        window.addEventListener('hashchange', updateCurrentPage);
 
         // --- FAQ Accordion (para las FAQ estáticas de NKProyect) ---
-        const faqItems = document.querySelectorAll(".faq-container .faq-item");
+        const faqItems = document.querySelectorAll('.faq-container .faq-item');
         faqItems.forEach((item) => {
-          const question = item.querySelector(".faq-question");
-          const answer = item.querySelector(".faq-answer");
+          const question = item.querySelector('.faq-question');
+          const answer = item.querySelector('.faq-answer');
 
           if (question && answer) {
-            question.addEventListener("click", () => {
-              item.classList.toggle("active");
-              const isActive = item.classList.contains("active");
-              question.setAttribute("aria-expanded", String(isActive));
+            question.addEventListener('click', () => {
+              item.classList.toggle('active');
+              const isActive = item.classList.contains('active');
+              question.setAttribute('aria-expanded', String(isActive));
 
               if (isActive) {
-                answer.style.maxHeight = answer.scrollHeight + 20 + "px";
+                answer.style.maxHeight = answer.scrollHeight + 20 + 'px';
               } else {
-                answer.style.maxHeight = "0";
+                answer.style.maxHeight = '0';
               }
             });
-            question.addEventListener("keydown", (event) => {
-              if (event.key === "Enter" || event.key === " ") {
+            question.addEventListener('keydown', (event) => {
+              if (event.key === 'Enter' || event.key === ' ') {
                 event.preventDefault();
                 question.click();
               }
@@ -1735,30 +790,30 @@
 
         // --- Cargar Contenido Dinámico del Footer y FAB desde JSON ---
         const footerContactDirectContainer = document.getElementById(
-          "footerContactDirectContainer"
+          'footerContactDirectContainer'
         );
         const footerSocialProfilesContainer = document.getElementById(
-          "footerSocialProfilesContainer"
+          'footerSocialProfilesContainer'
         );
-        const fabWhatsapp = document.getElementById("fabWhatsapp");
+        const fabWhatsapp = document.getElementById('fabWhatsapp');
         const universeCommunitySocialsContainer = document.getElementById(
-          "universeCommunitySocials"
+          'universeCommunitySocials'
         );
 
         async function cargarFooterYFABDesdeJSON() {
           console.log(
-            "Intentando cargar datos_web.json para footer/FAB en nkproyect-quienes-somos.html..."
+            'Intentando cargar datos_web.json para footer/FAB en nkproyect-quienes-somos.html...'
           );
           try {
             // IMPORTANTE: Asegúrate de que la ruta al archivo 'datos_web.json' (o 'bases.json') sea correcta.
-            const response = await fetch("datos_web.json");
+            const response = await fetch('datos_web.json');
             if (!response.ok) {
               throw new Error(
                 `HTTP error! status: ${response.status} al cargar datos_web.json`
               );
             }
             const data = await response.json();
-            console.log("Datos JSON cargados para footer/FAB:", data);
+            console.log('Datos JSON cargados para footer/FAB:', data);
 
             if (data.redesSociales) {
               // Para el footer de NKProyect, usaremos los enlaces que definamos estáticamente o de una sección NKProyect en el JSON.
@@ -1773,14 +828,14 @@
             }
           } catch (error) {
             console.error(
-              "Error al cargar contenido del footer desde JSON:",
+              'Error al cargar contenido del footer desde JSON:',
               error
             );
             // No se actualizan los placeholders del footer de NKProyect en caso de error, se quedan como están.
-            if (fabWhatsapp) fabWhatsapp.href = "javascript:void(0);";
+            if (fabWhatsapp) fabWhatsapp.href = 'javascript:void(0);';
             if (universeCommunitySocialsContainer)
               universeCommunitySocialsContainer.textContent =
-                "Error al cargar redes de UC.";
+                'Error al cargar redes de UC.';
           }
         }
 
@@ -1795,22 +850,22 @@
           // fabElement es para el botón flotante de WhatsApp global.
 
           if (socialContainerUC && redesSociales.perfilesSociales) {
-            socialContainerUC.innerHTML = "";
+            socialContainerUC.innerHTML = '';
             const iconosAMostrar = [
-              "fab fa-youtube",
-              "fab fa-instagram",
-              "fab fa-tiktok",
-              "fab fa-facebook-f",
-              "fab fa-x-twitter",
+              'fab fa-youtube',
+              'fab fa-instagram',
+              'fab fa-tiktok',
+              'fab fa-facebook-f',
+              'fab fa-x-twitter',
             ];
             redesSociales.perfilesSociales.forEach((perfil) => {
               if (iconosAMostrar.includes(perfil.icono)) {
-                const linkElement = document.createElement("a");
-                linkElement.href = perfil.url || "#";
-                linkElement.target = "_blank";
+                const linkElement = document.createElement('a');
+                linkElement.href = perfil.url || '#';
+                linkElement.target = '_blank';
                 linkElement.title = perfil.titulo;
                 linkElement.setAttribute(
-                  "aria-label",
+                  'aria-label',
                   `Visita el perfil de Universe Community en ${perfil.titulo}`
                 );
                 linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
@@ -1818,35 +873,35 @@
               }
             });
             if (socialContainerUC.children.length === 0) {
-              socialContainerUC.textContent = "Redes no disponibles.";
+              socialContainerUC.textContent = 'Redes no disponibles.';
             }
           } else if (socialContainerUC) {
             socialContainerUC.innerHTML =
-              "<p>Redes sociales de UC no disponibles.</p>";
+              '<p>Redes sociales de UC no disponibles.</p>';
           }
 
           if (fabElement && redesSociales.contactosDirectos) {
             const whatsappFabInfo = redesSociales.contactosDirectos.find(
               (c) =>
                 c.plataforma &&
-                c.plataforma.toLowerCase() === "whatsapp" &&
-                c.tipo === "Contacto Directo"
+                c.plataforma.toLowerCase() === 'whatsapp' &&
+                c.tipo === 'Contacto Directo'
             );
             if (whatsappFabInfo && whatsappFabInfo.url) {
               fabElement.href = whatsappFabInfo.url;
             } else {
-              fabElement.href = "javascript:void(0);";
-              fabElement.style.cursor = "default";
+              fabElement.href = 'javascript:void(0);';
+              fabElement.style.cursor = 'default';
             }
           } else if (fabElement) {
-            fabElement.href = "javascript:void(0);";
-            fabElement.style.cursor = "default";
+            fabElement.href = 'javascript:void(0);';
+            fabElement.style.cursor = 'default';
           }
         }
 
         cargarFooterYFABDesdeJSON();
 
-        const currentYearElement = document.getElementById("currentYear");
+        const currentYearElement = document.getElementById('currentYear');
         if (currentYearElement) {
           currentYearElement.textContent = new Date().getFullYear();
         }

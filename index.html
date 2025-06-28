@@ -49,43 +49,14 @@
           <i class="fas fa-bars"></i>
         </button>
 
-        <nav class="main-menu" id="mainMenuNav">
-          <ul>
-            <!-- 1. Universe Community (con submenú) -->
-            <li class="has-submenu">
-              <a href="index.html" aria-haspopup="true" aria-expanded="false">
-                Universe Community
-                <span class="submenu-toggle-icon"
-                  ><i class="fas fa-chevron-down"></i
-                ></span>
-              </a>
-              <ul class="submenu level-2">
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="#proyectos-destacados">Proyectos</a></li>
-                <li><a href="#donaciones">Donar</a></li>
-                <li><a href="#comunidad">Contacto</a></li>
-                <li><a href="#soporte-contacto">Soporte</a></li>
-              </ul>
-            </li>
-
-            <!-- 2. Proyectos (enlace simple) -->
-            <li><a href="proyectos.html">Proyectos</a></li>
-
-            <!-- 3. Avisos (enlace simple) -->
-            <li><a href="avisos.html">Avisos</a></li>
-
-            <!-- 4. Donación (AÑADIDO: Enlace de Donación, el href se rellena con JS) -->
-            <li>
-              <a
-                href="#"
-                id="paypalMenuLink"
-                target="_blank"
-                rel="noopener noreferrer"
-                >Donación</a
-              >
-            </li>
-          </ul>
-        </nav>
+        <nav class="main-menu" id="main-menu"></nav>
+        <script>
+          fetch('components/menu.html')
+            .then((response) => response.text())
+            .then((data) => {
+              document.getElementById('main-menu').innerHTML = data;
+            });
+        </script>
       </div>
     </header>
 
