@@ -1,0 +1,861 @@
+document.addEventListener('DOMContentLoaded', () => {
+  // --- Theme Toggle Logic ---
+  const themeToggleBtn = document.getElementById('themeToggleBtn');
+  const currentTheme = localStorage.getItem('theme');
+
+  function applyTheme(theme) {
+    if (theme === 'dark') {
+      document.body.classList.add('dark-mode');
+    } else {
+      document.body.classList.remove('dark-mode');
+    }
+  }
+
+  if (currentTheme) {
+    applyTheme(currentTheme);
+  } else {
+    const prefersDark =
+      window.matchMedia &&
+      window.matchMedia('(prefers-color-scheme: dark)').matches;
+    if (prefersDark) {
+      applyTheme('dark');
+      localStorage.setItem('theme', 'dark');
+    }
+  }
+
+  if (themeToggleBtn) {
+    themeToggleBtn.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      let theme = 'light';
+      if (document.body.classList.contains('dark-mode')) {
+        theme = 'dark';
+      }
+      localStorage.setItem('theme', theme);
+    });
+  }
+
+  // --- Mobile Navigation Menu (Main Toggle) ---
+  const navToggleBtn = document.getElementById('navToggleBtn');
+  const mainMenuNav = document.getElementById('mainMenuNav');
+  const siteHeader = document.querySelector('.site-header');
+  let headerHeight = siteHeader ? siteHeader.offsetHeight : 70;
+
+  if (navToggleBtn && mainMenuNav) {
+    const navIcon = navToggleBtn.querySelector('i');
+
+    navToggleBtn.addEventListener('click', () => {
+      const isExpanded = mainMenuNav.classList.toggle('menu-visible');
+      navToggleBtn.setAttribute('aria-expanded', String(isExpanded));
+      if (navIcon) {
+        navIcon.classList.toggle('fa-bars', !isExpanded);
+        navIcon.classList.toggle('fa-times', isExpanded);
+      }
+      if (!isExpanded) {
+        mainMenuNav
+          .querySelectorAll('.has-submenu.open')
+          .forEach((openSubmenuLi) => {
+            openSubmenuLi.classList.remove('open');
+            const openSubmenu = openSubmenuLi.querySelector('.submenu');
+            if (openSubmenu) openSubmenu.style.maxHeight = null;
+            const openSubmenuLink = openSubmenuLi.querySelector(
+              'a[aria-haspopup="true"]'
+            );
+            if (openSubmenuLink)
+              openSubmenuLink.setAttribute('aria-expanded', 'false');
+          });
+      }
+    });
+  }
+
+  function updateHeaderHeightForMenu() {
+    if (siteHeader) {
+      headerHeight = siteHeader.offsetHeight;
+      document.documentElement.style.setProperty(
+        '--header-height',
+        `${headerHeight}px`
+      );
+    }
+  }
+  updateHeaderHeightForMenu();
+  window.addEventListener('resize', updateHeaderHeightForMenu);
+
+  // --- Submenu Toggle Logic (Revised) ---
+  function performToggleVisually(listItem, linkElement, submenuElement) {
+    const isOpen = listItem.classList.toggle('open');
+    if (linkElement) linkElement.setAttribute('aria-expanded', String(isOpen));
+
+    if (window.innerWidth <= 991 && submenuElement) {
+      if (isOpen) {
+        submenuElement.style.maxHeight = submenuElement.scrollHeight + 'px';
+      } else {
+        submenuElement.style.maxHeight = null;
+        submenuElement
+          .querySelectorAll('.has-submenu.open')
+          .forEach((openChild) => {
+            openChild.classList.remove('open');
+            const childLink = openChild.querySelector(
+              'a[aria-haspopup="true"]'
+            );
+            if (childLink) childLink.setAttribute('aria-expanded', 'false');
+            const childSubmenu = openChild.querySelector('.submenu');
+            if (childSubmenu) childSubmenu.style.maxHeight = null;
+          });
+      }
+    }
+  }
+
+  if (mainMenuNav) {
+    mainMenuNav.querySelectorAll('li.has-submenu').forEach((listItem) => {
+      const link = listItem.querySelector(":scope > a[aria-haspopup='true']");
+      const toggleIcon = listItem.querySelector(
+        ':scope > a > .submenu-toggle-icon'
+      );
+      const submenu = listItem.querySelector(':scope > .submenu');
+
+      if (!link || !submenu) return;
+
+      if (toggleIcon) {
+        toggleIcon.addEventListener('click', function (event) {
+          event.preventDefault();
+          event.stopPropagation();
+          performToggleVisually(listItem, link, submenu);
+        });
+      }
+
+      link.addEventListener('click', function (event) {
+        if (event.target.closest('.submenu-toggle-icon')) {
+          return;
+        }
+
+        const isMobileView = window.innerWidth <= 991;
+        const hasValidHref =
+          link.getAttribute('href') &&
+          link.getAttribute('href') !== '#' &&
+          link.getAttribute('href') !== '';
+        const linkPathOnly = (
+          link.pathname.split('/').pop() || 'index.html'
+        ).split('#')[0];
+        const currentPathOnly = (
+          window.location.pathname.split('/').pop() || 'index.html'
+        ).split('#')[0];
+        const isLinkToCurrentPagePathOnly =
+          linkPathOnly === currentPathOnly && !link.hash;
+
+        if (isMobileView) {
+          if (listItem.classList.contains('has-submenu')) {
+            event.preventDefault();
+            performToggleVisually(listItem, link, submenu);
+          }
+        } else {
+          // Desktop View
+          if (hasValidHref) {
+            if (isLinkToCurrentPagePathOnly) {
+              event.preventDefault();
+              performToggleVisually(listItem, link, submenu);
+            }
+          } else {
+            event.preventDefault();
+            performToggleVisually(listItem, link, submenu);
+          }
+        }
+      });
+    });
+  }
+
+  // --- Close mobile menu when a direct navigation link (not a submenu toggle) is clicked ---
+  if (mainMenuNav) {
+    mainMenuNav.querySelectorAll('ul li a').forEach((link) => {
+      link.addEventListener('click', (event) => {
+        const isSubmenuToggleIcon = event.target.closest(
+          '.submenu-toggle-icon'
+        );
+        const listItem = link.closest('li');
+        const isParentLinkThatTogglesOnMobile =
+          listItem &&
+          listItem.classList.contains('has-submenu') &&
+          window.innerWidth <= 991;
+
+        if (isSubmenuToggleIcon || isParentLinkThatTogglesOnMobile) {
+          return;
+        }
+
+        if (mainMenuNav.classList.contains('menu-visible')) {
+          if (link.getAttribute('href') && link.getAttribute('href') !== '#') {
+            mainMenuNav.classList.remove('menu-visible');
+            if (navToggleBtn)
+              navToggleBtn.setAttribute('aria-expanded', 'false');
+            const navIcon = navToggleBtn
+              ? navToggleBtn.querySelector('i')
+              : null;
+            if (navIcon) {
+              navIcon.classList.remove('fa-times');
+              navIcon.classList.add('fa-bars');
+            }
+            mainMenuNav
+              .querySelectorAll('.has-submenu.open')
+              .forEach((openSubmenuLi) => {
+                openSubmenuLi.classList.remove('open');
+                const parentLink = openSubmenuLi.querySelector(
+                  'a[aria-haspopup="true"]'
+                );
+                if (parentLink)
+                  parentLink.setAttribute('aria-expanded', 'false');
+                const submenu = openSubmenuLi.querySelector('.submenu');
+                if (submenu && window.innerWidth <= 991)
+                  submenu.style.maxHeight = null;
+              });
+          }
+        }
+      });
+    });
+  }
+
+  // --- Navigation Link Highlighting on Scroll (NavHighlighter) ---
+  const sections = document.querySelectorAll('main section[id]');
+  const allNavLinks = mainMenuNav
+    ? mainMenuNav.querySelectorAll('nav ul li a')
+    : [];
+  const homeLink = mainMenuNav
+    ? mainMenuNav.querySelector("a[href='index.html']")
+    : null;
+
+  function navHighlighter() {
+    if (!mainMenuNav || allNavLinks.length === 0) return;
+
+    let scrollY = window.pageYOffset;
+    let currentActiveSectionId = null;
+    const offset = headerHeight + 60;
+
+    sections.forEach((current) => {
+      if (!current) return;
+      const sectionHeight = current.offsetHeight;
+      const sectionTop = current.offsetTop - offset;
+      let sectionId = current.getAttribute('id');
+
+      if (scrollY >= sectionTop && scrollY < sectionTop + sectionHeight) {
+        currentActiveSectionId = sectionId;
+      }
+    });
+
+    allNavLinks.forEach((navLink) => {
+      navLink.classList.remove('current-page');
+      let parentLi = navLink
+        .closest('ul.submenu')
+        ?.parentElement.closest('li.has-submenu');
+      if (parentLi) {
+        const parentAnchor = parentLi.querySelector(
+          ':scope > a[aria-haspopup="true"]'
+        );
+        if (parentAnchor) parentAnchor.classList.remove('current-page');
+      }
+    });
+
+    let anActiveLinkIsSetByScroll = false;
+    if (currentActiveSectionId) {
+      const activeNavLink = mainMenuNav.querySelector(
+        "a[href*='#" + currentActiveSectionId + "']"
+      );
+      if (activeNavLink) {
+        activeNavLink.classList.add('current-page');
+        anActiveLinkIsSetByScroll = true;
+        let parentLi = activeNavLink
+          .closest('ul.submenu')
+          ?.parentElement.closest('li.has-submenu');
+        if (parentLi) {
+          const parentAnchor = parentLi.querySelector(
+            ':scope > a[aria-haspopup="true"]'
+          );
+          if (parentAnchor) parentAnchor.classList.add('current-page');
+        }
+      }
+    }
+
+    if (!anActiveLinkIsSetByScroll) {
+      const currentPagePath =
+        window.location.pathname.split('/').pop() || 'index.html';
+      const currentHash = window.location.hash;
+
+      if (
+        homeLink &&
+        (currentPagePath === 'index.html' || currentPagePath === '') &&
+        (!currentHash || currentHash === '#')
+      ) {
+        allNavLinks.forEach((nl) => nl.classList.remove('current-page'));
+        homeLink.classList.add('current-page');
+      } else {
+        allNavLinks.forEach((navLink) => {
+          const linkHref = navLink.getAttribute('href');
+          if (!linkHref) return;
+
+          const linkUrl = new URL(linkHref, window.location.origin);
+          const linkPath = linkUrl.pathname.split('/').pop() || 'index.html';
+          const linkHash = linkUrl.hash;
+
+          if (linkPath === currentPagePath) {
+            if (
+              (linkHash && linkHash === currentHash) ||
+              (!linkHash && (!currentHash || currentHash === '#'))
+            ) {
+              navLink.classList.add('current-page');
+              let parentLi = navLink
+                .closest('ul.submenu')
+                ?.parentElement.closest('li.has-submenu');
+              if (parentLi) {
+                const parentAnchor = parentLi.querySelector(
+                  ':scope > a[aria-haspopup="true"]'
+                );
+                if (parentAnchor) parentAnchor.classList.add('current-page');
+              }
+            }
+          }
+        });
+      }
+    }
+  }
+
+  if (sections.length > 0 && allNavLinks.length > 0) {
+    window.addEventListener('scroll', navHighlighter);
+    window.addEventListener('hashchange', navHighlighter);
+    navHighlighter();
+  } else if (
+    homeLink &&
+    (window.location.pathname.endsWith('index.html') ||
+      window.location.pathname === '/')
+  ) {
+    allNavLinks.forEach((nl) => nl.classList.remove('current-page'));
+    homeLink.classList.add('current-page');
+  }
+
+  // --- Cargar Contenido Dinámico desde JSON para Index ---
+  const projectListContainer = document.getElementById('projectListContainer');
+  const paypalButtonContainer = document.getElementById(
+    'paypalButtonContainer'
+  );
+  const contactChannelCardsContainer = document.getElementById(
+    'contactChannelCardsContainer'
+  );
+  const faqContainer = document.getElementById('faqContainer');
+  const contactInfoListContainer = document.getElementById(
+    'contactInfoListContainer'
+  );
+  const footerContactDirectContainer = document.getElementById(
+    'footerContactDirectContainer'
+  );
+  const footerSocialProfilesContainer = document.getElementById(
+    'footerSocialProfilesContainer'
+  );
+  const fabWhatsapp = document.getElementById('fabWhatsapp');
+
+  // AÑADIDO: Referencia al enlace de donación del menú
+  const paypalMenuLink = document.getElementById('paypalMenuLink');
+
+  async function cargarContenidoIndexDesdeJSON() {
+    console.log('Intentando cargar datos_web.json para index.html...');
+    try {
+      const response = await fetch('datos_web.json');
+      console.log('Respuesta del fetch (index):', response);
+      if (!response.ok) {
+        throw new Error(
+          `HTTP error! status: ${response.status} al cargar datos_web.json`
+        );
+      }
+      const data = await response.json();
+      console.log('Datos JSON cargados (index):', data);
+
+      // 1. Renderizar Proyectos Destacados
+      if (projectListContainer && data.proyectosresumen) {
+        renderizarProyectosDestacados(
+          data.proyectosresumen,
+          projectListContainer
+        );
+        inicializarSliderProyectos();
+      } else if (projectListContainer) {
+        projectListContainer.innerHTML =
+          '<p>No hay proyectos destacados para mostrar.</p>';
+      }
+
+      // 2. Renderizar Botón de Donación PayPal
+      if (
+        paypalButtonContainer &&
+        data.redesSociales &&
+        data.redesSociales.donaciones
+      ) {
+        renderizarBotonDonacion(
+          data.redesSociales.donaciones,
+          paypalButtonContainer
+        );
+      } else if (paypalButtonContainer) {
+        paypalButtonContainer.innerHTML =
+          '<p>Opciones de donación no disponibles.</p>';
+      }
+
+      // AÑADIDO: Lógica para actualizar el enlace de Donación del menú
+      if (
+        paypalMenuLink &&
+        data.redesSociales &&
+        data.redesSociales.donaciones
+      ) {
+        const paypalInfo = data.redesSociales.donaciones.find(
+          (d) => d.plataforma && d.plataforma.toLowerCase() === 'paypal'
+        );
+        if (paypalInfo && paypalInfo.url) {
+          paypalMenuLink.href = paypalInfo.url;
+        } else {
+          // Ocultar el enlace del menú si no hay URL
+          const parentLi = paypalMenuLink.parentElement;
+          if (parentLi) parentLi.style.display = 'none';
+        }
+      } else if (paypalMenuLink) {
+        const parentLi = paypalMenuLink.parentElement;
+        if (parentLi) parentLi.style.display = 'none';
+      }
+
+      // 3. Renderizar Tarjetas de Canales de Contacto (Sección "Conéctate")
+      if (
+        contactChannelCardsContainer &&
+        data.redesSociales &&
+        data.redesSociales.contactosDirectos
+      ) {
+        renderizarTarjetasCanalesContacto(
+          data.redesSociales.contactosDirectos,
+          contactChannelCardsContainer
+        );
+      } else if (contactChannelCardsContainer) {
+        contactChannelCardsContainer.innerHTML =
+          '<p>Canales de contacto no disponibles.</p>';
+      }
+
+      // 4. Renderizar Preguntas Frecuentes
+      if (faqContainer && data.preguntasFrecuentes) {
+        renderizarPreguntasFrecuentes(data.preguntasFrecuentes, faqContainer);
+      } else if (faqContainer) {
+        const placeholder = faqContainer.querySelector('p');
+        if (placeholder)
+          placeholder.textContent = 'No hay preguntas frecuentes disponibles.';
+      }
+
+      // 5. Renderizar Información de Contacto (Sección "Soporte y Contacto")
+      if (
+        contactInfoListContainer &&
+        data.redesSociales &&
+        data.redesSociales.contactosDirectos
+      ) {
+        renderizarInformacionContacto(
+          data.redesSociales.contactosDirectos,
+          contactInfoListContainer
+        );
+      } else if (contactInfoListContainer) {
+        contactInfoListContainer.innerHTML =
+          '<p>Información de contacto detallada no disponible.</p>';
+      }
+
+      // 6. Renderizar Footer y FAB
+      if (data.redesSociales) {
+        renderizarFooterYFAB(
+          data.redesSociales,
+          footerContactDirectContainer,
+          footerSocialProfilesContainer,
+          fabWhatsapp
+        );
+      }
+    } catch (error) {
+      console.error('Error al cargar contenido del index desde JSON:', error);
+      if (projectListContainer)
+        projectListContainer.innerHTML = `<p>Error al cargar proyectos: ${error.message}</p>`;
+      if (paypalButtonContainer)
+        paypalButtonContainer.innerHTML = `<p>Error al cargar botón de donación.</p>`;
+      if (paypalMenuLink) {
+        const parentLi = paypalMenuLink.parentElement;
+        if (parentLi) parentLi.style.display = 'none';
+      }
+      if (contactChannelCardsContainer)
+        contactChannelCardsContainer.innerHTML = `<p>Error al cargar canales de contacto.</p>`;
+      if (faqContainer) {
+        const placeholder = faqContainer.querySelector('p');
+        if (placeholder)
+          placeholder.textContent = `Error al cargar preguntas frecuentes: ${error.message}`;
+        else
+          faqContainer.innerHTML = `<p>Error al cargar preguntas frecuentes: ${error.message}</p>`;
+      }
+      if (contactInfoListContainer)
+        contactInfoListContainer.innerHTML = `<p>Error al cargar información de contacto.</p>`;
+      if (footerContactDirectContainer)
+        footerContactDirectContainer.innerHTML =
+          '<p>Error al cargar contactos del footer.</p>';
+      if (footerSocialProfilesContainer)
+        footerSocialProfilesContainer.innerHTML =
+          '<p>Error al cargar redes del footer.</p>';
+      if (fabWhatsapp) fabWhatsapp.href = 'javascript:void(0);';
+    }
+  }
+
+  function renderizarProyectosDestacados(proyectos, container) {
+    container.innerHTML = '';
+    const proyectosAMostrar = proyectos.slice(0, 5);
+
+    proyectosAMostrar.forEach((proyecto) => {
+      const card = document.createElement('article');
+      card.classList.add('project-card');
+
+      let imgHTML = `<div class="project-img-placeholder"><span>[Imagen no disponible]</span></div>`;
+      if (proyecto.portadaUrl) {
+        imgHTML = `
+                    <div class="project-img-placeholder">
+                        <img src="${proyecto.portadaUrl}" alt="${
+          proyecto.altPortada || proyecto.titulo
+        }" loading="lazy" onerror="this.onerror=null; this.parentElement.innerHTML = '<span>[Imagen no disponible]</span>';">
+                    </div>`;
+      }
+
+      let resumen =
+        proyecto.descripcionCompleta || 'Descripción no disponible.';
+      if (resumen.length > 100) {
+        resumen = resumen.substring(0, 100) + '...';
+      }
+
+      card.innerHTML = `
+                ${imgHTML}
+                <div class="project-details">
+                    <h3 class="project-name">${proyecto.titulo}</h3>
+                    <p class="project-summary">${resumen}</p>
+                    <a href="${
+                      proyecto.enlacePagina || '#'
+                    }" class="btn btn-details-project">${
+        proyecto.enlaceDetalles || 'Ver detalles'
+      }</a>
+                </div>
+            `;
+      container.appendChild(card);
+    });
+  }
+
+  function renderizarBotonDonacion(donaciones, container) {
+    container.innerHTML = '';
+    const paypalInfo = donaciones.find(
+      (d) => d.plataforma && d.plataforma.toLowerCase() === 'paypal'
+    );
+    if (paypalInfo && paypalInfo.url && paypalInfo.textoBoton) {
+      const buttonHTML = `
+                <a
+                  href="${paypalInfo.url}"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="btn-donate-paypal"
+                >
+                  <i class="${paypalInfo.icono || 'fab fa-paypal'}"></i> ${
+        paypalInfo.textoBoton
+      }
+                </a>`;
+      container.innerHTML = buttonHTML;
+    } else {
+      container.innerHTML = '<p>Opción de donación no configurada.</p>';
+    }
+  }
+
+  function renderizarTarjetasCanalesContacto(contactos, container) {
+    container.innerHTML = '';
+    contactos.forEach((contacto) => {
+      if (
+        contacto.plataforma &&
+        (contacto.plataforma.toLowerCase() === 'whatsapp' ||
+          contacto.plataforma.toLowerCase() === 'telegram')
+      ) {
+        if (
+          (contacto.plataforma.toLowerCase() === 'whatsapp' &&
+            !container.querySelector('.whatsapp')) ||
+          (contacto.plataforma.toLowerCase() === 'telegram' &&
+            !container.querySelector('.telegram'))
+        ) {
+          const card = document.createElement('div');
+          card.classList.add('contact-channel-card');
+          card.innerHTML = `
+                      <div class="channel-icon-wrapper">
+                          <span class="channel-icon ${contacto.plataforma.toLowerCase()}-icon">
+                              <i class="${contacto.icono}"></i>
+                          </span>
+                      </div>
+                      <div class="channel-content">
+                          <h3 class="channel-title">${
+                            contacto.tipo || contacto.plataforma
+                          }</h3>
+                          <p class="channel-description">
+                              ${
+                                contacto.textoAlternativo ||
+                                `Conéctate con nosotros vía ${contacto.plataforma}.`
+                              }
+                          </p>
+                          <a
+                            href="${contacto.url}"
+                            target="_blank"
+                            class="btn-join ${contacto.plataforma.toLowerCase()}"
+                          >
+                            Unirse <span class="arrow">&rarr;</span>
+                          </a>
+                      </div>
+                  `;
+          container.appendChild(card);
+        }
+      }
+    });
+  }
+
+  function renderizarPreguntasFrecuentes(faqs, container) {
+    const placeholder = container.querySelector('p');
+    if (placeholder) placeholder.remove();
+    const subtitle = container.querySelector('.section-subtitle');
+    if (subtitle) container.innerHTML = '';
+    if (subtitle) container.appendChild(subtitle);
+
+    faqs.forEach((faq) => {
+      const item = document.createElement('div');
+      item.classList.add('faq-item');
+      item.innerHTML = `
+                <div class="faq-question" role="button" tabindex="0" aria-expanded="false" aria-controls="faq-answer-${
+                  faq.id
+                }">
+                    <span>${faq.pregunta}</span>
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer" id="faq-answer-${faq.id}">
+                    <p>${faq.respuesta.replace(/\n/g, '<br>')}</p>
+                </div>
+            `;
+      container.appendChild(item);
+
+      const question = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      if (question && answer) {
+        question.addEventListener('click', () => {
+          item.classList.toggle('active');
+          const isActive = item.classList.contains('active');
+          question.setAttribute('aria-expanded', String(isActive));
+          if (isActive) {
+            answer.style.maxHeight = answer.scrollHeight + 20 + 'px';
+          } else {
+            answer.style.maxHeight = '0';
+          }
+        });
+        question.addEventListener('keydown', (event) => {
+          if (event.key === 'Enter' || event.key === ' ') {
+            event.preventDefault();
+            question.click();
+          }
+        });
+      }
+    });
+  }
+
+  function renderizarInformacionContacto(contactos, listContainer) {
+    listContainer.innerHTML = '';
+    const emailContacto = contactos.find(
+      (c) => c.plataforma && c.plataforma.toLowerCase() === 'email'
+    );
+
+    if (emailContacto && emailContacto.url) {
+      const emailItem = document.createElement('li');
+      emailItem.classList.add('contact-info-item');
+      emailItem.innerHTML = `
+                <i class="${emailContacto.icono || 'fas fa-envelope'}"></i>
+                <div>
+                    <span class="info-label">Correo electrónico</span>
+                    <a href="${emailContacto.url}">${emailContacto.url.replace(
+        'mailto:',
+        ''
+      )}</a>
+                </div>`;
+      listContainer.appendChild(emailItem);
+    }
+
+    const horarioItem = document.createElement('li');
+    horarioItem.classList.add('contact-info-item');
+    horarioItem.innerHTML = `
+              <i class="fas fa-clock"></i>
+              <div>
+                  <span class="info-label">Horario de soporte</span>
+                  Lunes a Viernes : 9:00 AM - 6:00 PM (UTC-5)
+              </div>`;
+    listContainer.appendChild(horarioItem);
+
+    const discordItem = document.createElement('li');
+    discordItem.classList.add('contact-info-item');
+    discordItem.innerHTML = `
+              <i class="fas fa-headset"></i>
+              <div>
+                  <span class="info-label">Soporte en línea</span>
+                  Disponible en nuestro servidor de Discord
+              </div>`;
+    listContainer.appendChild(discordItem);
+  }
+
+  function renderizarFooterYFAB(
+    redesSociales,
+    contactContainer,
+    socialContainer,
+    fabElement
+  ) {
+    if (contactContainer && redesSociales.contactosDirectos) {
+      contactContainer.innerHTML = '';
+      redesSociales.contactosDirectos.forEach((contacto) => {
+        const linkElement = document.createElement('a');
+        linkElement.href = contacto.url || '#';
+        linkElement.target = '_blank';
+        linkElement.setAttribute(
+          'aria-label',
+          contacto.textoAlternativo || `Contactar por ${contacto.plataforma}`
+        );
+        linkElement.innerHTML = `<i class="${
+          contacto.icono
+        }" aria-hidden="true"></i> ${contacto.plataforma} ${
+          contacto.tipo ? '(' + contacto.tipo + ')' : ''
+        }`;
+        contactContainer.appendChild(linkElement);
+      });
+    } else if (contactContainer) {
+      contactContainer.innerHTML =
+        '<p>Información de contacto no disponible.</p>';
+    }
+
+    if (socialContainer && redesSociales.perfilesSociales) {
+      socialContainer.innerHTML = '';
+      redesSociales.perfilesSociales.forEach((perfil) => {
+        const linkElement = document.createElement('a');
+        linkElement.href = perfil.url || '#';
+        linkElement.target = '_blank';
+        linkElement.title = perfil.titulo;
+        linkElement.setAttribute(
+          'aria-label',
+          `Visita nuestro perfil de ${perfil.titulo}`
+        );
+        linkElement.innerHTML = `<i class="${perfil.icono}" aria-hidden="true"></i>`;
+        socialContainer.appendChild(linkElement);
+      });
+    } else if (socialContainer) {
+      socialContainer.innerHTML = '<p>Redes sociales no disponibles.</p>';
+    }
+
+    if (fabElement && redesSociales.contactosDirectos) {
+      const whatsappFabInfo = redesSociales.contactosDirectos.find(
+        (c) =>
+          c.plataforma &&
+          c.plataforma.toLowerCase() === 'whatsapp' &&
+          c.tipo === 'Contacto Directo'
+      );
+      if (whatsappFabInfo && whatsappFabInfo.url) {
+        fabElement.href = whatsappFabInfo.url;
+      } else {
+        fabElement.href = 'javascript:void(0);';
+        fabElement.style.cursor = 'default';
+      }
+    } else if (fabElement) {
+      fabElement.href = 'javascript:void(0);';
+      fabElement.style.cursor = 'default';
+    }
+  }
+
+  function inicializarSliderProyectos() {
+    const projectListContainerSlider = document.getElementById(
+      'projectListContainer'
+    );
+    const prevBtnSlider = document.querySelector(
+      '#proyectos-destacados .prev-btn'
+    );
+    const nextBtnSlider = document.querySelector(
+      '#proyectos-destacados .next-btn'
+    );
+
+    if (projectListContainerSlider && prevBtnSlider && nextBtnSlider) {
+      const getScrollAmount = () => {
+        const firstCard =
+          projectListContainerSlider.querySelector('.project-card');
+        if (firstCard) {
+          const cardStyle = window.getComputedStyle(firstCard);
+          const cardWidth = firstCard.offsetWidth;
+          const containerStyle = window.getComputedStyle(
+            projectListContainerSlider
+          );
+          let gapValue = parseFloat(containerStyle.gap);
+          if (isNaN(gapValue)) {
+            gapValue = parseFloat(cardStyle.marginRight) || 0;
+            if (isNaN(gapValue)) gapValue = 24;
+          }
+          return cardWidth + gapValue;
+        }
+        return 320;
+      };
+
+      const updateButtonStatesAndCentering = () => {
+        if (!projectListContainerSlider || !prevBtnSlider || !nextBtnSlider)
+          return;
+        if (
+          projectListContainerSlider.children.length === 0 ||
+          projectListContainerSlider.children[0].tagName === 'P'
+        )
+          return;
+
+        const scrollLeft = projectListContainerSlider.scrollLeft;
+        const scrollWidth = projectListContainerSlider.scrollWidth;
+        const clientWidth = projectListContainerSlider.clientWidth;
+        const maxScrollLeft = scrollWidth - clientWidth;
+        const tolerance = 5;
+        prevBtnSlider.disabled = scrollLeft <= tolerance;
+        nextBtnSlider.disabled = scrollLeft >= maxScrollLeft - tolerance;
+        if (scrollWidth <= clientWidth + tolerance) {
+          projectListContainerSlider.classList.add('center-flex-items');
+        } else {
+          projectListContainerSlider.classList.remove('center-flex-items');
+        }
+      };
+      prevBtnSlider.addEventListener('click', () => {
+        const currentScroll = projectListContainerSlider.scrollLeft;
+        const scrollAmount = getScrollAmount();
+        projectListContainerSlider.scrollTo({
+          left: currentScroll - scrollAmount,
+          behavior: 'smooth',
+        });
+      });
+      nextBtnSlider.addEventListener('click', () => {
+        const currentScroll = projectListContainerSlider.scrollLeft;
+        const scrollAmount = getScrollAmount();
+        projectListContainerSlider.scrollTo({
+          left: currentScroll + scrollAmount,
+          behavior: 'smooth',
+        });
+      });
+      projectListContainerSlider.addEventListener(
+        'scroll',
+        updateButtonStatesAndCentering
+      );
+      window.addEventListener('resize', updateButtonStatesAndCentering);
+
+      const observer = new MutationObserver((mutationsList, observer) => {
+        for (let mutation of mutationsList) {
+          if (
+            mutation.type === 'childList' &&
+            projectListContainerSlider.querySelector('.project-card')
+          ) {
+            updateButtonStatesAndCentering();
+            observer.disconnect();
+            break;
+          }
+        }
+      });
+      observer.observe(projectListContainerSlider, { childList: true });
+
+      setTimeout(() => {
+        if (!projectListContainerSlider.querySelector('.project-card')) {
+          console.warn(
+            'Slider cards not found after timeout, slider controls might not be accurate.'
+          );
+        }
+        updateButtonStatesAndCentering();
+      }, 500);
+    }
+  }
+
+  cargarContenidoIndexDesdeJSON();
+
+  const currentYearElement = document.getElementById('currentYear');
+  if (currentYearElement) {
+    currentYearElement.textContent = new Date().getFullYear();
+  }
+});
