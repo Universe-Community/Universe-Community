@@ -4,8 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Universe Scan - Traducciones Profesionales de Manga y Manhwa</title>
-    
-        <link
+   
+    <!-- Google Fonts -->
+    <link
       href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
@@ -1195,6 +1196,7 @@
           <div class="carousel-container">
             <div class="carousel-track" id="latest-releases-carousel-track">
               <!-- Los lanzamientos se insertarán aquí dinámicamente -->
+              <p class="loading-message">Cargando últimos lanzamientos...</p>
             </div>
             <div class="carousel-navigation">
               <button class="carousel-nav-btn prev" id="latest-prev-btn" aria-label="Anterior lanzamiento">
@@ -1236,6 +1238,12 @@
           </div>
           <div class="projects-grid" id="projects-grid">
             <!-- Los proyectos se insertarán aquí dinámicamente -->
+            <p class="loading-message">Cargando proyectos...</p>
+          </div>
+          <div class="pagination-controls" style="display: flex; justify-content: center; align-items: center; gap: 1rem; margin-top: 2rem;">
+            <button class="btn btn-secondary" id="prevPageBtn" disabled><i class="fas fa-arrow-left"></i> Anterior</button>
+            <span id="pageInfo" class="text-gray-600 dark:text-gray-300">Página 1 de 1</span>
+            <button class="btn btn-secondary" id="nextPageBtn" disabled>Siguiente <i class="fas fa-arrow-right"></i></button>
           </div>
         </div>
       </section>
@@ -1250,6 +1258,7 @@
           <div class="carousel-container">
             <div class="carousel-track" id="avisos-carousel-track">
               <!-- Los avisos se insertarán aquí dinámicamente -->
+              <p class="loading-message">Cargando avisos...</p>
             </div>
             <div class="carousel-navigation">
               <button class="carousel-nav-btn prev" id="avisos-prev-btn" aria-label="Aviso anterior">
@@ -1340,6 +1349,7 @@
           </p>
           <div class="faq-container" id="faq-container">
             <!-- Los elementos FAQ se insertarán aquí -->
+            <p class="loading-message">Cargando preguntas frecuentes...</p>
           </div>
         </div>
       </section>
@@ -1375,6 +1385,7 @@
           <h4 class="footer-heading">Proyectos Populares</h4>
           <ul class="footer-links" id="popular-projects-footer">
             <!-- Los enlaces se insertarán aquí dinámicamente -->
+            <p class="loading-message">Cargando proyectos populares...</p>
           </ul>
         </div>
         <div class="footer-column">
@@ -1401,34 +1412,19 @@
     <script>
       document.addEventListener("DOMContentLoaded", () => {
         
+        const API_BASE_URL = 'https://gestor-proyectos-api-xh0o.onrender.com'; 
+        const PUBLIC_PROJECTS_API_URL = `${API_BASE_URL}/api/public/projects`;
+
         /**
          * Objeto principal de la aplicación.
          * Encapsula el estado, los datos y todos los métodos para evitar contaminar el scope global.
          */
         const app = {
-          // --- DATOS (Simulación de BD/API) ---
+          // --- DATOS DE LA API (ahora se cargarán dinámicamente) ---
           db: {
-            projects: [
-              { id: 1, title: "El Regreso del Mago de Clase 8", coverImage: "https://placehold.co/400x600/50C0FF/FFFFFF?text=Mago+Clase+8", synopsis: "Tras ser traicionado, un mago regresa 20 años al pasado para vengarse y evitar una catástrofe.", status: "En Emisión", type: "Manhwa", genres: ["Acción", "Fantasía", "Regresión", "Venganza"], staff: { translator: "Aria", cleaner: "Jin", typesetter: "Ken", corrector: "Elena" }, chapters: [{ num: 15, tmoLink: "#" }, { num: 14, tmoLink: "#" }] },
-              { id: 2, title: "Leyenda del Miríada de Dragones", coverImage: "https://placehold.co/400x600/CB6CE6/FFFFFF?text=Dragones", synopsis: "Un poderoso espiritista demoníaco renace en su yo de 13 años para cambiar su destino.", status: "En Emisión", type: "Manhua", genres: ["Artes Marciales", "Aventura", "Reencarnación"], staff: { translator: "Sora", cleaner: "Leo", typesetter: "Mika" }, chapters: [{ num: 350, tmoLink: "#" }, { num: 349, tmoLink: "#" }] },
-              { id: 3, title: "La Sombra del Monarca", coverImage: "https://placehold.co/400x600/EE8880/FFFFFF?text=Monarca", synopsis: "El cazador más débil de la humanidad encuentra una doble mazmorra que cambiará su vida para siempre.", status: "Finalizado", type: "Manhwa", genres: ["Acción", "Fantasía", "Sistema", "Aventura"], staff: { translator: "Yuki", cleaner: "Ryu", typesetter: "Hana", corrector: "Diego" }, chapters: [{ num: 179, tmoLink: "#" }, { num: 178, tmoLink: "#" }] },
-              { id: 4, title: "My Hero Academia", coverImage: "https://placehold.co/400x600/8888EE/FFFFFF?text=MHA", synopsis: "Un chico sin poderes en un mundo donde son la norma, hereda los poderes de su ídolo, All Might.", status: "En Emisión", type: "Manga", genres: ["Superhéroes", "Acción", "Escolar"], staff: { translator: "Sora", cleaner: "Jin", typesetter: "Ken" }, chapters: [{ num: 420, tmoLink: "#" }, { num: 419, tmoLink: "#" }]},
-              { id: 5, title: "Omniscient Reader's Viewpoint", coverImage: "https://placehold.co/400x600/F469DB/FFFFFF?text=Lector", synopsis: "El mundo se convierte en la novela que leía, y él es el único que sabe cómo termina.", status: "En Emisión", type: "Manhwa", genres: ["Apocalíptico", "Acción", "Fantasía"], staff: { translator: "Aria", cleaner: "Leo", typesetter: "Hana" }, chapters: [{ num: 120, tmoLink: "#" }, { num: 119, tmoLink: "#" }]},
-              { id: 6, title: "El Villano Quiere Vivir", coverImage: "https://placehold.co/400x600/6A5ACD/FFFFFF?text=Villano", synopsis: "Reencarnado como un villano menor, debe usar su conocimiento de la trama para sobrevivir.", status: "En Emisión", type: "Manhwa", genres: ["Fantasía", "Isekai", "Acción", "Romance"], staff: { translator: "Leo", cleaner: "Jin", typesetter: "Mika", corrector: "Sara" }, chapters: [{ num: 85, tmoLink: "#" }, { num: 84, tmoLink: "#" }]},
-              { id: 7, title: "El Gran Mago de la Torre", coverImage: "https://placehold.co/400x600/FFA07A/FFFFFF?text=Torre", synopsis: "Un joven huérfano con un talento oculto para la magia es aceptado en la prestigiosa Torre de Magia.", status: "En Emisión", type: "Manhwa", genres: ["Fantasía", "Aventura", "Magia"], staff: { translator: "Elena", cleaner: "Hana", typesetter: "Yuki" }, chapters: [{ num: 50, tmoLink: "#" }, { num: 49, tmoLink: "#" }]},
-              { id: 8, title: "Solo Leveling", coverImage: "https://placehold.co/400x600/FFD700/000000?text=Solo+Leveling", synopsis: "Un cazador débil recibe un 'Sistema' que le permite subir de nivel como en un videojuego.", status: "Finalizado", type: "Manhwa", genres: ["Acción", "Fantasía", "Sistema", "Poderes"], staff: { translator: "Yuki", cleaner: "Jin", typesetter: "Leo", corrector: "Aria" }, chapters: [{ num: 179, tmoLink: "#" }, { num: 178, tmoLink: "#" }]}
-            ],
-            faqs: [
-              { q: "¿Puedo resubir sus proyectos a otras plataformas?", a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde nuestras plataformas oficiales o únete a nuestro canal de Telegram para actualizaciones y descargas directas." },
-              { q: "¿Cómo puedo unirme al scan?", a: "¡Nos encanta que estés interesado! Puedes aplicar a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles." },
-              { q: "¿Con qué frecuencia publican capítulos?", a: "La frecuencia depende de la disponibilidad del staff y la dificultad del proyecto. Nos esforzamos por mantener un ritmo constante y de alta calidad." },
-              { q: "¿Puedo sugerir un proyecto para traducir?", a: "¡Claro que sí! Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda y el interés del equipo." }
-            ],
-            notices: [
-              { id: 1, title: "Mantenimiento Programado", content: "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM.", date: "25/06/2024" },
-              { id: 2, title: "¡Nuevo Proyecto Anunciado!", content: "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos!", date: "20/06/2024" },
-              { id: 3, title: "Reclutamiento Abierto", content: "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.", date: "15/06/2024" }
-            ],
+            projects: [], // Se llenará desde la API
+            faqs: [],     // Puedes cargar FAQs desde una API si tienes una
+            notices: [],  // Puedes cargar avisos desde una API si tienes una
           },
 
           // --- ESTADO DE LA APLICACIÓN ---
@@ -1438,6 +1434,10 @@
             currentSearchQuery: '',
             headerHeight: 70,
             lastFocusedElement: null,
+            currentPage: 1,
+            pageSize: 8, // Puedes ajustar el tamaño de página para el frontend
+            totalPages: 1,
+            isLoadingProjects: false,
           },
 
           // --- SELECTORES DE ELEMENTOS DEL DOM ---
@@ -1463,13 +1463,17 @@
             modalContent: document.getElementById('modal-content'),
             navLinks: document.querySelectorAll('.main-menu a[href^="#"]'),
             sections: document.querySelectorAll('main section[id]'),
+            // Elementos de paginación
+            prevPageBtn: document.getElementById('prevPageBtn'),
+            nextPageBtn: document.getElementById('nextPageBtn'),
+            pageInfo: document.getElementById('pageInfo'),
           },
 
           /**
            * Método de inicialización principal.
            * Se llama una vez que el DOM está completamente cargado.
            */
-          init() {
+          async init() {
             // Check if essential elements exist before proceeding
             if (!this.elements.projectsGrid || !this.elements.faqContainer) {
               console.error("Essential elements not found. App initialization aborted.");
@@ -1480,7 +1484,83 @@
             this.nav.init();
             this.modal.init();
             this.setupEventListeners();
+            await this.initializeData(); // Carga de datos inicial desde la API
             this.renderAll();
+          },
+
+          /**
+           * Carga los datos iniciales de los proyectos desde la API pública.
+           */
+          async initializeData() {
+            await this.fetchProjectsFromAPI();
+            // TODO: Si tienes endpoints para avisos y FAQs, llámalos aquí:
+            // await this.fetchNoticesFromAPI();
+            // await this.fetchFaqsFromAPI();
+            // Ejemplo de datos estáticos para FAQS y Notices si no hay API para ellos:
+            this.db.faqs = [
+              { q: "¿Puedo resubir sus proyectos a otras plataformas?", a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde nuestras plataformas oficiales o únete a nuestro canal de Telegram para actualizaciones y descargas directas." },
+              { q: "¿Cómo puedo unirme al scan?", a: "¡Nos encanta que estés interesado! Puedes aplicar a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles." },
+              { q: "¿Con qué frecuencia publican capítulos?", a: "La frecuencia depende de la disponibilidad del staff y la dificultad del proyecto. Nos esforzamos por mantener un ritmo constante y de alta calidad." },
+              { q: "¿Puedo sugerir un proyecto para traducir?", a: "¡Claro que sí! Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda y el interés del equipo." }
+            ];
+            this.db.notices = [
+              { id: 1, title: "Mantenimiento Programado", content: "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM.", date: "25/06/2024" },
+              { id: 2, title: "¡Nuevo Proyecto Anunciado!", content: "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos!", date: "20/06/2024" },
+              { id: 3, title: "Reclutamiento Abierto", content: "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.", date: "15/06/2024" }
+            ];
+          },
+
+          /**
+           * Llama a la API para obtener los proyectos.
+           * Aplica filtros y paginación.
+           */
+          async fetchProjectsFromAPI() {
+            if (app.state.isLoadingProjects) return;
+            app.state.isLoadingProjects = true;
+            app.render.showLoadingMessages(); // Muestra mensajes de carga
+
+            const queryParams = new URLSearchParams();
+            queryParams.append('page', app.state.currentPage);
+            queryParams.append('limit', app.state.pageSize);
+
+            // Añadir filtros de búsqueda y tipo al queryParams
+            if (app.state.currentStatusFilter !== 'all') {
+                queryParams.append('filterEstado', app.state.currentStatusFilter);
+            }
+            if (app.state.currentTypeFilter !== 'all') {
+                queryParams.append('searchTipo', app.state.currentTypeFilter); // Usa searchTipo como el backend espera
+            }
+            if (app.state.currentSearchQuery) {
+                queryParams.append('searchName', app.state.currentSearchQuery);
+                // Si quieres buscar por otros campos (género, sinopsis, etc.) también,
+                // tu API necesitaría soportar esas búsquedas. Aquí solo se usa 'searchName'.
+            }
+            // Para la API pública, no se manejan sortOrder ni sortBy
+            
+            try {
+                const response = await fetch(`${PUBLIC_PROJECTS_API_URL}?${queryParams.toString()}`);
+                if (!response.ok) {
+                    throw new Error(`Error HTTP: ${response.status}`);
+                }
+                const data = await response.json();
+                
+                if (data.success) {
+                    app.db.projects = data.data;
+                    app.state.totalPages = data.pagination.totalPages;
+                    app.render.updatePaginationControls();
+                } else {
+                    console.error('Error al cargar proyectos desde la API:', data.message);
+                    app.db.projects = []; // Limpia proyectos si hay error
+                }
+            } catch (error) {
+                console.error('Error de red al obtener proyectos:', error);
+                app.db.projects = [];
+                // Muestra un mensaje al usuario en la UI si es necesario
+                app.render.showErrorMessage('No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.');
+            } finally {
+                app.state.isLoadingProjects = false;
+                app.renderAll(); // Vuelve a renderizar después de cargar los datos
+            }
           },
 
           /**
@@ -1495,19 +1575,34 @@
             this.elements.avisosNextBtn?.addEventListener('click', () => this.carousel.scroll(this.elements.avisosNextBtn, 'next'));
             
             // Project Filtering
-            this.elements.searchInput?.addEventListener('input', e => {
-              this.state.currentSearchQuery = e.target.value.trim().toLowerCase();
-              this.render.projects();
+            this.elements.searchInput?.addEventListener('input', async (e) => {
+              app.state.currentSearchQuery = e.target.value.trim().toLowerCase();
+              app.state.currentPage = 1; // Reset page on new search
+              await app.fetchProjectsFromAPI(); // Vuelve a cargar desde la API con el nuevo filtro
             });
 
-            this.elements.statusFilters?.addEventListener('click', e => this.handleFilterClick(e, 'currentStatusFilter', this.elements.statusFilters));
-            this.elements.typeFilters?.addEventListener('click', e => this.handleFilterClick(e, 'currentTypeFilter', this.elements.typeFilters));
+            this.elements.statusFilters?.addEventListener('click', async (e) => this.handleFilterClick(e, 'currentStatusFilter', this.elements.statusFilters));
+            this.elements.typeFilters?.addEventListener('click', async (e) => this.handleFilterClick(e, 'currentTypeFilter', this.elements.typeFilters));
+
+            // Pagination Controls
+            this.elements.prevPageBtn?.addEventListener('click', async () => {
+                if (app.state.currentPage > 1) {
+                    app.state.currentPage--;
+                    await app.fetchProjectsFromAPI();
+                }
+            });
+            this.elements.nextPageBtn?.addEventListener('click', async () => {
+                if (app.state.currentPage < app.state.totalPages) {
+                    app.state.currentPage++;
+                    await app.fetchProjectsFromAPI();
+                }
+            });
 
             // Event Delegation for dynamic content
             this.elements.projectsGrid?.addEventListener('click', e => {
               const card = e.target.closest('.project-card');
               if (card && card.dataset.projectId) {
-                this.modal.open(parseInt(card.dataset.projectId));
+                this.modal.open(card.dataset.projectId); // Ahora se pasa el _id de MongoDB (string)
               }
             });
 
@@ -1522,7 +1617,7 @@
               e.preventDefault();
               const link = e.target.closest('a');
               if (link && link.dataset.projectId) {
-                this.modal.open(parseInt(link.dataset.projectId));
+                this.modal.open(link.dataset.projectId); // Ahora se pasa el _id de MongoDB (string)
               }
             });
             
@@ -1547,14 +1642,15 @@
            * @param {string} filterStateProperty - La propiedad del estado a actualizar.
            * @param {HTMLElement} filterGroup - El contenedor del grupo de filtros.
            */
-          handleFilterClick(e, filterStateProperty, filterGroup) {
+          async handleFilterClick(e, filterStateProperty, filterGroup) {
               const button = e.target.closest('.filter-btn');
               if (!button || button.classList.contains('active')) return;
 
               filterGroup.querySelector('.active')?.classList.remove('active');
               button.classList.add('active');
-              this.state[filterStateProperty] = button.dataset.filter;
-              this.render.projects();
+              app.state[filterStateProperty] = button.dataset.filter;
+              app.state.currentPage = 1; // Reset page on new filter
+              await app.fetchProjectsFromAPI(); // Vuelve a cargar desde la API con el nuevo filtro
           },
 
           // --- MÓDULOS (Organización por funcionalidad) ---
@@ -1563,28 +1659,47 @@
            * Módulo de Renderizado: contiene funciones para pintar datos en el DOM.
            */
           render: {
+            showLoadingMessages() {
+                // Muestra mensajes de carga en las secciones relevantes
+                const loadingHtml = '<p class="loading-message">Cargando...</p>';
+                if (app.elements.latestReleasesTrack) app.elements.latestReleasesTrack.innerHTML = loadingHtml;
+                if (app.elements.projectsGrid) app.elements.projectsGrid.innerHTML = loadingHtml;
+                if (app.elements.avisosTrack) app.elements.avisosTrack.innerHTML = loadingHtml;
+                if (app.elements.faqContainer) app.elements.faqContainer.innerHTML = loadingHtml;
+                if (app.elements.popularProjectsFooter) app.elements.popularProjectsFooter.innerHTML = loadingHtml;
+            },
+            showErrorMessage(message) {
+                // Puedes implementar un mensaje de error más visible si lo deseas
+                alert(`Error: ${message}`); 
+            },
             latestReleases() {
+                // Filtra solo los proyectos con capítulos disponibles y isAvailable: true
                 const latestProjects = app.db.projects
-                    .filter(p => p.chapters && p.chapters.length > 0)
-                    .map(p => ({ ...p, latestChapterNum: Math.max(...p.chapters.map(c => c.num))}))
-                    .sort((a, b) => b.latestChapterNum - a.latestChapterNum)
-                    .slice(0, 8);
+                    .filter(p => p.capitulo && p.isAvailable) // Asume que 'capitulo' es el último capítulo
+                    .sort((a, b) => {
+                        // Intentar parsear a número para ordenar correctamente
+                        const capA = parseFloat(a.capitulo);
+                        const capB = parseFloat(b.capitulo);
+                        return (isNaN(capB) ? 0 : capB) - (isNaN(capA) ? 0 : capA);
+                    })
+                    .slice(0, 8); // Mostrar los 8 más recientes
                 
                 const html = latestProjects.map(project => `
-                    <a href="#" class="release-card" data-project-id="${project.id}">
-                        <img src="${project.coverImage}" alt="Portada de ${project.title}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x420/ccc/fff?text=Error'">
+                    <a href="#" class="release-card" data-project-id="${project._id}">
+                        <img src="${project.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${project.nombre}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x420/ccc/fff?text=Error'">
                         <div class="release-info">
-                            <h3 class="release-title">${project.title}</h3>
-                            <p class="release-chapter">Capítulo ${project.latestChapterNum}</p>
+                            <h3 class="release-title">${project.nombre}</h3>
+                            <p class="release-chapter">Capítulo ${project.capitulo}</p>
                         </div>
                     </a>
                 `).join('');
                 
                 if (app.elements.latestReleasesTrack) {
-                    app.elements.latestReleasesTrack.innerHTML = html || '<p>No hay lanzamientos recientes.</p>';
+                    app.elements.latestReleasesTrack.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay lanzamientos recientes.</p>';
                 }
             },
             notices() {
+                // Renderiza avisos (ahora estáticos, o de una futura API de avisos)
                 const html = app.db.notices.map(notice => `
                     <div class="notice-card">
                         <h4>${notice.title}</h4>
@@ -1594,43 +1709,39 @@
                 `).join('');
                 
                 if (app.elements.avisosTrack) {
-                    app.elements.avisosTrack.innerHTML = html || '<p>No hay avisos.</p>';
+                    app.elements.avisosTrack.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay avisos disponibles.</p>';
                 }
             },
             projects() {
                 const { projects } = app.db;
                 const { currentStatusFilter, currentTypeFilter, currentSearchQuery } = app.state;
 
-                const filtered = projects.filter(p => 
-                    (currentStatusFilter === 'all' || p.status === currentStatusFilter) &&
-                    (currentTypeFilter === 'all' || p.type === currentTypeFilter) &&
-                    (currentSearchQuery === '' || 
-                        p.title.toLowerCase().includes(currentSearchQuery) || 
-                        p.synopsis.toLowerCase().includes(currentSearchQuery) ||
-                        p.genres.some(g => g.toLowerCase().includes(currentSearchQuery))
-                    )
-                );
+                // El filtrado y búsqueda ya se hacen en fetchProjectsFromAPI()
+                // Aquí solo se renderiza lo que `app.db.projects` contiene.
+                const filteredAndSearchedProjects = projects; 
                 
-                const html = filtered.map(p => {
-                    const statusClass = p.status === "En Emisión" ? "emision" : "finalizado";
+                const html = filteredAndSearchedProjects.map(p => {
+                    // Asegúrate de que el estado sea el que mapea tus clases CSS
+                    const statusClass = p.estado === "En Emisión" ? "emision" : (p.estado === "Finalizado" ? "finalizado" : "");
                     return `
-                        <div class="project-card" data-project-id="${p.id}">
-                            <img src="${p.coverImage}" alt="Portada de ${p.title}" class="project-card-image" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccc/fff?text=Error'">
-                            <span class="project-card-status ${statusClass}">${p.status}</span>
+                        <div class="project-card" data-project-id="${p._id}">
+                            <img src="${p.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${p.nombre}" class="project-card-image" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccc/fff?text=Error'">
+                            <span class="project-card-status ${statusClass}">${p.estado}</span>
                             <div class="project-card-content">
-                                <span class="project-card-type">${p.type}</span>
-                                <h3 class="project-card-title">${p.title}</h3>
-                                <p class="project-card-synopsis">${p.synopsis.substring(0,100)}...</p>
+                                <span class="project-card-type">${p.tipo}</span>
+                                <h3 class="project-card-title">${p.nombre}</h3>
+                                <p class="project-card-synopsis">${p.sinopsis.substring(0,100)}...</p>
                             </div>
                         </div>
                     `;
                 }).join('');
 
                 if (app.elements.projectsGrid) {
-                    app.elements.projectsGrid.innerHTML = html || '<p>No se encontraron proyectos.</p>';
+                    app.elements.projectsGrid.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-8 w-full">No se encontraron proyectos disponibles.</p>';
                 }
             },
             faqs() {
+                // Renderiza FAQs (ahora estáticos, o de una futura API de FAQs)
                 const html = app.db.faqs.map(faq => `
                     <div class="faq-item">
                         <div class="faq-question" role="button" aria-expanded="false">
@@ -1643,15 +1754,27 @@
                 `).join('');
                 
                 if (app.elements.faqContainer) {
-                    app.elements.faqContainer.innerHTML = html;
+                    app.elements.faqContainer.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay preguntas frecuentes disponibles.</p>';
                 }
             },
             popularProjectsFooter() {
-                const popular = app.db.projects.slice(0, 4);
-                const html = popular.map(p => `<li><a href="#proyectos" data-project-id="${p.id}">${p.title}</a></li>`).join('');
+                // Filtra y ordena proyectos para el footer (usando datos de la API)
+                const popular = app.db.projects.slice(0, 4); // Coge los primeros 4 de la lista cargada
+                const html = popular.map(p => `<li><a href="#proyectos" data-project-id="${p._id}">${p.nombre}</a></li>`).join('');
                 
                 if (app.elements.popularProjectsFooter) {
-                    app.elements.popularProjectsFooter.innerHTML = html;
+                    app.elements.popularProjectsFooter.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay proyectos populares.</p>';
+                }
+            },
+            updatePaginationControls() {
+                if (app.elements.pageInfo) {
+                    app.elements.pageInfo.textContent = `Página ${app.state.currentPage} de ${app.state.totalPages}`;
+                }
+                if (app.elements.prevPageBtn) {
+                    app.elements.prevPageBtn.disabled = app.state.currentPage === 1;
+                }
+                if (app.elements.nextPageBtn) {
+                    app.elements.nextPageBtn.disabled = app.state.currentPage === app.state.totalPages;
                 }
             }
           },
@@ -1734,39 +1857,65 @@
                   }
               });
             },
+            // Abre el modal con los detalles del proyecto (ahora usa el _id de MongoDB)
             open(projectId) {
-                const project = app.db.projects.find(p => p.id === projectId);
+                const project = app.db.projects.find(p => p._id === projectId); // Busca por _id
                 if (!project || !app.elements.modalContent || !app.elements.projectModal) return;
 
-                const genresHtml = project.genres.map(g => `<span class="tag">${g}</span>`).join('');
-                const staffHtml = Object.entries(project.staff).map(([role, name]) => `
-                    <div class="modal-detail-item"><strong>${role.charAt(0).toUpperCase() + role.slice(1)}:</strong> <span>${name}</span></div>
-                `).join('');
-                const chaptersHtml = project.chapters.sort((a,b) => b.num - a.num).map(c => `
+                const genresHtml = (project.generos || []).map(g => `<span class="tag">${g}</span>`).join('');
+                
+                // Mapear el staff a un formato más amigable si existe
+                const staffHtml = project.staff ? Object.entries(project.staff).map(([role, names]) => {
+                    if (names && names.length > 0) {
+                        return `<div class="modal-detail-item"><strong>${role}:</strong> <span>${names.join(', ')}</span></div>`;
+                    }
+                    return '';
+                }).filter(html => html !== '').join('') : ''; // Filtrar entradas vacías
+
+
+                // Asume que 'capitulo' es el último capítulo o un identificador de fase.
+                // Si la API no retorna una lista de capítulos, se muestra solo el último.
+                // Si necesitas una lista de capítulos dinámicamente, tu API pública debería ofrecer un endpoint para eso.
+                const chaptersHtml = project.capitulo ? `
                     <div class="chapter-item">
-                        <span>Capítulo ${c.num}</span>
-                        <a href="${c.tmoLink}" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> Ver</a>
+                        <span>Capítulo ${project.capitulo}</span>
+                        <div class="chapter-links">
+                            <a href="${project.tmo}" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> Ver en TMO</a>
+                            <a href="${project.pdf}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> PDF</a>
+                        </div>
                     </div>
-                `).join('');
+                ` : '<p>No hay capítulos disponibles.</p>';
+
 
                 const contentHtml = `
                     <div class="modal-header">
-                        <h2 class="modal-title" id="modal-title">${project.title}</h2>
+                        <h2 class="modal-title" id="modal-title">${project.nombre}</h2>
                         <button class="modal-close" aria-label="Cerrar modal"><i class="fas fa-times"></i></button>
                     </div>
                     <div class="modal-body">
-                        <div class="modal-cover"><img src="${project.coverImage}" alt="Portada de ${project.title}"></div>
+                        <div class="modal-cover">
+                            <img src="${project.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${project.nombre}" onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccc/fff?text=Error'">
+                            <p class="text-center text-gray-500 dark:text-gray-400 mt-2 text-sm">ID: ${project._id}</p>
+                        </div>
                         <div class="modal-info">
-                            <h3>Sinopsis</h3><p>${project.synopsis}</p>
+                            <h3>Sinopsis</h3><p>${project.sinopsis}</p>
                             <div class="modal-details-grid">
-                                <div class="modal-detail-item"><strong>Estado:</strong> <span>${project.status}</span></div>
-                                <div class="modal-detail-item"><strong>Tipo:</strong> <span>${project.type}</span></div>
+                                <div class="modal-detail-item"><strong>Estado:</strong> <span>${project.estado}</span></div>
+                                <div class="modal-detail-item"><strong>Tipo:</strong> <span>${project.tipo}</span></div>
                             </div>
                             <h3>Géneros</h3><div class="modal-tags">${genresHtml}</div>
-                            <h3>Staff</h3><div class="modal-details-grid">${staffHtml}</div>
+                            ${staffHtml ? `<h3>Staff</h3><div class="modal-details-grid">${staffHtml}</div>` : ''}
                             <div class="chapter-list-section">
-                                <h3>Capítulos</h3>
-                                <div class="chapter-list">${chaptersHtml || '<p>No hay capítulos aún.</p>'}</div>
+                                <h3>Último Capítulo/Fase</h3>
+                                <div class="chapter-list">${chaptersHtml}</div>
+                            </div>
+                            <div class="mt-4">
+                                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">Comunidad y Recursos:</h3>
+                                <div class="flex flex-wrap gap-2">
+                                    <a href="${project.telegram}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fab fa-telegram-plane"></i> Telegram</a>
+                                    <a href="${project.tmo}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"><i class="fas fa-book-open"></i> TMO</a>
+                                    <a href="${project.pdf}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> PDF</a>
+                                </div>
                             </div>
                         </div>
                     </div>
