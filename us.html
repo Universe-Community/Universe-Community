@@ -533,12 +533,19 @@
         border-radius: 5px;
         text-transform: uppercase;
       }
-      .project-card-status.emision {
+      .project-card-status.en-curso {
         background-color: var(--brand-purple-start);
       }
       .project-card-status.finalizado {
         background-color: var(--brand-pink);
       }
+      .project-card-status.pausado {
+        background-color: #f0ad4e;
+      }
+      .project-card-status.abandonado {
+        background-color: #d9534f;
+      }
+
 
       /* Modal de Proyecto */
       .modal-overlay {
@@ -607,8 +614,15 @@
       .modal-info h3 {
         font-size: 1.2rem;
         font-weight: 600;
+        margin-top: 1.5rem;
         margin-bottom: 1rem;
         color: var(--text-dark);
+        border-bottom: 2px solid var(--brand-purple-start);
+        padding-bottom: 0.5rem;
+        display: inline-block;
+      }
+      .modal-info h3:first-child {
+        margin-top: 0;
       }
       .modal-info p {
         color: var(--text-medium);
@@ -617,7 +631,7 @@
       }
       .modal-details-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
         gap: 1rem;
         margin-bottom: 1.5rem;
       }
@@ -1222,12 +1236,13 @@
           <div class="filters-container">
             <div class="search-box">
               <i class="fas fa-search"></i>
-              <input type="text" id="search-input" placeholder="Buscar por nombre, género o staff..." />
+              <input type="text" id="search-input" placeholder="Buscar por nombre..." />
             </div>
             <div class="filter-group" id="status-filters">
               <button class="filter-btn active" data-filter="all">Todos</button>
-              <button class="filter-btn" data-filter="En Emisión">En Emisión</button>
+              <button class="filter-btn" data-filter="En Curso">En Curso</button>
               <button class="filter-btn" data-filter="Finalizado">Finalizados</button>
+              <button class="filter-btn" data-filter="Pausado">Pausado</button>
             </div>
             <div class="filter-group" id="type-filters">
               <button class="filter-btn active" data-filter="all">Todos</button>
@@ -1417,17 +1432,23 @@
 
         /**
          * Objeto principal de la aplicación.
-         * Encapsula el estado, los datos y todos los métodos para evitar contaminar el scope global.
          */
         const app = {
-          // --- DATOS DE LA API (ahora se cargarán dinámicamente) ---
           db: {
-            projects: [], // Se llenará desde la API
-            faqs: [],     // Puedes cargar FAQs desde una API si tienes una
-            notices: [],  // Puedes cargar avisos desde una API si tienes una
+            projects: [], 
+            faqs: [
+              { q: "¿Puedo resubir sus proyectos a otras plataformas?", a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde nuestras plataformas oficiales o únete a nuestro canal de Telegram para actualizaciones y descargas directas." },
+              { q: "¿Cómo puedo unirme al scan?", a: "¡Nos encanta que estés interesado! Puedes aplicar a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles." },
+              { q: "¿Con qué frecuencia publican capítulos?", a: "La frecuencia depende de la disponibilidad del staff y la dificultad del proyecto. Nos esforzamos por mantener un ritmo constante y de alta calidad." },
+              { q: "¿Puedo sugerir un proyecto para traducir?", a: "¡Claro que sí! Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda y el interés del equipo." }
+            ],
+            notices: [
+              { id: 1, title: "Mantenimiento Programado", content: "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM.", date: "25/06/2024" },
+              { id: 2, title: "¡Nuevo Proyecto Anunciado!", content: "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos!", date: "20/06/2024" },
+              { id: 3, title: "Reclutamiento Abierto", content: "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.", date: "15/06/2024" }
+            ],
           },
 
-          // --- ESTADO DE LA APLICACIÓN ---
           state: {
             currentStatusFilter: 'all',
             currentTypeFilter: 'all',
@@ -1435,12 +1456,11 @@
             headerHeight: 70,
             lastFocusedElement: null,
             currentPage: 1,
-            pageSize: 8, // Puedes ajustar el tamaño de página para el frontend
+            pageSize: 12, 
             totalPages: 1,
             isLoadingProjects: false,
           },
 
-          // --- SELECTORES DE ELEMENTOS DEL DOM ---
           elements: {
             header: document.getElementById('header'),
             themeToggleButtons: document.querySelectorAll('.theme-toggle-button'),
@@ -1463,233 +1483,148 @@
             modalContent: document.getElementById('modal-content'),
             navLinks: document.querySelectorAll('.main-menu a[href^="#"]'),
             sections: document.querySelectorAll('main section[id]'),
-            // Elementos de paginación
             prevPageBtn: document.getElementById('prevPageBtn'),
             nextPageBtn: document.getElementById('nextPageBtn'),
             pageInfo: document.getElementById('pageInfo'),
           },
 
-          /**
-           * Método de inicialización principal.
-           * Se llama una vez que el DOM está completamente cargado.
-           */
           async init() {
-            // Check if essential elements exist before proceeding
-            if (!this.elements.projectsGrid || !this.elements.faqContainer) {
-              console.error("Essential elements not found. App initialization aborted.");
-              return;
-            }
-            
             this.theme.init();
             this.nav.init();
             this.modal.init();
             this.setupEventListeners();
-            await this.initializeData(); // Carga de datos inicial desde la API
-            this.renderAll();
-          },
-
-          /**
-           * Carga los datos iniciales de los proyectos desde la API pública.
-           */
-          async initializeData() {
             await this.fetchProjectsFromAPI();
-            // TODO: Si tienes endpoints para avisos y FAQs, llámalos aquí:
-            // await this.fetchNoticesFromAPI();
-            // await this.fetchFaqsFromAPI();
-            // Ejemplo de datos estáticos para FAQS y Notices si no hay API para ellos:
-            this.db.faqs = [
-              { q: "¿Puedo resubir sus proyectos a otras plataformas?", a: "No. Pedimos por favor que no resuban nuestro trabajo. Apóyanos leyendo directamente desde nuestras plataformas oficiales o únete a nuestro canal de Telegram para actualizaciones y descargas directas." },
-              { q: "¿Cómo puedo unirme al scan?", a: "¡Nos encanta que estés interesado! Puedes aplicar a través de nuestro grupo de Telegram. Revisa la sección de 'Reclutamiento' para más detalles sobre los roles disponibles." },
-              { q: "¿Con qué frecuencia publican capítulos?", a: "La frecuencia depende de la disponibilidad del staff y la dificultad del proyecto. Nos esforzamos por mantener un ritmo constante y de alta calidad." },
-              { q: "¿Puedo sugerir un proyecto para traducir?", a: "¡Claro que sí! Puedes proponer nuevos proyectos en nuestro grupo de Telegram. Evaluaremos las propuestas según la demanda y el interés del equipo." }
-            ];
-            this.db.notices = [
-              { id: 1, title: "Mantenimiento Programado", content: "Informamos que habrá un breve mantenimiento en la base de datos el 30 de Julio a las 03:00 AM.", date: "25/06/2024" },
-              { id: 2, title: "¡Nuevo Proyecto Anunciado!", content: "Estamos emocionados de anunciar nuestro nuevo proyecto: 'El Legado del Héroe'. ¡Estén atentos!", date: "20/06/2024" },
-              { id: 3, title: "Reclutamiento Abierto", content: "¡Seguimos buscando traductores y typesetters! Si estás interesado, visita nuestra sección de Reclutamiento.", date: "15/06/2024" }
-            ];
+            this.render.notices();
+            this.render.faqs();
           },
 
-          /**
-           * Llama a la API para obtener los proyectos.
-           * Aplica filtros y paginación.
-           */
           async fetchProjectsFromAPI() {
-            if (app.state.isLoadingProjects) return;
-            app.state.isLoadingProjects = true;
-            app.render.showLoadingMessages(); // Muestra mensajes de carga
+            if (this.state.isLoadingProjects) return;
+            this.state.isLoadingProjects = true;
+            this.render.showLoadingMessages();
 
-            const queryParams = new URLSearchParams();
-            queryParams.append('page', app.state.currentPage);
-            queryParams.append('limit', app.state.pageSize);
+            const params = new URLSearchParams({
+                page: this.state.currentPage,
+                limit: this.state.pageSize,
+            });
 
-            // Añadir filtros de búsqueda y tipo al queryParams
-            if (app.state.currentStatusFilter !== 'all') {
-                queryParams.append('filterEstado', app.state.currentStatusFilter);
-            }
-            if (app.state.currentTypeFilter !== 'all') {
-                queryParams.append('searchTipo', app.state.currentTypeFilter); // Usa searchTipo como el backend espera
-            }
-            if (app.state.currentSearchQuery) {
-                queryParams.append('searchName', app.state.currentSearchQuery);
-                // Si quieres buscar por otros campos (género, sinopsis, etc.) también,
-                // tu API necesitaría soportar esas búsquedas. Aquí solo se usa 'searchName'.
-            }
-            // Para la API pública, no se manejan sortOrder ni sortBy
+            if (this.state.currentStatusFilter !== 'all') params.append('filterEstado', this.state.currentStatusFilter);
+            if (this.state.currentTypeFilter !== 'all') params.append('searchTipo', this.state.currentTypeFilter);
+            if (this.state.currentSearchQuery) params.append('searchName', this.state.currentSearchQuery);
             
             try {
-                const response = await fetch(`${PUBLIC_PROJECTS_API_URL}?${queryParams.toString()}`);
-                if (!response.ok) {
-                    throw new Error(`Error HTTP: ${response.status}`);
-                }
-                const data = await response.json();
+                const response = await fetch(`${PUBLIC_PROJECTS_API_URL}?${params.toString()}`);
+                if (!response.ok) throw new Error(`Error HTTP: ${response.status}`);
                 
+                const data = await response.json();
                 if (data.success) {
-                    app.db.projects = data.data;
-                    app.state.totalPages = data.pagination.totalPages;
-                    app.render.updatePaginationControls();
+                    this.db.projects = data.data;
+                    this.state.totalPages = data.pagination.totalPages;
                 } else {
-                    console.error('Error al cargar proyectos desde la API:', data.message);
-                    app.db.projects = []; // Limpia proyectos si hay error
+                    throw new Error(data.message || 'Error al cargar proyectos');
                 }
             } catch (error) {
                 console.error('Error de red al obtener proyectos:', error);
-                app.db.projects = [];
-                // Muestra un mensaje al usuario en la UI si es necesario
-                app.render.showErrorMessage('No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.');
+                this.db.projects = [];
+                this.render.showErrorMessage('No se pudieron cargar los proyectos. Inténtalo de nuevo más tarde.');
             } finally {
-                app.state.isLoadingProjects = false;
-                app.renderAll(); // Vuelve a renderizar después de cargar los datos
+                this.state.isLoadingProjects = false;
+                this.render.projects();
+                this.render.latestReleases();
+                this.render.popularProjectsFooter();
+                this.render.updatePaginationControls();
             }
           },
 
-          /**
-           * Configura todos los event listeners de la aplicación.
-           * Utiliza delegación de eventos cuando es posible para mejorar el rendimiento.
-           */
           setupEventListeners() {
-            // Carousel Buttons
             this.elements.latestPrevBtn?.addEventListener('click', () => this.carousel.scroll(this.elements.latestReleasesTrack, 'prev'));
             this.elements.latestNextBtn?.addEventListener('click', () => this.carousel.scroll(this.elements.latestReleasesTrack, 'next'));
             this.elements.avisosPrevBtn?.addEventListener('click', () => this.carousel.scroll(this.elements.avisosTrack, 'prev'));
             this.elements.avisosNextBtn?.addEventListener('click', () => this.carousel.scroll(this.elements.avisosNextBtn, 'next'));
             
-            // Project Filtering
-            this.elements.searchInput?.addEventListener('input', async (e) => {
-              app.state.currentSearchQuery = e.target.value.trim().toLowerCase();
-              app.state.currentPage = 1; // Reset page on new search
-              await app.fetchProjectsFromAPI(); // Vuelve a cargar desde la API con el nuevo filtro
-            });
+            this.elements.searchInput?.addEventListener('input', this.debounce(async (e) => {
+              this.state.currentSearchQuery = e.target.value.trim();
+              this.state.currentPage = 1;
+              await this.fetchProjectsFromAPI();
+            }, 300));
 
-            this.elements.statusFilters?.addEventListener('click', async (e) => this.handleFilterClick(e, 'currentStatusFilter', this.elements.statusFilters));
-            this.elements.typeFilters?.addEventListener('click', async (e) => this.handleFilterClick(e, 'currentTypeFilter', this.elements.typeFilters));
+            this.elements.statusFilters?.addEventListener('click', (e) => this.handleFilterClick(e, 'currentStatusFilter', this.elements.statusFilters));
+            this.elements.typeFilters?.addEventListener('click', (e) => this.handleFilterClick(e, 'currentTypeFilter', this.elements.typeFilters));
 
-            // Pagination Controls
-            this.elements.prevPageBtn?.addEventListener('click', async () => {
-                if (app.state.currentPage > 1) {
-                    app.state.currentPage--;
-                    await app.fetchProjectsFromAPI();
-                }
-            });
-            this.elements.nextPageBtn?.addEventListener('click', async () => {
-                if (app.state.currentPage < app.state.totalPages) {
-                    app.state.currentPage++;
-                    await app.fetchProjectsFromAPI();
-                }
-            });
+            this.elements.prevPageBtn?.addEventListener('click', () => this.changePage(-1));
+            this.elements.nextPageBtn?.addEventListener('click', () => this.changePage(1));
 
-            // Event Delegation for dynamic content
             this.elements.projectsGrid?.addEventListener('click', e => {
               const card = e.target.closest('.project-card');
-              if (card && card.dataset.projectId) {
-                this.modal.open(card.dataset.projectId); // Ahora se pasa el _id de MongoDB (string)
-              }
+              if (card?.dataset.projectId) this.modal.open(card.dataset.projectId);
             });
 
             this.elements.faqContainer?.addEventListener('click', e => {
               const question = e.target.closest('.faq-question');
-              if (question) {
-                this.faq.toggle(question);
-              }
+              if (question) this.faq.toggle(question);
             });
             
             this.elements.popularProjectsFooter?.addEventListener('click', e => {
               e.preventDefault();
               const link = e.target.closest('a');
-              if (link && link.dataset.projectId) {
-                this.modal.open(link.dataset.projectId); // Ahora se pasa el _id de MongoDB (string)
-              }
+              if (link?.dataset.projectId) this.modal.open(link.dataset.projectId);
             });
             
-            // Window Events
             window.addEventListener('scroll', () => this.nav.updateNavHighlight());
           },
           
-          /**
-           * Llama a todas las funciones de renderizado inicial.
-           */
-          renderAll() {
-            this.render.latestReleases();
-            this.render.notices();
-            this.render.projects();
-            this.render.faqs();
-            this.render.popularProjectsFooter();
-          },
-          
-          /**
-           * Maneja el clic en un botón de filtro.
-           * @param {Event} e - El objeto del evento de clic.
-           * @param {string} filterStateProperty - La propiedad del estado a actualizar.
-           * @param {HTMLElement} filterGroup - El contenedor del grupo de filtros.
-           */
           async handleFilterClick(e, filterStateProperty, filterGroup) {
               const button = e.target.closest('.filter-btn');
               if (!button || button.classList.contains('active')) return;
 
               filterGroup.querySelector('.active')?.classList.remove('active');
               button.classList.add('active');
-              app.state[filterStateProperty] = button.dataset.filter;
-              app.state.currentPage = 1; // Reset page on new filter
-              await app.fetchProjectsFromAPI(); // Vuelve a cargar desde la API con el nuevo filtro
+              this.state[filterStateProperty] = button.dataset.filter;
+              this.state.currentPage = 1;
+              await this.fetchProjectsFromAPI();
           },
 
-          // --- MÓDULOS (Organización por funcionalidad) ---
-          
-          /**
-           * Módulo de Renderizado: contiene funciones para pintar datos en el DOM.
-           */
+          async changePage(direction) {
+            const newPage = this.state.currentPage + direction;
+            if (newPage >= 1 && newPage <= this.state.totalPages) {
+                this.state.currentPage = newPage;
+                await this.fetchProjectsFromAPI();
+            }
+          },
+
+          debounce(func, delay) {
+            let timeout;
+            return function(...args) {
+                const context = this;
+                clearTimeout(timeout);
+                timeout = setTimeout(() => func.apply(context, args), delay);
+            };
+          },
+
           render: {
             showLoadingMessages() {
-                // Muestra mensajes de carga en las secciones relevantes
-                const loadingHtml = '<p class="loading-message">Cargando...</p>';
-                if (app.elements.latestReleasesTrack) app.elements.latestReleasesTrack.innerHTML = loadingHtml;
+                const loadingHtml = '<p class="loading-message text-center w-full py-8">Cargando...</p>';
                 if (app.elements.projectsGrid) app.elements.projectsGrid.innerHTML = loadingHtml;
-                if (app.elements.avisosTrack) app.elements.avisosTrack.innerHTML = loadingHtml;
-                if (app.elements.faqContainer) app.elements.faqContainer.innerHTML = loadingHtml;
-                if (app.elements.popularProjectsFooter) app.elements.popularProjectsFooter.innerHTML = loadingHtml;
             },
             showErrorMessage(message) {
-                // Puedes implementar un mensaje de error más visible si lo deseas
-                alert(`Error: ${message}`); 
+                if (app.elements.projectsGrid) app.elements.projectsGrid.innerHTML = `<p class="error-message text-center w-full py-8 text-red-500">${message}</p>`;
             },
             latestReleases() {
-                // Filtra solo los proyectos con capítulos disponibles y isAvailable: true
-                const latestProjects = app.db.projects
-                    .filter(p => p.capitulo && p.isAvailable) // Asume que 'capitulo' es el último capítulo
-                    .sort((a, b) => {
-                        // Intentar parsear a número para ordenar correctamente
-                        const capA = parseFloat(a.capitulo);
-                        const capB = parseFloat(b.capitulo);
-                        return (isNaN(capB) ? 0 : capB) - (isNaN(capA) ? 0 : capA);
-                    })
-                    .slice(0, 8); // Mostrar los 8 más recientes
+                const latestProjects = [...app.db.projects]
+                    .filter(p => p.chapters && p.chapters.length > 0 && p.isAvailable)
+                    .map(p => ({
+                        ...p,
+                        latestChapter: p.chapters.reduce((latest, current) => (current.chapterNumber > latest.chapterNumber ? current : latest))
+                    }))
+                    .sort((a, b) => new Date(b.latestChapter.releaseDate) - new Date(a.latestChapter.releaseDate))
+                    .slice(0, 8);
                 
                 const html = latestProjects.map(project => `
                     <a href="#" class="release-card" data-project-id="${project._id}">
-                        <img src="${project.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${project.nombre}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x420/ccc/fff?text=Error'">
+                        <img src="${project.coverImage || 'https://placehold.co/300x420/ccc/fff?text=No+Cover'}" alt="Portada de ${project.nombre}" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/300x420/ccc/fff?text=Error'">
                         <div class="release-info">
                             <h3 class="release-title">${project.nombre}</h3>
-                            <p class="release-chapter">Capítulo ${project.capitulo}</p>
+                            <p class="release-chapter">Capítulo ${project.latestChapter.chapterNumber}</p>
                         </div>
                     </a>
                 `).join('');
@@ -1699,7 +1634,6 @@
                 }
             },
             notices() {
-                // Renderiza avisos (ahora estáticos, o de una futura API de avisos)
                 const html = app.db.notices.map(notice => `
                     <div class="notice-card">
                         <h4>${notice.title}</h4>
@@ -1713,16 +1647,8 @@
                 }
             },
             projects() {
-                const { projects } = app.db;
-                const { currentStatusFilter, currentTypeFilter, currentSearchQuery } = app.state;
-
-                // El filtrado y búsqueda ya se hacen en fetchProjectsFromAPI()
-                // Aquí solo se renderiza lo que `app.db.projects` contiene.
-                const filteredAndSearchedProjects = projects; 
-                
-                const html = filteredAndSearchedProjects.map(p => {
-                    // Asegúrate de que el estado sea el que mapea tus clases CSS
-                    const statusClass = p.estado === "En Emisión" ? "emision" : (p.estado === "Finalizado" ? "finalizado" : "");
+                const html = app.db.projects.map(p => {
+                    const statusClass = p.estado.replace(/\s+/g, '-').toLowerCase();
                     return `
                         <div class="project-card" data-project-id="${p._id}">
                             <img src="${p.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${p.nombre}" class="project-card-image" loading="lazy" onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccc/fff?text=Error'">
@@ -1737,11 +1663,10 @@
                 }).join('');
 
                 if (app.elements.projectsGrid) {
-                    app.elements.projectsGrid.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-8 w-full">No se encontraron proyectos disponibles.</p>';
+                    app.elements.projectsGrid.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-8 col-span-full">No se encontraron proyectos con los filtros actuales.</p>';
                 }
             },
             faqs() {
-                // Renderiza FAQs (ahora estáticos, o de una futura API de FAQs)
                 const html = app.db.faqs.map(faq => `
                     <div class="faq-item">
                         <div class="faq-question" role="button" aria-expanded="false">
@@ -1754,16 +1679,15 @@
                 `).join('');
                 
                 if (app.elements.faqContainer) {
-                    app.elements.faqContainer.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay preguntas frecuentes disponibles.</p>';
+                    app.elements.faqContainer.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay preguntas frecuentes.</p>';
                 }
             },
             popularProjectsFooter() {
-                // Filtra y ordena proyectos para el footer (usando datos de la API)
-                const popular = app.db.projects.slice(0, 4); // Coge los primeros 4 de la lista cargada
+                const popular = app.db.projects.slice(0, 4);
                 const html = popular.map(p => `<li><a href="#proyectos" data-project-id="${p._id}">${p.nombre}</a></li>`).join('');
                 
                 if (app.elements.popularProjectsFooter) {
-                    app.elements.popularProjectsFooter.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400 text-center py-4 w-full">No hay proyectos populares.</p>';
+                    app.elements.popularProjectsFooter.innerHTML = html || '<p class="text-gray-500 dark:text-gray-400">No hay proyectos.</p>';
                 }
             },
             updatePaginationControls() {
@@ -1774,14 +1698,11 @@
                     app.elements.prevPageBtn.disabled = app.state.currentPage === 1;
                 }
                 if (app.elements.nextPageBtn) {
-                    app.elements.nextPageBtn.disabled = app.state.currentPage === app.state.totalPages;
+                    app.elements.nextPageBtn.disabled = app.state.currentPage >= app.state.totalPages;
                 }
             }
           },
           
-          /**
-           * Módulo de Navegación: maneja el menú móvil y el resaltado de enlaces.
-           */
           nav: {
             init() {
                 app.elements.navToggleBtn?.addEventListener('click', () => this.toggleMenu());
@@ -1838,9 +1759,6 @@
             },
           },
 
-          /**
-           * Módulo del Modal: maneja la apertura, cierre y renderizado del modal del proyecto.
-           */
           modal: {
             init() {
               app.elements.projectModal?.addEventListener('click', e => {
@@ -1849,43 +1767,34 @@
                 }
               });
               document.addEventListener('keydown', e => {
-                  if (e.key === 'Escape' && app.elements.projectModal.style.display === 'flex') {
-                      this.close();
-                  }
-                  if (e.key === 'Tab' && app.elements.projectModal.style.display === 'flex') {
-                      this.trapFocus(e);
-                  }
+                  if (e.key === 'Escape' && app.elements.projectModal.style.display === 'flex') this.close();
+                  if (e.key === 'Tab' && app.elements.projectModal.style.display === 'flex') this.trapFocus(e);
               });
             },
-            // Abre el modal con los detalles del proyecto (ahora usa el _id de MongoDB)
             open(projectId) {
-                const project = app.db.projects.find(p => p._id === projectId); // Busca por _id
-                if (!project || !app.elements.modalContent || !app.elements.projectModal) return;
+                const project = app.db.projects.find(p => p._id === projectId);
+                if (!project) return;
 
                 const genresHtml = (project.generos || []).map(g => `<span class="tag">${g}</span>`).join('');
                 
-                // Mapear el staff a un formato más amigable si existe
-                const staffHtml = project.staff ? Object.entries(project.staff).map(([role, names]) => {
-                    if (names && names.length > 0) {
-                        return `<div class="modal-detail-item"><strong>${role}:</strong> <span>${names.join(', ')}</span></div>`;
-                    }
-                    return '';
-                }).filter(html => html !== '').join('') : ''; // Filtrar entradas vacías
+                const staffHtml = project.staff ? Object.entries(project.staff)
+                    .map(([role, names]) => names?.length > 0 ? `<div class="modal-detail-item"><strong>${role}:</strong> <span>${names.join(', ')}</span></div>` : '')
+                    .filter(Boolean).join('') : '';
 
-
-                // Asume que 'capitulo' es el último capítulo o un identificador de fase.
-                // Si la API no retorna una lista de capítulos, se muestra solo el último.
-                // Si necesitas una lista de capítulos dinámicamente, tu API pública debería ofrecer un endpoint para eso.
-                const chaptersHtml = project.capitulo ? `
-                    <div class="chapter-item">
-                        <span>Capítulo ${project.capitulo}</span>
-                        <div class="chapter-links">
-                            <a href="${project.tmo}" target="_blank" rel="noopener noreferrer"><i class="fas fa-book-open"></i> Ver en TMO</a>
-                            <a href="${project.pdf}" target="_blank" rel="noopener noreferrer"><i class="fas fa-file-pdf"></i> PDF</a>
-                        </div>
-                    </div>
-                ` : '<p>No hay capítulos disponibles.</p>';
-
+                const chaptersHtml = project.chapters?.length > 0
+                    ? [...project.chapters]
+                        .sort((a, b) => b.chapterNumber - a.chapterNumber)
+                        .map(chap => `
+                            <div class="chapter-item">
+                                <span>Capítulo ${chap.chapterNumber}</span>
+                                <div class="chapter-links">
+                                    ${chap.tmoLink ? `<a href="${chap.tmoLink}" target="_blank" rel="noopener noreferrer" title="Ver en TMO"><i class="fas fa-book-open"></i></a>` : ''}
+                                    ${chap.pdf ? `<a href="${chap.pdf}" target="_blank" rel="noopener noreferrer" title="Descargar PDF"><i class="fas fa-file-pdf"></i></a>` : ''}
+                                    ${chap.telegramLink ? `<a href="${chap.telegramLink}" target="_blank" rel="noopener noreferrer" title="Ver en Telegram"><i class="fab fa-telegram-plane"></i></a>` : ''}
+                                </div>
+                            </div>
+                        `).join('')
+                    : '<p class="p-4 text-gray-500">No hay capítulos disponibles.</p>';
 
                 const contentHtml = `
                     <div class="modal-header">
@@ -1895,7 +1804,6 @@
                     <div class="modal-body">
                         <div class="modal-cover">
                             <img src="${project.coverImage || 'https://placehold.co/400x600/ccc/fff?text=No+Cover'}" alt="Portada de ${project.nombre}" onerror="this.onerror=null;this.src='https://placehold.co/400x600/ccc/fff?text=Error'">
-                            <p class="text-center text-gray-500 dark:text-gray-400 mt-2 text-sm">ID: ${project._id}</p>
                         </div>
                         <div class="modal-info">
                             <h3>Sinopsis</h3><p>${project.sinopsis}</p>
@@ -1905,18 +1813,8 @@
                             </div>
                             <h3>Géneros</h3><div class="modal-tags">${genresHtml}</div>
                             ${staffHtml ? `<h3>Staff</h3><div class="modal-details-grid">${staffHtml}</div>` : ''}
-                            <div class="chapter-list-section">
-                                <h3>Último Capítulo/Fase</h3>
-                                <div class="chapter-list">${chaptersHtml}</div>
-                            </div>
-                            <div class="mt-4">
-                                <h3 class="text-lg font-semibold text-gray-800 dark:text-gray-100 mb-2">Comunidad y Recursos:</h3>
-                                <div class="flex flex-wrap gap-2">
-                                    <a href="${project.telegram}" target="_blank" rel="noopener noreferrer" class="btn btn-primary btn-sm"><i class="fab fa-telegram-plane"></i> Telegram</a>
-                                    <a href="${project.tmo}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"><i class="fas fa-book-open"></i> TMO</a>
-                                    <a href="${project.pdf}" target="_blank" rel="noopener noreferrer" class="btn btn-secondary btn-sm"><i class="fas fa-file-pdf"></i> PDF</a>
-                                </div>
-                            </div>
+                            <h3>Lista de Capítulos</h3>
+                            <div class="chapter-list">${chaptersHtml}</div>
                         </div>
                     </div>
                 `;
@@ -1953,9 +1851,6 @@
             }
           },
           
-          /**
-           * Módulo del Carrusel.
-           */
           carousel: {
               scroll(track, direction) {
                 if (!track || !track.firstElementChild) return;
@@ -1964,9 +1859,6 @@
               }
           },
           
-          /**
-           * Módulo de FAQ (acordeón).
-           */
           faq: {
               toggle(question) {
                 const item = question.closest('.faq-item');
@@ -1978,19 +1870,10 @@
               }
           },
           
-          /**
-           * Módulo de Tema (claro/oscuro).
-           */
           theme: {
             init() {
-                const savedTheme = localStorage.getItem('theme');
-                const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-                
-                if (savedTheme) {
-                    this.apply(savedTheme);
-                } else {
-                    this.apply(prefersDark ? 'dark' : 'light');
-                }
+                const savedTheme = localStorage.getItem('theme') || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+                this.apply(savedTheme);
                 
                 app.elements.themeToggleButtons.forEach(btn => {
                     btn.addEventListener('click', () => {
@@ -2012,7 +1895,6 @@
           },
         };
 
-        // --- Iniciar la aplicación ---
         app.init();
 
       });
