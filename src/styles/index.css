@@ -1,0 +1,698 @@
+/* Variables CSS para temas */
+:root {
+  /* Colores principales */
+  --primary-color: #6A11CB;
+  --primary-rgb: 106, 17, 203;
+  --primary-gradient: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+  --primary-gradient-hover: linear-gradient(135deg, #5a0fb5 0%, #1f5edf 100%);
+  --secondary-color: #2575FC;
+  --accent-color: #FF6B6B;
+  --success-color: #10b981;
+  --warning-color: #f59e0b;
+  --danger-color: #ef4444;
+  
+  /* Gradientes adicionales */
+  --gradient-hero: linear-gradient(135deg, rgba(106, 17, 203, 0.9) 0%, rgba(37, 117, 252, 0.9) 100%);
+  --gradient-card: linear-gradient(145deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.7) 100%);
+  --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.05) 100%);
+  --gradient-shimmer: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+  --gradient-primary: linear-gradient(135deg, #6A11CB 0%, #2575FC 100%);
+  
+  /* Colores de fondo */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --bg-tertiary: #e9ecef;
+  --bg-card: #ffffff;
+  --bg-shaded: #f1f3f6;
+  --bg-glass: rgba(255, 255, 255, 0.1);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  
+  /* Colores de texto */
+  --text-primary: #2c3e50;
+  --text-secondary: #5a6c7d;
+  --text-muted: #7f8c8d;
+  --text-white: #ffffff;
+  
+  /* Overlays y contrastes para tema claro */
+  --overlay-bg-light: rgba(0, 0, 0, 0.98);
+  --overlay-bg-medium: rgba(0, 0, 0, 0.9);
+  --overlay-bg-soft: rgba(0, 0, 0, 0.7);
+  --overlay-bg-subtle: rgba(0, 0, 0, 0.4);
+  --overlay-text: #ffffff;
+  --text-shadow-dark: 
+    3px 3px 8px rgba(0, 0, 0, 0.95),
+    0 0 15px rgba(0, 0, 0, 0.9),
+    0 0 30px rgba(0, 0, 0, 0.7),
+    1px 1px 3px rgba(0, 0, 0, 1);
+  
+  /* Bordes y sombras */
+  --border-color: #e1e8ed;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.15);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.2);
+  --shadow-large: 0 10px 40px rgba(0, 0, 0, 0.15);
+  --shadow-glow: 0 0 20px rgba(106, 17, 203, 0.3);
+  --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.15);
+  
+  /* Espaciado */
+  --container-padding: 20px;
+  --section-padding: 80px 0;
+  --header-height: 70px;
+  
+  /* Tipografía */
+  --font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Transiciones y animaciones */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  --transition-bounce: 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  --transition-smooth: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  /* Bordes redondeados */
+  --border-radius-small: 4px;
+  --border-radius-medium: 8px;
+  --border-radius-large: 12px;
+  --border-radius-xl: 20px;
+}
+
+/* Tema oscuro */
+body.dark-mode {
+  /* Colores de fondo para modo oscuro */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #2d2d2d;
+  --bg-tertiary: #363636;
+  --bg-card: #2d2d2d;
+  --bg-shaded: #363636;
+  --bg-glass: rgba(255, 255, 255, 0.05);
+  
+  /* Colores de texto para modo oscuro */
+  --text-primary: #ffffff;
+  --text-secondary: #b8b8b8;
+  --text-muted: #888888;
+  
+  /* Overlays y contrastes para tema oscuro */
+  --overlay-bg-light: rgba(255, 255, 255, 0.95);
+  --overlay-bg-medium: rgba(255, 255, 255, 0.85);
+  --overlay-bg-soft: rgba(255, 255, 255, 0.75);
+  --overlay-bg-subtle: rgba(255, 255, 255, 0.5);
+  --overlay-text: #000000;
+  --text-shadow-dark: 
+    2px 2px 6px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 255, 255, 0.8),
+    0 0 25px rgba(255, 255, 255, 0.6),
+    1px 1px 2px rgba(255, 255, 255, 1);
+  
+  /* Bordes y sombras para modo oscuro */
+  --border-color: #404040;
+  --shadow-light: 0 2px 10px rgba(0, 0, 0, 0.3);
+  --shadow-medium: 0 4px 20px rgba(0, 0, 0, 0.4);
+  --shadow-heavy: 0 8px 30px rgba(0, 0, 0, 0.5);
+  --shadow-large: 0 10px 40px rgba(0, 0, 0, 0.4);
+  --shadow-hover: 0 10px 40px rgba(0, 0, 0, 0.4);
+  
+  /* Gradientes adaptados para modo oscuro */
+  --gradient-card: linear-gradient(145deg, rgba(45, 45, 45, 0.9) 0%, rgba(54, 54, 54, 0.7) 100%);
+  --gradient-glass: linear-gradient(145deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  --gradient-shimmer: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Reset y estilos base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+}
+
+/* Contenedor principal */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* Secciones */
+.content-block {
+  padding: var(--section-padding);
+}
+
+.bg-shaded {
+  background-color: var(--bg-shaded);
+}
+
+/* Tipografía */
+.block-title {
+  font-size: 2.5rem;
+  font-weight: var(--font-weight-bold);
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  font-weight: var(--font-weight-semibold);
+  margin-bottom: 1.5rem;
+  color: var(--text-primary);
+}
+
+.page-title {
+  font-size: 3rem;
+  font-weight: var(--font-weight-extrabold);
+  text-align: center;
+  margin-bottom: 1rem;
+  background: var(--primary-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.page-subtitle {
+  font-size: 1.25rem;
+  text-align: center;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Botones mejorados */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  font-size: 1rem;
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  border: none;
+  border-radius: var(--border-radius-large);
+  cursor: pointer;
+  transition: all var(--transition-normal);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-shimmer);
+  transition: left 0.5s ease;
+  z-index: -1;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn-filled-gradient {
+  background: var(--primary-gradient);
+  background-size: 200% 200%;
+  color: var(--text-white);
+  box-shadow: var(--shadow-light);
+}
+
+.btn-filled-gradient:hover {
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: var(--shadow-glow);
+  background-position: 100% 0;
+  animation: pulse 0.6s ease;
+}
+
+.btn-bordered {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-bordered::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  background: var(--primary-gradient);
+  transition: width 0.3s ease;
+  z-index: -1;
+}
+
+.btn-bordered:hover::after {
+  width: 100%;
+}
+
+.btn-bordered:hover {
+  color: var(--text-white);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: var(--text-white);
+  position: relative;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--primary-gradient-hover);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+}
+
+.btn-primary:hover::after {
+  opacity: 1;
+}
+
+.btn-primary:hover {
+  background: var(--secondary-color);
+}
+
+.btn-donate-paypal {
+  background: #0070ba;
+  color: var(--text-white);
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: var(--border-radius-large);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-light);
+}
+
+.btn-donate-paypal:hover {
+  background: #005ea6;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-medium);
+}
+
+/* Botones en modo oscuro */
+body.dark-mode .btn-bordered {
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+body.dark-mode .btn-bordered:hover {
+  color: var(--text-white);
+}
+
+body.dark-mode .btn-filled-gradient {
+  box-shadow: var(--shadow-medium);
+}
+
+body.dark-mode .btn::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+}
+
+/* Asegurar consistencia global en modo oscuro */
+body.dark-mode {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body.dark-mode *::selection {
+  background: rgba(106, 17, 203, 0.3);
+  color: var(--text-white);
+}
+
+body.dark-mode input,
+body.dark-mode textarea,
+body.dark-mode select {
+  background: var(--bg-card);
+  border-color: var(--border-color);
+  color: var(--text-primary);
+}
+
+body.dark-mode input:focus,
+body.dark-mode textarea:focus,
+body.dark-mode select:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(106, 17, 203, 0.2);
+}
+
+/* Cards mejoradas */
+.card {
+  background: var(--gradient-card);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--border-radius-large);
+  padding: 2rem;
+  box-shadow: var(--shadow-light);
+  transition: all var(--transition-smooth);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gradient-shimmer);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+  animation: shimmer 1.5s ease-in-out;
+}
+
+.card:hover {
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(106, 17, 203, 0.3);
+}
+
+.card:hover .card-icon-top {
+  transform: scale(1.1) rotate(5deg);
+  animation: float 2s ease-in-out infinite;
+}
+
+.card:hover .card-title {
+  color: var(--primary-color);
+}
+
+/* Cards en modo oscuro */
+body.dark-mode .card {
+  background: var(--gradient-card);
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: var(--shadow-light);
+}
+
+body.dark-mode .card:hover {
+  border-color: rgba(106, 17, 203, 0.5);
+  box-shadow: var(--shadow-hover);
+}
+
+body.dark-mode .card::before {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.05), transparent);
+}
+
+/* Grids */
+.grid-three-cols {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.projects-grid,
+.notices-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  :root {
+    --container-padding: 15px;
+    --section-padding: 60px 0;
+  }
+  
+  .block-title {
+    font-size: 2rem;
+  }
+  
+  .page-title {
+    font-size: 2.5rem;
+  }
+  
+  .grid-three-cols,
+  .projects-grid,
+  .notices-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 2rem;
+  }
+  
+  .block-title {
+    font-size: 1.75rem;
+  }
+  
+  .btn {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* ===== ANIMACIONES Y EFECTOS ===== */
+
+/* Animaciones keyframes */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(106, 17, 203, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(106, 17, 203, 0.5);
+  }
+}
+
+@keyframes gradient-shift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Clases de utilidad para animaciones */
+.animate-fade-in {
+  animation: fadeIn 0.8s var(--transition-smooth) forwards;
+}
+
+.animate-slide-in-left {
+  animation: slideInLeft 0.8s var(--transition-smooth) forwards;
+}
+
+.animate-slide-in-right {
+  animation: slideInRight 0.8s var(--transition-smooth) forwards;
+}
+
+.animate-slide-in-up {
+  animation: slideInUp 0.8s var(--transition-smooth) forwards;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.6s var(--transition-bounce) forwards;
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2s ease-in-out infinite;
+}
+
+/* Efectos hover mejorados */
+.hover-lift {
+  transition: all var(--transition-normal);
+}
+
+.hover-lift:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-hover);
+}
+
+.hover-scale {
+  transition: all var(--transition-normal);
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+.hover-glow {
+  transition: all var(--transition-normal);
+}
+
+.hover-glow:hover {
+  box-shadow: var(--shadow-glow);
+}
+
+/* Efectos de enfoque mejorados */
+.focus-ring {
+  transition: all var(--transition-fast);
+}
+
+.focus-ring:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(106, 17, 203, 0.3);
+}
+
+/* Efectos de carga */
+.skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+}
+
+/* Efectos de glass morphism */
+.glass-effect {
+  background: var(--gradient-glass);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Efectos de partículas flotantes */
+.floating-particles::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 50%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.1) 1px, transparent 1px),
+              radial-gradient(circle at 40% 80%, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+/* Scroll suave */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Animación de entrada para elementos al hacer scroll */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 0.8s var(--transition-smooth);
+}
+
+.scroll-animate.animate {
+  opacity: 1;
+  transform: translateY(0);
+}

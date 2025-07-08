@@ -1,0 +1,272 @@
+{
+  "anuncios": [
+    {
+      "id": "anuncio_001",
+      "titulo": "Gran Lanzamiento: Proyecto 'Nova'",
+      "fecha": "25 de Mayo, 2025",
+      "flyerUrl": "https://placehold.co/800x400/4A0E7A/FFFFFF?text=Flyer+Proyecto+Nova",
+      "altFlyer": "Flyer promocional del Proyecto Nova",
+      "contenido": "¡Estamos increíblemente emocionados de anunciar el lanzamiento oficial de nuestro más reciente desarrollo, el Proyecto 'Nova'! Esta iniciativa está diseñada para transformar la manera en que interactuamos con las comunidades en línea, ofreciendo herramientas innovadoras para la colaboración y el crecimiento. Descubre todas las novedades y cómo puedes ser parte de esta revolución.",
+      "enlaceUrl": "enlace-al-detalle-del-anuncio-1.html",
+      "enlaceTexto": "Leer más sobre Nova",
+      "etiqueta": "Lanzamientos"
+    },
+    {
+      "id": "anuncio_002",
+      "titulo": "Convocatoria Abierta: Voluntarios para Evento Comunitario Anual",
+      "fecha": "18 de Mayo, 2025",
+      "flyerUrl": "https://placehold.co/800x400/1A4FB8/FFFFFF?text=Flyer+Voluntarios+Evento",
+      "altFlyer": "Flyer de convocatoria para voluntarios del evento anual",
+      "contenido": "Nuestro gran evento comunitario anual se acerca y ¡necesitamos tu energía y entusiasmo! Buscamos voluntarios para diversas áreas: logística, bienvenida, soporte técnico y más. Si quieres ser parte fundamental de la organización y vivir una experiencia inolvidable, ¡esta es tu oportunidad! Inscríbete y ayúdanos a hacer de este evento el mejor hasta ahora.",
+      "enlaceUrl": "formulario-voluntarios.html",
+      "enlaceTexto": "Inscríbete como Voluntario",
+      "etiqueta": "Eventos"
+    },
+    {
+      "id": "anuncio_003",
+      "titulo": "Actualización Importante de Nuestra Plataforma",
+      "fecha": "12 de Mayo, 2025",
+      "flyerUrl": "https://placehold.co/800x400/C44020/FFFFFF?text=Flyer+Actualizacion+Plataforma",
+      "altFlyer": "Flyer sobre la actualización de la plataforma",
+      "contenido": "Hemos implementado una serie de mejoras significativas en nuestra plataforma de colaboración. Entre las novedades se incluyen una interfaz de usuario rediseñada para una navegación más intuitiva, nuevas herramientas de gestión de proyectos y un notable incremento en el rendimiento general. Te invitamos a explorar estos cambios y descubrir cómo pueden potenciar tus proyectos y tu experiencia en Universe Community.",
+      "enlaceUrl": null,
+      "enlaceTexto": null,
+      "etiqueta": "Plataforma"
+    },
+    {
+      "id": "anuncio_004",
+      "titulo": "Próximo Webinar: Introducción a la Inteligencia Artificial Generativa",
+      "fecha": "5 de Mayo, 2025",
+      "flyerUrl": "https://placehold.co/800x400/2A8A3E/FFFFFF?text=Flyer+Webinar+IA",
+      "altFlyer": "Flyer del webinar sobre IA Generativa",
+      "contenido": "No te pierdas nuestro próximo webinar gratuito donde exploraremos los fundamentos de la Inteligencia Artificial Generativa. Descubre sus aplicaciones prácticas, el potencial que tiene para transformar diversas industrias y cómo puedes empezar a experimentar con estas tecnologías. ¡Un evento imperdible para curiosos y profesionales! Reserva tu cupo.",
+      "enlaceUrl": "registro-webinar-ia.html",
+      "enlaceTexto": "Más Información y Registro",
+      "etiqueta": "Webinars"
+    }
+  ],
+  "proyectosresumen": [
+    {
+      "id": "proyectoAlpha",
+      "titulo": "Comunidades Universo",
+      "portadaUrl": "https://placehold.co/600x400/4A0E7A/FFFFFF?text=Comunidades+Universo",
+      "altPortada": "Imagen de portada del Proyecto Alpha",
+      "categoria": "Comunidades en Whatsapp",
+      "descripcionCompleta": "El Proyecto Alpha se enfoca en la creación de simulaciones interactivas del universo, permitiendo a los usuarios explorar conceptos cósmicos complejos de una manera visual y atractiva. Buscamos fomentar la curiosidad científica y el aprendizaje a través de la tecnología.",
+      "enlacePagina": "comunidades.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoBeta",
+      "titulo": "Universe Scan",
+      "portadaUrl": "https://placehold.co/600x400/1A4FB8/FFFFFF?text=Universe+Scan",
+      "altPortada": "Imagen de portada del Proyecto Beta",
+      "categoria": "Scanlation",
+      "descripcionCompleta": "Este proyecto está dedicado al desarrollo de herramientas educativas innovadoras y de código abierto. Nuestro objetivo es hacer que el aprendizaje de calidad sea accesible para comunidades globales, promoviendo la colaboración y el conocimiento compartido.",
+      "enlacePagina": "us.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoGamma",
+      "titulo": "Nk Project",
+      "portadaUrl": "https://placehold.co/600x400/C44020/FFFFFF?text=Nk+Project",
+      "altPortada": "Imagen de portada del Proyecto Gamma",
+      "categoria": "Doblaje",
+      "descripcionCompleta": "Proyecto Gamma explora la intersección entre la expresión artística y las nuevas tecnologías digitales. Fomentamos la creación de obras interactivas, visualizaciones de datos creativas y experiencias inmersivas que desafían los límites tradicionales del arte.",
+      "enlacePagina": "nk.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoDelta",
+      "titulo": "Universe Wabot",
+      "portadaUrl": "https://placehold.co/600x400/2A8A3E/FFFFFF?text=Universe+Wabot",
+      "altPortada": "Imagen de portada del Proyecto Delta",
+      "categoria": "IA y Sostenibilidad",
+      "descripcionCompleta": "Centrado en la investigación y aplicación de la Inteligencia Artificial para abordar desafíos de sostenibilidad ambiental. Desarrollamos modelos y herramientas para la conservación de recursos, monitoreo ecológico y promoción de prácticas sostenibles.",
+      "enlacePagina": "wabot.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoEpsilon",
+      "titulo": "Universe Alliance",
+      "portadaUrl": "https://placehold.co/600x400/B8860B/FFFFFF?text=Universe+Alliance",
+      "altPortada": "Imagen de portada del Proyecto Epsilon",
+      "categoria": "Colaboración y Alianzas",
+      "descripcionCompleta": "Epsilon es una plataforma comunitaria diseñada para facilitar el intercambio de habilidades y la mentoría entre pares. Conectamos a personas con diferentes niveles de experiencia para fomentar el aprendizaje colaborativo y el desarrollo profesional.",
+      "enlacePagina": "proyecto-epsilon.html",
+      "enlaceDetalles": "Ver detalles"
+    }
+  ],
+  "proyectos": [
+    {
+      "id": "proyectoAlpha",
+      "titulo": "Proyecto Alpha",
+      "portadaUrl": "https://placehold.co/600x400/4A0E7A/FFFFFF?text=Portada+Proyecto+Alpha",
+      "altPortada": "Imagen de portada del Proyecto Alpha",
+      "categoria": "Exploración y Simulación",
+      "descripcionCompleta": "El Proyecto Alpha se enfoca en la creación de simulaciones interactivas del universo, permitiendo a los usuarios explorar conceptos cósmicos complejos de una manera visual y atractiva. Buscamos fomentar la curiosidad científica y el aprendizaje a través de la tecnología.",
+      "enlacePagina": "proyecto-alpha.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoBeta",
+      "titulo": "Proyecto Beta",
+      "portadaUrl": "https://placehold.co/600x400/1A4FB8/FFFFFF?text=Portada+Proyecto+Beta",
+      "altPortada": "Imagen de portada del Proyecto Beta",
+      "categoria": "Educación y Código Abierto",
+      "descripcionCompleta": "Este proyecto está dedicado al desarrollo de herramientas educativas innovadoras y de código abierto. Nuestro objetivo es hacer que el aprendizaje de calidad sea accesible para comunidades globales, promoviendo la colaboración y el conocimiento compartido.",
+      "enlacePagina": "proyecto-beta.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoGamma",
+      "titulo": "Proyecto Gamma",
+      "portadaUrl": "https://placehold.co/600x400/C44020/FFFFFF?text=Portada+Proyecto+Gamma",
+      "altPortada": "Imagen de portada del Proyecto Gamma",
+      "categoria": "Arte y Tecnología Digital",
+      "descripcionCompleta": "Proyecto Gamma explora la intersección entre la expresión artística y las nuevas tecnologías digitales. Fomentamos la creación de obras interactivas, visualizaciones de datos creativas y experiencias inmersivas que desafían los límites tradicionales del arte.",
+      "enlacePagina": "proyecto-gamma.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoDelta",
+      "titulo": "Proyecto Delta",
+      "portadaUrl": "https://placehold.co/600x400/2A8A3E/FFFFFF?text=Portada+Proyecto+Delta",
+      "altPortada": "Imagen de portada del Proyecto Delta",
+      "categoria": "IA y Sostenibilidad",
+      "descripcionCompleta": "Centrado en la investigación y aplicación de la Inteligencia Artificial para abordar desafíos de sostenibilidad ambiental. Desarrollamos modelos y herramientas para la conservación de recursos, monitoreo ecológico y promoción de prácticas sostenibles.",
+      "enlacePagina": "proyecto-delta.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoEpsilon",
+      "titulo": "Proyecto Epsilon",
+      "portadaUrl": "https://placehold.co/600x400/B8860B/FFFFFF?text=Portada+Proyecto+Epsilon",
+      "altPortada": "Imagen de portada del Proyecto Epsilon",
+      "categoria": "Comunidad y Mentoría",
+      "descripcionCompleta": "Epsilon es una plataforma comunitaria diseñada para facilitar el intercambio de habilidades y la mentoría entre pares. Conectamos a personas con diferentes niveles de experiencia para fomentar el aprendizaje colaborativo y el desarrollo profesional.",
+      "enlacePagina": "proyecto-epsilon.html",
+      "enlaceDetalles": "Ver detalles"
+    },
+    {
+      "id": "proyectoZeta",
+      "titulo": "Proyecto Zeta",
+      "portadaUrl": "https://placehold.co/600x400/7A3F9B/FFFFFF?text=Portada+Proyecto+Zeta",
+      "altPortada": "Imagen de portada del Proyecto Zeta",
+      "categoria": "Salud y Bienestar Digital",
+      "descripcionCompleta": "Este proyecto se dedica a desarrollar soluciones digitales que promuevan la salud mental y el bienestar. Creamos aplicaciones y recursos para ayudar a las personas a gestionar el estrés, mejorar la atención plena y acceder a apoyo emocional.",
+      "enlacePagina": "proyecto-zeta.html",
+      "enlaceDetalles": "Ver detalles"
+    }
+  ],
+  "Recepciones": [
+    {
+      "id": "recepcion_general_whatsapp",
+      "plataforma": "WhatsApp",
+      "descripcion": "Grupo de recepción general.",
+      "enlaceUrl": "https://chat.whatsapp.com/JvWKGZtWnuE4FrWRMTeaef",
+      "icono": "fab fa-whatsapp",
+      "textoBoton": "Solicitar Unión de Grupo (WhatsApp)"
+    }
+  ],
+  "redesSociales": {
+    "contactosDirectos": [
+      {
+        "plataforma": "WhatsApp",
+        "tipo": "Contacto Directo",
+        "url": "https://wa.me/TUNUMERODEWHATSAPP",
+        "icono": "fab fa-whatsapp",
+        "textoAlternativo": "Contactar por WhatsApp"
+      },
+      {
+        "plataforma": "Telegram",
+        "tipo": "Canal Oficial",
+        "url": "https://t.me/TUNOMBREDECANALTELEGRAM",
+        "icono": "fab fa-telegram-plane",
+        "textoAlternativo": "Canal de Telegram de Universe Community"
+      },
+      {
+        "plataforma": "Email",
+        "tipo": "Contacto General",
+        "url": "mailto:contacto@universecommunity.site",
+        "icono": "fas fa-envelope",
+        "textoAlternativo": "Enviar correo electrónico a Universe Community"
+      }
+    ],
+    "donaciones": [
+      {
+        "plataforma": "PayPal",
+        "tipo": "Donar",
+        "url": "https://www.paypal.com/ncp/payment/4AG6BEZMG8YWS",
+        "icono": "fab fa-paypal",
+        "textoAlternativo": "Donar con PayPal a Universe Community",
+        "textoBoton": "Donar con PayPal"
+      }
+    ],
+    "perfilesSociales": [
+      { 
+        "plataforma": "Facebook",
+        "url": "#", 
+        "icono": "fab fa-facebook-f", 
+        "titulo": "Facebook" 
+      },
+      { 
+        "plataforma": "Twitter",
+        "url": "https://x.com/UniversoBL68986?t=dbteR6iUZqX6h0TDdSN96A&s=09", 
+        "icono": "fab fa-x-twitter", 
+        "titulo": "Twitter / X" 
+      },
+      { 
+        "plataforma": "Instagram",
+        "url": "https://www.instagram.com/_universo.bl?igsh=cG5jZ2FwdmR6aTBk", 
+        "icono": "fab fa-instagram", 
+        "titulo": "Instagram" 
+      },
+      { 
+        "plataforma": "Discord",
+        "url": "#", 
+        "icono": "fab fa-discord", 
+        "titulo": "Discord" 
+      },
+      { 
+        "plataforma": "YouTube",
+        "url": "#",
+        "icono": "fab fa-youtube", 
+        "titulo": "YouTube" 
+      },
+      { 
+        "plataforma": "TikTok",
+        "url": "https://www.tiktok.com/@universo_yaoi_bl?_t=ZS-8wQKo1RzYQM&_r=1",
+        "icono": "fab fa-tiktok", 
+        "titulo": "TikTok" 
+      }
+    ]
+  },
+  "preguntasFrecuentes": [
+    {
+      "id": "faq001",
+      "pregunta": "¿Cómo puedo unirme a Universe Community?",
+      "respuesta": "Es muy sencillo unirte. Puedes comenzar explorando nuestros proyectos activos y participando en nuestros canales de comunicación como Discord o Telegram. También puedes contactarnos directamente para más información sobre cómo involucrarte."
+    },
+    {
+      "id": "faq002",
+      "pregunta": "¿Cómo puedo contribuir a un proyecto existente?",
+      "respuesta": "Explora nuestra sección de 'Proyectos' en la web. Cada proyecto tiene una descripción y, a menudo, un enlace a su repositorio o canal de discusión donde puedes ofrecer tu ayuda, ya sea programando, diseñando, traduciendo, probando o de cualquier otra forma que se alinee con tus habilidades e intereses."
+    },
+    {
+      "id": "faq003",
+      "pregunta": "¿Puedo proponer un nuevo proyecto a la comunidad?",
+      "respuesta": "¡Claro que sí! Nos encantan las nuevas ideas. Te recomendamos unirte a nuestros canales de discusión (como Discord) para presentar tu propuesta, discutirla con otros miembros de la comunidad y explorar posibles colaboraciones para llevarla a cabo."
+    },
+    {
+      "id": "faq004",
+      "pregunta": "¿Hay reuniones regulares o eventos en la comunidad?",
+      "respuesta": "Sí, organizamos reuniones generales periódicas para discutir el progreso de los proyectos y temas de interés común. También realizamos eventos especiales, talleres y webinars. Mantente atento a nuestra sección de 'Anuncios' y a nuestros canales de comunicación para no perderte ninguna novedad."
+    },
+    {
+      "id": "faq005",
+      "pregunta": "¿Cómo puedo realizar una donación para apoyar a Universe Community?",
+      "respuesta": "Agradecemos enormemente tu interés en apoyar a la comunidad. Puedes realizar donaciones a través de nuestro enlace de PayPal que encontrarás en la sección 'Donar' de nuestra página de inicio. Tu contribución nos ayuda a mantener la plataforma y a seguir impulsando proyectos."
+    }
+  ]
+}
