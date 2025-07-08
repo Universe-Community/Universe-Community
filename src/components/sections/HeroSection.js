@@ -6,9 +6,9 @@ const HeroSection = () => {
     <section className="hero">
       <div className="container">
         <div className="hero-content-wrapper">
-          <h1 className="hero-main-title animate-slide-in-up" style={{color: '#ffffff'}}>
+          <h1 className="hero-main-title animate-slide-in-up">
             Bienvenido a<br />
-            <span className="highlight-text" style={{color: '#ffffff', background: 'none', WebkitTextFillColor: '#ffffff', WebkitBackgroundClip: 'unset', backgroundClip: 'unset'}}>Universe Community</span>
+            <span className="highlight-text">Universe Community</span>
           </h1>
           <p className="hero-sub-title animate-slide-in-up">
             Una comunidad global dedicada a crear, innovar y conectar personas

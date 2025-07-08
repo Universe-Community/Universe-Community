@@ -15,10 +15,10 @@ const CommunitiesPage = () => {
       <section className="hero-section">
         <div className="container">
           <div className="hero-content">
-            <h1 className="section-title" style={{color: '#ffffff', background: 'none', WebkitTextFillColor: '#ffffff', WebkitBackgroundClip: 'unset', backgroundClip: 'unset'}}>
+            <h1 className="section-title gradient-text">
               Nuestras Comunidades
             </h1>
-            <p className="section-subtitle" style={{color: 'rgba(255, 255, 255, 0.95)'}}>
+            <p className="section-subtitle">
               Conoce las diferentes comunidades que forman parte de Universe Community
             </p>
           </div>

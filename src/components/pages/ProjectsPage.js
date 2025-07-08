@@ -73,8 +73,8 @@ const ProjectsPage = () => {
     <div className="projects-page">
       <section className="page-hero">
         <div className="container">
-          <h1 className="page-title" style={{color: '#ffffff', background: 'none', WebkitTextFillColor: '#ffffff', WebkitBackgroundClip: 'unset', backgroundClip: 'unset'}}>Nuestros Proyectos</h1>
-          <p className="page-subtitle" style={{color: 'rgba(255, 255, 255, 0.95)'}}>
+          <h1 className="page-title">Nuestros Proyectos</h1>
+          <p className="page-subtitle">
             Descubre los proyectos innovadores que estamos desarrollando en Universe Community.
             Cada proyecto refleja nuestro compromiso con la innovación y el impacto positivo.
           </p>

@@ -61,8 +61,8 @@ const NoticesPage = () => {
     <div className="notices-page">
       <section className="page-hero">
         <div className="container">
-          <h1 className="page-title" style={{color: '#ffffff', background: 'none', WebkitTextFillColor: '#ffffff', WebkitBackgroundClip: 'unset', backgroundClip: 'unset'}}>Anuncios y Avisos</h1>
-          <p className="page-subtitle" style={{color: 'rgba(255, 255, 255, 0.95)'}}>
+          <h1 className="page-title">Anuncios y Avisos</h1>
+          <p className="page-subtitle">
             Mantente al día con las últimas novedades, eventos y actualizaciones 
             de Universe Community.
           </p>
